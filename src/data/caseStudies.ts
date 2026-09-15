@@ -10,6 +10,109 @@ import type { CaseStudy } from "@/types/caseStudy";
  */
 
 export const caseStudies: Record<string, CaseStudy> = {
+  // ─────────────────────────────────────────────────────────────── kochi1app ──
+  kochi1app: {
+    slug: "kochi1app",
+    hero: {
+      kicker: "service design + ux · kochi metro",
+      title: "kochi1app",
+      subtitle:
+        "a service-design redesign of kochi's official transit app: stop optimising only the route, and design the trip, plan by intention, nudge the greener choice, and own the first and last mile.",
+      media: {
+        type: "image",
+        src: "/case/kochi1app/hero.jpg",
+        alt: "hands holding a phone over a metro concourse, route lines flowing outward",
+      },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      meta: [
+        { label: "role", value: "service design + ux" },
+        { label: "client", value: "kochi metro" },
+        { label: "type", value: "mobility app redesign" },
+        { label: "year", value: "2024" },
+      ],
+      links: [
+        {
+          label: "service design report",
+          href: "https://www.behance.net/gallery/212543637/Public-Transport-Systems-Service-Design",
+        },
+      ],
+    },
+    sections: [
+      { kind: "thesis", text: "a transit app answers ‘how do i get there’ and stops. redesigning kochi1app, i wanted it to answer ‘what do i want from this trip’, turning a route planner into a companion that plans by intention, makes the greener choice the easy one, and owns the parts of the journey the map usually drops." },
+      {
+        kind: "context",
+        paragraphs: [
+          "kochi1app is the official app for kochi's metro and water metro. i ran an end-to-end service-design study across the city's multimodal transport, interviews with riders, station staff and management, personas, journey maps, service blueprints and a competitor teardown, to find where the app leaves people stranded rather than just where a screen looks dated.",
+          "the redesign focuses on three things the old app missed: the intention behind a trip, the pull toward a greener choice, and the messy first and last mile where a journey actually breaks.",
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/data.png", alt: "survey data on why people adopt public transport in kochi" },
+        fit: "contain",
+        frame: true,
+        caption: "the case, in the city's own numbers: half of kochi's 2.6 million travellers already move on public transport, and the top unmet asks are direct services and better information (cppr mobility study).",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/personas.png", alt: "five rider personas and the study's recommendations" },
+        fit: "contain",
+        frame: true,
+        caption: "five riders the app has to serve at once, a school student, a new call-centre commuter, a daily-wage worker, a last-mile auto driver, and a first-time visitor, and the recommendations the study prioritised.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/redesign.jpg", alt: "the redesigned kochi1app screens across its four themes" },
+        fit: "contain",
+        frame: true,
+        caption: "the redesign in one board: intention-based planning, weather-aware transfers, green nudges, and an experience layer of landmarks you can add to a route.",
+      },
+      {
+        kind: "decisions",
+        items: [
+          {
+            n: "01",
+            title: "plan by intention, not just destination",
+            why: "people don't only travel to an address. they travel to explore, to catch a scenic route, to be home before dark. the old app only understood destinations.",
+            tradeoff: "the planner has to turn a fuzzy intent, ‘i want to explore the city’, into concrete routes.",
+            result: "a dynamic intention layer: choose cultural, scenic, food, ‘half a day’ or ‘home by dinner’, and the trip is built around that, not only the fastest line.",
+          },
+          {
+            n: "02",
+            title: "make the greener choice the easy one",
+            why: "a sustainability nudge only works if it costs the rider nothing to think about.",
+            tradeoff: "reward mechanics turn gimmicky fast if they aren't tied to something real.",
+            result: "a green card tracks carbon saved against a monthly target (‘energy equivalent to 3 trees’) and pays out small, real rewards, a free ride, an offer, for low-carbon routes.",
+          },
+          {
+            n: "03",
+            title: "design the transfer and the last mile",
+            why: "the trip breaks where the app stops: the confusing exit, the missed connection, the walk nobody mapped.",
+            tradeoff: "far more surface than a point-to-point route, buffers, alternatives, live context.",
+            result: "editable transfer buffers, alternative modes (walk, cycle, auto) priced inline, and weather-aware routing, a shaded route when it's sunny, a place to wait out a downpour.",
+          },
+          {
+            n: "04",
+            title: "let the city be part of the trip",
+            why: "a first-time visitor and a daily commuter want different things from the same line.",
+            tradeoff: "surfacing places and stories without burying the core task of getting somewhere.",
+            result: "an experience layer, landmarks, cultural stops and quieter paths you can add to a journey, so a route can optimise for interest, not only time.",
+          },
+        ],
+      },
+      { kind: "statement", text: "a route answers where. i wanted the app to answer why, and to bend around weather, cost and curiosity on the way." },
+      {
+        kind: "outcome",
+        paragraphs: [
+          "the redesign was validated with usability testing across the personas. user satisfaction rose from below 50% to 70%, and to 90% after refinement cycles.",
+          "it was delivered to kochi metro as a service-design study, personas, journey maps, service blueprints and policy plus design recommendations, not just a set of screens.",
+        ],
+      },
+      { kind: "reflection", text: "i came in to redesign an app and spent most of the work upstream of it, in the interviews, the service blueprint, the causal loops. the screen changes that mattered, plan by intention, nudge the greener choice, design the transfer, only became obvious once the system around the app was mapped. the interface was the last twenty percent." },
+    ],
+  },
+
   // ─────────────────────────────────────────────────────── airtribe learn ──
   "airtribe-learn": {
     slug: "airtribe-learn",

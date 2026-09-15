@@ -13,6 +13,19 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    slug: "kochi1app",
+    title: "kochi1app",
+    tags: ["service design", "ux research", "mobility"],
+    category: "work",
+    cover: "/covers/kochi1app.jpg",
+    year: "2024",
+    summary:
+      "a service-design redesign of kochi's official transit app: plan a trip by intention, nudge greener journeys, and design the first and last mile.",
+    link: "https://www.behance.net/gallery/212543637/Public-Transport-Systems-Service-Design",
+    // wide editorial hero (hands, phone, metro tunnel), filled full-bleed.
+    display: { fit: "cover" },
+  },
+  {
     slug: "airtribe-learn",
     title: "airtribe learn",
     tags: ["product design", "ai", "learning design"],
