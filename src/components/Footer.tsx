@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 
 /** Minimal footer to match the two-page structure. All copy lowercase. */
 export function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const onAbout = pathname === "/about";
+
   return (
     <footer className="border-t border-hairline">
       <div className="flex items-center justify-between px-6 py-8 md:px-8">
@@ -11,10 +17,10 @@ export function Footer() {
           © {year} {site.name}
         </span>
         <Link
-          href="/about"
+          href={onAbout ? "/" : "/about"}
           className="text-xs text-muted transition-colors duration-300 ease-editorial hover:text-fg"
         >
-          about
+          {onAbout ? "work" : "about"}
         </Link>
       </div>
     </footer>

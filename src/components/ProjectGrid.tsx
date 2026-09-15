@@ -16,14 +16,14 @@ import { ProjectCard } from "./ProjectCard";
  */
 
 // Which project sits in which cell. `null` = an intentionally empty cell.
-// Laid out for the 4-column desktop reading:
-//   villains   .          lipi       .
-//   .          deep cuts  .          soundmap
-//   .          .          kochi      .
+// Exactly two rows on the 4-column desktop grid (8 cells, a multiple of the
+// 4 / 2 / 1 column counts so every breakpoint stays a clean rectangle). The
+// empty cells still draw the grid, so the structure stays continuous.
+//   villains   .          lipi        deep cuts
+//   .          soundmap   .           kochi
 const SLOTS: (string | null)[] = [
-  "a-century-of-villains", null, "lipi", null,
-  null, "deep-cuts", null, "soundmap",
-  null, null, "kochi-water-metro", null,
+  "a-century-of-villains", null, "lipi", "deep-cuts",
+  null, "soundmap", null, "kochi-water-metro",
 ];
 
 const bySlug = new Map(projects.map((p) => [p.slug, p]));

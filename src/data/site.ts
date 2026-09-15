@@ -3,9 +3,9 @@
  */
 
 export const site = {
-  name: "evana rao",
+  name: "evana sajan pallivathukkal",
   /** Wordmark shown in the minimal nav (links home). */
-  wordmark: "evana rao",
+  wordmark: "evana sajan pallivathukkal",
   role: "product designer",
   email: "hello@evana.design",
   resumeUrl: "/resume.pdf",

@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     slug: "a-century-of-villains",
     title: "a century of villains",
-    tags: ["data viz", "d3", "react", "data storytelling"],
+    tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
     cover: "/covers/villains.svg",
     year: "2026",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
   {
     slug: "lipi",
     title: "lipi",
-    tags: ["figma plugin", "localization", "design tool", "i18n"],
+    tags: ["developer tooling", "design systems", "interaction design", "prototyping"],
     category: "playground",
     cover: "/covers/lipi.gif",
     year: "2026",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
   {
     slug: "deep-cuts",
     title: "deep cuts",
-    tags: ["interaction design", "react", "framer motion", "design engineering"],
+    tags: ["interaction design", "creative technology", "prototyping"],
     category: "playground",
     cover: "/covers/deepcuts.png",
     year: "2026",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   {
     slug: "soundmap",
     title: "soundmap",
-    tags: ["pwa", "react", "web audio", "journal"],
+    tags: ["product design", "creative technology", "motion"],
     category: "playground",
     cover: "/covers/soundmap.png",
     year: "2026",
@@ -64,7 +64,7 @@ export const projects: Project[] = [
   {
     slug: "kochi-water-metro",
     title: "kochi water metro",
-    tags: ["pwa", "maps", "offline-first", "storytelling"],
+    tags: ["product design", "systems thinking", "information design"],
     category: "playground",
     cover: "/covers/kochi.jpg",
     year: "2026",
