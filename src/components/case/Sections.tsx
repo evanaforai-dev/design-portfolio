@@ -51,7 +51,7 @@ export function renderSection(section: Section, i: number) {
               </p>
               <div className="max-w-[46rem] space-y-5 md:col-span-9">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-lg leading-relaxed text-fg/85">
+                  <p key={j} className="text-lg leading-relaxed text-fg">
                     {p}
                   </p>
                 ))}
@@ -331,7 +331,7 @@ export function renderSection(section: Section, i: number) {
               <p className="label md:col-span-3">{section.label ?? "outcome"}</p>
               <div className="max-w-[46rem] space-y-5 md:col-span-9">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-lg leading-relaxed text-fg/85">
+                  <p key={j} className="text-lg leading-relaxed text-fg">
                     {p}
                   </p>
                 ))}
@@ -348,7 +348,7 @@ export function renderSection(section: Section, i: number) {
           <Container>
             <div className="max-w-[46rem]">
               <p className="label mb-6">reflection</p>
-              <p className="text-xl leading-relaxed text-fg/90 md:text-2xl md:leading-relaxed">
+              <p className="text-xl leading-relaxed text-fg md:text-2xl md:leading-relaxed">
                 {section.text}
               </p>
             </div>
@@ -365,7 +365,7 @@ function MicroField({ label, text }: { label: string; text: string }) {
   return (
     <div>
       <p className="label mb-2">{label}</p>
-      <p className="text-sm leading-relaxed text-fg/80">{text}</p>
+      <p className="text-sm leading-relaxed text-fg">{text}</p>
     </div>
   );
 }

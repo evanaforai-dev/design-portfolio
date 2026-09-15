@@ -22,7 +22,7 @@ export default function AboutPage() {
           <h2 className="label mb-6">bio</h2>
           <div className="max-w-2xl space-y-5">
             {about.bio.map((para, i) => (
-              <p key={i} className="text-lg leading-relaxed text-fg/90">
+              <p key={i} className="text-lg leading-relaxed text-fg">
                 {para}
               </p>
             ))}
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <h2 className="label mb-4">tools &amp; practice</h2>
             <ul className="flex flex-wrap gap-x-4 gap-y-2">
               {about.tools.map((tool) => (
-                <li key={tool} className="text-sm text-fg/80">
+                <li key={tool} className="text-sm text-fg">
                   {tool}
                 </li>
               ))}

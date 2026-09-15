@@ -6,10 +6,19 @@
  * Palette lives in CSS variables so light/dark is a straight inversion.
  * The hairline-border, no-shadow visual language is identical in both modes.
  */
+/*
+ * Global text-colour rule: text is the design-system black on light surfaces
+ * and pure white on dark surfaces, and nothing in between. --fg carries that
+ * (black in light theme, pure white in dark). --muted is kept as a token for
+ * secondary text but resolves to the SAME value as --fg, so labels, metadata,
+ * nav, captions, etc. are never a low-contrast gray, the hierarchy living in
+ * size / weight / spacing instead. The only colour exception is the magenta
+ * accent (#FC0FC0). Text over imagery is coloured per image (see ProjectCard).
+ */
 :root {
   --bg: #fafafa;
-  --fg: #111111;
-  --muted: #6b6b6b;
+  --fg: #111111; /* the design-system black — do not introduce a new one */
+  --muted: var(--fg);
   --hairline: rgba(17, 17, 17, 0.14);
   /* Slightly stronger line used only by the cursor-reactive grid overlay,
      which is masked to a soft radius around the pointer. */
@@ -19,8 +28,8 @@
 
 .dark {
   --bg: #0a0a0a;
-  --fg: #ededed;
-  --muted: #8f8f8f;
+  --fg: #ffffff; /* pure white on the dark surface */
+  --muted: var(--fg);
   --hairline: rgba(255, 255, 255, 0.16);
   --hairline-strong: rgba(255, 255, 255, 0.13);
   color-scheme: dark;
@@ -64,6 +73,12 @@ body {
 /* Sharp corners only — no border-radius anywhere on the site. */
 * {
   border-radius: 0 !important;
+}
+
+/* No text shadow anywhere on the site — in any state. Legibility comes from the
+   light/dark colour rule, never from a shadow, glow, or outline. */
+* {
+  text-shadow: none !important;
 }
 
 /* Small, quiet label/eyebrow style. Copy is lowercase in the data itself,
@@ -170,11 +185,6 @@ body {
   transform-origin: 0 0;
   will-change: transform;
   filter: contrast(1.04) brightness(1.02); /* faint "through glass" lift */
-}
-/* Title/tags sit above the lens with no dark overlay; a soft shadow keeps them
-   crisp and readable over the (grayscale) imagery in either theme. */
-.lens-label {
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55), 0 0 1px rgba(0, 0, 0, 0.4);
 }
 .lens-glass {
   position: absolute;

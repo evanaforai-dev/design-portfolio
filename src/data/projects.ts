@@ -22,8 +22,9 @@ export const projects: Project[] = [
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
     link: "https://villain2.vercel.app",
-    // data-viz screen: a slight lateral shift on hover
-    display: { hover: "shift" },
+    // data-viz screen: a slight lateral shift on hover. Light image, so the
+    // label tags read in design-black.
+    display: { hover: "shift", labelSurface: "light" },
   },
   {
     slug: "lipi",
@@ -41,6 +42,8 @@ export const projects: Project[] = [
       hover: "float",
       animated: true,
       poster: "/covers/lipi-poster.png",
+      // square light UI fills the cell, so the label tags read in design-black
+      labelSurface: "light",
     },
   },
   {
@@ -67,8 +70,9 @@ export const projects: Project[] = [
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // close-up crop of the artifact calendar; photograph, a barely-there zoom
-    display: { fit: "cover", position: "top", hover: "zoom" },
+    // close-up crop of the artifact calendar; photograph, a barely-there zoom.
+    // Light image, so the label tags read in design-black.
+    display: { fit: "cover", position: "top", hover: "zoom", labelSurface: "light" },
   },
   {
     slug: "kochi-water-metro",
@@ -80,8 +84,9 @@ export const projects: Project[] = [
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",
     link: "https://github.com/evanaforai-dev/kochi-water-metro",
-    // photograph: a barely-there zoom on hover
-    display: { hover: "zoom" },
+    // photograph: a barely-there zoom on hover. Dark sunset image, so the label
+    // tags read in white.
+    display: { hover: "zoom", labelSurface: "dark" },
   },
 ];
 

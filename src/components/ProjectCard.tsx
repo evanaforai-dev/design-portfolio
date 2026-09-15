@@ -40,6 +40,17 @@ export function ProjectCard({ project }: { project: Project }) {
   const [live, setLive] = useState(false);
   const baseSrc = animated ? poster : project.cover;
 
+  // Tag text follows the global light/dark rule against the actual surface
+  // behind the label: a light image → design-black, a dark image → white, and
+  // the theme background (padded objects) → --fg. The title stays magenta.
+  const surface = project.display?.labelSurface;
+  const tagColor =
+    surface === "light"
+      ? "text-[#111111]"
+      : surface === "dark"
+        ? "text-white"
+        : "text-fg";
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -83,13 +94,14 @@ export function ProjectCard({ project }: { project: Project }) {
         objectPosition={position}
       />
 
-      {/* 3 · title + tags — crisp, above the lens, no dark overlay. A soft text
-          shadow keeps them readable over the grayscale imagery. */}
-      <div className="lens-label pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
+      {/* 3 · title + tags — crisp, above the lens, no dark overlay, no shadow.
+          Title in magenta (the colour exception); tags follow the light/dark
+          rule for the surface behind them. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
         <span className="text-sm font-medium text-[#FC0FC0]">
           {project.title}
         </span>
-        <span className="text-xs text-white/80">{project.tags.join(", ")}</span>
+        <span className={`text-xs ${tagColor}`}>{project.tags.join(", ")}</span>
       </div>
     </Link>
   );

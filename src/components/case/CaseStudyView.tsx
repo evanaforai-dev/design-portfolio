@@ -55,7 +55,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
         <h1 className="max-w-[18ch] text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-7xl">
           {hero.title}
         </h1>
-        <p className="mt-6 max-w-[42rem] text-lg text-fg/80 md:text-2xl md:leading-snug">
+        <p className="mt-6 max-w-[42rem] text-lg text-fg md:text-2xl md:leading-snug">
           {hero.subtitle}
         </p>
 

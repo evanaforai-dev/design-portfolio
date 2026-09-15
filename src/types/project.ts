@@ -114,6 +114,14 @@ export interface Project {
     animated?: boolean;
     /** Static first-frame shown while an `animated` cover is idle. */
     poster?: string;
+    /**
+     * Brightness of the surface directly behind the hover label (the tile
+     * image at the bottom of the cell), so the tag text can follow the global
+     * light/dark text rule over imagery: "light" → design-black text, "dark" →
+     * white text. Omit when the label sits over the theme background (a padded
+     * contain object), where the text simply follows --fg.
+     */
+    labelSurface?: "light" | "dark";
   };
 
   // Optional metadata (retained from the case-study schema).

@@ -31,7 +31,7 @@ function renderBlock(block: CaseStudyBlock) {
             {block.body.split("\n").map((para, i) => (
               <p
                 key={i}
-                className="text-lg leading-relaxed text-fg/90 md:text-xl"
+                className="text-lg leading-relaxed text-fg md:text-xl"
               >
                 {para}
               </p>
