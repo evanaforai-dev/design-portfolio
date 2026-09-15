@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
-import { ProjectLens } from "./ProjectLens";
 
 /**
  * A project rendered as an object placed inside its grid cell (the cell and its
@@ -16,12 +15,14 @@ import { ProjectLens } from "./ProjectLens";
  *  - fit "contain" + `pad`: the asset floats as an object with negative space;
  *    transparent assets let the grid show through behind them.
  *
- * Hover treatment is an optical magnifying lens (ProjectLens): the tile and its
- * image stay perfectly stationary while a circular glass lens follows the
- * cursor and magnifies the area beneath it. Layer order is image (0) · lens
- * (10) · title/tags (20), so the text always renders crisply above the lens and
- * is never magnified or obscured. The title/tags reveal on hover, keyboard
- * focus, and (always-on) touch, so the info is never hover-exclusive.
+ * Hover treatment: the image itself never moves. On hover / keyboard focus a
+ * solid caption band rises from the bottom edge and slides up over the lower
+ * slice of the image, carrying the title and tags. Because the band is an opaque
+ * --bg panel with a crisp hairline top edge (never a scrim over the photo), the
+ * text always sits on clean background and reads at full contrast — the same
+ * cut language as the grid itself. On touch the band stays visible, so the info
+ * is never hover-exclusive. Grid-wide focus (dimming the other tiles) lives in
+ * ProjectGrid.
  *
  * Animated (GIF) covers stay on a quiet static poster and only come alive on
  * hover.
@@ -31,7 +32,6 @@ export function ProjectCard({ project }: { project: Project }) {
   const fit = project.display?.fit ?? "cover";
   const pad = project.display?.pad ?? "";
   const objectClass = fit === "contain" ? "object-contain" : "object-cover";
-  const clip = fit === "cover" ? "overflow-hidden" : "";
   const label = `${project.title}, ${project.tags.join(", ")}`;
   const position = project.display?.position;
 
@@ -40,27 +40,16 @@ export function ProjectCard({ project }: { project: Project }) {
   const [live, setLive] = useState(false);
   const baseSrc = animated ? poster : project.cover;
 
-  // Tag text follows the global light/dark rule against the actual surface
-  // behind the label: a light image → design-black, a dark image → white, and
-  // the theme background (padded objects) → --fg. The title stays magenta.
-  const surface = project.display?.labelSurface;
-  const tagColor =
-    surface === "light"
-      ? "text-[#111111]"
-      : surface === "dark"
-        ? "text-white"
-        : "text-fg";
-
   return (
     <Link
       href={`/work/${project.slug}`}
       aria-label={label}
       onPointerEnter={() => animated && !reduceMotion && setLive(true)}
       onPointerLeave={() => setLive(false)}
-      className="group relative block h-full w-full"
+      className="group relative block h-full w-full overflow-hidden"
     >
       {/* 1 · project image (stationary) */}
-      <div className={`absolute inset-0 ${clip}`}>
+      <div className="absolute inset-0">
         <div className={`relative h-full w-full ${pad}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -86,22 +75,15 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      {/* 2 · optical lens (desktop / fine-pointer only, clipped to the tile) */}
-      <ProjectLens
-        src={baseSrc}
-        fit={fit}
-        pad={pad}
-        objectPosition={position}
-      />
-
-      {/* 3 · title + tags — crisp, above the lens, no dark overlay, no shadow.
-          Title in magenta (the colour exception); tags follow the light/dark
-          rule for the surface behind them. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
+      {/* 2 · caption band — an opaque --bg panel that slides up from the bottom
+          on hover / focus (static on touch). Title in magenta (the colour
+          exception); tags in the single theme colour, since the text now sits
+          on --bg rather than over the image. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex translate-y-full flex-col gap-1 border-t border-hairline bg-bg px-4 py-3 transition-transform duration-200 ease-editorial group-hover:translate-y-0 group-focus-visible:translate-y-0 md:px-5 md:py-4 [@media(hover:none)]:translate-y-0">
         <span className="text-sm font-medium text-[#FC0FC0]">
           {project.title}
         </span>
-        <span className={`text-xs ${tagColor}`}>{project.tags.join(", ")}</span>
+        <span className="text-xs text-fg">{project.tags.join(", ")}</span>
       </div>
     </Link>
   );

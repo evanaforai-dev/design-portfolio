@@ -146,79 +146,22 @@ body {
 }
 
 /*
- * Optical magnifying-lens hover (see ProjectLens). Layer order inside a tile:
- * image (0) · lens (10) · title/tags (20). The lens is a circular window that
- * follows the cursor and shows a magnified duplicate of the image, with a thin
- * bevelled glass rim, a faint specular highlight and a whisper of chromatic
- * fringing. No dark overlay; the surrounding image is untouched. All per-frame
- * motion is transform-only (GPU friendly). JS enables it on fine pointers only.
+ * Home-grid focus: hovering one tile quiets the others. On a fine pointer, the
+ * whole grid dims its cells while the cursor is over it, and the hovered cell
+ * alone returns to full strength — attention is the only thing that moves, so
+ * the grid reads like a curated wall rather than a set of hover tricks. Nothing
+ * animates the images themselves. Touch devices never dim.
  */
-.lens-root {
-  z-index: 10;
-  overflow: hidden; /* clip the lens to the tile so it never spills out */
-}
-.lens-follow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  will-change: transform;
-}
-.lens-clip {
-  position: absolute;
-  inset: 0;
-  clip-path: circle(50%);
-  background: var(--bg); /* seamless behind transparent (contain) objects */
-  opacity: 0;
-  transform: scale(0.6);
-  transform-origin: center;
-  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.lens-clip.is-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-.lens-imglayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: 0 0;
-  will-change: transform;
-  filter: contrast(1.04) brightness(1.02); /* faint "through glass" lift */
-}
-.lens-glass {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    /* specular highlight, upper-left */
-    radial-gradient(
-      circle at 34% 30%,
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0) 40%
-    ),
-    /* bevelled glass rim: thin dark edge then bright inner lip */
-      radial-gradient(
-        circle at center,
-        transparent 0 calc(50% - 2.5px),
-        rgba(0, 0, 0, 0.18) calc(50% - 2px),
-        rgba(255, 255, 255, 0.62) calc(50% - 1px),
-        rgba(255, 255, 255, 0) 50%
-      ),
-    /* faint magenta refraction just inside the rim */
-      radial-gradient(
-        circle at center,
-        transparent 0 calc(50% - 3.5px),
-        rgba(252, 15, 192, 0.16) calc(50% - 2px),
-        transparent calc(50% - 0.5px)
-      ),
-    /* faint cyan fringe inside the magenta — subtle chromatic split */
-      radial-gradient(
-        circle at center,
-        transparent 0 calc(50% - 5px),
-        rgba(120, 220, 255, 0.12) calc(50% - 3.5px),
-        transparent calc(50% - 1.5px)
-      );
+@media (hover: hover) and (pointer: fine) {
+  .grid-cell {
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .project-grid:hover .grid-cell {
+    opacity: 0.4;
+  }
+  .project-grid:hover .grid-cell:hover {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -226,10 +169,9 @@ body {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
-  /* The reactive overlay and the magnifying lens never appear under reduced
-     motion; the title/tag reveal stays as the static treatment. */
-  .reactive-grid-overlay,
-  .lens-root {
+  /* The cursor-reactive grid overlay never appears under reduced motion; the
+     caption band simply shows without its slide. */
+  .reactive-grid-overlay {
     display: none !important;
   }
 }

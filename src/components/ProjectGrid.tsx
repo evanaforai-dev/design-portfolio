@@ -90,14 +90,14 @@ export function ProjectGrid() {
   }, []);
 
   return (
-    <div ref={frameRef} className="relative">
+    <div ref={frameRef} className="project-grid relative">
       <div className={`${GRID_CLASS} border-hairline`}>
         {SLOTS.map((slug, i) => {
           const project = slug ? bySlug.get(slug) : undefined;
           return (
             <div
               key={i}
-              className="relative aspect-square border-b border-r border-hairline"
+              className="grid-cell relative aspect-square border-b border-r border-hairline"
             >
               {project && <ProjectCard project={project} />}
             </div>

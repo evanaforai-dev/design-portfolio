@@ -3,13 +3,12 @@
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
 /**
- * Quiet spatial transition between views (work ↔ about ↔ case studies). Not a
- * cinematic page transition: the outgoing view recedes a few pixels and fades,
- * the incoming view rises a few pixels into place — two views of the same
- * visual system, ~300ms each way with the site's editorial easing.
+ * Transition between views (work ↔ about ↔ case studies). Deliberately not a
+ * "designed" page transition: no vertical slide, no travel — the outgoing view
+ * simply crossfades to the incoming one. You feel the smoothness without ever
+ * watching a move, which is what keeps it from reading as a gimmick. Opacity
+ * only, ~140ms.
  *
  * It lives in the persistent layout and is keyed on the pathname, so React
  * Router history, direct URL loads, and back/forward all keep working normally;
@@ -25,10 +24,10 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -4 }}
-        transition={{ duration: 0.32, ease: EASE }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.14, ease: "linear" }}
       >
         {children}
       </motion.div>

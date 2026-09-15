@@ -23,9 +23,8 @@ export const projects: Project[] = [
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
     link: "https://villain2.vercel.app",
-    // data-viz screen: a slight lateral shift on hover. The streamgraph's lower
-    // band is medium/colourful, so the label tags read in white.
-    display: { fit: "cover", hover: "shift", labelSurface: "dark" },
+    // data-viz screen, filled full-bleed; caption band rises on hover.
+    display: { fit: "cover" },
   },
   {
     slug: "lipi",
@@ -37,15 +36,11 @@ export const projects: Project[] = [
     summary:
       "a figma plugin that pressure-tests ui against localized indic copy, fixing where translation breaks layout.",
     link: "https://github.com/evanaforai-dev/lipi",
-    // animated cover: static poster idle, plays on hover; gentle rise
+    // animated cover: static poster idle, plays on hover
     display: {
       fit: "contain",
-      hover: "float",
       animated: true,
       poster: "/covers/lipi-poster.png",
-      // the square ui fills the cell and its lower area is dark, so the label
-      // tags read in white
-      labelSurface: "dark",
     },
   },
   {
@@ -59,8 +54,8 @@ export const projects: Project[] = [
       "a walkman-inspired interactive experience, a hardware-styled react ui cut into a launch film.",
     link: "https://github.com/evanaforai-dev/deepcuts",
     // transparent "mixtape receipt" object, floated in the cell with negative
-    // space; lifts slightly on hover like a physical object
-    display: { fit: "contain", pad: "p-6 md:p-10", hover: "lift" },
+    // space; the grid shows through behind it
+    display: { fit: "contain", pad: "p-6 md:p-10" },
   },
   {
     slug: "soundmap",
@@ -74,8 +69,8 @@ export const projects: Project[] = [
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // photograph: a barely-there zoom on hover.
-    display: { fit: "cover", hover: "zoom", labelSurface: "light" },
+    // photograph, filled full-bleed.
+    display: { fit: "cover" },
   },
   {
     slug: "kochi-water-metro",
@@ -87,9 +82,8 @@ export const projects: Project[] = [
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",
     link: "https://github.com/evanaforai-dev/kochi-water-metro",
-    // photograph: a barely-there zoom on hover. Dark sunset image, so the label
-    // tags read in white.
-    display: { hover: "zoom", labelSurface: "dark" },
+    // photograph, filled full-bleed (dark sunset image).
+    display: { fit: "cover" },
   },
 ];
 
