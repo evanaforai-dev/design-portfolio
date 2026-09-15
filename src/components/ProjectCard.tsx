@@ -86,7 +86,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <span className="text-sm font-medium text-[#FC0FC0]">
           {project.title}
         </span>
-        <span className="text-xs text-fg">{project.tags.join(", ")}</span>
+        <span className="text-xs text-fg">{project.tags.join(" / ")}</span>
       </div>
     </Link>
   );
