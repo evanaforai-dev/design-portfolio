@@ -28,11 +28,12 @@ export const projects: Project[] = [
     title: "lipi",
     tags: ["figma plugin", "localization", "design tool", "i18n"],
     category: "playground",
-    cover: "/covers/lipi.png",
+    cover: "/covers/lipi.gif",
     year: "2026",
     summary:
       "a figma plugin that pressure-tests ui against localized indic copy, fixing where translation breaks layout.",
     link: "https://github.com/evanaforai-dev/lipi",
+    display: { fit: "contain" },
   },
   {
     slug: "deep-cuts",
@@ -44,6 +45,8 @@ export const projects: Project[] = [
     summary:
       "a walkman-inspired interactive experience, a hardware-styled react ui cut into a launch film.",
     link: "https://github.com/evanaforai-dev/deepcuts",
+    // transparent "mixtape receipt" object, floated in the cell with negative space
+    display: { fit: "contain", pad: "p-6 md:p-10" },
   },
   {
     slug: "soundmap",
@@ -55,6 +58,8 @@ export const projects: Project[] = [
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
+    // close-up crop of the artifact calendar
+    display: { fit: "cover", position: "top" },
   },
   {
     slug: "kochi-water-metro",

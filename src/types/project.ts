@@ -83,6 +83,21 @@ export interface Project {
    */
   link?: string;
 
+  /**
+   * How the thumbnail sits inside its grid cell. Lets each project be treated
+   * like a photographed object rather than a uniform screenshot:
+   *  - fit "cover" (default): full-bleed, fills the cell (crop with `position`)
+   *  - fit "contain": the asset floats as an object; `pad` adds negative space
+   *    around it and the grid stays visible behind transparent assets.
+   */
+  display?: {
+    fit?: "cover" | "contain";
+    /** object-position for cover crops, e.g. "top", "center". */
+    position?: string;
+    /** Tailwind padding for contain objects, e.g. "p-8 md:p-14". */
+    pad?: string;
+  };
+
   // Optional metadata (retained from the case-study schema).
   role?: string;
   client?: string;

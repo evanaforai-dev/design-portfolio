@@ -1,23 +1,47 @@
-import type { Project } from "@/types/project";
+import { projects } from "@/data/projects";
 import { ProjectCard } from "./ProjectCard";
 
 /**
- * Square-cell grid with explicit, visible hairline grid lines, like graph
- * paper. 4 columns desktop, 2 tablet, 1 mobile.
+ * Persistent architectural grid. A fixed rectangle of square cells is always
+ * rendered — projects are objects placed into chosen cells, the rest stay
+ * empty. Because every slot (occupied or not) is a real bordered cell, the
+ * hairline grid lines continue across the ENTIRE project area, empty cells
+ * included. There are no per-card borders.
  *
- * Border technique avoids doubled lines: the container draws the top + left
- * frame, and every cell draws only its right + bottom line. Adjacent cells
- * therefore share a single 1px hairline, and there is no outer gutter beyond
- * the line itself.
+ * The slot count (12) is a multiple of the column counts (4 / 2 / 1), so the
+ * grid stays a clean, gap-free rectangle at every breakpoint.
+ *
+ * Border technique (no doubled lines): the container draws the top + left
+ * frame; each cell draws only its right + bottom line.
  */
-export function ProjectGrid({ projects }: { projects: Project[] }) {
+
+// Which project sits in which cell. `null` = an intentionally empty cell.
+// Laid out for the 4-column desktop reading:
+//   villains   .          lipi       .
+//   .          deep cuts  .          soundmap
+//   .          .          kochi      .
+const SLOTS: (string | null)[] = [
+  "a-century-of-villains", null, "lipi", null,
+  null, "deep-cuts", null, "soundmap",
+  null, null, "kochi-water-metro", null,
+];
+
+const bySlug = new Map(projects.map((p) => [p.slug, p]));
+
+export function ProjectGrid() {
   return (
     <div className="grid grid-cols-1 border-l border-t border-hairline sm:grid-cols-2 lg:grid-cols-4">
-      {projects.map((project) => (
-        <div key={project.slug} className="border-b border-r border-hairline">
-          <ProjectCard project={project} />
-        </div>
-      ))}
+      {SLOTS.map((slug, i) => {
+        const project = slug ? bySlug.get(slug) : undefined;
+        return (
+          <div
+            key={i}
+            className="relative aspect-square border-b border-r border-hairline"
+          >
+            {project && <ProjectCard project={project} />}
+          </div>
+        );
+      })}
     </div>
   );
 }
