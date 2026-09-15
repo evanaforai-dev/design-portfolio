@@ -10,6 +10,98 @@ import type { CaseStudy } from "@/types/caseStudy";
  */
 
 export const caseStudies: Record<string, CaseStudy> = {
+  // ─────────────────────────────────────────────────────── airtribe learn ──
+  "airtribe-learn": {
+    slug: "airtribe-learn",
+    hero: {
+      kicker: "ai learning product · airtribe",
+      title: "airtribe learn",
+      subtitle:
+        "a tutor that treats a lesson as something authored: it asks four questions, then writes you a structured, cited lesson with a concept map and a source library that build as you read.",
+      media: {
+        type: "image",
+        src: "/case/airtribe-learn/landing.png",
+        alt: "the airtribe learn landing screen: learn something you've been wondering about",
+      },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      meta: [
+        { label: "role", value: "product design" },
+        { label: "type", value: "ai learning product" },
+        { label: "year", value: "2026" },
+        { label: "status", value: "demo" },
+      ],
+      links: [
+        { label: "live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+      ],
+    },
+    sections: [
+      { kind: "thesis", text: "‘learn anything with ai’ usually means a chat box that answers whatever you type. i wanted the opposite of a transcript: a lesson that is authored, tuned to the person reading it, built to teach rather than to reply, and honest about where its facts come from." },
+      {
+        kind: "context",
+        paragraphs: [
+          "you give kai a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go. it writes a full lesson tuned to those answers, and opens by naming what you already know so it starts where you are, not at the beginning.",
+          "the lesson is only the centre of it. a concept map draws what you are learning and how the ideas connect, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson/map/library tabs" },
+        fit: "cover",
+        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
+      },
+      {
+        kind: "decisions",
+        items: [
+          {
+            n: "01",
+            title: "a lesson, not a chat log",
+            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
+            tradeoff: "the output has to be authored structure, not a reply.",
+            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
+            fit: "contain",
+          },
+          {
+            n: "02",
+            title: "ask four questions, then commit",
+            why: "personalising after the fact, a ‘simplify this’ button, comes too late; the lesson is already written for no one.",
+            tradeoff: "four questions is friction before the learner has seen any value.",
+            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
+            fit: "cover",
+          },
+          {
+            n: "03",
+            title: "make the understanding visible",
+            why: "a lesson you read and close leaves nothing you can hold onto.",
+            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
+            result: "the map draws the concepts and their links as you go, with a ‘worth keeping’ takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
+            fit: "cover",
+          },
+          {
+            n: "04",
+            title: "cite sources, not vibes",
+            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
+            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
+            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
+            fit: "cover",
+          },
+        ],
+      },
+      { kind: "statement", text: "answering is the easy part. teaching one person, and being willing to show your sources, is the harder thing, and the point." },
+      {
+        kind: "outcome",
+        paragraphs: [
+          "airtribe learn is a demo: one seeded lesson, the hard problem of consciousness, runs the full system end to end. the intake accepts any topic; the lesson, map and library shown here are the worked example of what each one would become.",
+        ],
+      },
+      { kind: "reflection", text: "the pull with an ai tutor is always to make it answer faster. the design kept resisting that, toward the things a good teacher does that a chat does not: start where you are, teach the misconception and not just the fact, and show your work. the interesting surface was never the chat box; it was everything the chat box usually skips." },
+    ],
+  },
+
   // ───────────────────────────────────────────── a century of villains ──
   "a-century-of-villains": {
     slug: "a-century-of-villains",

@@ -13,6 +13,19 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    slug: "airtribe-learn",
+    title: "airtribe learn",
+    tags: ["product design", "ai", "learning design"],
+    category: "work",
+    cover: "/covers/airtribe-learn.png",
+    year: "2026",
+    summary:
+      "an ai tutor that runs a short intake, then writes you a structured, cited lesson with a concept map that builds as you learn.",
+    link: "https://willowy-blancmange-6a230b.netlify.app/",
+    // product landing shot (light ui), filled full-bleed.
+    display: { fit: "cover" },
+  },
+  {
     slug: "a-century-of-villains",
     title: "a century of villains",
     tags: ["data visualization", "information design", "creative technology"],

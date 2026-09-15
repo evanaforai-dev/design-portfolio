@@ -6,13 +6,11 @@ import { ProjectCard } from "./ProjectCard";
 
 /**
  * Persistent architectural grid — every cell holds a project; there are no
- * empty slots. Five projects do not tile a 4/2/1 column grid cleanly, so the
- * grid is built to fill exactly: one FEATURE tile spans two columns (and reads
- * 2:1 so its height matches its neighbours), and the remaining four are square.
- * That is six cell-units, which forms a gap-free rectangle at every breakpoint:
- *   lg  3 cols × 2 rows  →  [ feature (2) · b ] [ c · d · e ]
- *   sm  2 cols × 3 rows  →  [ feature (2) ] [ b · c ] [ d · e ]
- *   base 1 col           →  a stack, the feature a wide banner on top
+ * empty slots. Six square projects tile a 3-column grid exactly, so the grid is
+ * a gap-free rectangle at every breakpoint:
+ *   lg  3 cols × 2 rows
+ *   sm  2 cols × 3 rows
+ *   base 1 col × 6 rows (a stack)
  *
  * Border technique (no doubled lines): the container draws the top + left
  * frame; each cell draws only its right + bottom line, so the hairlines run
@@ -26,26 +24,21 @@ import { ProjectCard } from "./ProjectCard";
  * reduced-motion devices.
  */
 
-// Order + which tile is the wide feature. Every entry renders a real cell, so
-// the grid is always full.
-const LAYOUT: { slug: string; feature?: boolean }[] = [
-  { slug: "a-century-of-villains", feature: true },
-  { slug: "lipi" },
-  { slug: "deep-cuts" },
-  { slug: "soundmap" },
-  { slug: "kochi-water-metro" },
+// Grid order. Every entry renders a real, occupied cell, so the grid is always
+// full — six projects fill a clean 3-column rectangle.
+const LAYOUT: string[] = [
+  "airtribe-learn",
+  "a-century-of-villains",
+  "lipi",
+  "deep-cuts",
+  "soundmap",
+  "kochi-water-metro",
 ];
 
 const bySlug = new Map(projects.map((p) => [p.slug, p]));
 
 const GRID_CLASS =
   "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t";
-
-// A feature tile spans two columns and is 2:1 so its height equals a square
-// cell's; every other tile is square.
-function cellShape(feature?: boolean) {
-  return feature ? "aspect-[2/1] sm:col-span-2" : "aspect-square";
-}
 
 export function ProjectGrid() {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -98,13 +91,13 @@ export function ProjectGrid() {
   return (
     <div ref={frameRef} className="relative">
       <div className={`${GRID_CLASS} border-hairline`}>
-        {LAYOUT.map(({ slug, feature }) => {
+        {LAYOUT.map((slug) => {
           const project = bySlug.get(slug);
           if (!project) return null;
           return (
             <div
               key={slug}
-              className={`relative border-b border-r border-hairline ${cellShape(feature)}`}
+              className="relative aspect-square border-b border-r border-hairline"
             >
               <ProjectCard project={project} />
             </div>
@@ -118,8 +111,8 @@ export function ProjectGrid() {
         aria-hidden
         className={`reactive-grid-overlay pointer-events-none absolute inset-0 ${GRID_CLASS}`}
       >
-        {LAYOUT.map(({ slug, feature }) => (
-          <div key={slug} className={`border-b border-r ${cellShape(feature)}`} />
+        {LAYOUT.map((slug) => (
+          <div key={slug} className="aspect-square border-b border-r" />
         ))}
       </div>
     </div>
