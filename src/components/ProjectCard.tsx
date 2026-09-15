@@ -68,7 +68,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <Link
         href={`/work/${project.slug}`}
         aria-label={label}
-        className="relative block h-full w-full"
+        className="group relative block h-full w-full"
       >
         <div className={`absolute inset-0 ${clip}`}>
           {/* The object itself carries the physical hover response. */}
@@ -105,15 +105,13 @@ export function ProjectCard({ project }: { project: Project }) {
           </motion.div>
         </div>
 
-        {/* Hover-only label — no permanent text on the object. */}
-        <motion.div
-          variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
-          transition={{ duration: 0.2, ease: EASE }}
-          className="pointer-events-none absolute inset-0 flex flex-col justify-end gap-1 bg-black/30 p-4 md:p-5"
-        >
-          <span className="text-sm text-white">{project.title}</span>
+        {/* Label reveal. CSS-driven so it responds to pointer hover, keyboard
+            focus, and (always-on) touch devices, where hover cannot expose the
+            info. The title turns electric magenta; tags stay quiet. */}
+        <div className="pointer-events-none absolute inset-0 flex flex-col justify-end gap-1 bg-black/30 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
+          <span className="text-sm text-[#FC0FC0]">{project.title}</span>
           <span className="text-xs text-white/70">{project.tags.join(", ")}</span>
-        </motion.div>
+        </div>
       </Link>
     </motion.div>
   );
