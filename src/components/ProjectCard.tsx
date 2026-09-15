@@ -2,29 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-/**
- * Product-object hover treatments. Each project reacts as if it were a physical
- * object sitting in the grid — small distances, a fraction of a degree, no
- * bounce — rather than a uniform card scale. The grid cell itself never moves;
- * only the object inside responds. Values are deliberately tiny (2–5px,
- * <1 degree). See `Project.display.hover`.
- */
-const HOVER: Record<string, Variants> = {
-  none: { rest: {}, hover: {} },
-  zoom: { rest: { scale: 1 }, hover: { scale: 1.03 } },
-  lift: {
-    rest: { y: 0, rotate: 0, scale: 1 },
-    hover: { y: -4, rotate: -0.6, scale: 1.012 },
-  },
-  float: { rest: { y: 0, scale: 1 }, hover: { y: -3, scale: 1.015 } },
-  tilt: { rest: { rotate: 0, y: 0 }, hover: { rotate: 0.8, y: -3 } },
-  shift: { rest: { x: 0, scale: 1 }, hover: { x: -4, scale: 1.02 } },
-};
+import { ProjectLens } from "./ProjectLens";
 
 /**
  * A project rendered as an object placed inside its grid cell (the cell and its
@@ -32,14 +12,19 @@ const HOVER: Record<string, Variants> = {
  * corners.
  *
  * The `display` treatment decides how the asset sits:
- *  - fit "cover": full-bleed photograph/diagram filling the cell (clipped so a
- *    hover zoom never bleeds onto neighbours)
+ *  - fit "cover": full-bleed photograph/diagram filling the cell
  *  - fit "contain" + `pad`: the asset floats as an object with negative space;
- *    transparent assets let the grid show through behind them, and can lift
- *    slightly out on hover.
+ *    transparent assets let the grid show through behind them.
+ *
+ * Hover treatment is an optical magnifying lens (ProjectLens): the tile and its
+ * image stay perfectly stationary while a circular glass lens follows the
+ * cursor and magnifies the area beneath it. Layer order is image (0) · lens
+ * (10) · title/tags (20), so the text always renders crisply above the lens and
+ * is never magnified or obscured. The title/tags reveal on hover, keyboard
+ * focus, and (always-on) touch, so the info is never hover-exclusive.
  *
  * Animated (GIF) covers stay on a quiet static poster and only come alive on
- * hover. Title + tags stay hidden until hover.
+ * hover.
  */
 export function ProjectCard({ project }: { project: Project }) {
   const reduceMotion = useReducedMotion();
@@ -48,71 +33,64 @@ export function ProjectCard({ project }: { project: Project }) {
   const objectClass = fit === "contain" ? "object-contain" : "object-cover";
   const clip = fit === "cover" ? "overflow-hidden" : "";
   const label = `${project.title}, ${project.tags.join(", ")}`;
+  const position = project.display?.position;
 
   const animated = project.display?.animated ?? false;
   const poster = project.display?.poster ?? project.cover;
   const [live, setLive] = useState(false);
-
-  const variants = HOVER[reduceMotion ? "none" : project.display?.hover ?? "none"];
-  const posStyle = { objectPosition: project.display?.position };
+  const baseSrc = animated ? poster : project.cover;
 
   return (
-    <motion.div
-      initial="rest"
-      animate="rest"
-      whileHover="hover"
-      onHoverStart={() => animated && !reduceMotion && setLive(true)}
-      onHoverEnd={() => setLive(false)}
-      className="absolute inset-0"
+    <Link
+      href={`/work/${project.slug}`}
+      aria-label={label}
+      onPointerEnter={() => animated && !reduceMotion && setLive(true)}
+      onPointerLeave={() => setLive(false)}
+      className="group relative block h-full w-full"
     >
-      <Link
-        href={`/work/${project.slug}`}
-        aria-label={label}
-        className="group relative block h-full w-full"
-      >
-        <div className={`absolute inset-0 ${clip}`}>
-          {/* The object itself carries the physical hover response. */}
-          <motion.div
-            variants={variants}
-            transition={{ duration: 0.4, ease: EASE }}
-            className={`relative h-full w-full ${pad}`}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* 1 · project image (stationary) */}
+      <div className={`absolute inset-0 ${clip}`}>
+        <div className={`relative h-full w-full ${pad}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={baseSrc}
+            alt={project.title}
+            loading="lazy"
+            style={{ objectPosition: position }}
+            className={`h-full w-full ${objectClass}`}
+          />
+
+          {/* GIF activation: the animated asset mounts only on hover, so it
+              plays from its first frame and stays quiet when idle. */}
+          {animated && live && (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={animated ? poster : project.cover}
-              alt={project.title}
-              loading="lazy"
-              style={posStyle}
-              className={`h-full w-full ${objectClass}`}
+              src={project.cover}
+              alt=""
+              aria-hidden
+              style={{ objectPosition: position }}
+              className={`absolute inset-0 h-full w-full ${objectClass}`}
             />
-
-            {/* GIF activation: the animated asset is only mounted on hover, so
-                it plays from its first frame ("comes alive") and stays quiet
-                when idle. It fades over the static poster. */}
-            {animated && live && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <motion.img
-                src={project.cover}
-                alt=""
-                aria-hidden
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, ease: EASE }}
-                style={posStyle}
-                className={`absolute inset-0 h-full w-full ${objectClass}`}
-              />
-            )}
-          </motion.div>
+          )}
         </div>
+      </div>
 
-        {/* Label reveal. CSS-driven so it responds to pointer hover, keyboard
-            focus, and (always-on) touch devices, where hover cannot expose the
-            info. The title turns electric magenta; tags stay quiet. */}
-        <div className="pointer-events-none absolute inset-0 flex flex-col justify-end gap-1 bg-black/30 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
-          <span className="text-sm text-[#FC0FC0]">{project.title}</span>
-          <span className="text-xs text-white/70">{project.tags.join(", ")}</span>
-        </div>
-      </Link>
-    </motion.div>
+      {/* 2 · optical lens (desktop / fine-pointer only, clipped to the tile) */}
+      <ProjectLens
+        src={baseSrc}
+        fit={fit}
+        pad={pad}
+        objectPosition={position}
+      />
+
+      {/* 3 · title + tags — crisp, above the lens, no dark overlay. A soft text
+          shadow keeps them readable over the grayscale imagery. */}
+      <div className="lens-label pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col gap-1 p-4 opacity-0 transition-opacity duration-200 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100 md:p-5 [@media(hover:none)]:opacity-100">
+        <span className="text-sm font-medium text-[#FC0FC0]">
+          {project.title}
+        </span>
+        <span className="text-xs text-white/80">{project.tags.join(", ")}</span>
+      </div>
+    </Link>
   );
 }

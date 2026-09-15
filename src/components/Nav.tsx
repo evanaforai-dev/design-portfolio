@@ -24,9 +24,10 @@ export function Nav() {
       <div className="flex items-center justify-between px-6 py-5 md:px-8">
         <Link href="/" className="text-sm font-medium tracking-tight text-fg">
           {/* Leading Latin "e" replaced by the Malayalam letter ഇ, in electric
-              magenta; the rest of the name keeps the current text colour. The
-              glyph inherits size/weight so it aligns with the Latin letters. */}
-          <span style={{ color: "#FC0FC0" }}>ഇ</span>
+              magenta. Optically balanced against the Latin lowercase (size,
+              weight, baseline, spacing) via .wordmark-initial so the two scripts
+              read as one typographic signature. */}
+          <span className="wordmark-initial">ഇ</span>
           {site.wordmark.replace(/^e/, "")}
         </Link>
 
