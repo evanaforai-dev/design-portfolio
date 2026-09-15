@@ -88,12 +88,13 @@ body {
   font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI",
     "Kohinoor Malayalam", var(--font-inter), sans-serif;
   display: inline-block;
-  font-size: 0.98em;
+  font-size: 0.84em; /* ink height ≈ the Latin lowercase x-height */
   font-weight: 600;
   line-height: 1;
-  transform: translateY(0.02em) scaleY(0.94);
-  transform-origin: bottom;
-  margin-right: 0.06em;
+  /* The glyph's ink sits ~0.145em BELOW the alphabetic baseline, so lift it up
+     to rest its base on the Latin baseline. (Measured against Inter's "n".) */
+  transform: translateY(-0.145em);
+  margin-right: 0.07em;
   vertical-align: baseline;
 }
 
