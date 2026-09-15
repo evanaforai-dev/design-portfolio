@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/types/project";
 
@@ -56,21 +57,13 @@ export function ProjectCard({ project }: { project: Project }) {
       whileHover="hover"
       className="absolute inset-0"
     >
-      {project.link ? (
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={label}
-          className="relative block h-full w-full"
-        >
-          {inner}
-        </a>
-      ) : (
-        <div aria-label={label} className="relative block h-full w-full">
-          {inner}
-        </div>
-      )}
+      <Link
+        href={`/work/${project.slug}`}
+        aria-label={label}
+        className="relative block h-full w-full"
+      >
+        {inner}
+      </Link>
     </motion.div>
   );
 }
