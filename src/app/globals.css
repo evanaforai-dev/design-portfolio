@@ -88,12 +88,12 @@ body {
   font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI",
     "Kohinoor Malayalam", var(--font-inter), sans-serif;
   display: inline-block;
-  font-size: 0.74em;
-  font-weight: 500;
+  font-size: 0.98em;
+  font-weight: 600;
   line-height: 1;
-  transform: translateY(0.13em) scaleY(0.95);
+  transform: translateY(0.02em) scaleY(0.94);
   transform-origin: bottom;
-  margin-right: 0.05em;
+  margin-right: 0.06em;
   vertical-align: baseline;
 }
 
