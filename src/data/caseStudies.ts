@@ -33,20 +33,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", eyebrow: "thesis", text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape." },
+      { kind: "thesis", text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape." },
       {
         kind: "context",
         paragraphs: [
           "the bollywood villain is usually argued about one film at a time. i wanted the long view: not who the villains were, but what kind of threat each decade cast as the enemy.",
-          "so i hand-sampled 495 films across ten decades, tagged each villain by archetype and by whether the threat was personal or systemic, and rendered the whole thing as one streamgraph you can read in a glance and then dig into.",
+          "so i hand-sampled 495 films across ten decades and tagged each villain by archetype and by whether the threat was personal or systemic. in the streamgraph above, column width is how many films a decade actually made, band height is each archetype's share, and thinly-sourced decades wear a ▲.",
         ],
-      },
-      { kind: "question", text: "how do you tell a confident historical story from a sample you know is incomplete, without pretending it is a census?" },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/villains/streamgraph.svg", alt: "archetype streamgraph across the decades" },
-        fit: "cover",
-        caption: "archetypes, 1930s to 2020s. column width is real industry output, band height is each archetype's share of villain films, and low-coverage decades carry a ▲.",
       },
       {
         kind: "decisions",
@@ -84,11 +77,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "the piece is live and self-initiated. it has no audience data and claims none.",
+          "the piece is live and self-initiated.",
           "what it settled for me: a transparently caveated sample can still carry a real argument, as long as the artwork keeps showing its own uncertainty rather than hiding it.",
         ],
       },
-      { kind: "reflection", text: "i set out to measure the villain. building it, the honest subject turned out to be my own confidence, how much narrative certainty a sample like this can carry before it starts to lie. the design work became less about the streamgraph and more about keeping its limits visible while it made a bold claim." },
+      { kind: "reflection", text: "i set out to measure the villain. the real subject turned out to be my own confidence: how much certainty a hand-built sample can carry before it starts to lie. most of the design was keeping that limit visible while the chart still made a bold claim." },
     ],
   },
 
@@ -112,7 +105,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/lipi" }],
     },
     sections: [
-      { kind: "thesis", eyebrow: "thesis", text: "localization usually arrives after the layout is finished, as a developer's problem. i wanted to move that pressure earlier, while the design is still editable, and aim it at the source instead of the symptom." },
+      { kind: "thesis", text: "localization usually arrives after the layout is finished, as a developer's problem. i wanted to move that pressure earlier, while the design is still editable, and aim it at the source instead of the symptom." },
       {
         kind: "context",
         paragraphs: [
@@ -120,7 +113,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           "lipi takes your english frames, generates a hindi or tamil version, re-measures the layout, and flags exactly where the translated text breaks it.",
         ],
       },
-      { kind: "question", text: "how might localization become something designers test, rather than something developers discover?" },
       {
         kind: "full",
         media: { type: "image", src: "/case/lipi/system.png", alt: "the results view grouping issues by the component behind them" },
@@ -167,19 +159,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kind: "flow",
-        label: "the pipeline, kept out of sight",
-        steps: [
-          { label: "clone off-document", note: "the file you are working in is never the thing being measured." },
-          { label: "translate + reflow", note: "google translation, or an offline dictionary for the demo." },
-          { label: "measure the delta", note: "baseline bounds against localized bounds, per layer." },
-          { label: "group into causes", note: "geometry failures roll up to the component behind them." },
-          { label: "reveal on canvas", note: "locked overlays mark each break, in place." },
-          { label: "export", note: "the one permanent step: a titled, localized copy." },
-        ],
-        caption: "the user sees six words on screen. the engine runs all of this, once per language.",
-      },
-      {
         kind: "detail",
         media: { type: "image", src: "/case/lipi/product.png", alt: "lipi running in a dark figma workspace" },
         fit: "cover",
@@ -190,8 +169,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "lipi is a working prototype with a full publishing pack. it has not yet been exercised inside the live figma runtime, and it is not listed publicly. no users or metrics are claimed.",
-          "hindi and tamil today. the script ranges are written so more indic languages are a small addition rather than a rebuild.",
+          "a working prototype, not yet run inside the live figma runtime. hindi and tamil today; the script ranges are written so more indic languages are a small addition, not a rebuild.",
         ],
       },
       { kind: "reflection", text: "i planned a checker that reads what is already on the canvas. building it made the real constraint obvious: you cannot check for a break nobody has created yet. the tool had to become the thing that causes the break, safely, before it could ever point at the cause." },
@@ -218,7 +196,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/deepcuts" }],
     },
     sections: [
-      { kind: "thesis", eyebrow: "thesis", text: "most ai lives in a chat box. i wanted curiosity to feel like operating an object: something you tune, play, and collect, not something you prompt." },
+      { kind: "thesis", text: "most ai lives in a chat box. i wanted curiosity to feel like operating an object: something you tune, play, and collect, not something you prompt." },
       {
         kind: "context",
         paragraphs: [
@@ -226,7 +204,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           "there is no backend and no language model behind it. the journeys are a hand-authored tree, which is the point: every branch leads somewhere genuinely different.",
         ],
       },
-      { kind: "question", text: "can a knowledge experience feel earned and ownable, the way a physical object does, instead of disposable like a chat log?" },
       {
         kind: "full",
         media: { type: "image", src: "/case/deepcuts/splash.png", alt: "the deep cuts hardware console" },
@@ -258,7 +235,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "print a keepsake, and keep its numbers honest",
             why: "the receipt is the one thing here someone would show a friend.",
             tradeoff: "the scores on it have to mean something.",
-            result: "leaps and rarity are read off the real journey tree, not, as an earlier version did, a hash of the clock dressed up as a measurement.",
+            result: "leaps and rarity are read off the real journey tree, so a receipt's numbers mean what they say and never change.",
             media: { type: "image", src: "/covers/deepcuts.png", alt: "the printed mixtape receipt" },
             fit: "contain",
           },
@@ -279,13 +256,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "the receipt: your signal, the path taken, leaps and rarity, a timestamp. deterministic, so an artifact's numbers never change.",
       },
       { kind: "statement", text: "the autoplay film presses the same controls a hand presses. nothing on camera is mocked." },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/deepcuts/system.png", alt: "the deep cuts component library" },
-        fit: "contain",
-        frame: true,
-        caption: "one system, built out of motion: console, cards, processing tickers, receipt, archive. honouring reduced-motion was not optional.",
-      },
       {
         kind: "outcome",
         paragraphs: [
@@ -317,7 +287,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/soundmap" }],
     },
     sections: [
-      { kind: "thesis", eyebrow: "thesis", text: "a photo of a moment is easy. a recording of one is awkward to revisit. i wanted a way to keep a sound you would actually return to, without turning it into a feed." },
+      { kind: "thesis", text: "a photo of a moment is easy. a recording of one is awkward to revisit. i wanted a way to keep a sound you would actually return to, without turning it into a feed." },
       {
         kind: "context",
         paragraphs: [
@@ -325,7 +295,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           "that artifact takes its place on a month calendar. tapping a day replays the audio while the gradient re-reveals in step with it.",
         ],
       },
-      { kind: "question", text: "how do you turn a sound into a keepsake, without letting it become one more thing to scroll?" },
       {
         kind: "full",
         media: { type: "image", src: "/case/soundmap/artifact.png", alt: "a finished soundmap artifact with its metadata" },
@@ -382,7 +351,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "soundmap is an installable pwa and a working prototype, built for one person on one device. no users or metrics are claimed.",
+          "soundmap is an installable pwa, built for one person on one device.",
           "the open question is whether a deterministic visual reads as personal enough to return to, or whether people would want to shape it themselves.",
         ],
       },
@@ -410,7 +379,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/kochi-water-metro" }],
     },
     sections: [
-      { kind: "thesis", eyebrow: "thesis", text: "a transit map tells you how to get there. i wanted to design the ride itself: what if the map stopped being a tool and became a companion you could put down and simply travel with?" },
+      { kind: "thesis", text: "a transit map tells you how to get there. i wanted to design the ride itself: what if the map stopped being a tool and became a companion you could put down and simply travel with?" },
       {
         kind: "context",
         paragraphs: [
@@ -418,7 +387,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. english and malayalam are treated as equals, not a toggle bolted on at the end.",
         ],
       },
-      { kind: "question", text: "what does a transit interface become when the vehicle drives and the app only has to reflect?" },
       {
         kind: "full",
         media: { type: "image", src: "/case/kochi/map.svg", alt: "the kochi water metro route map" },
@@ -463,14 +431,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
         columns: 3,
         caption: "the stories along the way: marine drive, the spice quarter, the mangrove eco-zone. photography is creative-commons, credited in the project.",
-      },
-      {
-        kind: "detail",
-        media: { type: "image", src: "/case/kochi/journey.gif", alt: "the simulated journey animating along the route" },
-        fit: "contain",
-        side: "left",
-        title: "the ferry drives, the app reflects",
-        text: "location here is honest fiction. it is not gps; it is the boat's simulated progress along a hand-traced channel. the sense of place is designed, and the interface never pretends otherwise.",
       },
       {
         kind: "outcome",
