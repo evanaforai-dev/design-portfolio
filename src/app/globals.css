@@ -89,12 +89,15 @@ body {
     "Kohinoor Malayalam", var(--font-inter), sans-serif;
   display: inline-block;
   font-size: 0.84em; /* ink height ≈ the Latin lowercase x-height */
-  font-weight: 600;
+  font-weight: 700;
+  /* Malayalam strokes render lighter than Inter at the same weight and thin out
+     at small sizes, so a hairline same-colour stroke evens the weight up. */
+  -webkit-text-stroke: 0.4px #fc0fc0;
   line-height: 1;
   /* The glyph's ink sits ~0.145em BELOW the alphabetic baseline, so lift it up
      to rest its base on the Latin baseline. (Measured against Inter's "n".) */
   transform: translateY(-0.145em);
-  margin-right: 0.07em;
+  margin-right: 0.08em;
   vertical-align: baseline;
 }
 
