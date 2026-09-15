@@ -26,6 +26,19 @@ export const projects: Project[] = [
     display: { fit: "cover" },
   },
   {
+    slug: "wells-fargo",
+    title: "wells fargo",
+    tags: ["product design", "design systems", "financial services"],
+    category: "work",
+    cover: "/covers/wells-fargo.jpg",
+    year: "2025",
+    summary:
+      "migrating legacy financial products onto wells fargo's responsive public-site design system: policy-compliant, mobile-first, conversion-focused.",
+    link: "https://www.wellsfargo.com/about/responsibility-and-impact/sustainability/",
+    // branded abstract hero (devices arranged as the wf star), filled.
+    display: { fit: "cover" },
+  },
+  {
     slug: "airtribe-learn",
     title: "airtribe learn",
     tags: ["product design", "ai", "learning design"],

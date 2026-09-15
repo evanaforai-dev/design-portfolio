@@ -10,6 +10,95 @@ import type { CaseStudy } from "@/types/caseStudy";
  */
 
 export const caseStudies: Record<string, CaseStudy> = {
+  // ────────────────────────────────────────────────────────────── wells fargo ──
+  "wells-fargo": {
+    slug: "wells-fargo",
+    hero: {
+      kicker: "product design · wells fargo",
+      title: "wells fargo",
+      subtitle:
+        "three public-site migrations, each one deadline away from decommission or a compliance failure. rescuing legacy financial products onto a responsive, policy-compliant design system.",
+      media: {
+        type: "image",
+        src: "/case/wells-fargo/hero.jpg",
+        alt: "devices arranged as the wells fargo star on a warm gradient",
+      },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      meta: [
+        { label: "role", value: "product designer" },
+        { label: "client", value: "wells fargo" },
+        { label: "platform", value: "wf.com public site" },
+        { label: "year", value: "2025" },
+      ],
+      links: [
+        {
+          label: "sustainability, live",
+          href: "https://www.wellsfargo.com/about/responsibility-and-impact/sustainability/",
+        },
+      ],
+    },
+    sections: [
+      { kind: "thesis", text: "at this scale a redesign is rarely a fresh look, it's a rescue. three wells fargo public-site products were each one deadline away from being decommissioned, ruled non-compliant, or left stranded in a pdf. the design work was clarity under constraint, policy, legal, legacy systems, and what an nda lets me show." },
+      {
+        kind: "context",
+        paragraphs: [
+          "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, working across the line-of-business product team, legal, cms and engineering, us and india.",
+          "the thread across all three projects: take something fragmented and at-risk, and make it simpler, compliant and mobile-first, without breaking the business already running on it.",
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/wells-fargo/before-after.jpg", alt: "practice finance before and after: fragmented pages consolidated into one conversion page" },
+        fit: "contain",
+        frame: true,
+        caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. (the redesigned screen is blurred under nda.)",
+      },
+      {
+        kind: "decisions",
+        label: "three migrations",
+        items: [
+          {
+            n: "01",
+            title: "rescue practice finance",
+            why: "the practice-finance site was set for decommission by may 2026 over policy violations and poor mobile usability, taking digital loan origination for ~1,000 monthly visitors with it.",
+            tradeoff: "compliance and business continuity had to come before any redesign ambition.",
+            result: "a six-plus-page architecture consolidated into one conversion-focused landing and one simplified contact flow, signed off as a policy-compliant experience.",
+            media: { type: "image", src: "/case/wells-fargo/strategy.jpg", alt: "who practice finance serves and the experience it needs" },
+            fit: "cover",
+          },
+          {
+            n: "02",
+            title: "simplify the plcc experience",
+            why: "3.8m retail-services customers, 1m new a year, sat on a dated, non-responsive microsite that drove ~200k monthly visits and 120k service calls a month at $11.37 each.",
+            tradeoff: "the redesign had to fold into wf.com for tracking and seo, not survive as a standalone microsite.",
+            result: "a ux audit, competitor synthesis and ia rework cut nine pages to four, over 50% less structural complexity, with clear paths to the highest-frequency tasks and room to reduce those calls.",
+            media: { type: "image", src: "/case/wells-fargo/board.jpg", alt: "the breadth of the redesign work, blurred under nda" },
+            fit: "cover",
+          },
+          {
+            n: "03",
+            title: "digitize the sustainability report",
+            why: "wells fargo's annual esg report was trapped in a static, inaccessible pdf, a version-control and compliance risk with a poor mobile experience.",
+            tradeoff: "dense legacy charts and tables had to fit the design system across six breakpoints and pass enterprise wcag, on a speed-to-market deadline.",
+            result: "a responsive, accessible web experience: 100% digital adoption, the legacy pdf deprecated so outdated compliance data can no longer circulate.",
+            media: { type: "image", src: "/case/wells-fargo/esg.jpg", alt: "the live wells fargo sustainability web experience" },
+            fit: "cover",
+          },
+        ],
+      },
+      { kind: "statement", text: "at this scale the design question isn't ‘how should it look’. it's ‘what has to stay true’, to policy, to the business, to the person on a phone between appointments." },
+      {
+        kind: "outcome",
+        paragraphs: [
+          "all three are shipping to wf.com through 2026, practice finance by may, the plcc pages by august, the sustainability experience already live.",
+          "the full designs stay behind a wells fargo nda; what's shown here is the structure and the strategy, not the confidential screens.",
+        ],
+      },
+      { kind: "reflection", text: "i learned to treat migrations as strategic transformation, not visual refreshes. the leverage was upstream, in early simplification and proactive alignment with legal and engineering, long before a screen existed. in a regulated environment clarity beats creativity, and business continuity is a stronger brief than innovation." },
+    ],
+  },
+
   // ─────────────────────────────────────────────────────────────── kochi1app ──
   kochi1app: {
     slug: "kochi1app",
