@@ -22,10 +22,10 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name}, ${site.role}`,
+    template: `%s · ${site.name}`,
   },
-  description: site.intro,
+  description: `${site.name}, ${site.role}`,
 };
 
 export default function RootLayout({

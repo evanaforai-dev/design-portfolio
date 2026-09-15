@@ -1,25 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 
 /**
- * Minimal text toggle: shows the mode you'll switch TO.
- * Renders a stable label until mounted to avoid hydration mismatch.
+ * Dot-only mode toggle: a single filled circle, no text or icon.
+ * It's painted with the current foreground color (black in light mode,
+ * off-white in dark), so it always matches the site's text.
  */
-export function ThemeToggle({ className = "" }: { className?: string }) {
-  const { theme, toggle } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+export function ThemeToggle() {
+  const { toggle } = useTheme();
 
   return (
     <button
       type="button"
       onClick={toggle}
-      aria-label="Toggle color theme"
-      className={`label transition-colors duration-300 ease-editorial hover:text-fg ${className}`}
+      aria-label="toggle color theme"
+      className="grid h-6 w-6 place-items-center text-fg"
     >
-      {mounted ? (theme === "dark" ? "Light" : "Dark") : "Theme"}
+      {/* SVG circle: the global sharp-corner rule would square off a CSS dot. */}
+      <svg width="11" height="11" viewBox="0 0 10 10" aria-hidden="true">
+        <circle cx="5" cy="5" r="5" fill="currentColor" />
+      </svg>
     </button>
   );
 }

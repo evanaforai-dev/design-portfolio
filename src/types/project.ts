@@ -60,23 +60,37 @@ export interface ProjectImage {
 }
 
 export interface Project {
-  /** URL segment, e.g. /work/atlas-banking */
+  /** Stable identifier. */
   slug: string;
+  /** Lowercase, per the site's typography rules. */
   title: string;
-  /** Shown as uppercase, letter-spaced label under the card title. */
+  /** Lowercase tags shown on hover, e.g. ["web app", "python", "2024"]. */
   tags: string[];
+  /**
+   * Kept for the data schema — the site no longer separates categories
+   * visually, but entries can still be tagged "work" or "playground".
+   */
   category: Category;
-  /** Cover image used in the grid card and case-study hero. */
+  /** Cover image used as the square grid cell. */
   cover: string;
   year: string;
-  /** One-sentence summary used on cards and at the top of the case study. */
+  /** One-sentence, lowercase summary. */
   summary: string;
 
-  // Optional case-study metadata rendered in the header meta rail.
+  /**
+   * Where the grid cell links to — a live deployment or repo URL. If omitted,
+   * the cell is non-clickable and only reveals its label on hover.
+   */
+  link?: string;
+
+  // Optional metadata (retained from the case-study schema).
   role?: string;
   client?: string;
   duration?: string;
 
-  /** Ordered content that builds the case-study page. */
-  caseStudyBlocks: CaseStudyBlock[];
+  /**
+   * Optional case-study content. Retained in the schema for future use; the
+   * current two-page site does not render a case-study route.
+   */
+  caseStudyBlocks?: CaseStudyBlock[];
 }

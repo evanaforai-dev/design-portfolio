@@ -62,11 +62,11 @@ body {
   border-radius: 0 !important;
 }
 
-/* Uppercase, letter-spaced label style used for tags and eyebrows. */
+/* Small, quiet label/eyebrow style. Copy is lowercase in the data itself,
+   so no text-transform is applied. */
 .label {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 

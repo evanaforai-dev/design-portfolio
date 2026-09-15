@@ -1,31 +1,21 @@
 import Link from "next/link";
 import { site } from "@/data/site";
 
+/** Minimal footer to match the two-page structure. All copy lowercase. */
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-32 border-t border-hairline">
-      <div className="mx-auto flex max-w-shell flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
-        <span className="label">
+    <footer className="border-t border-hairline">
+      <div className="flex items-center justify-between px-6 py-8 md:px-8">
+        <span className="text-xs text-muted">
           © {year} {site.name}
         </span>
-        <nav className="flex flex-wrap gap-6">
-          {site.nav.map((item) =>
-            item.href.startsWith("mailto:") ? (
-              <a key={item.label} href={item.href} className="label hover:text-fg">
-                {item.label}
-              </a>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="label hover:text-fg"
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
-        </nav>
+        <Link
+          href="/about"
+          className="text-xs text-muted transition-colors duration-300 ease-editorial hover:text-fg"
+        >
+          about
+        </Link>
       </div>
     </footer>
   );

@@ -1,10 +1,10 @@
 import { ProjectGrid } from "@/components/ProjectGrid";
-import { workProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 
 /**
- * Home opens directly into the Work grid — no intro copy, no heading, no
- * framing text. Work speaks first; the nav is the only text outside the grid.
+ * Home = one combined grid of ALL projects (work + playground mixed), no
+ * category separation. Opens directly into the grid.
  */
 export default function HomePage() {
-  return <ProjectGrid projects={workProjects} />;
+  return <ProjectGrid projects={projects} />;
 }
