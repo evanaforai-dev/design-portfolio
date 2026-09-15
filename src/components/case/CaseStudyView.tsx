@@ -4,6 +4,7 @@ import { projects } from "@/data/projects";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
 import { renderSection } from "./Sections";
+import { ProjectNavPreview } from "./ProjectNavPreview";
 
 /**
  * Full case-study page: a powerful opening visual, a title/metadata band, the
@@ -87,32 +88,9 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       {/* Sections */}
       {study.sections.map((s, i) => renderSection(s, i))}
 
-      {/* Prev / next */}
+      {/* Prev / next — archive-style, with a static neighbour preview on hover */}
       <Reveal>
-        <nav className="mt-24 border-t border-hairline">
-          <Container>
-            <div className="grid grid-cols-2">
-              <Link
-                href={`/work/${prev.slug}`}
-                className="group flex flex-col gap-2 border-r border-hairline py-10 pr-6 md:py-14"
-              >
-                <span className="label">← previous</span>
-                <span className="text-lg font-medium tracking-tight text-fg transition-colors group-hover:text-muted md:text-2xl">
-                  {prev.title}
-                </span>
-              </Link>
-              <Link
-                href={`/work/${next.slug}`}
-                className="group flex flex-col items-end gap-2 py-10 pl-6 text-right md:py-14"
-              >
-                <span className="label">next →</span>
-                <span className="text-lg font-medium tracking-tight text-fg transition-colors group-hover:text-muted md:text-2xl">
-                  {next.title}
-                </span>
-              </Link>
-            </div>
-          </Container>
-        </nav>
+        <ProjectNavPreview prev={prev} next={next} />
       </Reveal>
     </article>
   );

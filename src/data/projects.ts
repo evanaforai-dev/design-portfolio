@@ -22,6 +22,8 @@ export const projects: Project[] = [
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
     link: "https://villain2.vercel.app",
+    // data-viz screen: a slight lateral shift on hover
+    display: { hover: "shift" },
   },
   {
     slug: "lipi",
@@ -33,7 +35,13 @@ export const projects: Project[] = [
     summary:
       "a figma plugin that pressure-tests ui against localized indic copy, fixing where translation breaks layout.",
     link: "https://github.com/evanaforai-dev/lipi",
-    display: { fit: "contain" },
+    // animated cover: static poster idle, plays on hover; gentle rise
+    display: {
+      fit: "contain",
+      hover: "float",
+      animated: true,
+      poster: "/covers/lipi-poster.png",
+    },
   },
   {
     slug: "deep-cuts",
@@ -45,8 +53,9 @@ export const projects: Project[] = [
     summary:
       "a walkman-inspired interactive experience, a hardware-styled react ui cut into a launch film.",
     link: "https://github.com/evanaforai-dev/deepcuts",
-    // transparent "mixtape receipt" object, floated in the cell with negative space
-    display: { fit: "contain", pad: "p-6 md:p-10" },
+    // transparent "mixtape receipt" object, floated in the cell with negative
+    // space; lifts slightly on hover like a physical object
+    display: { fit: "contain", pad: "p-6 md:p-10", hover: "lift" },
   },
   {
     slug: "soundmap",
@@ -58,8 +67,8 @@ export const projects: Project[] = [
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // close-up crop of the artifact calendar
-    display: { fit: "cover", position: "top" },
+    // close-up crop of the artifact calendar; photograph, a barely-there zoom
+    display: { fit: "cover", position: "top", hover: "zoom" },
   },
   {
     slug: "kochi-water-metro",
@@ -71,6 +80,8 @@ export const projects: Project[] = [
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",
     link: "https://github.com/evanaforai-dev/kochi-water-metro",
+    // photograph: a barely-there zoom on hover
+    display: { hover: "zoom" },
   },
 ];
 

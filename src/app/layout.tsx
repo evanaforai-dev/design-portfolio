@@ -5,6 +5,7 @@ import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PageTransition } from "@/components/PageTransition";
 import { site } from "@/data/site";
 
 const inter = Inter({
@@ -46,7 +47,9 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll />
           <Nav />
-          <main className="pt-24 md:pt-28">{children}</main>
+          <main className="pt-24 md:pt-28">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

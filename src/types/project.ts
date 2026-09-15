@@ -96,6 +96,24 @@ export interface Project {
     position?: string;
     /** Tailwind padding for contain objects, e.g. "p-8 md:p-14". */
     pad?: string;
+    /**
+     * Physical hover response on the home grid — the object reacts as if
+     * touched, while the grid cell stays perfectly still. Chosen per asset:
+     *  - "zoom":  photograph, a barely-there crop push
+     *  - "lift":  physical object, a small lift + hair of rotation
+     *  - "float": device/screen, a gentle rise
+     *  - "tilt":  device, a tiny physical tilt
+     *  - "shift": ui screen, a slight lateral shift
+     * Omitted = no movement. Disabled under reduced motion / on touch.
+     */
+    hover?: "zoom" | "lift" | "float" | "tilt" | "shift";
+    /**
+     * The cover is an animated asset (e.g. a GIF). When true the grid shows a
+     * quiet static `poster` frame and only lets the animation play on hover.
+     */
+    animated?: boolean;
+    /** Static first-frame shown while an `animated` cover is idle. */
+    poster?: string;
   };
 
   // Optional metadata (retained from the case-study schema).
