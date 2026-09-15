@@ -17,14 +17,15 @@ export const projects: Project[] = [
     title: "a century of villains",
     tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
-    cover: "/covers/villains.svg",
+    // case-study hero image, filled (cover)
+    cover: "/case/villains/streamgraph.svg",
     year: "2026",
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
     link: "https://villain2.vercel.app",
-    // data-viz screen: a slight lateral shift on hover. Light image, so the
-    // label tags read in design-black.
-    display: { hover: "shift", labelSurface: "light" },
+    // data-viz screen: a slight lateral shift on hover. The streamgraph's lower
+    // band is medium/colourful, so the label tags read in white.
+    display: { fit: "cover", hover: "shift", labelSurface: "dark" },
   },
   {
     slug: "lipi",
@@ -66,14 +67,15 @@ export const projects: Project[] = [
     title: "soundmap",
     tags: ["product design", "creative technology", "motion"],
     category: "playground",
-    cover: "/covers/soundmap.png",
+    // case-study hero visual (the calendar archive of coloured day tiles),
+    // captured from the hero film, filled (cover)
+    cover: "/covers/soundmap-hero.jpg",
     year: "2026",
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // close-up crop of the artifact calendar; photograph, a barely-there zoom.
-    // Light image, so the label tags read in design-black.
-    display: { fit: "cover", position: "top", hover: "zoom", labelSurface: "light" },
+    // photograph: a barely-there zoom on hover.
+    display: { fit: "cover", hover: "zoom", labelSurface: "light" },
   },
   {
     slug: "kochi-water-metro",
