@@ -42,8 +42,9 @@ export const projects: Project[] = [
       hover: "float",
       animated: true,
       poster: "/covers/lipi-poster.png",
-      // square light UI fills the cell, so the label tags read in design-black
-      labelSurface: "light",
+      // the square ui fills the cell and its lower area is dark, so the label
+      // tags read in white
+      labelSurface: "dark",
     },
   },
   {
