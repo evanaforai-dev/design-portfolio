@@ -15,14 +15,13 @@ import type { Project } from "@/types/project";
  *  - fit "contain" + `pad`: the asset floats as an object with negative space;
  *    transparent assets let the grid show through behind them.
  *
- * Hover treatment: the image itself never moves. On hover / keyboard focus a
- * solid caption band rises from the bottom edge and slides up over the lower
- * slice of the image, carrying the title and tags. Because the band is an opaque
- * --bg panel with a crisp hairline top edge (never a scrim over the photo), the
- * text always sits on clean background and reads at full contrast — the same
- * cut language as the grid itself. On touch the band stays visible, so the info
- * is never hover-exclusive. Grid-wide focus (dimming the other tiles) lives in
- * ProjectGrid.
+ * Hover treatment: on hover / keyboard focus the image eases into a gentle
+ * zoom (clipped to the tile) while a solid caption band rises from the bottom
+ * edge, carrying the title and tags. Because the band is an opaque --bg panel
+ * with a crisp hairline top edge (never a scrim over the photo), the text
+ * always sits on clean background and reads at full contrast — the same cut
+ * language as the grid itself. The zoom is motion-safe only. On touch the band
+ * stays visible, so the info is never hover-exclusive.
  *
  * Animated (GIF) covers stay on a quiet static poster and only come alive on
  * hover.
@@ -48,9 +47,13 @@ export function ProjectCard({ project }: { project: Project }) {
       onPointerLeave={() => setLive(false)}
       className="group relative block h-full w-full overflow-hidden"
     >
-      {/* 1 · project image (stationary) */}
+      {/* 1 · project image — eases into a gentle zoom on hover (clipped to the
+          tile), motion-safe only. Both the base frame and the GIF share this
+          wrapper so they scale together. */}
       <div className="absolute inset-0">
-        <div className={`relative h-full w-full ${pad}`}>
+        <div
+          className={`relative h-full w-full transition-transform duration-500 ease-editorial motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105 ${pad}`}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={baseSrc}

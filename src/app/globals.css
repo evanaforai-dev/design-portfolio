@@ -145,25 +145,6 @@ body {
   border-color: var(--hairline-strong);
 }
 
-/*
- * Home-grid focus: hovering one tile quiets the others. On a fine pointer, the
- * whole grid dims its cells while the cursor is over it, and the hovered cell
- * alone returns to full strength — attention is the only thing that moves, so
- * the grid reads like a curated wall rather than a set of hover tricks. Nothing
- * animates the images themselves. Touch devices never dim.
- */
-@media (hover: hover) and (pointer: fine) {
-  .grid-cell {
-    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .project-grid:hover .grid-cell {
-    opacity: 0.4;
-  }
-  .project-grid:hover .grid-cell:hover {
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
