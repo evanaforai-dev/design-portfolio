@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Palette lives in CSS variables so light/dark is a straight inversion.
+ * The hairline-border, no-shadow visual language is identical in both modes.
+ */
+:root {
+  --bg: #fafafa;
+  --fg: #111111;
+  --muted: #6b6b6b;
+  --hairline: rgba(17, 17, 17, 0.14);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #ededed;
+  --muted: #8f8f8f;
+  --hairline: rgba(255, 255, 255, 0.16);
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--hairline);
+}
+
+html {
+  /* Lenis drives scrolling; disable native smooth-scroll to avoid conflicts. */
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Sharp corners only — no border-radius anywhere on the site. */
+* {
+  border-radius: 0 !important;
+}
+
+/* Uppercase, letter-spaced label style used for tags and eyebrows. */
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
