@@ -101,13 +101,13 @@ export const projects: Project[] = [
     title: "soundmap",
     tags: ["product design", "creative technology", "motion"],
     category: "playground",
-    cover: "/covers/soundmap-hero.jpg",
+    cover: "/covers/obj-soundmap.svg",
     year: "2026",
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // photograph, filled full-bleed.
-    display: { fit: "cover" },
+    // transparent artifact: it floats in the cell and the grid shows through
+    display: { fit: "contain" },
   },
   {
     slug: "kochi-water-metro",

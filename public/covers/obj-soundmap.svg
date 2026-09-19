@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
-  <!-- Soundmap · one day's artifact. The gradient is the point: loudness sets
-       where the two colours meet, instability how softly they blend. Muted
-       traditional Japanese hues, as the project specifies. -->
+  <!-- Soundmap · one day's artifact, floated with no ground of its own so the
+       grid shows through behind it. The gradient reads on any surface; the
+       metadata has to invert, so every stroke and fill of ink is a class and
+       the dark rule below flips them together. -->
   <defs>
     <linearGradient id="day" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#97A791"/>
@@ -12,16 +13,20 @@
   </defs>
   <style>
     .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
+    .r { stroke: #16171A; }
     .q { opacity: .45; }
+    @media (prefers-color-scheme: dark) {
+      .m { fill: #F2F2F0; }
+      .r { stroke: #F2F2F0; }
+    }
   </style>
-  <rect width="1000" height="1000" fill="#E7E5DF"/>
   <!-- the artifact -->
   <rect x="230" y="196" width="540" height="540" fill="url(#day)"/>
-  <!-- the reading, kept quiet: it sits behind a toggle in the product too -->
+  <!-- the acoustic reading -->
   <g class="m">
     <text x="230" y="168" font-size="19" letter-spacing="2.5" class="q">08 JUN 2026</text>
     <text x="770" y="168" font-size="19" letter-spacing="2.5" text-anchor="end" class="q">00:31</text>
-    <line x1="230" y1="784" x2="770" y2="784" stroke="#16171A" stroke-width="1.5" opacity=".28"/>
+    <line x1="230" y1="784" x2="770" y2="784" class="r" stroke-width="1.5" opacity=".28"/>
     <text x="230" y="820" font-size="17" letter-spacing="1.5">LOUDNESS</text>
     <text x="770" y="820" font-size="17" letter-spacing="1.5" text-anchor="end" class="q">62</text>
     <text x="230" y="852" font-size="17" letter-spacing="1.5">INSTABILITY</text>
