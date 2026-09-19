@@ -1,6 +1,7 @@
 import type { Section } from "@/types/caseStudy";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
+import { Glyph } from "./Glyph";
 
 /** Vertical rhythm wrapper for in-flow (contained) sections. */
 function Band({
@@ -25,6 +26,228 @@ function heightClass(h?: "auto" | "tall" | "screen") {
 
 export function renderSection(section: Section, i: number) {
   switch (section.kind) {
+    /* TURN — first direction, what happened, what replaced it. */
+    case "turn": {
+      const rows: [string, string][] = [
+        ["first direction", section.tried],
+        ["what happened", section.result],
+        ["what changed", section.change],
+      ];
+      return (
+        <Band key={i}>
+          <Container>
+            <p className="label mb-10">{section.label ?? "the turn"}</p>
+            <div className="border-t border-hairline">
+              {rows.map(([label, text]) => (
+                <div
+                  key={label}
+                  className="grid grid-cols-1 gap-3 border-b border-hairline py-7 md:grid-cols-12 md:gap-10"
+                >
+                  <p className="label md:col-span-3">{label}</p>
+                  <p className="max-w-[46rem] text-lg leading-relaxed text-fg md:col-span-9">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Band>
+      );
+    }
+
+    /* PIPELINE — the system end to end, with the rules that govern each stage. */
+    case "pipeline":
+      return (
+        <Band key={i}>
+          <Container>
+            <p className="label mb-12">{section.label ?? "how it works"}</p>
+            {/* Scrolls sideways on a phone rather than stacking: the point of
+                this section is that it reads as one connected run. */}
+            <div className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
+              <ol
+                className="grid min-w-[52rem] auto-cols-fr grid-flow-col border-t border-hairline"
+                style={{ gridTemplateColumns: `repeat(${section.steps.length}, minmax(0,1fr))` }}
+              >
+                {section.steps.map((st, j) => (
+                  <li
+                    key={j}
+                    className="relative border-b border-hairline px-4 pb-6 pt-8 first:pl-0 last:pr-0 md:px-5"
+                  >
+                    {/* the connector: a hairline run behind the glyphs */}
+                    {j < section.steps.length - 1 && (
+                      <span
+                        aria-hidden
+                        className="absolute left-1/2 top-[3.15rem] hidden h-px w-full bg-hairline md:block"
+                      />
+                    )}
+                    <Glyph
+                      name={st.glyph}
+                      className="relative mb-7 h-10 w-10 text-fg"
+                    />
+                    <p className="label">{st.label}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-fg">
+                      {st.text}
+                    </p>
+                    {st.note && (
+                      <p className="mt-4 border-l border-hairline pl-3 font-mono text-xs leading-relaxed text-fg opacity-60">
+                        {st.note}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            {section.caption && (
+              <p className="label mt-6 max-w-[46rem]">{section.caption}</p>
+            )}
+          </Container>
+        </Band>
+      );
+
+    /* ANNOTATED — one artifact, with its decisions called out beside it. */
+    case "annotated":
+      return (
+        <Band key={i}>
+          <Container>
+            <p className="label mb-10">{section.label ?? "in detail"}</p>
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+              <div className="md:col-span-7">
+                <div
+                  className={
+                    section.frame
+                      ? "flex items-center justify-center border border-hairline p-6 md:p-10"
+                      : "flex items-center justify-center"
+                  }
+                >
+                  <Media
+                    asset={section.media}
+                    fit={section.fit ?? "contain"}
+                    position={section.position}
+                    /* a tall artifact (a phone render) would otherwise run far
+                       past the callouts and strand them in white space. */
+                    className="max-h-[78vh] w-auto max-w-full"
+                  />
+                </div>
+              </div>
+              {/* the callouts track the artifact rather than scrolling away from it */}
+              <ol className="border-t border-hairline md:col-span-5 md:sticky md:top-28 md:self-start">
+                {section.items.map((it, j) => (
+                  <li key={j} className="border-b border-hairline py-5">
+                    <div className="flex gap-4">
+                      <span className="label shrink-0 tabular-nums opacity-60">
+                        {String(j + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium text-fg">{it.title}</p>
+                        {it.text && (
+                          <p className="mt-2 text-sm leading-relaxed text-fg opacity-80">
+                            {it.text}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </Container>
+        </Band>
+      );
+
+    /* SYSTEM — the spec board, kept as data rather than a flattened image. */
+    case "system":
+      return (
+        <Band key={i}>
+          <Container>
+            <p className="label mb-10">{section.label ?? "system"}</p>
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+              <div className="space-y-5 md:col-span-5">
+                {section.paragraphs?.map((t, j) => (
+                  <p key={j} className="max-w-[34rem] text-lg leading-relaxed text-fg">
+                    {t}
+                  </p>
+                ))}
+                {section.mapping && (
+                  <dl className="border-t border-hairline pt-4 font-mono text-xs">
+                    {section.mapping.map((m) => (
+                      <div key={m.from} className="flex gap-3 py-1.5">
+                        <dt className="w-24 shrink-0 text-fg opacity-60">{m.from}</dt>
+                        <dd className="text-fg">→ {m.to}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+                {section.note && (
+                  <p className="font-mono text-xs leading-relaxed text-fg opacity-60">
+                    {section.note}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:col-span-7">
+                {section.colors && (
+                  <div>
+                    <p className="label border-b border-hairline pb-3">colour</p>
+                    <ul>
+                      {section.colors.map((c) => (
+                        <li
+                          key={c.hex}
+                          className="flex items-center gap-3 border-b border-hairline py-2.5"
+                        >
+                          <span
+                            aria-hidden
+                            className="h-6 w-6 shrink-0 border border-hairline"
+                            style={{ background: `#${c.hex.replace("#", "")}` }}
+                          />
+                          <span className="font-mono text-xs tabular-nums text-fg opacity-60">
+                            {c.hex.replace("#", "").toUpperCase()}
+                          </span>
+                          <span className="font-mono text-xs text-fg">{c.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <div className="space-y-8">
+                  {section.type && (
+                    <div>
+                      <p className="label border-b border-hairline pb-3">type</p>
+                      <ul>
+                        {section.type.map((t) => (
+                          <li
+                            key={t.name}
+                            className="flex justify-between gap-4 border-b border-hairline py-2.5 font-mono text-xs"
+                          >
+                            <span className="text-fg opacity-60">{t.name}</span>
+                            <span className="text-right text-fg">{t.value}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {section.metrics && (
+                    <div>
+                      <p className="label border-b border-hairline pb-3">measure</p>
+                      <ul>
+                        {section.metrics.map((m) => (
+                          <li
+                            key={m.label}
+                            className="flex justify-between gap-4 border-b border-hairline py-2.5 font-mono text-xs"
+                          >
+                            <span className="text-fg opacity-60">{m.label}</span>
+                            <span className="tabular-nums text-fg">{m.value}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Container>
+        </Band>
+      );
+
     /* THESIS — large editorial statement. */
     case "thesis":
       return (

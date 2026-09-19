@@ -1,3 +1,5 @@
+import type { GlyphName } from "@/components/case/Glyph";
+
 /**
  * Case-study content model.
  *
@@ -90,7 +92,64 @@ export type Section =
   | { kind: "flow"; label?: string; steps: { label: string; note?: string }[]; caption?: string }
   | { kind: "statement"; text: string }
   | { kind: "outcome"; label?: string; paragraphs: string[] }
-  | { kind: "reflection"; text: string };
+  | { kind: "reflection"; text: string }
+  /**
+   * TURN — the direction that was tried first and abandoned. Every case study
+   * gets one: it is the section a reader cannot get from a screenshot, and the
+   * thing that separates a record of work from a presentation of it.
+   */
+  | {
+      kind: "turn";
+      label?: string;
+      /** what was built or assumed first. */
+      tried: string;
+      /** what actually happened when it met reality. */
+      result: string;
+      /** what replaced it, and the rule that came out of it. */
+      change: string;
+    }
+  /**
+   * PIPELINE — the system end to end, as line-art stages with their rules.
+   * `note` carries the awkward detail (a fallback, a cap, a safeguard) that
+   * usually gets left out of a case study.
+   */
+  | {
+      kind: "pipeline";
+      label?: string;
+      steps: {
+        glyph: GlyphName;
+        label: string;
+        text: string;
+        note?: string;
+      }[];
+      caption?: string;
+    }
+  /** ANNOTATED — one artifact with its decisions called out beside it. */
+  | {
+      kind: "annotated";
+      label?: string;
+      media: MediaAsset;
+      fit?: "cover" | "contain";
+      position?: string;
+      frame?: boolean;
+      items: { title: string; text?: string }[];
+    }
+  /**
+   * SYSTEM — the spec board: the interaction grammar, the real tokens, the
+   * real measurements. Data rather than a flattened image, so it stays
+   * legible, themeable and correctable.
+   */
+  | {
+      kind: "system";
+      label?: string;
+      paragraphs?: string[];
+      /** interaction grammar, e.g. wheel → navigate. */
+      mapping?: { from: string; to: string }[];
+      colors?: { hex: string; name: string }[];
+      type?: { name: string; value: string }[];
+      metrics?: { label: string; value: string }[];
+      note?: string;
+    };
 
 export interface CaseStudy {
   slug: string;
