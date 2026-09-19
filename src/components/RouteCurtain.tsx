@@ -55,8 +55,13 @@ export function RouteCurtain() {
 
     let leaving = false;
 
+    // CAPTURE PHASE, deliberately. next/link calls preventDefault in its own
+    // handler and starts a route change; a listener on the bubble phase arrives
+    // afterwards, sees defaultPrevented and backs off, which is why the first
+    // version of this measured 2ms between click and new document. Running
+    // first, and stopping the event here, means Link never sees it.
     const onClick = (e: MouseEvent) => {
-      if (leaving || e.defaultPrevented || e.button !== 0) return;
+      if (leaving || e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
       const a = (e.target as Element | null)?.closest?.("a");
@@ -70,6 +75,8 @@ export function RouteCurtain() {
       if (url.pathname === window.location.pathname) return;      // same page / hash
 
       e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       leaving = true;
 
       const anims = panels.map((p, i) =>
@@ -90,9 +97,9 @@ export function RouteCurtain() {
       });
     };
 
-    document.addEventListener("click", onClick);
+    document.addEventListener("click", onClick, true);
     return () => {
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
       window.clearTimeout(armed);
       last?.removeEventListener("animationend", park);
     };
