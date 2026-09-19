@@ -7,6 +7,7 @@ in a URL) makes the whole document unparseable and the browser renders a
 broken-image icon instead. Nothing in the Next build looks at these files, so
 that ships silently. This runs before every build so it cannot.
 """
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -25,8 +26,10 @@ for svg in sorted(PUBLIC.rglob("*.svg")):
         failures.append(f"{rel}: not well-formed XML — {e}")
         continue
     # A <style> block is the usual culprit: its contents are markup unless
-    # wrapped, so require CDATA wherever one exists.
-    text = svg.read_text(encoding="utf-8", errors="replace")
+    # wrapped, so require CDATA wherever one exists. Comments are stripped
+    # first, since a comment that merely mentions the tag is harmless and
+    # flagging it is a false positive.
+    text = re.sub(r"<!--.*?-->", "", svg.read_text(encoding="utf-8", errors="replace"), flags=re.S)
     if "<style" in text and "CDATA" not in text:
         failures.append(
             f"{rel}: has a <style> block that is not wrapped in CDATA. "

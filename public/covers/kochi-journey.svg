@@ -4,7 +4,8 @@
        the ferry running it on a loop, and the app's story card over it.
        The crop is placed so the route sits above the card rather than behind
        it. map.svg's root carries fill="none": the stroke-only route paths must
-       sit in a group restating it or they fill solid black. No <style> block. -->
+       sit in a group restating it or they fill solid black. Styling is by
+       presentation attribute throughout. -->
   <defs>
     <filter id="cardshadow" x="-40%" y="-40%" width="180%" height="200%">
       <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000" flood-opacity=".45"/></filter>
