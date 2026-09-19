@@ -30,13 +30,15 @@ export const projects: Project[] = [
     title: "wells fargo",
     tags: ["product design", "design systems", "financial services"],
     category: "work",
-    cover: "/covers/wells-fargo.jpg",
+    cover: "/covers/wells-fargo-plate.svg",
     year: "2025",
     summary:
       "migrating legacy financial products onto wells fargo's responsive public-site design system: policy-compliant, mobile-first, conversion-focused.",
     link: "https://www.wellsfargo.com/about/responsibility-and-impact/sustainability/",
-    // branded abstract hero (devices arranged as the wf star), filled.
-    display: { fit: "cover" },
+    // the brand plate on a transparent 1:1 canvas, floated like the other
+    // object tiles: the square gives it the kochi water metro tile's width,
+    // and the plate's height lands under the deep cuts receipt.
+    display: { fit: "contain" },
   },
   {
     slug: "airtribe-learn",
