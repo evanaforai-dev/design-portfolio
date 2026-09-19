@@ -1,4 +1,5 @@
 import type { MediaAsset } from "@/types/caseStudy";
+import { asset as assetUrl } from "@/lib/asset";
 
 /**
  * Renders a case-study asset. Video autoplays muted + looped as a silent
@@ -20,8 +21,8 @@ export function Media({
   if (asset.type === "video") {
     return (
       <video
-        src={asset.src}
-        poster={asset.poster}
+        src={assetUrl(asset.src)}
+        poster={assetUrl(asset.poster)}
         autoPlay
         muted
         loop
@@ -35,7 +36,7 @@ export function Media({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={asset.src}
+      src={assetUrl(asset.src)}
       alt={asset.alt ?? ""}
       loading="lazy"
       style={position ? { objectPosition: position } : undefined}

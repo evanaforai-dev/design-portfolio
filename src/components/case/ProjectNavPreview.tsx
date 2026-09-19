@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
 import { Container } from "./Media";
+import { asset } from "@/lib/asset";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +20,7 @@ function Thumb({ project }: { project: Project }) {
     <div className="h-20 w-20 overflow-hidden border border-hairline bg-bg md:h-24 md:w-24">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={previewSrc(project)}
+        src={asset(previewSrc(project))}
         alt=""
         aria-hidden
         style={{ objectPosition: project.display?.position }}

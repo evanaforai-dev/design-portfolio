@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
+import { asset } from "@/lib/asset";
 
 /**
  * A project rendered as an object placed inside its grid cell (the cell and its
@@ -56,7 +57,7 @@ export function ProjectCard({ project }: { project: Project }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={baseSrc}
+            src={asset(baseSrc)}
             alt={project.title}
             loading="lazy"
             style={{ objectPosition: position }}
@@ -68,7 +69,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {animated && live && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={project.cover}
+              src={asset(project.cover)}
               alt=""
               aria-hidden
               style={{ objectPosition: position }}

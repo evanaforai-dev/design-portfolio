@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { about, site } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "about",
@@ -67,7 +68,7 @@ export default function AboutPage() {
             <ul className="flex flex-col gap-2">
               <li>
                 <a
-                  href={site.resumeUrl}
+                  href={asset(site.resumeUrl)}
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm text-fg underline-offset-4 hover:underline"
