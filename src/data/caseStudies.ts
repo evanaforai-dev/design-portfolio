@@ -17,7 +17,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       kicker: "product design · wells fargo",
       title: "wells fargo",
       subtitle:
-        "three public-site migrations, each one deadline away from decommission or a compliance failure. rescuing legacy financial products onto a responsive, policy-compliant design system.",
+        "three public-site migrations, each one deadline away from decommission or a compliance failure. moving legacy financial products onto a responsive, policy-compliant design system.",
       media: {
         type: "image",
         src: "/case/wells-fargo/hero.jpg",
@@ -39,12 +39,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "at this scale a redesign is rarely a fresh look, it's a rescue. three wells fargo public-site products were each one deadline away from being decommissioned, ruled non-compliant, or left stranded in a pdf. the design work was clarity under constraint, policy, legal, legacy systems, and what an nda lets me show." },
+      { kind: "thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and what an nda lets me show." },
       {
         kind: "context",
         paragraphs: [
           "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, working across the line-of-business product team, legal, cms and engineering, us and india.",
-          "the thread across all three projects: take something fragmented and at-risk, and make it simpler, compliant and mobile-first, without breaking the business already running on it.",
+          "the brief was the same each time. make it simpler, make it compliant, make it work on a phone, and do not break the business already running through it.",
         ],
       },
       {
@@ -62,7 +62,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             n: "01",
             title: "rescue practice finance",
             why: "the practice-finance site was set for decommission by may 2026 over policy violations and poor mobile usability, taking digital loan origination for ~1,000 monthly visitors with it.",
-            tradeoff: "compliance and business continuity had to come before any redesign ambition.",
+            tradeoff: "anything i wanted to change for design reasons came after keeping it compliant and keeping it live.",
             result: "a six-plus-page architecture consolidated into one conversion-focused landing and one simplified contact flow, signed off as a policy-compliant experience.",
             media: { type: "image", src: "/case/wells-fargo/strategy.jpg", alt: "who practice finance serves and the experience it needs" },
             fit: "cover",
@@ -87,7 +87,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           },
         ],
       },
-      { kind: "statement", text: "at this scale the design question isn't ‘how should it look’. it's ‘what has to stay true’, to policy, to the business, to the person on a phone between appointments." },
+      { kind: "statement", text: "the person i kept coming back to was someone on a phone between appointments, looking for one number. that was the test i could actually apply to a page." },
       {
         kind: "outcome",
         paragraphs: [
@@ -95,7 +95,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the full designs stay behind a wells fargo nda; what's shown here is the structure and the strategy, not the confidential screens.",
         ],
       },
-      { kind: "reflection", text: "i learned to treat migrations as strategic transformation, not visual refreshes. the leverage was upstream, in early simplification and proactive alignment with legal and engineering, long before a screen existed. in a regulated environment clarity beats creativity, and business continuity is a stronger brief than innovation." },
+      { kind: "reflection", text: "most of the work that mattered happened before anything looked like a screen: cutting scope with the product team, getting legal and engineering to agree on what was possible. by the time i was moving things around a page, the difficult calls had already been made." },
     ],
   },
 
@@ -106,7 +106,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       kicker: "service design + ux · kochi metro",
       title: "kochi1app",
       subtitle:
-        "a service-design redesign of kochi's official transit app: stop optimising only the route, and design the trip, plan by intention, nudge the greener choice, and own the first and last mile.",
+        "a service-design redesign of kochi's official transit app: plan a trip by intention, make the greener route the easy one, and design the transfers and the last mile the map leaves out.",
       media: {
         type: "image",
         src: "/case/kochi1app/hero.jpg",
@@ -128,12 +128,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "a transit app answers ‘how do i get there’ and stops. redesigning kochi1app, i wanted it to answer ‘what do i want from this trip’, turning a route planner into a companion that plans by intention, makes the greener choice the easy one, and owns the parts of the journey the map usually drops." },
+      { kind: "thesis", text: "people could already find a route in kochi1app. what they could not find was what the trip would actually be like, whether the transfer was walkable, where the exit came out, how long they would be standing in the sun waiting for the connection. the redesign is mostly about that gap." },
       {
         kind: "context",
         paragraphs: [
           "kochi1app is the official app for kochi's metro and water metro. i ran an end-to-end service-design study across the city's multimodal transport, interviews with riders, station staff and management, personas, journey maps, service blueprints and a competitor teardown, to find where the app leaves people stranded rather than just where a screen looks dated.",
-          "the redesign focuses on three things the old app missed: the intention behind a trip, the pull toward a greener choice, and the messy first and last mile where a journey actually breaks.",
+          "three things kept coming up. why someone was making the trip at all. how little the app did to make the greener route the attractive one. and how much of a journey happens outside the route itself, in the transfer, the walk, the auto at the other end.",
         ],
       },
       {
@@ -162,7 +162,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           {
             n: "01",
-            title: "plan by intention, not just destination",
+            title: "plan by intention",
             why: "people don't only travel to an address. they travel to explore, to catch a scenic route, to be home before dark. the old app only understood destinations.",
             tradeoff: "the planner has to turn a fuzzy intent, ‘i want to explore the city’, into concrete routes.",
             result: "a dynamic intention layer: choose cultural, scenic, food, ‘half a day’ or ‘home by dinner’, and the trip is built around that, not only the fastest line.",
@@ -186,11 +186,10 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "let the city be part of the trip",
             why: "a first-time visitor and a daily commuter want different things from the same line.",
             tradeoff: "surfacing places and stories without burying the core task of getting somewhere.",
-            result: "an experience layer, landmarks, cultural stops and quieter paths you can add to a journey, so a route can optimise for interest, not only time.",
+            result: "landmarks, cultural stops and quieter paths you can add to a route, so a journey can be built around what is worth seeing rather than only how fast it is.",
           },
         ],
       },
-      { kind: "statement", text: "a route answers where. i wanted the app to answer why, and to bend around weather, cost and curiosity on the way." },
       {
         kind: "outcome",
         paragraphs: [
@@ -198,7 +197,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "it was delivered to kochi metro as a service-design study, personas, journey maps, service blueprints and policy plus design recommendations, not just a set of screens.",
         ],
       },
-      { kind: "reflection", text: "i came in to redesign an app and spent most of the work upstream of it, in the interviews, the service blueprint, the causal loops. the screen changes that mattered, plan by intention, nudge the greener choice, design the transfer, only became obvious once the system around the app was mapped. the interface was the last twenty percent." },
+      { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file. the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers waiting outside, the walk at the end that nobody had mapped." },
     ],
   },
 
@@ -228,7 +227,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "‘learn anything with ai’ usually means a chat box that answers whatever you type. i wanted the opposite of a transcript: a lesson that is authored, tuned to the person reading it, built to teach rather than to reply, and honest about where its facts come from." },
+      { kind: "thesis", text: "most ‘learn anything with ai’ products are a chat box with a better frame. you ask, it answers, and what you are left with afterwards is a transcript. kai writes you a lesson instead, tuned to four things it asks before it starts, and it shows where the facts came from." },
       {
         kind: "context",
         paragraphs: [
@@ -247,9 +246,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           {
             n: "01",
-            title: "a lesson, not a chat log",
+            title: "build it the way a teacher would",
             why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
-            tradeoff: "the output has to be authored structure, not a reply.",
+            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
             result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
             media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
             fit: "contain",
@@ -258,14 +257,14 @@ export const caseStudies: Record<string, CaseStudy> = {
             n: "02",
             title: "ask four questions, then commit",
             why: "personalising after the fact, a ‘simplify this’ button, comes too late; the lesson is already written for no one.",
-            tradeoff: "four questions is friction before the learner has seen any value.",
+            tradeoff: "four questions is four screens before anyone has read a single word.",
             result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
             media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
             fit: "cover",
           },
           {
             n: "03",
-            title: "make the understanding visible",
+            title: "draw the topic while you read it",
             why: "a lesson you read and close leaves nothing you can hold onto.",
             tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
             result: "the map draws the concepts and their links as you go, with a ‘worth keeping’ takeaway and room for your own notes, so the shape of the topic outlives the reading.",
@@ -283,14 +282,14 @@ export const caseStudies: Record<string, CaseStudy> = {
           },
         ],
       },
-      { kind: "statement", text: "answering is the easy part. teaching one person, and being willing to show your sources, is the harder thing, and the point." },
+      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
       {
         kind: "outcome",
         paragraphs: [
           "airtribe learn is a demo: one seeded lesson, the hard problem of consciousness, runs the full system end to end. the intake accepts any topic; the lesson, map and library shown here are the worked example of what each one would become.",
         ],
       },
-      { kind: "reflection", text: "the pull with an ai tutor is always to make it answer faster. the design kept resisting that, toward the things a good teacher does that a chat does not: start where you are, teach the misconception and not just the fact, and show your work. the interesting surface was never the chat box; it was everything the chat box usually skips." },
+      { kind: "reflection", text: "every time i got stuck, the quickest fix was to let kai just answer. i kept not taking it. the parts worth designing were the slow ones. starting where the reader already is. naming the misconception before you name the fact. footnoting the claim." },
     ],
   },
 
@@ -362,10 +361,10 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         paragraphs: [
           "the piece is live and self-initiated.",
-          "what it settled for me: a transparently caveated sample can still carry a real argument, as long as the artwork keeps showing its own uncertainty rather than hiding it.",
+          "it is a hand-built sample and the piece never pretends otherwise. the column widths, the ▲ and the copy under the chart all keep saying so.",
         ],
       },
-      { kind: "reflection", text: "i set out to measure the villain. the real subject turned out to be my own confidence: how much certainty a hand-built sample can carry before it starts to lie. most of the design was keeping that limit visible while the chart still made a bold claim." },
+      { kind: "reflection", text: "the column widths and that little ▲ took more of my attention than the colours did. a streamgraph is a persuasive shape, and left alone it will make a thinly-sampled decade look every bit as settled as a well-covered one. most of the design was arguing with the chart about that." },
     ],
   },
 
@@ -389,7 +388,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/lipi" }],
     },
     sections: [
-      { kind: "thesis", text: "localization usually arrives after the layout is finished, as a developer's problem. i wanted to move that pressure earlier, while the design is still editable, and aim it at the source instead of the symptom." },
+      { kind: "thesis", text: "localization usually turns up after the layout is finished, as a developer's bug. lipi runs it while the frames are still editable, and points at the component rather than the screen it happened to break on." },
       {
         kind: "context",
         paragraphs: [
@@ -417,9 +416,9 @@ export const caseStudies: Record<string, CaseStudy> = {
           },
           {
             n: "02",
-            title: "surface the pattern, not the symptoms",
+            title: "roll the failures up to their cause",
             why: "forty separate overflow warnings is noise a designer will ignore.",
-            tradeoff: "more work to roll geometry failures up into their cause.",
+            tradeoff: "grouping by cause is more work than listing every overflow.",
             result: "issues aggregate into root causes, so you fix the button once and watch the count fall across every screen it appears in.",
             media: { type: "image", src: "/case/lipi/before-after.png", alt: "a fixed-width cta before and after it learns to hug its label" },
             fit: "cover",
@@ -447,8 +446,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/lipi/product.png", alt: "lipi running in a dark figma workspace" },
         fit: "cover",
         side: "right",
-        title: "measured, not translated",
-        text: "every flag is geometry, not opinion: the baseline bounds, the localized bounds, and the growth between them. nothing about the break is guessed.",
+        title: "it measures, it does not guess",
+        text: "every flag is geometry: the baseline bounds, the localized bounds, and the growth between them.",
       },
       {
         kind: "outcome",
@@ -456,7 +455,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "a working prototype, not yet run inside the live figma runtime. hindi and tamil today; the script ranges are written so more indic languages are a small addition, not a rebuild.",
         ],
       },
-      { kind: "reflection", text: "i planned a checker that reads what is already on the canvas. building it made the real constraint obvious: you cannot check for a break nobody has created yet. the tool had to become the thing that causes the break, safely, before it could ever point at the cause." },
+      { kind: "reflection", text: "it has not run inside the live figma runtime yet, so the open question is whether the root-cause grouping holds up on a real design file, with its detached instances and its one-off frames. that is the part i would want a designer to break first." },
     ],
   },
 
@@ -480,7 +479,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/deepcuts" }],
     },
     sections: [
-      { kind: "thesis", text: "most ai lives in a chat box. i wanted curiosity to feel like operating an object: something you tune, play, and collect, not something you prompt." },
+      { kind: "thesis", text: "i wanted curiosity to feel like operating an object. you tune it, you play it, and at the end you are holding something." },
       {
         kind: "context",
         paragraphs: [
@@ -547,7 +546,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the content is a single seeded tree, enough to prove the interaction. a real version would put a live source of knowledge behind the same machine.",
         ],
       },
-      { kind: "reflection", text: "i assumed the hard part would be the branching content. it was not. the hard part was making a screen feel like hardware, and that difference lives almost entirely in the press travel, the detent, and the sound, none of which shows up in a screenshot." },
+      { kind: "reflection", text: "almost all of the work here is in press travel, detents and synthesized clicks, and none of it survives a screenshot. that is why there is a film." },
     ],
   },
 
@@ -571,7 +570,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/soundmap" }],
     },
     sections: [
-      { kind: "thesis", text: "a photo of a moment is easy. a recording of one is awkward to revisit. i wanted a way to keep a sound you would actually return to, without turning it into a feed." },
+      { kind: "thesis", text: "a photo of a moment is easy to keep. a recording of one is awkward to go back to. soundmap is an attempt at a sound you would actually return to, without it turning into a feed." },
       {
         kind: "context",
         paragraphs: [
@@ -612,7 +611,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "hide the reading until it is asked for",
             why: "the resting artifact should stay calm.",
             tradeoff: "all the analysis the app computes is invisible by default.",
-            result: "the acoustic reading, the mix and the two colours the sound chose, sits behind a quiet toggle. the calm is the point, not a missing feature.",
+            result: "the acoustic reading, the mix and the two colours the sound chose, sits behind a quiet toggle. it is there if you go looking for it.",
           },
           {
             n: "04",
@@ -631,7 +630,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "empty days read as days",
         text: "the archive is a real calendar, weekday header and all. the days you did not record are still there, so the gaps in the record are part of the record.",
       },
-      { kind: "statement", text: "the same sound always makes the same colours. the artifact is a fingerprint, not a mood." },
+      { kind: "statement", text: "you cannot retake it. whatever you caught that day is the day." },
       {
         kind: "outcome",
         paragraphs: [
@@ -639,7 +638,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the open question is whether a deterministic visual reads as personal enough to return to, or whether people would want to shape it themselves.",
         ],
       },
-      { kind: "reflection", text: "i thought the interesting work was the mapping from audio to colour. the harder decision was restraint. the app can say a great deal about your sound, and most of the design was choosing to keep quiet about it, so the artifact stays something you feel rather than something you read." },
+      { kind: "reflection", text: "the app works out far more about a recording than it ever shows you. deciding how much to hide took longer than building the mapping did, and i am still not convinced the toggle is in the right place." },
     ],
   },
 
@@ -663,12 +662,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/kochi-water-metro" }],
     },
     sections: [
-      { kind: "thesis", text: "a transit map tells you how to get there. i wanted to design the ride itself: what if the map stopped being a tool and became a companion you could put down and simply travel with?" },
+      { kind: "thesis", text: "you do not really need navigation on a ferry. there is one route and someone else is steering. what you might want is something telling you what you are passing." },
       {
         kind: "context",
         paragraphs: [
           "kochi's water metro crosses backwaters most apps render as blank blue. i built an independent, non-commercial companion on top of the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
-          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. english and malayalam are treated as equals, not a toggle bolted on at the end.",
+          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. there is a full english version and a full malayalam one, narration included.",
         ],
       },
       {
@@ -723,7 +722,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the narration is partly recorded and partly falls back to a timed read-along; the story layer is the part i would extend next.",
         ],
       },
-      { kind: "reflection", text: "the phrase in my head was location-aware. the honest version is that there is no gps at all, and the ride feels more present for it: a simulated journey you can trust to behave beats a real signal that stutters over open water. designing the feeling mattered more than sensing the position." },
+      { kind: "reflection", text: "i kept calling this location-aware. there is no gps in it at all. the journey is simulated, and over open water that behaves better than a real signal would, which is either a shortcut or the right answer depending on how generous you are feeling." },
     ],
   },
 };
