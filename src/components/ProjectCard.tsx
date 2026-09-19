@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
 import { asset } from "@/lib/asset";
+
+/** How far the artwork leans toward the pointer, in px at the cell's edge. */
+const PULL = 14;
 
 /**
  * A project rendered as an object placed inside its grid cell (the cell and its
@@ -12,18 +15,19 @@ import { asset } from "@/lib/asset";
  * corners.
  *
  * Structure: the square image well, then a caption plate beneath it carrying
- * the name and the full tag list. Both are ALWAYS readable — the grid used to
- * hide them behind a hover band, which meant someone scanning the homepage on
- * a laptop saw eight pictures and no words. The plate is a fixed 5rem so the
- * grid's mirrored hairline overlay can match the row height exactly, which is
- * why the tags clamp to two lines rather than growing the cell.
+ * the name and the full tag list, both always readable.
  *
- * The `display` treatment decides how the asset sits in the well:
- *  - fit "cover": full-bleed photograph/diagram filling it
- *  - fit "contain" + `pad`: the asset floats as an object with negative space
+ * MAGNETIC PULL — the artwork leans toward the pointer and eases back when it
+ * leaves. Pointer position is written straight to the element's transform in a
+ * rAF loop (no React re-render, matching ProjectGrid's overlay); the easing
+ * that makes it feel magnetic rather than glued is the CSS transition, not the
+ * maths. Only the artwork moves: the caption stays put so text never jitters.
  *
- * Hover is now only the motion-safe zoom, clipped to the well. Animated (GIF)
- * covers stay on a quiet static poster and come alive on hover.
+ * The hover zoom lives on the <img> rather than on the same wrapper, because
+ * two transforms on one element would overwrite each other.
+ *
+ * CORNER BRACKETS — hairline L's at the cell's corners that grow and thicken on
+ * hover, so the grid's construction asserts itself under the pointer.
  */
 export function ProjectCard({ project }: { project: Project }) {
   const reduceMotion = useReducedMotion();
@@ -38,18 +42,75 @@ export function ProjectCard({ project }: { project: Project }) {
   const [live, setLive] = useState(false);
   const baseSrc = animated ? poster : project.cover;
 
+  const rootRef = useRef<HTMLAnchorElement>(null);
+  const pullRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    const art = pullRef.current;
+    if (!root || !art) return;
+
+    // Magnetism is a fine-pointer affordance, and never overrides a stated
+    // preference for less motion.
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+
+    let raf = 0;
+    let x = 0;
+    let y = 0;
+
+    const paint = () => {
+      raf = 0;
+      art.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    const queue = () => {
+      if (!raf) raf = requestAnimationFrame(paint);
+    };
+    const onMove = (e: PointerEvent) => {
+      const r = root.getBoundingClientRect();
+      x = ((e.clientX - r.left) / r.width - 0.5) * PULL * 2;
+      y = ((e.clientY - r.top) / r.height - 0.5) * PULL * 2;
+      queue();
+    };
+    const onLeave = () => {
+      x = 0;
+      y = 0;
+      queue();
+    };
+
+    root.addEventListener("pointermove", onMove);
+    root.addEventListener("pointerleave", onLeave);
+    return () => {
+      root.removeEventListener("pointermove", onMove);
+      root.removeEventListener("pointerleave", onLeave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const corner =
+    "pointer-events-none absolute z-10 h-3.5 w-3.5 border-hairline transition-all duration-300 ease-editorial group-hover:h-5 group-hover:w-5 group-hover:border-fg group-focus-visible:h-5 group-focus-visible:w-5 group-focus-visible:border-fg";
+
   return (
     <Link
+      ref={rootRef}
       href={`/work/${project.slug}`}
       aria-label={label}
       onPointerEnter={() => animated && !reduceMotion && setLive(true)}
       onPointerLeave={() => setLive(false)}
-      className="group block h-full w-full"
+      className="group relative block h-full w-full"
     >
-      {/* 1 · image well — the object, clipped, easing into a gentle zoom. */}
+      {/* corner brackets — the cell's construction, asserted under the pointer */}
+      <span aria-hidden className={`${corner} left-0 top-0 border-l border-t group-hover:border-l-2 group-hover:border-t-2`} />
+      <span aria-hidden className={`${corner} right-0 top-0 border-r border-t group-hover:border-r-2 group-hover:border-t-2`} />
+      <span aria-hidden className={`${corner} bottom-0 left-0 border-b border-l group-hover:border-b-2 group-hover:border-l-2`} />
+      <span aria-hidden className={`${corner} bottom-0 right-0 border-b border-r group-hover:border-b-2 group-hover:border-r-2`} />
+
+      {/* image well — the artwork leans toward the pointer inside it */}
       <div className="relative aspect-square overflow-hidden">
         <div
-          className={`h-full w-full transition-transform duration-500 ease-editorial motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105 ${pad}`}
+          ref={pullRef}
+          className={`h-full w-full transition-transform duration-500 ease-editorial ${pad}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -57,7 +118,7 @@ export function ProjectCard({ project }: { project: Project }) {
             alt={project.title}
             loading="lazy"
             style={{ objectPosition: position }}
-            className={`h-full w-full ${objectClass}`}
+            className={`h-full w-full transition-transform duration-500 ease-editorial motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105 ${objectClass}`}
           />
 
           {animated && live && (
@@ -73,7 +134,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      {/* 2 · caption plate — name then the full tag list, always visible. */}
+      {/* caption plate — name then the full tag list, always visible. */}
       <div className="flex h-20 flex-col justify-center gap-1 border-t border-hairline px-4 md:px-5">
         <span className="truncate text-sm font-medium text-[#FC0FC0]">
           {project.title}
