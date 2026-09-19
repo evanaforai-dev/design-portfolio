@@ -114,13 +114,14 @@ export const projects: Project[] = [
     title: "kochi water metro",
     tags: ["product design", "systems thinking", "information design"],
     category: "playground",
-    cover: "/covers/kochi.jpg",
+    cover: "/covers/kochi-journey.svg",
     year: "2026",
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",
     link: "https://github.com/evanaforai-dev/kochi-water-metro",
-    // photograph, filled full-bleed (dark sunset image).
-    display: { fit: "cover" },
+    // transparent: the official map cropped to the operating route, the ferry
+    // running it on a loop, and the app's own story card floated over it
+    display: { fit: "contain" },
   },
 ];
 
