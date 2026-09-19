@@ -57,13 +57,13 @@ export const projects: Project[] = [
     tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
     // case-study hero image, filled (cover)
-    cover: "/case/villains/streamgraph.svg",
+    cover: "/covers/obj-villains.svg",
     year: "2026",
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
     link: "https://villain2.vercel.app",
-    // data-viz screen, filled full-bleed; caption band rises on hover.
-    display: { fit: "cover" },
+    // transparent artifact: it floats in the cell and the grid shows through
+    display: { fit: "contain" },
   },
   {
     slug: "lipi",
