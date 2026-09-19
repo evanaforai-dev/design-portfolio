@@ -12,6 +12,7 @@
     </linearGradient>
   </defs>
   <style>
+  <![CDATA[
     /* The ink follows the OS preference, which is all an <img>-loaded SVG can
        see: it cannot read the page's data-theme, so a reader who overrides the
        site's theme against their OS gets the wrong pairing. These two tones are
@@ -24,6 +25,7 @@
       .m { fill: #A8A8A5; }
       .r { stroke: #A8A8A5; }
     }
+  ]]>
   </style>
   <!-- the artifact -->
   <rect x="230" y="196" width="540" height="540" fill="url(#day)"/>

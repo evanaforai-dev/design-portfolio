@@ -5,6 +5,7 @@
        dropped: labels do not survive a 0.41x horizontal squash, and the rest
        only existed to sit on black. -->
   <style>
+  <![CDATA[
     /* Matches the soundmap plate: an <img>-loaded SVG only sees the OS
        preference, never the site's own toggle, so both tones sit off the
        extremes and a mismatch reads faint rather than vanishing. */
@@ -15,6 +16,7 @@
       .m { fill: #A8A8A5; }
       .r { stroke: #A8A8A5; }
     }
+  ]]>
   </style>
   <!-- the artifact, stretched to the tile -->
   <svg x="230" y="196" width="540" height="540"
