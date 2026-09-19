@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Deep Cuts · the mixtape receipt. The one artifact a player walks away
+       holding, drawn rather than photographed so it keeps the site's flat,
+       shadow-free register. Every value is from the real journey tree. -->
+  <style>
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
+    .q { opacity: .45; }
+  </style>
+  <rect width="1000" height="1000" fill="#E7E5DF"/>
+  <g transform="rotate(-3.5 500 500)">
+    <!-- paper, with a torn thermal edge at the foot -->
+    <path d="M312 118h376v742l-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17-23.5 17-23.5-17z" fill="#F7F5EF"/>
+    <g class="m">
+      <text x="348" y="182" font-size="17" letter-spacing="2" class="q">DEEP CUTS</text>
+      <text x="348" y="224" font-size="27" font-weight="700" letter-spacing="1">MIXTAPE RECEIPT</text>
+      <line x1="348" y1="250" x2="652" y2="250" stroke="#16171A" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+      <text x="348" y="288" font-size="16" letter-spacing="1.5" class="q">NO. 443</text>
+      <text x="348" y="324" font-size="20" font-weight="700" letter-spacing="1">YOUR MIND : COFFEE</text>
+      <text x="348" y="368" font-size="15" letter-spacing="2" class="q">JOURNEY</text>
+      <text x="348" y="402" font-size="17" letter-spacing=".5">01 COFFEEHOUSES</text>
+      <text x="348" y="432" font-size="17" letter-spacing=".5">02 PUBLIC DISCOURSE</text>
+      <text x="348" y="462" font-size="17" letter-spacing=".5">03 PUBLIC OPINION</text>
+      <text x="348" y="492" font-size="17" letter-spacing=".5">04 MASS MEDIA</text>
+      <text x="348" y="522" font-size="17" letter-spacing=".5">05 ATTENTION ECONOMY</text>
+      <text x="348" y="552" font-size="17" font-weight="700" letter-spacing=".5">06 DIGITAL EXHAUSTION</text>
+      <line x1="348" y1="580" x2="652" y2="580" stroke="#16171A" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+      <text x="348" y="616" font-size="15" letter-spacing="2" class="q">THE DEEP CUT</text>
+      <text x="348" y="656" font-size="26" font-weight="700" letter-spacing=".5">DIGITAL</text>
+      <text x="348" y="688" font-size="26" font-weight="700" letter-spacing=".5">EXHAUSTION</text>
+      <line x1="348" y1="716" x2="652" y2="716" stroke="#16171A" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+      <text x="348" y="750" font-size="14" letter-spacing="1.5" class="q">WEIRDNESS</text>
+      <text x="652" y="750" font-size="14" letter-spacing="1.5" text-anchor="end" class="q">RARITY</text>
+      <text x="348" y="788" font-size="30" font-weight="700">75</text>
+      <text x="652" y="788" font-size="30" font-weight="700" text-anchor="end">90</text>
+      <circle cx="356" cy="826" r="7" fill="#DE723B"/>
+      <text x="376" y="832" font-size="14" letter-spacing="1" class="q">RECOVERED · JUN 8, 2026</text>
+    </g>
+  </g>
+</svg>

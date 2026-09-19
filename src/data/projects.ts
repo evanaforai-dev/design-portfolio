@@ -77,9 +77,9 @@ export const projects: Project[] = [
     link: "https://github.com/evanaforai-dev/lipi",
     // animated cover: static poster idle, plays on hover
     display: {
-      fit: "contain",
+      fit: "cover",
       animated: true,
-      poster: "/covers/lipi-poster.png",
+      poster: "/covers/obj-lipi.svg",
     },
   },
   {
@@ -87,28 +87,25 @@ export const projects: Project[] = [
     title: "deep cuts",
     tags: ["interaction design", "creative technology", "prototyping"],
     category: "playground",
-    cover: "/covers/deepcuts.png",
+    cover: "/covers/obj-deepcuts.svg",
     year: "2026",
     summary:
       "a walkman-inspired interactive experience, a hardware-styled react ui cut into a launch film.",
     link: "https://github.com/evanaforai-dev/deepcuts",
-    // transparent "mixtape receipt" object, floated in the cell with negative
-    // space; the grid shows through behind it
-    display: { fit: "contain", pad: "p-6 md:p-10" },
+    // the mixtape receipt drawn as a full-bleed plate on the shared ground
+    display: { fit: "cover" },
   },
   {
     slug: "soundmap",
     title: "soundmap",
     tags: ["product design", "creative technology", "motion"],
     category: "playground",
-    // case-study hero visual (the calendar archive of coloured day tiles),
-    // captured from the hero film, filled (cover)
-    cover: "/covers/soundmap-hero.jpg",
+    cover: "/covers/obj-soundmap.svg",
     year: "2026",
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // photograph, filled full-bleed.
+    // one day's artifact, with its acoustic reading, on the shared ground
     display: { fit: "cover" },
   },
   {

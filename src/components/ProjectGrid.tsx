@@ -99,7 +99,7 @@ export function ProjectGrid() {
           return (
             <div
               key={slug}
-              className="relative aspect-square border-b border-r border-hairline"
+              className="relative border-b border-r border-hairline"
             >
               <ProjectCard project={project} />
             </div>
@@ -114,7 +114,11 @@ export function ProjectGrid() {
         className={`reactive-grid-overlay pointer-events-none absolute inset-0 ${GRID_CLASS}`}
       >
         {LAYOUT.map((slug) => (
-          <div key={slug} className="aspect-square border-b border-r" />
+          <div key={slug} className="border-b border-r">
+            {/* mirrors the card: caption plate + square well */}
+            <div className="h-11" />
+            <div className="aspect-square" />
+          </div>
         ))}
       </div>
     </div>

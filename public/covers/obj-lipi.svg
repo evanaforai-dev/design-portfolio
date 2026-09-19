@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Lipi · the same call to action in four scripts, measured. The English
+       label sits inside its button; the longer scripts push past it, and the
+       overflow is the flag. Drawn as geometry, which is what Lipi actually
+       measures: baseline bounds, localized bounds, the growth between. -->
+  <style>
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
+    .q { opacity: .45; }
+  </style>
+  <rect width="1000" height="1000" fill="#E7E5DF"/>
+  <g class="m">
+    <text x="150" y="150" font-size="19" letter-spacing="2.5" class="q">ONE BUTTON · FOUR SCRIPTS</text>
+
+    <!-- the fixed frame every row is measured against -->
+    <line x1="660" y1="200" x2="660" y2="800" stroke="#16171A" stroke-width="1.5" stroke-dasharray="4 6" opacity=".5"/>
+
+    <!-- EN — fits -->
+    <rect x="150" y="228" width="420" height="92" fill="none" stroke="#16171A" stroke-width="2.5"/>
+    <rect x="178" y="262" width="150" height="24" fill="#16171A"/>
+    <text x="150" y="212" font-size="16" letter-spacing="2" class="q">EN</text>
+    <text x="690" y="284" font-size="18" letter-spacing="1" class="q">FITS</text>
+
+    <!-- HI — overflows -->
+    <rect x="150" y="368" width="420" height="92" fill="none" stroke="#16171A" stroke-width="2.5"/>
+    <rect x="178" y="402" width="392" height="24" fill="#16171A"/>
+    <rect x="570" y="402" width="118" height="24" fill="#DE723B"/>
+    <text x="150" y="352" font-size="16" letter-spacing="2" class="q">HI</text>
+    <text x="710" y="424" font-size="18" letter-spacing="1" fill="#B4522A">+28%</text>
+
+    <!-- TA — overflows further -->
+    <rect x="150" y="508" width="420" height="92" fill="none" stroke="#16171A" stroke-width="2.5"/>
+    <rect x="178" y="542" width="392" height="24" fill="#16171A"/>
+    <rect x="570" y="542" width="196" height="24" fill="#DE723B"/>
+    <text x="150" y="492" font-size="16" letter-spacing="2" class="q">TA</text>
+    <text x="788" y="564" font-size="18" letter-spacing="1" fill="#B4522A">+47%</text>
+
+    <!-- BN — fits, just -->
+    <rect x="150" y="648" width="420" height="92" fill="none" stroke="#16171A" stroke-width="2.5"/>
+    <rect x="178" y="682" width="330" height="24" fill="#16171A"/>
+    <text x="150" y="632" font-size="16" letter-spacing="2" class="q">BN</text>
+    <text x="690" y="704" font-size="18" letter-spacing="1" class="q">FITS</text>
+
+    <text x="150" y="866" font-size="17" letter-spacing="1.5" class="q">BASELINE BOUNDS · LOCALIZED BOUNDS · GROWTH</text>
+  </g>
+</svg>
