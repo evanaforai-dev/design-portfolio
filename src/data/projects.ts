@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: "kochi1app",
     tags: ["service design", "ux research", "mobility"],
     category: "work",
-    cover: "/covers/obj-kochi1app.svg",
+    cover: "/covers/kochi1app.jpg",
     year: "2024",
     summary:
       "a service-design redesign of kochi's official transit app: plan a trip by intention, nudge greener journeys, and design the first and last mile.",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     title: "wells fargo",
     tags: ["product design", "design systems", "financial services"],
     category: "work",
-    cover: "/covers/obj-wells-fargo.svg",
+    cover: "/covers/wells-fargo.jpg",
     year: "2025",
     summary:
       "migrating legacy financial products onto wells fargo's responsive public-site design system: policy-compliant, mobile-first, conversion-focused.",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: "airtribe learn",
     tags: ["product design", "ai", "learning design"],
     category: "work",
-    cover: "/covers/obj-airtribe-learn.svg",
+    cover: "/covers/airtribe-learn.png",
     year: "2026",
     summary:
       "an ai tutor that runs a short intake, then writes you a structured, cited lesson with a concept map that builds as you learn.",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
     // case-study hero image, filled (cover)
-    cover: "/covers/obj-villains.svg",
+    cover: "/case/villains/streamgraph.svg",
     year: "2026",
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
@@ -77,9 +77,9 @@ export const projects: Project[] = [
     link: "https://github.com/evanaforai-dev/lipi",
     // animated cover: static poster idle, plays on hover
     display: {
-      fit: "cover",
+      fit: "contain",
       animated: true,
-      poster: "/covers/obj-lipi.svg",
+      poster: "/covers/lipi-poster.png",
     },
   },
   {
@@ -87,25 +87,26 @@ export const projects: Project[] = [
     title: "deep cuts",
     tags: ["interaction design", "creative technology", "prototyping"],
     category: "playground",
-    cover: "/covers/obj-deepcuts.svg",
+    cover: "/covers/deepcuts.png",
     year: "2026",
     summary:
       "a walkman-inspired interactive experience, a hardware-styled react ui cut into a launch film.",
     link: "https://github.com/evanaforai-dev/deepcuts",
-    // the mixtape receipt drawn as a full-bleed plate on the shared ground
-    display: { fit: "cover" },
+    // transparent "mixtape receipt" object, floated in the cell with negative
+    // space; the grid shows through behind it
+    display: { fit: "contain", pad: "p-6 md:p-10" },
   },
   {
     slug: "soundmap",
     title: "soundmap",
     tags: ["product design", "creative technology", "motion"],
     category: "playground",
-    cover: "/covers/obj-soundmap.svg",
+    cover: "/covers/soundmap-hero.jpg",
     year: "2026",
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
     link: "https://github.com/evanaforai-dev/soundmap",
-    // one day's artifact, with its acoustic reading, on the shared ground
+    // photograph, filled full-bleed.
     display: { fit: "cover" },
   },
   {
@@ -113,7 +114,7 @@ export const projects: Project[] = [
     title: "kochi water metro",
     tags: ["product design", "systems thinking", "information design"],
     category: "playground",
-    cover: "/covers/obj-kochi-water-metro.svg",
+    cover: "/covers/kochi.jpg",
     year: "2026",
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",

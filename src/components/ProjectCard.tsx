@@ -11,11 +11,12 @@ import { asset } from "@/lib/asset";
  * hairline borders belong to ProjectGrid). No card, border, shadow, or rounded
  * corners.
  *
- * Structure: a fixed-height caption plate on top, then the square image well.
- * The name and discipline are ALWAYS readable — the grid used to hide both
- * behind a hover band, which meant someone scanning the homepage on a laptop
- * saw eight pictures and no words. The plate is a fixed 2.75rem so the grid's
- * mirrored hairline overlay can match the row height exactly.
+ * Structure: the square image well, then a caption plate beneath it carrying
+ * the name and the full tag list. Both are ALWAYS readable — the grid used to
+ * hide them behind a hover band, which meant someone scanning the homepage on
+ * a laptop saw eight pictures and no words. The plate is a fixed 5rem so the
+ * grid's mirrored hairline overlay can match the row height exactly, which is
+ * why the tags clamp to two lines rather than growing the cell.
  *
  * The `display` treatment decides how the asset sits in the well:
  *  - fit "cover": full-bleed photograph/diagram filling it
@@ -45,17 +46,7 @@ export function ProjectCard({ project }: { project: Project }) {
       onPointerLeave={() => setLive(false)}
       className="group block h-full w-full"
     >
-      {/* 1 · caption plate — name left, discipline right, always visible. */}
-      <div className="flex h-11 items-center justify-between gap-3 border-b border-hairline px-4 md:px-5">
-        <span className="truncate text-sm font-medium text-[#FC0FC0]">
-          {project.title}
-        </span>
-        <span className="label shrink-0 truncate opacity-60">
-          {project.tags[0]}
-        </span>
-      </div>
-
-      {/* 2 · image well — the object, clipped, easing into a gentle zoom. */}
+      {/* 1 · image well — the object, clipped, easing into a gentle zoom. */}
       <div className="relative aspect-square overflow-hidden">
         <div
           className={`h-full w-full transition-transform duration-500 ease-editorial motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105 ${pad}`}
@@ -80,6 +71,16 @@ export function ProjectCard({ project }: { project: Project }) {
             />
           )}
         </div>
+      </div>
+
+      {/* 2 · caption plate — name then the full tag list, always visible. */}
+      <div className="flex h-20 flex-col justify-center gap-1 border-t border-hairline px-4 md:px-5">
+        <span className="truncate text-sm font-medium text-[#FC0FC0]">
+          {project.title}
+        </span>
+        <span className="line-clamp-2 text-xs leading-4 text-fg opacity-70">
+          {project.tags.join(" / ")}
+        </span>
       </div>
     </Link>
   );

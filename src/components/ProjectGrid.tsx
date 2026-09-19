@@ -115,9 +115,9 @@ export function ProjectGrid() {
       >
         {LAYOUT.map((slug) => (
           <div key={slug} className="border-b border-r">
-            {/* mirrors the card: caption plate + square well */}
-            <div className="h-11" />
+            {/* mirrors the card: square well, then the caption plate */}
             <div className="aspect-square" />
+            <div className="h-20" />
           </div>
         ))}
       </div>
