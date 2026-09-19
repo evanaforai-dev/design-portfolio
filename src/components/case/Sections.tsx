@@ -65,8 +65,13 @@ export function renderSection(section: Section, i: number) {
                 this section is that it reads as one connected run. */}
             <div className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
               <ol
-                className="grid min-w-[52rem] auto-cols-fr grid-flow-col border-t border-hairline"
-                style={{ gridTemplateColumns: `repeat(${section.steps.length}, minmax(0,1fr))` }}
+                className="grid auto-cols-fr grid-flow-col border-t border-hairline"
+                style={{
+                  gridTemplateColumns: `repeat(${section.steps.length}, minmax(0,1fr))`,
+                  /* sized to the diagram, so a four-step run fits where a
+                     seven-step one still scrolls. */
+                  minWidth: `${section.steps.length * 7.5}rem`,
+                }}
               >
                 {section.steps.map((st, j) => (
                   <li
