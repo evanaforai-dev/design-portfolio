@@ -76,8 +76,11 @@ export function ProjectGrid() {
       const cellW = w / c;
       const art = avail / rows - CAPTION;
       if (art < MIN_ART) continue;
-      // Largest artwork wins, with a penalty for drifting away from square.
-      const score = Math.min(cellW, art) - Math.abs(cellW - art) * 0.35;
+      // Largest artwork wins, penalised for drifting away from square and for
+      // leaving holes — the grid's rule is that every cell holds a project.
+      const empty = c * rows - n;
+      const score =
+        Math.min(cellW, art) - Math.abs(cellW - art) * 0.35 - empty * 14;
       if (score > bestScore) {
         bestScore = score;
         bestCols = c;
