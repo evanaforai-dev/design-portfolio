@@ -6,6 +6,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { RouteCurtain } from "@/components/RouteCurtain";
 import { site } from "@/data/site";
 
 const inter = Inter({
@@ -51,6 +52,7 @@ export default function RootLayout({
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <RouteCurtain />
         </ThemeProvider>
       </body>
     </html>
