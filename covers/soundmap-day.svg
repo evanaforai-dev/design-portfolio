@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Soundmap · one day's artifact, floated with no ground of its own so the
+       grid shows through behind it. The gradient reads on any surface; the
+       metadata has to invert, so every stroke and fill of ink is a class and
+       the dark rule below flips them together. -->
+  <defs>
+    <linearGradient id="day" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#97A791"/>
+      <stop offset="38%"  stop-color="#8E9384"/>
+      <stop offset="62%"  stop-color="#A97463"/>
+      <stop offset="100%" stop-color="#B55233"/>
+    </linearGradient>
+  </defs>
+  <style>
+  <![CDATA[
+    /* The ink follows the OS preference, which is all an <img>-loaded SVG can
+       see: it cannot read the page's data-theme, so a reader who overrides the
+       site's theme against their OS gets the wrong pairing. These two tones are
+       chosen so that case degrades to faint rather than to invisible, while the
+       matching case (the overwhelming majority) still reads at full contrast. */
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #5A5A58; }
+    .r { stroke: #5A5A58; }
+    .q { opacity: .55; }
+    @media (prefers-color-scheme: dark) {
+      .m { fill: #A8A8A5; }
+      .r { stroke: #A8A8A5; }
+    }
+  ]]>
+  </style>
+  <!-- the artifact -->
+  <rect x="230" y="196" width="540" height="540" fill="url(#day)"/>
+  <!-- the acoustic reading -->
+  <g class="m">
+    <text x="230" y="168" font-size="19" letter-spacing="2.5" class="q">08 JUN 2026</text>
+    <text x="770" y="168" font-size="19" letter-spacing="2.5" text-anchor="end" class="q">00:31</text>
+    <line x1="230" y1="784" x2="770" y2="784" class="r" stroke-width="1.5" opacity=".28"/>
+    <text x="230" y="820" font-size="17" letter-spacing="1.5">LOUDNESS</text>
+    <text x="770" y="820" font-size="17" letter-spacing="1.5" text-anchor="end" class="q">62</text>
+    <text x="230" y="852" font-size="17" letter-spacing="1.5">INSTABILITY</text>
+    <text x="770" y="852" font-size="17" letter-spacing="1.5" text-anchor="end" class="q">31</text>
+    <text x="230" y="884" font-size="17" letter-spacing="1.5">WARMTH</text>
+    <text x="770" y="884" font-size="17" letter-spacing="1.5" text-anchor="end" class="q">74</text>
+  </g>
+</svg>
