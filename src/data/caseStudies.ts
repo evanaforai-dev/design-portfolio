@@ -55,6 +55,17 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. (the redesigned screen is blurred under nda.)",
       },
       {
+        kind: "constraints",
+        label: "what could not move",
+        items: [
+          { label: "policy", text: "practice finance was set for decommission over policy violations. staying compliant came before anything i wanted to change about it." },
+          { label: "legal", text: "every page went through legal review, which shaped the architecture long before it shaped a layout." },
+          { label: "the existing site", text: "the plcc redesign had to fold into wf.com for tracking and seo rather than survive as a standalone microsite." },
+          { label: "accessibility", text: "dense legacy charts and tables had to fit the design system across six breakpoints and pass enterprise wcag, on a speed-to-market deadline." },
+          { label: "the nda", text: "the confidential screens stay behind it. what is shown here is structure and strategy." },
+        ],
+      },
+      {
         kind: "decisions",
         label: "three migrations",
         items: [
@@ -158,6 +169,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "the redesign in one board: intention-based planning, weather-aware transfers, green nudges, and an experience layer of landmarks you can add to a route.",
       },
       {
+        kind: "pipeline",
+        label: "planning by intention",
+        steps: [
+          { glyph: "input", label: "intention", text: "cultural, scenic, food, half a day, home by dinner." },
+          { glyph: "map", label: "route", text: "the trip is built around that rather than only the fastest line." },
+          { glyph: "converge", label: "transfer", text: "editable buffers, and weather-aware routing when the wait is in the sun." },
+          { glyph: "cards", label: "last mile", text: "walk, cycle or auto, priced inline, plus the landmarks worth stopping at." },
+        ],
+      },
+      {
         kind: "decisions",
         items: [
           {
@@ -240,6 +261,17 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson/map/library tabs" },
         fit: "cover",
         caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
+      },
+      {
+        kind: "pipeline",
+        label: "how a lesson gets made",
+        steps: [
+          { glyph: "input", label: "topic", text: "you give kai something you have been wondering about." },
+          { glyph: "cards", label: "intake", text: "four questions: purpose, background, prior knowledge, depth.", note: "/asked once, up front. personalising afterwards writes the lesson for no one" },
+          { glyph: "layers", label: "lesson", text: "a hook, a worked example, the misconception, a quick check, a reflection." },
+          { glyph: "graph", label: "map", text: "the concepts and their links, drawn as you read." },
+          { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
+        ],
       },
       {
         kind: "decisions",
@@ -325,6 +357,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "pipeline",
+        label: "how the chart was built",
+        steps: [
+          { glyph: "grid", label: "sample", text: "495 films, hand-sampled across ten decades.", note: "/4 to 20 percent of a decade, leaning toward well-known titles" },
+          { glyph: "cards", label: "tag", text: "each villain by archetype, and by whether the threat was personal or systemic." },
+          { glyph: "layers", label: "weight", text: "column width is set by how many films a decade actually made, not by how many i sampled." },
+          { glyph: "graph", label: "draw", text: "band height is each archetype's share of its decade.", note: "/thinly-sourced decades wear a ▲" },
+        ],
+      },
+      {
         kind: "decisions",
         items: [
           {
@@ -401,6 +443,22 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/lipi/system.png", alt: "the results view grouping issues by the component behind them" },
         fit: "cover",
         caption: "the result view refuses a flat bug list. it names the component behind the failures: one update improves six screens.",
+      },
+      {
+        kind: "turn",
+        tried: "the first version only analysed text already sitting on the canvas.",
+        result: "it found nothing. there is no break to detect until somebody has localized the screen by hand, which is the work you were trying to avoid in the first place.",
+        change: "the plugin generates the translated screens itself, off to the side, and measures the growth. it has to cause the break before it can point at the cause.",
+      },
+      {
+        kind: "pipeline",
+        label: "four steps",
+        steps: [
+          { glyph: "scan", label: "select", text: "point it at the english frames you care about." },
+          { glyph: "layers", label: "generate", text: "a clone is translated into hindi or tamil and re-measured.", note: "/never writes to your file" },
+          { glyph: "cards", label: "preview", text: "the localized version lays over the original; reveal draws the measurements." },
+          { glyph: "archive", label: "export", text: "the only permanent write in the whole tool." },
+        ],
       },
       {
         kind: "decisions",
@@ -630,6 +688,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "one day's artifact. the colours are not decoration; they are read from the recording.",
       },
       {
+        kind: "pipeline",
+        label: "one day, one recording",
+        steps: [
+          { glyph: "wave", label: "record", text: "about thirty seconds, once a day.", note: "/the button spends itself after a single take and rests until tomorrow" },
+          { glyph: "scan", label: "read", text: "loudness, instability and warmth are measured off the recording." },
+          { glyph: "layers", label: "artifact", text: "those three readings resolve to a two-colour gradient.", note: "/the same soundscape always resolves to the same artifact" },
+          { glyph: "grid", label: "calendar", text: "the day takes its place in the month, and the days you missed stay visible." },
+        ],
+      },
+      {
         kind: "decisions",
         items: [
           {
@@ -720,6 +788,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "contain",
         frame: true,
         caption: "the official water metro map, reused as the stage. the route geometry drawn over it is hand-traced so the ferry never crosses land.",
+      },
+      {
+        kind: "pipeline",
+        label: "a journey, end to end",
+        steps: [
+          { glyph: "map", label: "choose", text: "a boarding terminal and a destination. then you put the phone down." },
+          { glyph: "wave", label: "sail", text: "the ferry follows the real water channels; status cycles from boarding to arrived." },
+          { glyph: "cards", label: "stories", text: "photos and stories surface as each place passes, in either language." },
+          { glyph: "archive", label: "offline", text: "map, photos, fonts and narration are all cached up front.", note: "/zero external requests. the malayalam font is bundled" },
+        ],
       },
       {
         kind: "decisions",
