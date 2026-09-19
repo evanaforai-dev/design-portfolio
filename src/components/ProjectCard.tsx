@@ -14,7 +14,8 @@ const PULL = 14;
  * hairline borders belong to ProjectGrid). No card, border, shadow, or rounded
  * corners.
  *
- * Structure: the square image well, then a caption plate beneath it carrying
+ * Structure: the image well takes whatever height the grid gives the cell,
+ * then a caption plate of fixed height beneath it carrying
  * the name and the full tag list, both always readable.
  *
  * MAGNETIC PULL — the artwork leans toward the pointer and eases back when it
@@ -88,8 +89,11 @@ export function ProjectCard({ project }: { project: Project }) {
     };
   }, []);
 
+  // Invisible until the pointer arrives: nothing at rest, then a heavy
+  // bracket. Thickness is constant so only opacity and size animate, which
+  // keeps the stroke crisp instead of easing through fractional widths.
   const corner =
-    "pointer-events-none absolute z-10 h-3.5 w-3.5 border-hairline transition-all duration-300 ease-editorial group-hover:h-5 group-hover:w-5 group-hover:border-fg group-focus-visible:h-5 group-focus-visible:w-5 group-focus-visible:border-fg";
+    "pointer-events-none absolute z-10 h-4 w-4 border-[3px] border-fg opacity-0 transition-all duration-300 ease-editorial group-hover:h-6 group-hover:w-6 group-hover:opacity-100 group-focus-visible:h-6 group-focus-visible:w-6 group-focus-visible:opacity-100";
 
   return (
     <Link
@@ -98,16 +102,16 @@ export function ProjectCard({ project }: { project: Project }) {
       aria-label={label}
       onPointerEnter={() => animated && !reduceMotion && setLive(true)}
       onPointerLeave={() => setLive(false)}
-      className="group relative block h-full w-full"
+      className="group relative flex h-full w-full flex-col"
     >
       {/* corner brackets — the cell's construction, asserted under the pointer */}
-      <span aria-hidden className={`${corner} left-0 top-0 border-l border-t group-hover:border-l-2 group-hover:border-t-2`} />
-      <span aria-hidden className={`${corner} right-0 top-0 border-r border-t group-hover:border-r-2 group-hover:border-t-2`} />
-      <span aria-hidden className={`${corner} bottom-0 left-0 border-b border-l group-hover:border-b-2 group-hover:border-l-2`} />
-      <span aria-hidden className={`${corner} bottom-0 right-0 border-b border-r group-hover:border-b-2 group-hover:border-r-2`} />
+      <span aria-hidden className={`${corner} left-0 top-0 border-b-0 border-r-0`} />
+      <span aria-hidden className={`${corner} right-0 top-0 border-b-0 border-l-0`} />
+      <span aria-hidden className={`${corner} bottom-0 left-0 border-r-0 border-t-0`} />
+      <span aria-hidden className={`${corner} bottom-0 right-0 border-l-0 border-t-0`} />
 
       {/* image well — the artwork leans toward the pointer inside it */}
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative min-h-0 flex-1 overflow-hidden">
         <div
           ref={pullRef}
           className={`h-full w-full transition-transform duration-500 ease-editorial ${pad}`}
@@ -135,7 +139,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* caption plate — name then the full tag list, always visible. */}
-      <div className="flex h-20 flex-col justify-center gap-1 border-t border-hairline px-4 md:px-5">
+      <div className="flex h-20 shrink-0 flex-col justify-center gap-1 border-t border-hairline px-4 md:px-5">
         <span className="truncate text-sm font-medium text-[#FC0FC0]">
           {project.title}
         </span>
