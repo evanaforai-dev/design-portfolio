@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- Wells Fargo · the only honest image under an NDA: the architecture, not
+       the screens. Nine pages of the retail-services microsite consolidated
+       into four, which is the work the confidential comps can't show. -->
+  <style>
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
+    .q { opacity: .45; }
+  </style>
+  <rect width="1000" height="1000" fill="#E7E5DF"/>
+  <g class="m">
+    <text x="112" y="180" font-size="19" letter-spacing="2.5" class="q">INFORMATION ARCHITECTURE</text>
+  </g>
+  <!-- before: nine pages -->
+  <g fill="none" stroke="#16171A" stroke-width="2" opacity=".5">
+    <rect x="112" y="300" width="96" height="124"/><rect x="224" y="300" width="96" height="124"/><rect x="336" y="300" width="96" height="124"/>
+    <rect x="112" y="440" width="96" height="124"/><rect x="224" y="440" width="96" height="124"/><rect x="336" y="440" width="96" height="124"/>
+    <rect x="112" y="580" width="96" height="124"/><rect x="224" y="580" width="96" height="124"/><rect x="336" y="580" width="96" height="124"/>
+  </g>
+  <g class="m">
+    <text x="112" y="266" font-size="16" letter-spacing="2" class="q">BEFORE</text>
+    <text x="432" y="266" font-size="16" letter-spacing="2" text-anchor="end">9 PAGES</text>
+  </g>
+  <!-- the move -->
+  <g stroke="#16171A" stroke-width="2.5" fill="none">
+    <line x1="470" y1="502" x2="546" y2="502"/>
+    <path d="M534 490 L548 502 L534 514"/>
+  </g>
+  <!-- after: four -->
+  <g fill="none" stroke="#16171A" stroke-width="2.5">
+    <rect x="588" y="370" width="140" height="124"/><rect x="748" y="370" width="140" height="124"/>
+    <rect x="588" y="510" width="140" height="124"/><rect x="748" y="510" width="140" height="124"/>
+  </g>
+  <rect x="588" y="370" width="140" height="124" fill="#DE723B" opacity=".22"/>
+  <g class="m">
+    <text x="588" y="266" font-size="16" letter-spacing="2" class="q">AFTER</text>
+    <text x="888" y="266" font-size="16" letter-spacing="2" text-anchor="end">4 PAGES</text>
+    <line x1="112" y1="768" x2="888" y2="768" stroke="#16171A" stroke-width="1.5" opacity=".3"/>
+    <text x="112" y="812" font-size="17" letter-spacing="1.5">OVER 50% LESS STRUCTURAL COMPLEXITY</text>
+    <text x="112" y="864" font-size="16" letter-spacing="1.5" class="q">DESIGNS UNDER NDA · STRUCTURE SHOWN</text>
+  </g>
+</svg>

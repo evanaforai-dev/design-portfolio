@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: "kochi1app",
     tags: ["service design", "ux research", "mobility"],
     category: "work",
-    cover: "/covers/kochi1app.jpg",
+    cover: "/covers/obj-kochi1app.svg",
     year: "2024",
     summary:
       "a service-design redesign of kochi's official transit app: plan a trip by intention, nudge greener journeys, and design the first and last mile.",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     title: "wells fargo",
     tags: ["product design", "design systems", "financial services"],
     category: "work",
-    cover: "/covers/wells-fargo.jpg",
+    cover: "/covers/obj-wells-fargo.svg",
     year: "2025",
     summary:
       "migrating legacy financial products onto wells fargo's responsive public-site design system: policy-compliant, mobile-first, conversion-focused.",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: "airtribe learn",
     tags: ["product design", "ai", "learning design"],
     category: "work",
-    cover: "/covers/airtribe-learn.png",
+    cover: "/covers/obj-airtribe-learn.svg",
     year: "2026",
     summary:
       "an ai tutor that runs a short intake, then writes you a structured, cited lesson with a concept map that builds as you learn.",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
     // case-study hero image, filled (cover)
-    cover: "/case/villains/streamgraph.svg",
+    cover: "/covers/obj-villains.svg",
     year: "2026",
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     title: "kochi water metro",
     tags: ["product design", "systems thinking", "information design"],
     category: "playground",
-    cover: "/covers/kochi.jpg",
+    cover: "/covers/obj-kochi-water-metro.svg",
     year: "2026",
     summary:
       "an offline-first pwa: the official interactive map plus a bilingual, location-aware storytelling layer.",

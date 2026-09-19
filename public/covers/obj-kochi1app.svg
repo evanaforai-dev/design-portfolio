@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <!-- kochi1app · a journey planned by intention rather than by destination.
+       The chips are the real intention set; the green card carries the carbon
+       target the redesign proposed. -->
+  <style>
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
+    .q { opacity: .45; }
+  </style>
+  <rect width="1000" height="1000" fill="#E7E5DF"/>
+  <g transform="rotate(-2.5 500 500)">
+    <rect x="196" y="158" width="608" height="684" fill="#F7F5EF"/>
+    <rect x="196" y="158" width="608" height="684" fill="none" stroke="#16171A" stroke-width="2"/>
+    <g class="m">
+      <text x="236" y="222" font-size="16" letter-spacing="2.5" class="q">KOCHI1APP</text>
+      <text x="236" y="272" font-size="30" font-weight="700" letter-spacing=".5">PLAN BY</text>
+      <text x="236" y="310" font-size="30" font-weight="700" letter-spacing=".5">INTENTION</text>
+
+      <!-- the intentions, as selectable chips; one is taken -->
+      <rect x="236" y="352" width="168" height="46" fill="#16171A"/>
+      <text x="320" y="382" font-size="17" text-anchor="middle" fill="#F7F5EF">SCENIC</text>
+      <rect x="418" y="352" width="176" height="46" fill="none" stroke="#16171A" stroke-width="2"/>
+      <text x="506" y="382" font-size="17" text-anchor="middle">CULTURAL</text>
+      <rect x="608" y="352" width="124" height="46" fill="none" stroke="#16171A" stroke-width="2"/>
+      <text x="670" y="382" font-size="17" text-anchor="middle">FOOD</text>
+      <rect x="236" y="412" width="212" height="46" fill="none" stroke="#16171A" stroke-width="2"/>
+      <text x="342" y="442" font-size="17" text-anchor="middle">HALF A DAY</text>
+      <rect x="462" y="412" width="270" height="46" fill="none" stroke="#16171A" stroke-width="2"/>
+      <text x="597" y="442" font-size="17" text-anchor="middle">HOME BY DINNER</text>
+
+      <line x1="236" y1="508" x2="764" y2="508" stroke="#16171A" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+
+      <!-- the leg the old app dropped: the transfer and the walk -->
+      <text x="236" y="548" font-size="15" letter-spacing="2" class="q">THE TRIP</text>
+      <circle cx="248" cy="600" r="8" fill="#16171A"/>
+      <line x1="256" y1="600" x2="386" y2="600" stroke="#16171A" stroke-width="2.5"/>
+      <rect x="386" y="588" width="24" height="24" fill="none" stroke="#16171A" stroke-width="2.5"/>
+      <line x1="410" y1="600" x2="540" y2="600" stroke="#16171A" stroke-width="2.5" stroke-dasharray="5 5"/>
+      <rect x="540" y="588" width="24" height="24" fill="none" stroke="#16171A" stroke-width="2.5"/>
+      <line x1="564" y1="600" x2="694" y2="600" stroke="#16171A" stroke-width="2.5"/>
+      <circle cx="702" cy="600" r="8" fill="none" stroke="#16171A" stroke-width="2.5"/>
+      <text x="248" y="642" font-size="14" letter-spacing="1" class="q">METRO</text>
+      <text x="398" y="642" font-size="14" letter-spacing="1" text-anchor="middle" class="q">TRANSFER</text>
+      <text x="552" y="642" font-size="14" letter-spacing="1" text-anchor="middle" class="q">WALK</text>
+      <text x="702" y="642" font-size="14" letter-spacing="1" text-anchor="end" class="q">AUTO</text>
+
+      <line x1="236" y1="690" x2="764" y2="690" stroke="#16171A" stroke-width="1.5" stroke-dasharray="3 5" opacity=".45"/>
+
+      <!-- the green card -->
+      <text x="236" y="732" font-size="15" letter-spacing="2" class="q">CARBON SAVED</text>
+      <text x="236" y="788" font-size="34" font-weight="700" letter-spacing=".5">3 TREES</text>
+      <circle cx="736" cy="772" r="11" fill="#5C7A55"/>
+      <text x="712" y="778" font-size="15" letter-spacing="1.5" text-anchor="end" class="q">THIS MONTH</text>
+    </g>
+  </g>
+</svg>
