@@ -5,7 +5,6 @@ import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { PageTransition } from "@/components/PageTransition";
 import { RouteCurtain } from "@/components/RouteCurtain";
 import { site } from "@/data/site";
 
@@ -49,7 +48,7 @@ export default function RootLayout({
           <SmoothScroll />
           <Nav />
           <main className="pt-24 md:pt-28">
-            <PageTransition>{children}</PageTransition>
+            {children}
           </main>
           <Footer />
           <RouteCurtain />

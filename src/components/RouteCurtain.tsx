@@ -1,87 +1,110 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
-import { motion, useAnimationControls, useReducedMotion } from "framer-motion";
 
-const EASE = [0.76, 0, 0.24, 1] as const; // symmetrical: the sweep has no tail
 const PANELS = 6;
-const STAGGER = 0.025;
-const COVER = 0.28;
-const REVEAL = 0.32;
-/** When the view underneath is fully hidden — cover plus the last panel's delay. */
-export const COVERED_AT = COVER + STAGGER * (PANELS - 1);
+const STAGGER = 25;
+const COVER = 280;
+const EASE = "cubic-bezier(0.76, 0, 0.24, 1)";
 
 /**
  * Page transition — the grid performs it.
  *
- * Six columns sweep down across the view, hold it while the route swaps, then
- * keep sweeping down and off. The panels are the page's own background with a
- * hairline on their trailing edge, so what you watch is the grid's column rule
- * travelling over the content: the view is erased column by column and redrawn
- * the same way. No colour is introduced and the motion never reverses.
+ * Six columns sweep down over the view, and the navigation happens underneath
+ * them. The panels are the page's own background carrying a hairline on their
+ * trailing edge, so what you watch is the grid's column rule travelling across
+ * the content: the view is erased column by column and redrawn the same way.
+ * No colour is introduced and the motion never reverses.
  *
- * WHY AN EXPLICIT SEQUENCE. The obvious build — panels inside AnimatePresence
- * with an `exit` prop — silently does nothing: framer propagates animation
- * state to nested motion components through variants, not through exit props,
- * so the panels never animate and the route simply swaps. Driving them with
- * animation controls removes the guesswork: cover, then reveal, then a
- * teleport back above the fold while they are off-screen and unseen.
+ * It spans a document boundary. This site cannot route client-side — Next asks
+ * for the RSC payload at the route URL behind an `RSC` header, a static host
+ * cannot vary on a header, so it returns HTML and Next hard-navigates. Rather
+ * than fight that, the transition is built for it: this component covers the
+ * screen and *then* sets location, and the incoming document reveals itself
+ * from a CSS animation (see globals.css) that needs no script to finish.
  *
- * Sits at z-40, under the fixed nav at z-50, so the chrome stays put while the
- * content changes beneath it. Skipped entirely under reduced motion, and never
- * runs on first load — landing on the site should not cost you a wipe.
+ * Degradations are all in the safe direction. If this component never mounts,
+ * the CSS still reveals the page and links navigate normally — just without
+ * the cover half. Under reduced motion the panels start off-screen and no
+ * click is ever intercepted.
  */
 export function RouteCurtain() {
-  const pathname = usePathname();
-  const controls = useAnimationControls();
-  const reduceMotion = useReducedMotion();
-  const first = useRef(true);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (reduceMotion) return;
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    let cancelled = false;
-    (async () => {
-      await controls.start((i: number) => ({
-        y: "0%",
-        transition: { duration: COVER, ease: EASE, delay: i * STAGGER },
-      }));
-      if (cancelled) return;
-      await controls.start((i: number) => ({
-        y: "100%",
-        transition: { duration: REVEAL, ease: EASE, delay: i * STAGGER },
-      }));
-      if (cancelled) return;
-      // Re-arm above the fold. Off-screen, so the jump is never seen.
-      controls.set({ y: "-100%" });
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [pathname, controls, reduceMotion]);
+    const root = ref.current;
+    if (!root) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  if (reduceMotion) return null;
+    const panels = Array.from(
+      root.querySelectorAll<HTMLElement>(".route-curtain__panel"),
+    );
+
+    // Park the panels above the fold once the reveal has played, ready to come
+    // back down. They are off-screen either way, so the jump is never seen.
+    const park = () => {
+      panels.forEach((p) => {
+        p.style.animation = "none";
+        p.style.transform = "translateY(-100%)";
+      });
+    };
+    const last = panels[panels.length - 1];
+    last?.addEventListener("animationend", park, { once: true });
+    // A restored bfcache page has already finished its animation.
+    const armed = window.setTimeout(park, 900);
+
+    let leaving = false;
+
+    const onClick = (e: MouseEvent) => {
+      if (leaving || e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      const a = (e.target as Element | null)?.closest?.("a");
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href || a.hasAttribute("download")) return;
+      if (a.target && a.target !== "_self") return;
+
+      const url = new URL(a.href, window.location.href);
+      if (url.origin !== window.location.origin) return;         // external
+      if (url.pathname === window.location.pathname) return;      // same page / hash
+
+      e.preventDefault();
+      leaving = true;
+
+      const anims = panels.map((p, i) =>
+        p.animate(
+          [{ transform: "translateY(-100%)" }, { transform: "translateY(0)" }],
+          { duration: COVER, delay: i * STAGGER, easing: EASE, fill: "forwards" },
+        ),
+      );
+      const done = Promise.all(
+        anims.map((a2) => a2.finished.catch(() => undefined)),
+      );
+      // Never strand the click if an animation is interrupted.
+      const guard = new Promise((r) =>
+        setTimeout(r, COVER + STAGGER * PANELS + 120),
+      );
+      Promise.race([done, guard]).then(() => {
+        window.location.href = url.href;
+      });
+    };
+
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.clearTimeout(armed);
+      last?.removeEventListener("animationend", park);
+    };
+  }, []);
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-40 flex"
-      style={{ contain: "strict" }}
-    >
+    <div ref={ref} aria-hidden className="route-curtain">
       {Array.from({ length: PANELS }).map((_, i) => (
-        <motion.div
+        <div
           key={i}
-          custom={i}
-          animate={controls}
-          initial={{ y: "-100%" }}
-          className={`h-full flex-1 bg-bg ${
-            i < PANELS - 1 ? "border-r border-hairline" : ""
-          }`}
-          style={{ willChange: "transform" }}
+          className="route-curtain__panel"
+          style={{ animationDelay: `${i * STAGGER}ms` }}
         />
       ))}
     </div>
