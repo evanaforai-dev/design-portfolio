@@ -57,7 +57,7 @@ export const projects: Project[] = [
     tags: ["data visualization", "information design", "creative technology"],
     category: "playground",
     // case-study hero image, filled (cover)
-    cover: "/covers/obj-villains.svg",
+    cover: "/covers/villains-stream.svg",
     year: "2026",
     summary:
       "an interactive d3 streamgraph tracing bollywood villains across the decades.",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     title: "soundmap",
     tags: ["product design", "creative technology", "motion"],
     category: "playground",
-    cover: "/covers/obj-soundmap.svg",
+    cover: "/covers/soundmap-day.svg",
     year: "2026",
     summary:
       "a daily sound journal, record a moment and watch it become a visual artifact on your calendar.",
