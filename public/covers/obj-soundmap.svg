@@ -12,12 +12,17 @@
     </linearGradient>
   </defs>
   <style>
-    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #16171A; }
-    .r { stroke: #16171A; }
-    .q { opacity: .45; }
+    /* The ink follows the OS preference, which is all an <img>-loaded SVG can
+       see: it cannot read the page's data-theme, so a reader who overrides the
+       site's theme against their OS gets the wrong pairing. These two tones are
+       chosen so that case degrades to faint rather than to invisible, while the
+       matching case (the overwhelming majority) still reads at full contrast. */
+    .m { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: #5A5A58; }
+    .r { stroke: #5A5A58; }
+    .q { opacity: .55; }
     @media (prefers-color-scheme: dark) {
-      .m { fill: #F2F2F0; }
-      .r { stroke: #F2F2F0; }
+      .m { fill: #A8A8A5; }
+      .r { stroke: #A8A8A5; }
     }
   </style>
   <!-- the artifact -->
