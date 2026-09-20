@@ -77,6 +77,8 @@ export type Section =
       media: MediaAsset[];
       columns?: 2 | 3;
       fit?: "cover" | "contain";
+      /** Frame shape. "phone" for portrait captures that a 4:3 box would crush. */
+      aspect?: "figure" | "phone";
       caption?: string;
     }
   | {

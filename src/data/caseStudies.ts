@@ -33,13 +33,21 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
       links: [
         {
+          label: "practice finance, live",
+          href: "https://www.wellsfargo.com/biz/practice-finance-medical-dental-loans/",
+        },
+        {
+          label: "the contact flow, live",
+          href: "https://www.wellsfargo.com/biz/practice-finance-medical-dental-loans/contact-form/",
+        },
+        {
           label: "sustainability, live",
           href: "https://www.wellsfargo.com/about/responsibility-and-impact/sustainability/",
         },
       ],
     },
     sections: [
-      { kind: "thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and what an nda lets me show." },
+      { kind: "thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and a deadline. two of the three are live on wellsfargo.com, so you can check the result rather than take my word for it." },
       {
         kind: "context",
         paragraphs: [
@@ -52,7 +60,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/wells-fargo/before-after.jpg", alt: "practice finance before and after: fragmented pages consolidated into one conversion page" },
         fit: "contain",
         frame: true,
-        caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. (the redesigned screen is blurred under nda.)",
+        caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. the working file is blurred; the page it became is unblurred further down, because it shipped.",
       },
       {
         kind: "constraints",
@@ -62,7 +70,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { label: "legal", text: "every page went through legal review, which shaped the architecture long before it shaped a layout." },
           { label: "the existing site", text: "the plcc redesign had to fold into wf.com for tracking and seo rather than survive as a standalone microsite." },
           { label: "accessibility", text: "dense legacy charts and tables had to fit the design system across six breakpoints and pass enterprise wcag, on a speed-to-market deadline." },
-          { label: "the nda", text: "the confidential screens stay behind it. what is shown here is structure and strategy." },
+          { label: "the nda", text: "the internal work stays behind it: comps, research, the roadmap, anything unshipped. the pages that launched are public property of the open web, so those are shown here as they run today." },
         ],
       },
       {
@@ -98,12 +106,53 @@ export const caseStudies: Record<string, CaseStudy> = {
           },
         ],
       },
+      {
+        kind: "context",
+        label: "shipped, and public",
+        paragraphs: [
+          "everything below this line is a live wellsfargo.com page, captured september 2026. no redaction, because there is nothing left to redact: a page a bank publishes to the open internet is not confidential, whatever the comps behind it are.",
+          "it is worth being precise about what this proves and what it does not. it proves the work survived policy, legal review, a legacy cms and enterprise accessibility, which is the part of this job that actually kills designs. it does not prove which pixels were mine. i co-led these migrations with a line-of-business product team across the us and india.",
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-desktop.png", alt: "the live wells fargo practice finance landing page" },
+        fit: "contain",
+        frame: true,
+        caption: "practice finance, live. the six-plus page architecture arrives as one page: a single financing promise, three reasons to trust it, two entry paths (buy or start, expand or relocate), four needs, and one repeated call to action. the decommission notice it was under is the reason it looks like this.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-form-desktop.png", alt: "the live practice finance contact form" },
+        fit: "contain",
+        frame: true,
+        caption: "the simplified contact flow, live. every field that could be optional is marked optional, borrowing needs are checkboxes rather than a call, and the submit stays disabled until the form can actually be sent. a dentist between appointments is the person this was drawn for.",
+      },
+      {
+        kind: "figures",
+        media: [
+          { type: "image", src: "/case/wells-fargo/live/practice-finance-mobile.png", alt: "practice finance on a phone" },
+          { type: "image", src: "/case/wells-fargo/live/practice-finance-form-mobile.png", alt: "the contact form on a phone" },
+          { type: "image", src: "/case/wells-fargo/live/sustainability-mobile.png", alt: "the sustainability experience on a phone" },
+        ],
+        columns: 3,
+        aspect: "phone",
+        fit: "cover",
+        caption: "the same three pages at phone width. poor mobile usability was one of the two findings that put practice finance on the decommission list, so this view is the deliverable, not a demonstration of it.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/wells-fargo/live/sustainability-desktop.png", alt: "the live wells fargo sustainability web experience" },
+        fit: "contain",
+        frame: true,
+        caption: "sustainability, live: the report that used to be a pdf. the goals that were a table of figures are now a responsive card grid that reflows across six breakpoints, and the disclosure index and forward-looking statement, the two blocks legal cannot lose, sit in the reading column rather than an appendix.",
+      },
       { kind: "statement", text: "the person i kept coming back to was someone on a phone between appointments, looking for one number. that was the test i could actually apply to a page." },
       {
         kind: "outcome",
         paragraphs: [
-          "all three are shipping to wf.com through 2026, practice finance by may, the plcc pages by august, the sustainability experience already live.",
-          "the full designs stay behind a wells fargo nda; what's shown here is the structure and the strategy, not the confidential screens.",
+          "all three shipped to wf.com through 2026. practice finance and its contact flow are live and linked above, the sustainability experience replaced the pdf outright, and the plcc pages followed in august.",
+          "the internal material stays behind a wells fargo nda, so the comps, the research and the roadmap are described here rather than shown. the live pages are public, and are shown as they run.",
         ],
       },
       { kind: "reflection", text: "most of the work that mattered happened before anything looked like a screen: cutting scope with the product team, getting legal and engineering to agree on what was possible. by the time i was moving things around a page, the difficult calls had already been made." },

@@ -438,7 +438,9 @@ export function renderSection(section: Section, i: number) {
                 {section.media.map((m, j) => (
                   <div
                     key={j}
-                    className="aspect-[4/3] w-full overflow-hidden border border-hairline"
+                    className={`w-full overflow-hidden border border-hairline ${
+                      section.aspect === "phone" ? "aspect-[9/16]" : "aspect-[4/3]"
+                    }`}
                   >
                     <Media
                       asset={m}
