@@ -326,6 +326,174 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
 
   // ───────────────────────────────────────────── a century of villains ──
+  // ──────────────────────────────────────────────────────── airtribe ai skills ──
+  "airtribe-ai-skills": {
+    slug: "airtribe-ai-skills",
+    hero: {
+      kicker: "ai systems · airtribe",
+      title: "airtribe ai skills",
+      subtitle:
+        "two skills built at airtribe. one is used by the team that writes the learning material, one by the learner reading it. in both, the design work is the constraint the author writes inside.",
+      media: {
+        type: "image",
+        src: "/case/airtribe-ai-skills/board-detail.png",
+        alt: "component exploration on the research board: the same patterns worked out in light and dark",
+      },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      meta: [
+        { label: "role", value: "TODO · your role across the two" },
+        { label: "company", value: "airtribe" },
+        { label: "surfaces", value: "pre-reads, cohort live and xavier's" },
+        { label: "year", value: "2026" },
+      ],
+      links: [
+        { label: "kai, live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+        { label: "the full kai case", href: "/work/airtribe-learn/" },
+      ],
+    },
+    sections: [
+      { kind: "thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two. one is used by the learning designers who write the material paid learners get; one is used by the learner. they are separate products and they are not versions of each other. what they share is where the design work sits: not in a screen, but in deciding what the author is free to change and what they are never allowed to touch." },
+      {
+        kind: "context",
+        paragraphs: [
+          "the two have opposite pressures. inside, the author is a colleague writing for a catalogue, so the risk is drift: fifty lessons that each look slightly like their author. outside, the author is a stranger writing for one reader, so the risk is trust: a lesson that sounds confident and cannot show where anything came from.",
+          "the guardrail is doing a different job in each. that is the whole reason they sit on one page.",
+        ],
+      },
+
+      // ── 01 · internal ────────────────────────────────────────────────────
+      {
+        kind: "context",
+        label: "01 · the internal skill · pre-reads",
+        paragraphs: [
+          "a pre-read is what a learner gets before a live session. the lxd team took up the problem that they were walls of text, and wanted them genuinely interactive instead.",
+          "the catch is who writes them. pre-reads are authored by learning designers, not visual designers, and across a growing catalogue the output drifted: mismatched colours, off-brand type, components that behaved differently lesson to lesson.",
+        ],
+      },
+      {
+        kind: "question",
+        text: "how do you hand ten to fifteen people the freedom to build anything a lesson needs, and still recognise the product at the end of it?",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-ai-skills/board.png", alt: "the research board, roughly 20,000 by 22,000 pixels, clustered into problem framing, audit, reference scan and component exploration" },
+        fit: "contain",
+        frame: true,
+        caption: "the working board, roughly 20,000 by 22,000 px. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
+      },
+      {
+        kind: "pipeline",
+        label: "how the board got there",
+        steps: [
+          { glyph: "map", label: "frame", text: "what a pre-read is for, and where interactivity actually helps someone prepare." },
+          { glyph: "scan", label: "audit", text: "shipped pre-reads pulled side by side, to find where consistency broke and how." },
+          { glyph: "archive", label: "scan", text: "references and patterns for interactive learning content, light and dark." },
+          { glyph: "converge", label: "synthesise", text: "every recurring piece clustered into a small set of reusable component families.", note: "eight families, which is the number the catalogue actually needed rather than a round one" },
+        ],
+      },
+      {
+        kind: "statement",
+        text: "don't choose between freedom and consistency. make the brand inherited by construction, so the only thing left to design is the teaching.",
+      },
+      {
+        kind: "system",
+        label: "what the skill fixes",
+        paragraphs: [
+          "airtribe tokens map onto shadcn/ui, so every primitive renders on-brand with no per-component colour work. for the bespoke pieces a lesson needs, eight archetype families give each one a treatment, which means a component invented today still inherits the brand.",
+        ],
+        colors: [
+          { hex: "#683FBE", name: "purple, the single accent" },
+          { hex: "#2563EB", name: "blue, info" },
+          { hex: "#12875A", name: "green, correct" },
+          { hex: "#DC2626", name: "red, wrong" },
+          { hex: "#CA8A04", name: "yellow, warning" },
+        ],
+        type: [
+          { name: "display", value: "plus jakarta sans" },
+          { name: "body", value: "inter" },
+          { name: "data", value: "jetbrains mono, real code only" },
+        ],
+        metrics: [
+          { label: "component families", value: "8" },
+          { label: "themes", value: "2, light and dark" },
+          { label: "authors enabled", value: "10 to 15" },
+        ],
+        note: "colour only ever means state. dark mode is derived through the same tokens rather than flipped, so the accent lightens instead of inverting.",
+      },
+      {
+        kind: "constraints",
+        label: "the guardrails, deliberately narrow",
+        items: [
+          { label: "one accent", text: "purple is the only brand colour. never indigo, never another purple." },
+          { label: "cool neutrals", text: "cool grey on pure white. no cream, no warm greys." },
+          { label: "two typefaces", text: "plus jakarta sans and inter, with mono reserved for real code." },
+          { label: "every state", text: "an interactive element defines all of its states or it does not ship." },
+          { label: "what stays free", text: "structure, sections, which components a concept needs, and the pedagogy. the skill governs how a pre-read looks and nothing else, which is the line that makes authors trust it." },
+        ],
+      },
+
+      // ── 02 · consumer ────────────────────────────────────────────────────
+      {
+        kind: "context",
+        label: "02 · the consumer skill · kai",
+        paragraphs: [
+          "you give kai a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go. it writes a full lesson tuned to those answers, and opens by naming what you already know so it starts where you are.",
+          "the lesson is only the centre of it. a concept map draws what you are learning and how the ideas connect, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+        ],
+      },
+      {
+        kind: "pipeline",
+        label: "how a lesson gets made",
+        steps: [
+          { glyph: "input", label: "topic", text: "you give kai something you have been wondering about." },
+          { glyph: "cards", label: "intake", text: "four questions: purpose, background, prior knowledge, depth.", note: "asked once, up front. personalising afterwards writes the lesson for no one" },
+          { glyph: "layers", label: "lesson", text: "a hook, a worked example, the misconception, a quick check, a reflection." },
+          { glyph: "graph", label: "map", text: "the concepts and their links, drawn as you read." },
+          { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
+        ],
+      },
+      {
+        kind: "decisions",
+        items: [
+          {
+            n: "01",
+            title: "ask four questions, then commit",
+            why: "personalising after the fact, a ‘simplify this’ button, comes too late; the lesson is already written for no one.",
+            tradeoff: "four questions is four screens before anyone has read a single word.",
+            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
+            fit: "cover",
+          },
+          {
+            n: "02",
+            title: "cite sources, not vibes",
+            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
+            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
+            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
+            fit: "cover",
+          },
+        ],
+      },
+      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
+
+      // ── close ────────────────────────────────────────────────────────────
+      {
+        kind: "outcome",
+        paragraphs: [
+          "the pre-read skill carries the catalogue today: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners. those are scope figures, what the system covers, not outcome claims.",
+          "what it did to the work is the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether lxd authors say they can ship on-brand without design support.",
+          "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end.",
+        ],
+      },
+      {
+        kind: "reflection",
+        text: "TODO · one paragraph that spans both, in your voice. the strongest version names what is still wrong. a candidate, if it is true: writing rules for a person and writing rules for a model turned out to be the same job, except the model actually follows them, which makes a sloppy rule visible immediately.",
+      },
+    ],
+  },
+
   "a-century-of-villains": {
     slug: "a-century-of-villains",
     hero: {

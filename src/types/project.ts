@@ -78,6 +78,13 @@ export interface Project {
   summary: string;
 
   /**
+   * Keep the project's data and its /work/<slug>/ route, but leave it off the
+   * home grid. For work that is covered by another tile and would otherwise
+   * give one product two front doors.
+   */
+  unlisted?: boolean;
+
+  /**
    * Where the grid cell links to — a live deployment or repo URL. If omitted,
    * the cell is non-clickable and only reveals its label on hover.
    */

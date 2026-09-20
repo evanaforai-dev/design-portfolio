@@ -32,7 +32,7 @@ import { ProjectCard } from "./ProjectCard";
 const LAYOUT: string[] = [
   "kochi1app",
   "wells-fargo",
-  "airtribe-learn",
+  "airtribe-ai-skills",
   "a-century-of-villains",
   "lipi",
   "deep-cuts",
@@ -40,10 +40,12 @@ const LAYOUT: string[] = [
   "kochi-water-metro",
 ];
 
-const bySlug = new Map(projects.map((p) => [p.slug, p]));
+// `unlisted` projects keep their route and drop off the grid.
+const VISIBLE = projects.filter((p) => !p.unlisted);
+const bySlug = new Map(VISIBLE.map((p) => [p.slug, p]));
 const ORDERED = [
   ...LAYOUT.map((s) => bySlug.get(s)).filter((p): p is NonNullable<typeof p> => !!p),
-  ...projects.filter((p) => !LAYOUT.includes(p.slug)),
+  ...VISIBLE.filter((p) => !LAYOUT.includes(p.slug)),
 ];
 
 /** Caption plate height (h-20) — fixed, so it is subtracted before solving. */

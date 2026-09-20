@@ -41,16 +41,34 @@ export const projects: Project[] = [
     display: { fit: "contain" },
   },
   {
+    slug: "airtribe-ai-skills",
+    title: "airtribe ai skills",
+    tags: ["ai tooling", "design systems", "learning design"],
+    category: "work",
+    // TODO · placeholder. this is kai's landing shot, so it under-represents the
+    // internal half. a diptych (the research board | the lesson) would carry both.
+    cover: "/covers/airtribe-learn.png",
+    year: "2026",
+    summary:
+      "two skills: a design language the lxd team writes inside so the catalogue stays on-brand, and a tutor that writes a cited lesson for one reader.",
+    link: "https://willowy-blancmange-6a230b.netlify.app/",
+    // product landing shot (light ui), filled full-bleed.
+    display: { fit: "cover" },
+  },
+  {
+    // Kai's standalone case study. Kept live at /work/airtribe-learn/ and linked
+    // from the combined page, but off the grid: two front doors to one product
+    // makes the grid say the same thing twice.
     slug: "airtribe-learn",
     title: "airtribe learn",
     tags: ["product design", "ai", "learning design"],
     category: "work",
+    unlisted: true,
     cover: "/covers/airtribe-learn.png",
     year: "2026",
     summary:
       "an ai tutor that runs a short intake, then writes you a structured, cited lesson with a concept map that builds as you learn.",
     link: "https://willowy-blancmange-6a230b.netlify.app/",
-    // product landing shot (light ui), filled full-bleed.
     display: { fit: "cover" },
   },
   {

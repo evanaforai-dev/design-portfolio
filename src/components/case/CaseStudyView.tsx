@@ -70,17 +70,29 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
 
         {hero.links && hero.links.length > 0 && (
           <div className="mt-8 flex flex-wrap gap-6">
-            {hero.links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
-                className="text-sm text-fg underline-offset-4 hover:underline"
-              >
-                {l.label} ↗
-              </a>
-            ))}
+            {hero.links.map((l) => {
+              // An internal href is a route on this site: send it through Link
+              // so it picks up the basePath. A raw <a> would resolve against
+              // the domain root and 404 on a project-path host.
+              const external = l.href.startsWith("http");
+              const className =
+                "text-sm text-fg underline-offset-4 hover:underline";
+              return external ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={className}
+                >
+                  {l.label} ↗
+                </a>
+              ) : (
+                <Link key={l.href} href={l.href} className={className}>
+                  {l.label} →
+                </Link>
+              );
+            })}
           </div>
         )}
       </Container>
