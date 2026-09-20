@@ -632,11 +632,15 @@ export function renderSection(section: Section, i: number) {
             />
             {section.overlay && (
               <div
-                className={`pointer-events-none absolute inset-x-0 px-6 py-10 md:px-10 md:py-14 ${
-                  section.overlay.anchor === "bottom" ? "bottom-0" : "top-0"
-                }`}
+                className={
+                  section.overlay.placement === "below"
+                    ? "px-6 pb-14 pt-8 md:px-10 md:pb-20 md:pt-10"
+                    : `pointer-events-none absolute inset-x-0 px-6 py-10 md:px-10 md:py-14 ${
+                        section.overlay.anchor === "bottom" ? "bottom-0" : "top-0"
+                      }`
+                }
               >
-                <div className="max-w-md">
+                <div className={section.overlay.placement === "below" ? "max-w-3xl" : "max-w-md"}>
                   {section.overlay.label && (
                     <p className="mono-label mb-4 text-base md:text-lg">
                       {section.overlay.label}
@@ -717,7 +721,10 @@ export function renderSection(section: Section, i: number) {
             className="w-full px-6 py-20 md:px-10 md:py-32"
             style={
               inv
-                ? { backgroundColor: "#f4f4f4", color: "#0a0a0a" }
+                ? {
+                    backgroundColor: section.bg ?? "#f4f4f4",
+                    color: section.fg ?? "#0a0a0a",
+                  }
                 : undefined
             }
           >

@@ -738,19 +738,21 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "a-century-of-villains": {
     slug: "a-century-of-villains",
+    // The piece runs on near-black; the page runs on it too.
+    theme: { bg: "#050507", fg: "#EDEDED", hairline: "rgba(237,237,237,0.18)" },
     hero: {
       kicker: "data visualization · self-initiated",
       title: "a century of villains",
       subtitle:
         "an interactive streamgraph tracing how the hindi-cinema villain changed shape across ninety years.",
-      media: { type: "image", src: "/case/villains/streamgraph.svg", alt: "the streamgraph of villain archetypes from the 1930s to the 2020s" },
-      mediaFit: "contain",
+      media: { type: "image", src: "/case/villains/launch/piece-wide.png", alt: "the streamgraph of villain archetypes from the 1930s to the 2020s" },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      mode: "launch",
       meta: [
-        { label: "role", value: "design + build" },
-        { label: "type", value: "data storytelling" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "live" },
-        { label: "stack", value: "react · typescript · d3" },
+        { label: "clients", value: "self-initiated" },
+        { label: "service", value: "data storytelling · build" },
+        { label: "date", value: "2026" },
       ],
       links: [
         { label: "live piece", href: "https://villain2.vercel.app" },
@@ -758,67 +760,109 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
           "the bollywood villain is usually argued about one film at a time. i wanted the long view: not who the villains were, but what kind of threat each decade cast as the enemy.",
-          "so i hand-sampled 495 films across ten decades and tagged each villain by archetype and by whether the threat was personal or systemic. in the streamgraph above, column width is how many films a decade actually made, band height is each archetype's share, and thinly-sourced decades wear a ▲.",
+          "so i hand-sampled 495 films across ten decades and tagged each villain by archetype, and by whether the threat was personal or systemic.",
+          "column width is how many films a decade actually made, band height is each archetype's share, and thinly-sourced decades wear a triangle.",
+        ],
+        creditsLabel: "credits",
+        credits: [
+          { role: "research, sampling, tagging, design, build", name: "evana sajan" },
+          { role: "stack", name: "react · typescript · d3" },
+          { role: "sample", name: "495 films, ten decades" },
+          { role: "status", name: "live" },
         ],
       },
       {
-        kind: "pipeline",
-        label: "how the chart was built",
-        steps: [
-          { glyph: "grid", label: "sample", text: "495 films, hand-sampled across ten decades.", note: "/4 to 20 percent of a decade, leaning toward well-known titles" },
-          { glyph: "cards", label: "tag", text: "each villain by archetype, and by whether the threat was personal or systemic." },
-          { glyph: "layers", label: "weight", text: "column width is set by how many films a decade actually made, not by how many i sampled." },
-          { glyph: "graph", label: "draw", text: "band height is each archetype's share of its decade.", note: "/thinly-sourced decades wear a ▲" },
-        ],
+        kind: "detail",
+        media: { type: "image", src: "/case/villains/launch/piece-mobile.png", alt: "the piece at phone width" },
+        fit: "contain",
+        side: "right",
+        title: "product thesis",
+        text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape.",
       },
       {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "encode the doubt into the chart itself",
-            why: "the sample covers only 4 to 20 percent of films in a given decade and leans toward well-known titles.",
-            tradeoff: "a thinly-sourced decade cannot be allowed to look as certain as a well-covered one.",
-            result: "column width is tied to how many films a decade actually made, sparse decades wear a warning glyph, and the copy keeps repeating that this is a shape of the trend, not a count.",
-          },
-          {
-            n: "02",
-            title: "let colour carry the argument",
-            why: "the whole thesis is a drift from intimate evil to systemic evil.",
-            tradeoff: "thirteen archetypes is a lot of hues to keep legible on black.",
-            result: "warm reds and ambers for personal crimes, cool blues and teals for systemic ones, so the palette itself moves warm to cool as the century turns.",
-          },
-          {
-            n: "03",
-            title: "give every decade two voices",
-            why: "a chart states a fact; it rarely makes you feel one.",
-            tradeoff: "twice the copy to write and keep honest.",
-            result: "each decade pairs a clipped analytical line with a first-person literary one, so you get the number and the mood in the same hover.",
-          },
-        ],
+        kind: "bleed",
+        media: { type: "image", src: "/case/villains/launch/band-bleed.png", alt: "the streamgraph band, warm to cool across the century" },
       },
       {
-        kind: "full",
-        media: { type: "image", src: "/case/villains/personal-system.svg", alt: "personal versus systemic villains across the decades" },
-        fit: "cover",
-        caption: "personal villains in red, systemic ones in blue. for the first time, the 2020s tip systemic.",
+        kind: "bleed",
+        media: { type: "image", src: "/case/villains/launch/piece-wide.png", alt: "the full piece, decades and archetypes" },
+        overlay: {
+          placement: "below",
+          label: "how the chart was built",
+          columns: [
+            { label: "sample", text: "495 films, hand-sampled across ten decades", note: "/4 to 20 percent of a decade, leaning toward well-known titles" },
+            { label: "tag", text: "each villain by archetype, and by whether the threat was personal or systemic" },
+            { label: "weight", text: "column width is set by how many films a decade actually made, not by how many i sampled" },
+            { label: "draw", text: "band height is each archetype's share of its decade", note: "/thinly-sourced decades wear a warning glyph" },
+          ],
+        },
       },
-      { kind: "statement", text: "the enemy stops being a man and becomes a nation, a policy, a system." },
       {
-        kind: "outcome",
+        kind: "panel",
+        label: "encode the doubt into the chart",
+        emphasise: [0],
         paragraphs: [
-          "the piece is live and self-initiated.",
-          "it is a hand-built sample and the piece never pretends otherwise. the column widths, the ▲ and the copy under the chart all keep saying so.",
+          "the sample covers only 4 to 20 percent of films in a given decade, and leans toward well-known titles.",
+          "a thinly-sourced decade cannot be allowed to look as certain as a well-covered one.",
+          "so column width is tied to how many films a decade actually made, sparse decades wear a warning glyph, and the copy keeps repeating that this is the shape of a trend, not a count.",
+          "a streamgraph is a persuasive shape, and left alone it will make a thin decade look settled. most of the design was arguing with the chart about that.",
         ],
       },
-      { kind: "reflection", text: "the column widths and that little ▲ took more of my attention than the colours did. a streamgraph is a persuasive shape, and left alone it will make a thinly-sampled decade look every bit as settled as a well-covered one. most of the design was arguing with the chart about that." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/villains/streamgraph.svg", alt: "the archetype view" },
+          { type: "image", src: "/case/villains/personal-system.svg", alt: "personal versus systemic villains across the decades" },
+        ],
+        captions: [
+          { label: "thirteen archetypes", text: "gangster, terrorist, family opponent, jealous lover, zamindar, politician, corporate, corrupt police, colonial oppressor, supernatural, patriarchy, system, religious extremist." },
+          { label: "personal versus systemic", text: "personal villains in red, systemic ones in blue. for the first time, the 2020s tip systemic." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "let colour carry the argument",
+        emphasise: [0],
+        paragraphs: [
+          "the whole thesis is a drift from intimate evil to systemic evil.",
+          "warm reds and ambers for personal crimes, cool blues and teals for systemic ones, so the palette itself moves warm to cool as the century turns.",
+          "thirteen archetypes is a lot of hues to keep legible on black. that constraint set the palette, not the other way round.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/villains/launch/legend.png", alt: "the archetype legend" },
+          { type: "image", src: "/case/villains/launch/piece-full.png", alt: "the piece end to end" },
+        ],
+        captions: [
+          { label: "tap colour to isolate", text: "the legend is the control. one archetype at a time, across the whole century." },
+          { label: "the piece, end to end", text: "ninety years, ten decade columns, and the sampling caveat kept in view under the chart." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "give every decade two voices",
+        emphasise: [0],
+        paragraphs: [
+          "a chart states a fact; it rarely makes you feel one.",
+          "each decade pairs a clipped analytical line with a first-person literary one, so you get the number and the mood in the same hover.",
+          "twice the copy to write, and twice the copy to keep honest.",
+          "the enemy stops being a man and becomes a nation, a policy, a system.",
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/villains/launch/band-bleed.png", alt: "warm to cool, 1930s to 2020s" },
+      },
     ],
   },
+
 
   // ──────────────────────────────────────────────────────────────── lipi ──
   lipi: {
@@ -1126,198 +1170,345 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ──────────────────────────────────────────────────────────── soundmap ──
   soundmap: {
     slug: "soundmap",
+    // Warm paper, read off the artifact itself.
+    theme: { bg: "#EFEDE5", fg: "#1A1917", hairline: "rgba(26,25,23,0.18)" },
     hero: {
-      kicker: "pwa · web audio",
+      kicker: "personal product · pwa",
       title: "soundmap",
       subtitle:
-        "a daily sound journal. record one moment; it becomes a coloured artifact on a calendar, and the same sound always makes the same colours.",
+        "a daily sound journal. record one moment; it becomes a coloured artifact on a calendar.",
       media: { type: "video", src: "/case/soundmap/film.mp4", alt: "browsing the soundmap calendar and opening a day's artifact" },
-      mediaFit: "contain",
+      mediaFit: "cover",
+      mediaPosition: "center",
+      mode: "launch",
       meta: [
-        { label: "role", value: "design + build" },
-        { label: "type", value: "personal product" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "installable pwa" },
-        { label: "stack", value: "react · web audio · indexeddb" },
+        { label: "clients", value: "self-initiated" },
+        { label: "service", value: "product design · build" },
+        { label: "date", value: "2026" },
       ],
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/soundmap" }],
     },
     sections: [
-      { kind: "thesis", text: "a photo of a moment is easy to keep. a recording of one is awkward to go back to. soundmap is an attempt at a sound you would actually return to, without it turning into a feed." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
           "once a day you record about thirty seconds. the app listens, reads the sound, and renders it as a two-colour gradient drawn from the muted palette of traditional japanese hues.",
           "that artifact takes its place on a month calendar. tapping a day replays the audio while the gradient re-reveals in step with it.",
+          "the colours are not decoration. they are read from the recording, and the same soundscape always resolves to the same artifact.",
         ],
-      },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/soundmap/artifact.png", alt: "a finished soundmap artifact with its metadata" },
-        fit: "contain",
-        frame: true,
-        caption: "one day's artifact. the colours are not decoration; they are read from the recording.",
-      },
-      {
-        kind: "pipeline",
-        label: "one day, one recording",
-        steps: [
-          { glyph: "wave", label: "record", text: "about thirty seconds, once a day.", note: "/the button spends itself after a single take and rests until tomorrow" },
-          { glyph: "scan", label: "read", text: "loudness, instability and warmth are measured off the recording." },
-          { glyph: "layers", label: "artifact", text: "those three readings resolve to a two-colour gradient.", note: "/the same soundscape always resolves to the same artifact" },
-          { glyph: "grid", label: "calendar", text: "the day takes its place in the month, and the days you missed stay visible." },
-        ],
-      },
-      {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "one recording a day",
-            why: "a feed of your own moments is not a keepsake, it is a chore.",
-            tradeoff: "you can miss a day, and you cannot hoard.",
-            result: "the record button spends itself after a single take and rests until tomorrow. the scarcity is what makes the moment worth choosing.",
-            media: { type: "image", src: "/case/soundmap/empty.png", alt: "the spent state: today is recorded" },
-            fit: "contain",
-          },
-          {
-            n: "02",
-            title: "make the colour deterministic",
-            why: "if the visual were random it would mean nothing.",
-            tradeoff: "a strict mapping is harder to design than a pretty accident.",
-            result: "loudness sets where the two colours meet, instability sets how softly they blend, warmth nudges the temperature. the same soundscape always resolves to the same artifact.",
-            media: { type: "image", src: "/case/soundmap/recording.png", alt: "the artifact emerging while recording" },
-            fit: "contain",
-          },
-          {
-            n: "03",
-            title: "hide the reading until it is asked for",
-            why: "the resting artifact should stay calm.",
-            tradeoff: "all the analysis the app computes is invisible by default.",
-            result: "the acoustic reading, the mix and the two colours the sound chose, sits behind a quiet toggle. it is there if you go looking for it.",
-          },
-          {
-            n: "04",
-            title: "keep it local by principle",
-            why: "an archive of your own days should not live on someone else's server.",
-            tradeoff: "no sync, no accounts, one device.",
-            result: "the audio stays in the browser's own storage and is never uploaded. a shared link carries only the visual signature, not the sound.",
-          },
+        creditsLabel: "credits",
+        credits: [
+          { role: "design, build, sound analysis", name: "evana sajan" },
+          { role: "stack", name: "react · web audio · indexeddb" },
+          { role: "status", name: "installable pwa" },
         ],
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/soundmap/home.png", alt: "the calendar archive of coloured day tiles" },
+        media: { type: "image", src: "/case/soundmap/launch/artifact.png", alt: "one day's finished artifact with its metadata" },
         fit: "contain",
         side: "right",
-        title: "empty days read as days",
-        text: "the archive is a real calendar, weekday header and all. the days you did not record are still there, so the gaps in the record are part of the record.",
+        title: "product thesis",
+        text: "a photo of a moment is easy to keep. a recording of one is awkward to go back to. soundmap is an attempt at a sound you would actually return to, without it turning into a feed.",
       },
-      { kind: "statement", text: "you cannot retake it. whatever you caught that day is the day." },
       {
-        kind: "outcome",
+        kind: "bleed",
+        media: { type: "image", src: "/case/soundmap/launch/gradient-bleed.png", alt: "one recording resolving into its gradient, four moments apart" },
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/soundmap/launch/archive-bleed.png", alt: "the calendar, a recording and the finished day" },
+        overlay: {
+          placement: "below",
+          label: "one day, one recording",
+          columns: [
+            { label: "record", text: "about thirty seconds, once a day", note: "/the button spends itself after a single take and rests until tomorrow" },
+            { label: "read", text: "loudness, instability and warmth are measured off the recording" },
+            { label: "artifact", text: "those three readings resolve to a two-colour gradient", note: "/the same soundscape always resolves to the same artifact" },
+            { label: "calendar", text: "the day takes its place in the month, and the days you missed stay visible" },
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "one recording a day",
+        bg: "#1A1917",
+        fg: "#EFEDE5",
+        emphasise: [1],
         paragraphs: [
-          "soundmap is an installable pwa, built for one person on one device.",
-          "the open question is whether a deterministic visual reads as personal enough to return to, or whether people would want to shape it themselves.",
+          "a feed of your own moments is not a keepsake, it is a chore.",
+          "the record button spends itself after a single take and rests until tomorrow.",
+          "you can miss a day, and you cannot hoard. the scarcity is what makes the moment worth choosing.",
+          "you cannot retake it. whatever you caught that day is the day.",
         ],
       },
-      { kind: "reflection", text: "the app works out far more about a recording than it ever shows you. deciding how much to hide took longer than building the mapping did, and i am still not convinced the toggle is in the right place." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/soundmap/launch/calendar.png", alt: "the month archive of coloured day tiles" },
+          { type: "image", src: "/case/soundmap/launch/artifact-early.png", alt: "an artifact resolving as the recording runs" },
+        ],
+        captions: [
+          { label: "the archive", text: "a real calendar, weekday header and all. the days you did not record are still there, so the gaps in the record are part of the record." },
+          { label: "the artifact, forming", text: "the gradient is drawn while you record, not applied afterwards." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/soundmap/launch/reading.png", alt: "the acoustic reading behind its toggle" },
+          { type: "image", src: "/case/soundmap/launch/artifact-late.png", alt: "the resting artifact" },
+        ],
+        captions: [
+          { label: "the reading", text: "human 54 · machine 22 · nature 12 · music 12. temperate, loud, drifting, and the two colours the sound chose." },
+          { label: "at rest", text: "the resting artifact stays calm. all of the analysis the app computes is invisible by default." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "make the colour deterministic",
+        bg: "#1A1917",
+        fg: "#EFEDE5",
+        emphasise: [0],
+        paragraphs: [
+          "if the visual were random it would mean nothing.",
+          "loudness sets where the two colours meet. instability sets how softly they blend. warmth nudges the temperature.",
+          "a strict mapping is harder to design than a pretty accident, and it is the only version worth keeping.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/soundmap/launch/recording.png", alt: "the artifact emerging while recording" },
+          { type: "image", src: "/case/soundmap/launch/spent.png", alt: "the spent state: today is recorded" },
+        ],
+        captions: [
+          { label: "recording", text: "thirty seconds, and the colour arrives with the sound." },
+          { label: "spent", text: "today is recorded. the button rests until tomorrow." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/soundmap/launch/gradient-bleed.png", alt: "the same sound, four readings apart" },
+        overlay: {
+          placement: "below",
+          label: "system design",
+          paragraphs: [
+            "three readings, one artifact. the mapping is fixed, so a day can be recognised by its colour a year later.",
+          ],
+          lines: [
+            "loudness → where the colours meet",
+            "instability → how softly they blend",
+            "warmth → temperature",
+            "palette · traditional japanese hues",
+            "storage · indexeddb, on device",
+            "upload · never",
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "keep it local by principle",
+        bg: "#1A1917",
+        fg: "#EFEDE5",
+        emphasise: [0],
+        paragraphs: [
+          "an archive of your own days should not live on someone else's server.",
+          "the audio stays in the browser's own storage and is never uploaded. no sync, no accounts, one device.",
+          "a shared link carries only the visual signature, not the sound.",
+          "the acoustic reading sits behind a quiet toggle. it is there if you go looking for it.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/soundmap/launch/home.png", alt: "the calendar archive" },
+          { type: "image", src: "/case/soundmap/launch/artifact.png", alt: "a finished artifact and its metadata" },
+        ],
+        captions: [
+          { label: "empty days read as days", text: "the gaps in the record are part of the record." },
+          { label: "the artifact", text: "the colours are not decoration. they are read from the recording." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/soundmap/launch/archive-bleed.png", alt: "a month of days, each one a colour" },
+      },
     ],
   },
+
 
   // ───────────────────────────────────────────────────── kochi water metro ──
   "kochi-water-metro": {
     slug: "kochi-water-metro",
+    // The story layer's own ground, sampled off the app.
+    theme: { bg: "#0E2C3A", fg: "#E9F1F4", hairline: "rgba(233,241,244,0.18)" },
     hero: {
       kicker: "pwa · independent project",
       title: "kochi water metro",
       subtitle:
         "an offline-first companion for a ferry ride: the route map, plus a bilingual story that surfaces as each place drifts past.",
       media: { type: "video", src: "/case/kochi/film.mp4", alt: "a full simulated ferry journey playing out on the map" },
-      mediaFit: "contain",
+      mediaFit: "cover",
+      mediaPosition: "center",
+      mode: "launch",
       meta: [
-        { label: "role", value: "design + build" },
-        { label: "type", value: "independent project" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "prototype" },
-        { label: "stack", value: "vanilla js · service worker" },
+        { label: "clients", value: "independent, unaffiliated" },
+        { label: "service", value: "product design · build" },
+        { label: "date", value: "2026" },
       ],
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/kochi-water-metro" }],
     },
     sections: [
-      { kind: "thesis", text: "you do not really need navigation on a ferry. there is one route and someone else is steering. what you might want is something telling you what you are passing." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
-          "kochi's water metro crosses backwaters most apps render as blank blue. i built an independent, non-commercial companion on top of the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
-          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. there is a full english version and a full malayalam one, narration included.",
+          "kochi's water metro crosses backwaters most apps render as blank blue. this is an independent, non-commercial companion built on top of the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
+          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes.",
+          "there is a full english version and a full malayalam one, narration included.",
+        ],
+        creditsLabel: "credits",
+        credits: [
+          { role: "design, build, bilingual content", name: "evana sajan" },
+          { role: "stack", name: "vanilla js · service worker" },
+          { role: "base map", name: "official public asset, attributed" },
+          { role: "photography", name: "creative commons, credited" },
         ],
       },
       {
-        kind: "full",
-        media: { type: "image", src: "/case/kochi/map.svg", alt: "the kochi water metro route map" },
+        kind: "detail",
+        media: { type: "image", src: "/case/kochi/launch/picker.png", alt: "choosing a boarding terminal and a destination" },
         fit: "contain",
-        frame: true,
-        caption: "the official water metro map, reused as the stage. the route geometry drawn over it is hand-traced so the ferry never crosses land.",
+        side: "right",
+        title: "product thesis",
+        text: "you do not really need navigation on a ferry. there is one route and someone else is steering. what you might want is something telling you what you are passing.",
       },
       {
-        kind: "pipeline",
-        label: "a journey, end to end",
-        steps: [
-          { glyph: "map", label: "choose", text: "a boarding terminal and a destination. then you put the phone down." },
-          { glyph: "wave", label: "sail", text: "the ferry follows the real water channels; status cycles from boarding to arrived." },
-          { glyph: "cards", label: "stories", text: "photos and stories surface as each place passes, in either language." },
-          { glyph: "archive", label: "offline", text: "map, photos, fonts and narration are all cached up front.", note: "/zero external requests. the malayalam font is bundled" },
-        ],
+        kind: "bleed",
+        media: { type: "image", src: "/case/kochi/launch/journey-bleed.png", alt: "one journey, five moments apart" },
       },
       {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "no buttons to press",
-            why: "you are on a boat with a phone in your hand, not at a desk.",
-            tradeoff: "you give up fine-grained control of the interface.",
-            result: "you choose a journey, then put the phone down. the ferry drives and the interface reflects; the stories arrive on their own.",
-            media: { type: "image", src: "/case/kochi/journey.gif", alt: "the ferry following the channel with an automatic transfer" },
-            fit: "contain",
-          },
-          {
-            n: "02",
-            title: "work with no signal",
-            why: "mid-river is exactly where a connection drops.",
-            tradeoff: "everything, map, photos, fonts and narration, has to be cached up front.",
-            result: "an offline-first install caches the whole experience, and a single missing file never breaks it. the malayalam font is bundled, so there are zero external requests.",
-          },
-          {
-            n: "03",
-            title: "bilingual as equals",
-            why: "malayalam is the language of the place, not a translation of the english.",
-            tradeoff: "every story, fact and label exists twice, and the narration doubles.",
-            result: "parallel content in both languages, a real malayalam webfont, and a journey that re-localizes mid-ride without starting over.",
-          },
-        ],
+        kind: "bleed",
+        media: { type: "image", src: "/case/kochi/launch/stories-bleed.png", alt: "the picker, a landmark story and a waterway story" },
+        overlay: {
+          placement: "below",
+          label: "a journey, end to end",
+          columns: [
+            { label: "choose", text: "a boarding terminal and a destination. then you put the phone down." },
+            { label: "sail", text: "the ferry follows the real water channels; status cycles from boarding to arrived." },
+            { label: "stories", text: "photos and stories surface as each place passes, in either language." },
+            { label: "offline", text: "map, photos, fonts and narration are all cached up front.", note: "/zero external requests. the malayalam font is bundled" },
+          ],
+        },
       },
       {
-        kind: "figures",
-        media: [
-          { type: "image", src: "/case/kochi/marine.jpg", alt: "marine drive waterfront" },
-          { type: "image", src: "/case/kochi/spice.jpg", alt: "the spice quarter" },
-          { type: "image", src: "/case/kochi/mangrove.jpg", alt: "the mangrove eco-zone" },
-        ],
-        columns: 3,
-        caption: "the stories along the way: marine drive, the spice quarter, the mangrove eco-zone. photography is creative-commons, credited in the project.",
-      },
-      {
-        kind: "outcome",
+        kind: "panel",
+        label: "no buttons to press",
+        bg: "#F2F6F7",
+        fg: "#0E2C3A",
+        emphasise: [0],
         paragraphs: [
-          "a working prototype and a demo film, built as an independent tribute on official public assets, with attribution. it is not affiliated with or endorsed by kochi water metro.",
-          "the narration is partly recorded and partly falls back to a timed read-along; the story layer is the part i would extend next.",
+          "you are on a boat with a phone in your hand, not at a desk.",
+          "you choose a journey, then put the phone down. the ferry drives and the interface reflects; the stories arrive on their own.",
+          "you give up fine-grained control of the interface. on a ferry that is not a loss.",
         ],
       },
-      { kind: "reflection", text: "i kept calling this location-aware. there is no gps in it at all. the journey is simulated, and over open water that behaves better than a real signal would, which is either a shortcut or the right answer depending on how generous you are feeling." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/kochi/launch/picker.png", alt: "every ride has a story to tell" },
+          { type: "image", src: "/case/kochi/launch/route.png", alt: "the route drawn on the official map" },
+        ],
+        captions: [
+          { label: "boarding at", text: "high court to fort kochi. direct service, no changes on the way." },
+          { label: "the route", text: "the geometry over the official map is hand-traced, so the ferry never crosses land." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/kochi/launch/story-marine.png", alt: "the marine drive waterfront story" },
+          { type: "image", src: "/case/kochi/launch/story-harbour.png", alt: "the cochin harbour story" },
+        ],
+        captions: [
+          { label: "landmark", text: "marine drive: the busiest water the metro crosses, shared with cargo ships slipping toward the container port." },
+          { label: "waterway", text: "the cochin harbour: where vembanad lake meets the arabian sea, one of the richest estuaries on the west coast." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "work with no signal",
+        bg: "#F2F6F7",
+        fg: "#0E2C3A",
+        emphasise: [0],
+        paragraphs: [
+          "mid-river is exactly where a connection drops.",
+          "everything, map, photos, fonts and narration, has to be cached up front.",
+          "an offline-first install caches the whole experience, and a single missing file never breaks it.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/kochi/launch/marine.png", alt: "marine drive waterfront" },
+          { type: "image", src: "/case/kochi/launch/spice.png", alt: "the spice quarter" },
+        ],
+        captions: [
+          { label: "marine drive", text: "the waterfront promenade the route opens on." },
+          { label: "the spice quarter", text: "the warehouses the channel runs behind." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/kochi/launch/journey-bleed.png", alt: "the journey, cached end to end" },
+        overlay: {
+          placement: "below",
+          label: "system design",
+          paragraphs: [
+            "malayalam is the language of the place, not a translation of the english. every story, fact and label exists twice, and the narration doubles.",
+          ],
+          lines: [
+            "map · official public asset, attributed",
+            "route · hand-traced channel geometry",
+            "fonts · malayalam webfont, bundled",
+            "narration · recorded, with a timed read-along fallback",
+            "external requests · zero",
+            "re-localises mid-ride without starting over",
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "bilingual as equals",
+        bg: "#F2F6F7",
+        fg: "#0E2C3A",
+        emphasise: [0],
+        paragraphs: [
+          "malayalam is the language of the place, not a translation of the english.",
+          "parallel content in both languages, a real malayalam webfont, and a journey that re-localizes mid-ride without starting over.",
+          "every story, fact and label exists twice, and the narration doubles. that is the cost, and it is the right one.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/kochi/map.svg", alt: "the official water metro route map" },
+          { type: "image", src: "/case/kochi/launch/mangrove.png", alt: "the mangrove eco-zone" },
+        ],
+        captions: [
+          { label: "the stage", text: "the official map, reused as the stage the journey plays out on." },
+          { label: "the mangrove eco-zone", text: "the quiet stretch, and the reason the route is worth watching." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/kochi/launch/stories-bleed.png", alt: "the companion, running without a signal" },
+      },
     ],
   },
+
 };
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {

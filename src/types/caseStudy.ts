@@ -101,6 +101,12 @@ export type Section =
         columns?: { label: string; text?: string; note?: string }[];
         /** Anchor the overlay block to the bottom instead of the top. */
         anchor?: "top" | "bottom";
+        /**
+         * "over" lays the copy on the image, which only works where the image
+         * has room for it. "below" sets it under the image on the page ground,
+         * which is the honest choice when the artwork already fills its frame.
+         */
+        placement?: "over" | "below";
       };
       caption?: string;
     }
@@ -118,6 +124,9 @@ export type Section =
       /** Emphasise these paragraph indices (0-based). */
       emphasise?: number[];
       invert?: boolean;
+      /** Panel ground. Defaults to near-white on dark pages. */
+      bg?: string;
+      fg?: string;
     }
   | { kind: "thesis"; eyebrow?: string; text: string }
   | { kind: "context"; label?: string; paragraphs: string[] }
