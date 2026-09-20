@@ -368,7 +368,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "01 · the internal skill · pre-reads",
         paragraphs: [
           "a pre-read is what a learner gets before a live session. the lxd team took up the problem that they were walls of text, and wanted them interactive enough to be worth opening.",
-          "the catch is who writes them. pre-reads are authored by learning designers, not visual designers, and across a growing catalogue the output drifted: mismatched colours, off-brand type, components that behaved differently from one lesson to the next.",
+          "the catch is who writes them. pre-reads are authored by learning designers, not visual designers, and across a growing catalogue the output drifted. the restyle checklist in the skill is the record of it, because it lists what has to be undone: indigo and violet standing in for the brand purple, warm linen neutrals and cream grounds, a serif hero face, stray teal and blue, warm-black text, and arial leaking into the svgs.",
         ],
       },
       {
