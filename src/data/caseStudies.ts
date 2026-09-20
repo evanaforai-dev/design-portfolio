@@ -614,7 +614,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
         { label: "company", value: "airtribe" },
-        { label: "surfaces", value: "pre-reads, cohort live and xavier's" },
+        { label: "surfaces", value: "pre-reads and cohort live" },
         { label: "year", value: "2026" },
       ],
       links: [
@@ -828,16 +828,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         paragraphs: [
           "the pre-read skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
-          "a feedback prompt closes each pre-read. sixty per cent of the learners who answered it called the format more positive and engaging, which is the one measured signal this work has. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
+          "a feedback prompt closes each pre-read. of the four hundred and twenty learners who answered in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
           "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
           "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
           "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic.",
         ],
       },
-      // TODO · REFLECTION — in evana's voice, one paragraph spanning both.
-      // candidate, if it is true: writing rules for a person and writing rules
-      // for a model turned out to be the same job, except the model follows
-      // them exactly, which makes a lazy rule visible the first time it runs.
+      { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the component maker was the same mistake wearing a different shape, building the thing that makes the artifact instead of fixing where the artifact gets decided. the skill governs how a pre-read looks and nothing about whether the lesson is any good, so it can still produce something on-brand and badly taught. that part is still on the person writing it." },
     ],
   },
   "a-century-of-villains": {
