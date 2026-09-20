@@ -663,8 +663,25 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "turn",
+        label: "the tool we built and threw away",
+        tried: "the lxd team arrived with a version of interactive pre-reads that had every possible interaction and every possible component in it. we broke that down into broad categories and shipped a basic version, and it was rejected: too simple, not good enough. so we went back and did the pedagogical work we had skipped, what actually makes a pre-read interactive for someone preparing, rather than what is technically possible to build. then we built a component maker, a framer-like tool for assembling the artifacts.",
+        result: "the component maker made the workflow worse. the chain already ran designer, then program manager, then a copy-paste into the internal dashboard, and the maker added another station to it. it was longer than what it replaced and it had one more place for an error to enter.",
+        change: "we scratched it and built the skill instead, comprehensive enough that the learning experience designer writes the whole lesson inside it and hands over a link. the rule that came out: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem. put the making where the pedagogy already is.",
+      },
+      {
         kind: "statement",
         text: "don't choose between freedom and consistency. make the brand inherited by construction, so the only thing left to design is the teaching.",
+      },
+      {
+        kind: "pipeline",
+        label: "the workflow the skill actually changed",
+        steps: [
+          { glyph: "input", label: "the designer writes the lesson", text: "the learning experience designer designs the material and its teaching in one pass, inside the skill.", note: "before, they designed the material and handed it on to someone else to assemble" },
+          { glyph: "receipt", label: "a link, not a document", text: "what comes out is an interactive lesson at a url.", note: "before, a program manager copy-pasted the material into the internal dashboard, which is where errors entered" },
+          { glyph: "converge", label: "the manager embeds the link", text: "the program manager drops it into the learner dashboard. that is the whole handover.", note: "content quality now belongs to the person with the pedagogy, and uniformity belongs to the skill" },
+        ],
+        caption: "the old chain had a transcription step between the person who understood the lesson and the thing the learner read. removing that step is most of what this project did.",
       },
       {
         kind: "system",
@@ -708,14 +725,8 @@ export const caseStudies: Record<string, CaseStudy> = {
           { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished, which is the rule that catches the ones built in a hurry." },
           { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition. durations are written beside the component, so the next author does not have to guess what calm looks like." },
           { title: "replay, not confetti", text: "the reward for a right answer is the state change, plus a way to run it again." },
+          { title: "a written list of what we are not doing", text: "the motion pass came out as two kinds. kind a hangs off an interaction, eases out and finishes inside 500ms. kind b was the decorative half, scroll-triggered fades on prose, confetti on a correct answer, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under the heading what we are not doing, as a list, because it is easier to hold a line when the argument against it is already written down." },
         ],
-      },
-      {
-        kind: "turn",
-        label: "the motion that got cut",
-        tried: "the motion pass was written as two kinds. kind a is tied to an interaction. kind b was the decorative half: scroll-triggered fades on prose, confetti on a correct answer, looping ambient animation, bounce and elastic easings.",
-        result: "kind b did not ship. it sits in the spec under the heading what we are not doing, as a list.",
-        change: "feedback is the reward. animation now hangs off an interaction, eases out, and finishes inside 500ms, and reduced motion renders the whole thing instantly static. keeping the rejected list is the part that pays later: it is easier to hold a line when the argument against it is already written down.",
       },
       {
         kind: "constraints",
@@ -817,14 +828,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         paragraphs: [
           "the pre-read skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
-          "what it did to the work is the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
+          "a feedback prompt closes each pre-read. sixty per cent of the learners who answered it called the format more positive and engaging, which is the one measured signal this work has. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
+          "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
+          "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
           "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic.",
         ],
       },
-      {
-        kind: "reflection",
-        text: "TODO · one paragraph spanning both, in your voice. the strongest version names what is still wrong. a candidate, if it is true for you: writing rules for a person and writing rules for a model turned out to be the same job, except the model follows them exactly, which makes a lazy rule visible the first time it runs.",
-      },
+      // TODO · REFLECTION — in evana's voice, one paragraph spanning both.
+      // candidate, if it is true: writing rules for a person and writing rules
+      // for a model turned out to be the same job, except the model follows
+      // them exactly, which makes a lazy rule visible the first time it runs.
     ],
   },
   "a-century-of-villains": {
