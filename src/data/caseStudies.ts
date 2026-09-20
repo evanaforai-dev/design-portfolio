@@ -326,6 +326,135 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
 
   // ───────────────────────────────────────────── a century of villains ──
+  // ────────────────────────────────────────────────────────────────── vision ──
+  "vision": {
+    slug: "vision",
+    hero: {
+      kicker: "internal tooling · airtribe",
+      title: "vision",
+      subtitle:
+        "moving payments out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
+      media: {
+        type: "image",
+        src: "/case/vision/payments-table.svg",
+        alt: "placeholder frame for the payments record screen",
+      },
+      mediaFit: "contain",
+      meta: [
+        { label: "role", value: "product designer" },
+        { label: "team", value: "four: two product designers, one backend, one frontend" },
+        { label: "product", value: "vision, internal sales and operations" },
+        { label: "year", value: "2026" },
+      ],
+    },
+    sections: [
+      { kind: "thesis", text: "the brief was to replace the sheet. what shipped keeps a row index into it. the payment record in vision still carries whether it is synced, which row it came from, and whether that row has since been deleted, which means the sheet was never killed, it was made a peer. most of the design work is in that gap: a product that has to be better than a spreadsheet while still agreeing with one." },
+      {
+        kind: "context",
+        paragraphs: [
+          "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
+          "before this work, that record was a google sheet. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
+        ],
+      },
+      {
+        kind: "question",
+        text: "what does a product have to do before someone gives up a spreadsheet they trust?",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/vision/sheet-before.svg", alt: "placeholder frame for the before state, the sales sheet" },
+        fit: "contain",
+        frame: true,
+        caption: "TODO · the real before artifact goes here: the sheet itself, scrubbed. colour-coded cells, the conventions people invented, the column someone named DONE?. it is the most valuable image in this case study, because it is the thing the product had to beat.",
+      },
+      {
+        kind: "pipeline",
+        label: "three phases, in the order they shipped",
+        steps: [
+          { glyph: "grid", label: "phase 1 · the sales sheet", text: "payments sales info, moved into vision to replace the sheet.", note: "sales first, because it is the team that creates the record rather than the teams that read it" },
+          { glyph: "layers", label: "phase 2 · widened for lxd", text: "more columns, added for learner experience and delivery.", note: "the reason a payments record now carries an lxd comment, slack access state and dashboard access status" },
+          { glyph: "converge", label: "phase 3 · the onboarding sheet", text: "the onboarding sheet folded in on the same pattern.", note: "TODO · what made this one harder or easier than the first two" },
+        ],
+        caption: "staged rather than migrated at once. the sheet was live money the whole time.",
+      },
+      {
+        kind: "system",
+        label: "what one payment record has to hold",
+        paragraphs: [
+          "a payment is not an amount. it is an amount, the instrument it arrived by, where that instrument currently is, and what each downstream team is allowed to do next. six payment types and eleven statuses, and the statuses are not a pipeline, they are the states a real payment gets stuck in.",
+          "that is the density problem in one sentence. the screen has to show a row that spans sales, finance and delivery, to people who each only care about their own third of it.",
+        ],
+        mapping: [
+          { from: "paid in one shot", to: "cleared, or still pending verification" },
+          { from: "part payment", to: "part paid by airtribe, or awaiting the rest" },
+          { from: "credit card, no cost emi", to: "will pay by credit card, then cleared" },
+          { from: "credit card, cost emi", to: "same path, different maths" },
+          { from: "loan, no cost emi", to: "pushed for loan, documents, approval, disbursement" },
+          { from: "loan, cost emi", to: "or rejected, which is its own state and not a failure of the form" },
+        ],
+        metrics: [
+          { label: "payment types", value: "6" },
+          { label: "payment statuses", value: "11" },
+          { label: "fields on the record", value: "~18" },
+          { label: "teams reading the same row", value: "3" },
+        ],
+        note: "the record also carries slack access state, onboarding status, an lxd comment and dashboard access status. those are phase 2: other teams' columns, living inside a sales record, because that is where the sheet had put them.",
+      },
+      {
+        kind: "annotated",
+        label: "the decisions the screen had to make",
+        media: { type: "image", src: "/case/vision/payments-table.svg", alt: "placeholder frame for the payments record" },
+        fit: "contain",
+        frame: true,
+        items: [
+          { title: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: a row was created, the sheet was pulled in, it was already in sync, it was not found or not permitted, it failed, or it was ambiguous. ambiguous is the one that matters. a person at 6pm has to be told which record they are looking at and which one they are not." },
+          { title: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are all ordinary places a payment sits. designing them as error states would have told the agent something had gone wrong with their work rather than with the payment." },
+          { title: "the row belongs to three teams", text: "sales writes it, finance reconciles it, delivery acts on it. the hierarchy had to let each of them find their own third without hiding the other two, because the sheet never hid anything and that was half of why people trusted it." },
+          { title: "TODO · what you refused to add", text: "TODO · the thing someone asked for that you kept off this screen. a density case is only credible when something was left out, and this is the one fact i cannot derive from the product." },
+        ],
+      },
+      {
+        kind: "turn",
+        label: "TODO · the wrong turn",
+        tried: "TODO · what was built or assumed first. the two likely candidates, from the shape of what shipped: a form per payment, or a faithful grid clone of the sheet. say which, and why it looked right at the time.",
+        result: "TODO · what happened when it met a real week of data, or a real agent.",
+        change: "TODO · what replaced it, and the rule you carried into phases 2 and 3. this is the section a reader cannot get from the screens, so it is the one worth writing first.",
+      },
+      {
+        kind: "detail",
+        side: "right",
+        media: { type: "image", src: "/case/vision/templates.svg", alt: "placeholder frame for the email template flow" },
+        fit: "contain",
+        title: "email templates, for managers and agents",
+        text: "the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product.",
+      },
+      {
+        kind: "detail",
+        side: "left",
+        media: { type: "image", src: "/case/vision/filters.svg", alt: "placeholder frame for the filter and search redesign" },
+        fit: "contain",
+        title: "filters and search, include and exclude",
+        text: "an opportunity in vision carries about twenty five fields across three lifecycle axes that people constantly mistake for one: a status, a stage, and a separate lead status. filtering is where that confusion becomes expensive, because a query that mixes them silently returns the wrong queue. the redesign added include and exclude to search, and a course and cohort filter built for the same dataset.",
+      },
+      {
+        kind: "statement",
+        text: "a spreadsheet's real advantage is not that it is flexible. it is that nobody has ever had to ask it for permission.",
+      },
+      {
+        kind: "outcome",
+        paragraphs: [
+          "all three phases shipped into vision - sales, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
+          "TODO · what changed for the people using it. only numbers you can point at. if there is no measurement, say that instead, the way the pre-read case does.",
+          "the screens are shown with synthetic records under an airtribe nda. every name, company, amount and date is invented; the structure is the real thing.",
+        ],
+      },
+      {
+        kind: "reflection",
+        text: "TODO · in your voice. a candidate, if it is true: the sheet is still there. the honest version of this project is not that a product replaced it, but that a product learned to live next to it, and that the row index is the scar.",
+      },
+    ],
+  },
+
   // ──────────────────────────────────────────────────────── airtribe ai skills ──
   "airtribe-ai-skills": {
     slug: "airtribe-ai-skills",
@@ -342,7 +471,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaFit: "cover",
       mediaPosition: "center",
       meta: [
-        { label: "role", value: "TODO · your role across the two" },
+        { label: "role", value: "product designer" },
+        { label: "team", value: "four: two product designers, one backend, one frontend" },
         { label: "company", value: "airtribe" },
         { label: "surfaces", value: "pre-reads, cohort live and xavier's" },
         { label: "year", value: "2026" },

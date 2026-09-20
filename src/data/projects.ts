@@ -41,6 +41,18 @@ export const projects: Project[] = [
     display: { fit: "contain" },
   },
   {
+    slug: "vision",
+    title: "vision",
+    tags: ["product design", "internal tooling", "b2b saas"],
+    category: "work",
+    // TODO · placeholder frame until a scrubbed capture exists.
+    cover: "/case/vision/payments-table.svg",
+    year: "2026",
+    summary:
+      "moving payments out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
+    display: { fit: "contain", pad: "p-4 md:p-6" },
+  },
+  {
     slug: "airtribe-ai-skills",
     title: "airtribe ai skills",
     tags: ["ai tooling", "design systems", "learning design"],

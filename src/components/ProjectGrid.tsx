@@ -32,6 +32,7 @@ import { ProjectCard } from "./ProjectCard";
 const LAYOUT: string[] = [
   "kochi1app",
   "wells-fargo",
+  "vision",
   "airtribe-ai-skills",
   "a-century-of-villains",
   "lipi",
