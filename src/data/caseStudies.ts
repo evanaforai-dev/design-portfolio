@@ -333,11 +333,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       kicker: "ai systems · airtribe",
       title: "airtribe ai skills",
       subtitle:
-        "two skills built at airtribe. one is used by the team that writes the learning material, one by the learner reading it. in both, the design work is the constraint the author writes inside.",
+        "two skills at airtribe. one is used by the team that writes what paid learners get, one by the learner. in both, the thing being designed is not a screen, it is how much room the author is allowed.",
       media: {
         type: "image",
-        src: "/case/airtribe-ai-skills/board-detail.png",
-        alt: "component exploration on the research board: the same patterns worked out in light and dark",
+        src: "/case/airtribe-ai-skills/components-hero.png",
+        alt: "a quiz component in its answered state, correct option filled green, with its motion spec printed in the corner",
       },
       mediaFit: "cover",
       mediaPosition: "center",
@@ -353,12 +353,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two. one is used by the learning designers who write the material paid learners get; one is used by the learner. they are separate products and they are not versions of each other. what they share is where the design work sits: not in a screen, but in deciding what the author is free to change and what they are never allowed to touch." },
+      { kind: "thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
       {
         kind: "context",
         paragraphs: [
-          "the two have opposite pressures. inside, the author is a colleague writing for a catalogue, so the risk is drift: fifty lessons that each look slightly like their author. outside, the author is a stranger writing for one reader, so the risk is trust: a lesson that sounds confident and cannot show where anything came from.",
-          "the guardrail is doing a different job in each. that is the whole reason they sit on one page.",
+          "the two pull in opposite directions. inside, the author is a colleague building for a catalogue, so the risk is drift: fifty lessons that each look slightly like whoever wrote them. outside, the author is the model itself, writing for one reader who has no easy way to check it, so the risk is trust.",
+          "which means the guardrail points the other way in each. the pre-read skill protects the product from its authors. kai protects the reader from the product.",
         ],
       },
 
@@ -367,17 +367,17 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "01 · the internal skill · pre-reads",
         paragraphs: [
-          "a pre-read is what a learner gets before a live session. the lxd team took up the problem that they were walls of text, and wanted them genuinely interactive instead.",
-          "the catch is who writes them. pre-reads are authored by learning designers, not visual designers, and across a growing catalogue the output drifted: mismatched colours, off-brand type, components that behaved differently lesson to lesson.",
+          "a pre-read is what a learner gets before a live session. the lxd team took up the problem that they were walls of text, and wanted them interactive enough to be worth opening.",
+          "the catch is who writes them. pre-reads are authored by learning designers, not visual designers, and across a growing catalogue the output drifted: mismatched colours, off-brand type, components that behaved differently from one lesson to the next.",
         ],
       },
       {
         kind: "question",
-        text: "how do you hand ten to fifteen people the freedom to build anything a lesson needs, and still recognise the product at the end of it?",
+        text: "how do you hand ten to fifteen people the freedom to build anything a lesson needs, and still have it come out looking like one product?",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/board.png", alt: "the research board, roughly 20,000 by 22,000 pixels, clustered into problem framing, audit, reference scan and component exploration" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/board.png", alt: "the research board: problem framing, an audit of shipped pre-reads, a reference scan and component exploration in light and dark" },
         fit: "contain",
         frame: true,
         caption: "the working board, roughly 20,000 by 22,000 px. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
@@ -389,7 +389,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { glyph: "map", label: "frame", text: "what a pre-read is for, and where interactivity actually helps someone prepare." },
           { glyph: "scan", label: "audit", text: "shipped pre-reads pulled side by side, to find where consistency broke and how." },
           { glyph: "archive", label: "scan", text: "references and patterns for interactive learning content, light and dark." },
-          { glyph: "converge", label: "synthesise", text: "every recurring piece clustered into a small set of reusable component families.", note: "eight families, which is the number the catalogue actually needed rather than a round one" },
+          { glyph: "converge", label: "synthesise", text: "every recurring piece clustered into reusable families.", note: "eight of them, which is what the catalogue needed rather than a round number" },
         ],
       },
       {
@@ -398,12 +398,23 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "system",
-        label: "what the skill fixes",
+        label: "eight families, not a component library",
         paragraphs: [
-          "airtribe tokens map onto shadcn/ui, so every primitive renders on-brand with no per-component colour work. for the bespoke pieces a lesson needs, eight archetype families give each one a treatment, which means a component invented today still inherits the brand.",
+          "most of a real pre-read is not a shadcn primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space, code blocks, llm pipeline diagrams. a library could not have covered that, and whatever it failed to cover would have been the interesting part of the lesson.",
+          "so the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. anything that does not exist yet gets placed by what it does, prose, widget, data-figure, chrome or code, inherits that family's surfaces, and holds three constants: purple is the one accent, neutrals are cool, colour means state. a component invented tomorrow still comes out airtribe.",
+        ],
+        mapping: [
+          { from: "01 reading & narrative", to: "prose on the ground, accent for emphasis, never a boxed paragraph" },
+          { from: "02 characters & dialogue", to: "learner bubble purple-tinted, mentor neutral, always inside a panel" },
+          { from: "03 assessment & interaction", to: "selected purple, correct green, wrong red, no confetti" },
+          { from: "04 calculators & inputs", to: "purple is the value, semantics are the state, tabular numerals" },
+          { from: "05 comparison & structured", to: "column tags, hairline separators, a middle dot for an empty cell" },
+          { from: "06 data-viz & dioramas", to: "chart palette purple-led, real type inside the svg, dark surfaces never black" },
+          { from: "07 app chrome & gamification", to: "purple progress on cool neutrals, calm rather than arcade" },
+          { from: "08 technical, code & diagrams", to: "a defined code surface, mono for code, palette-restrained connectors" },
         ],
         colors: [
-          { hex: "#683FBE", name: "purple, the single accent" },
+          { hex: "#683FBE", name: "purple, the one accent" },
           { hex: "#2563EB", name: "blue, info" },
           { hex: "#12875A", name: "green, correct" },
           { hex: "#DC2626", name: "red, wrong" },
@@ -414,12 +425,27 @@ export const caseStudies: Record<string, CaseStudy> = {
           { name: "body", value: "inter" },
           { name: "data", value: "jetbrains mono, real code only" },
         ],
-        metrics: [
-          { label: "component families", value: "8" },
-          { label: "themes", value: "2, light and dark" },
-          { label: "authors enabled", value: "10 to 15" },
+        note: "permissive on purpose. radius is the author's choice as long as one pre-read is consistent with itself, and the skill says in as many words that it governs the visual layer only, never the structure, the components or the pedagogy.",
+      },
+      {
+        kind: "annotated",
+        label: "what a guardrail looks like up close",
+        media: { type: "image", src: "/case/airtribe-ai-skills/components-states.png", alt: "a quiz answered correctly, a slider calculator and a counter allocator, each with its motion spec" },
+        fit: "contain",
+        frame: true,
+        items: [
+          { title: "one accent, one job", text: "the score, the slider fill and the chosen row are the same purple. correctness is green, over-budget is red, because colour is only ever allowed to mean state." },
+          { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished, which is the rule that catches the ones built in a hurry." },
+          { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition. durations are written beside the component, so the next author does not have to guess what calm looks like." },
+          { title: "replay, not confetti", text: "the reward for a right answer is the state change, plus a way to run it again." },
         ],
-        note: "colour only ever means state. dark mode is derived through the same tokens rather than flipped, so the accent lightens instead of inverting.",
+      },
+      {
+        kind: "turn",
+        label: "the motion that got cut",
+        tried: "the motion pass was written as two kinds. kind a is tied to an interaction. kind b was the decorative half: scroll-triggered fades on prose, confetti on a correct answer, looping ambient animation, bounce and elastic easings.",
+        result: "kind b did not ship. it sits in the spec under the heading what we are not doing, as a list.",
+        change: "feedback is the reward. animation now hangs off an interaction, eases out, and finishes inside 500ms, and reduced motion renders the whole thing instantly static. keeping the rejected list is the part that pays later: it is easier to hold a line when the argument against it is already written down.",
       },
       {
         kind: "constraints",
@@ -427,10 +453,20 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           { label: "one accent", text: "purple is the only brand colour. never indigo, never another purple." },
           { label: "cool neutrals", text: "cool grey on pure white. no cream, no warm greys." },
-          { label: "two typefaces", text: "plus jakarta sans and inter, with mono reserved for real code." },
-          { label: "every state", text: "an interactive element defines all of its states or it does not ship." },
+          { label: "two typefaces", text: "plus jakarta sans and inter, with mono kept for real code." },
+          { label: "every state", text: "an interactive element defines all of its states or it is not finished." },
           { label: "what stays free", text: "structure, sections, which components a concept needs, and the pedagogy. the skill governs how a pre-read looks and nothing else, which is the line that makes authors trust it." },
         ],
+      },
+      {
+        kind: "figures",
+        media: [
+          { type: "image", src: "/case/airtribe-ai-skills/lesson.png", alt: "a pre-read opening with its learning objectives and a tabbed comparison of three systems" },
+          { type: "image", src: "/case/airtribe-ai-skills/exercise.png", alt: "a four-step trace exercise that fills in as the learner answers" },
+        ],
+        columns: 2,
+        fit: "contain",
+        caption: "built inside the guardrails, by learning designers: a lesson that opens on its objectives and compares three systems in one tabbed frame, and a four-step trace that fills itself in as you answer. neither is a component in a library. both were placed by behaviour and inherited the treatment.",
       },
 
       // ── 02 · consumer ────────────────────────────────────────────────────
@@ -438,9 +474,15 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "02 · the consumer skill · kai",
         paragraphs: [
-          "you give kai a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go. it writes a full lesson tuned to those answers, and opens by naming what you already know so it starts where you are.",
-          "the lesson is only the centre of it. a concept map draws what you are learning and how the ideas connect, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+          "most 'learn anything with ai' products are a chat box with a better frame. you ask, it answers, and what you are left with afterwards is a transcript.",
+          "kai writes a lesson instead. you give it a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go, and it writes to those answers, opening by naming what you already know so it starts where you are. a concept map draws the ideas and their links as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
         ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
+        fit: "cover",
+        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
       },
       {
         kind: "pipeline",
@@ -458,15 +500,33 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           {
             n: "01",
+            title: "build it the way a teacher would",
+            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
+            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
+            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
+            fit: "contain",
+          },
+          {
+            n: "02",
             title: "ask four questions, then commit",
-            why: "personalising after the fact, a ‘simplify this’ button, comes too late; the lesson is already written for no one.",
+            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
             tradeoff: "four questions is four screens before anyone has read a single word.",
             result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
             media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
             fit: "cover",
           },
           {
-            n: "02",
+            n: "03",
+            title: "draw the topic while you read it",
+            why: "a lesson you read and close leaves nothing you can hold onto.",
+            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
+            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
+            fit: "cover",
+          },
+          {
+            n: "04",
             title: "cite sources, not vibes",
             why: "an ai that merely sounds confident is easy to build and easy to distrust.",
             tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
@@ -480,20 +540,23 @@ export const caseStudies: Record<string, CaseStudy> = {
 
       // ── close ────────────────────────────────────────────────────────────
       {
+        kind: "statement",
+        text: "both are defined by what they refuse. the pre-read skill refuses confetti. kai refuses to just answer. in a system that generates, the design decision worth having is almost always a subtraction.",
+      },
+      {
         kind: "outcome",
         paragraphs: [
-          "the pre-read skill carries the catalogue today: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners. those are scope figures, what the system covers, not outcome claims.",
-          "what it did to the work is the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether lxd authors say they can ship on-brand without design support.",
-          "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end.",
+          "the pre-read skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
+          "what it did to the work is the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
+          "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic.",
         ],
       },
       {
         kind: "reflection",
-        text: "TODO · one paragraph that spans both, in your voice. the strongest version names what is still wrong. a candidate, if it is true: writing rules for a person and writing rules for a model turned out to be the same job, except the model actually follows them, which makes a sloppy rule visible immediately.",
+        text: "TODO · one paragraph spanning both, in your voice. the strongest version names what is still wrong. a candidate, if it is true for you: writing rules for a person and writing rules for a model turned out to be the same job, except the model follows them exactly, which makes a lazy rule visible the first time it runs.",
       },
     ],
   },
-
   "a-century-of-villains": {
     slug: "a-century-of-villains",
     hero: {

@@ -45,9 +45,10 @@ export const projects: Project[] = [
     title: "airtribe ai skills",
     tags: ["ai tooling", "design systems", "learning design"],
     category: "work",
-    // TODO · placeholder. this is kai's landing shot, so it under-represents the
-    // internal half. a diptych (the research board | the lesson) would carry both.
-    cover: "/covers/airtribe-learn.png",
+    // TODO · a diptych (a pre-read component | kai's lesson) would carry both
+    // halves. for now the pre-read side leads, since it is the one the case
+    // study leads with.
+    cover: "/covers/airtribe-ai-skills.png",
     year: "2026",
     summary:
       "two skills: a design language the lxd team writes inside so the catalogue stays on-brand, and a tutor that writes a cited lesson for one reader.",
