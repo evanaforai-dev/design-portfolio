@@ -14,10 +14,23 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   const idx = projects.findIndex((p) => p.slug === study.slug);
   const prev = projects[(idx - 1 + projects.length) % projects.length];
   const next = projects[(idx + 1) % projects.length];
-  const { hero } = study;
+  const { hero, theme } = study;
+  const launch = hero.mode === "launch";
+
+  // A themed case study redefines the palette tokens for the whole document,
+  // not just its own subtree: the fixed nav lives outside this component, and
+  // a launch page with a pale bar across the top of its field is not a launch
+  // page. Every text-fg and border-hairline on the route follows automatically,
+  // because they all resolve through these variables.
+  const themeCss = theme
+    ? `:root{--bg:${theme.bg};--fg:${theme.fg};--muted:${theme.fg};` +
+      `--hairline:${theme.hairline ?? `${theme.fg}29`};` +
+      `--hairline-strong:${theme.hairline ?? `${theme.fg}1f`};color-scheme:dark}`
+    : null;
 
   return (
     <article>
+      {themeCss && <style dangerouslySetInnerHTML={{ __html: themeCss }} />}
       {/* Back to index */}
       <Container className="pt-4 md:pt-6">
         <Link href="/" className="label transition-colors hover:text-fg">
@@ -26,8 +39,19 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       </Container>
 
       {/* Opening visual */}
-      <div className="mt-6 md:mt-8">
-        {hero.mediaFit === "contain" ? (
+      <div className={launch ? "mt-2 md:mt-4" : "mt-6 md:mt-8"}>
+        {launch ? (
+          // No frame, no container, no gutter: the object gets the viewport
+          // and stands on its own ground. A hairline box around a product is
+          // a specimen case, and a specimen is not a launch.
+          <div className="flex min-h-[78vh] w-full items-center justify-center overflow-hidden px-6 py-10 md:min-h-[88vh] md:px-10">
+            <Media
+              asset={hero.media}
+              fit="contain"
+              className="max-h-[74vh] w-auto max-w-full md:max-h-[80vh]"
+            />
+          </div>
+        ) : hero.mediaFit === "contain" ? (
           <Container>
             <div className="flex items-center justify-center border border-hairline py-12 md:py-20">
               <Media

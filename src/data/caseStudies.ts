@@ -937,6 +937,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         "a walkman-shaped machine that turns one typed signal into a branching journey, and prints the path as a receipt you can keep.",
       media: { type: "video", src: "/case/deepcuts/film.mp4", alt: "the deep cuts console running a full journey and printing a receipt" },
       mediaFit: "contain",
+      mode: "launch",
       meta: [
         { label: "role", value: "design + build" },
         { label: "type", value: "interaction study" },
@@ -946,6 +947,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/deepcuts" }],
     },
+    // The device's own palette, read off its system section: the page wears
+    // the product rather than displaying it against a contrasting ground.
+    theme: { bg: "#070808", fg: "#EBEBEB", hairline: "rgba(235,235,235,0.16)" },
     sections: [
       { kind: "thesis", text: "i wanted curiosity to feel like operating an object. you tune it, you play it, and at the end you are holding something." },
       {

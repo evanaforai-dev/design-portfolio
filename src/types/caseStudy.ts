@@ -40,8 +40,27 @@ export interface CaseHero {
   mediaFit?: "cover" | "contain";
   /** optional object-position for cover crops. */
   mediaPosition?: string;
+  /**
+   * "document" (default) opens with the media in a hairline frame, which is
+   * right for work that is an argument. "launch" gives the object the whole
+   * viewport on its own ground, with no frame around it, for work that is an
+   * object: the page presents the thing rather than filing a report on it.
+   */
+  mode?: "document" | "launch";
   meta: CaseMeta[];
   links?: CaseLink[];
+}
+
+/**
+ * A case study may wear its subject's own palette instead of the site's.
+ * Only for work whose colour IS the work: a black device shown on the site's
+ * off-white is a page arguing with its own object.
+ */
+export interface CaseTheme {
+  bg: string;
+  fg: string;
+  /** Defaults to fg at 16% opacity if omitted. */
+  hairline?: string;
 }
 
 export interface DecisionItem {
@@ -156,5 +175,7 @@ export type Section =
 export interface CaseStudy {
   slug: string;
   hero: CaseHero;
+  /** Page palette. Omit to use the site's own. */
+  theme?: CaseTheme;
   sections: Section[];
 }
