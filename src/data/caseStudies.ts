@@ -428,11 +428,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       kicker: "internal tooling · airtribe",
       title: "vision",
       subtitle:
-        "moving payments out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
+        "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
+        // TODO · replace with a scrubbed capture of the payments record,
+        // repopulated from src/data/drafts/vision-synthetic-cast.csv.
         type: "image",
         src: "/case/vision/payments-table.svg",
-        alt: "placeholder frame for the payments record screen",
+        alt: "the payments record in vision",
       },
       mediaFit: "contain",
       meta: [
@@ -443,12 +445,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "the brief was to replace the sheet. what shipped keeps a row index into it. the payment record in vision still carries whether it is synced, which row it came from, and whether that row has since been deleted, which means the sheet was never killed, it was made a peer. most of the design work is in that gap: a product that has to be better than a spreadsheet while still agreeing with one." },
+      { kind: "thesis", text: "every enrolment, instalment and refund the company took was recorded in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: the sheet was fast, it was visible, and it had never once asked anyone for permission. a product that replaces a spreadsheet people like does not get to start from what it can do better. it has to start from what the spreadsheet was already doing right." },
       {
         kind: "context",
         paragraphs: [
           "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
-          "before this work, that record was a google sheet. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
+          "before this work, that record was a google sheet, and the money moving through it was the company's revenue. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
         ],
       },
       {
@@ -456,19 +458,58 @@ export const caseStudies: Record<string, CaseStudy> = {
         text: "what does a product have to do before someone gives up a spreadsheet they trust?",
       },
       {
+        // TODO · replace with the real before artifact: the sales sheet,
+        // scrubbed. it is the most valuable image on this page.
         kind: "full",
-        media: { type: "image", src: "/case/vision/sheet-before.svg", alt: "placeholder frame for the before state, the sales sheet" },
+        media: { type: "image", src: "/case/vision/sheet-before.svg", alt: "the sales sheet, before" },
         fit: "contain",
         frame: true,
-        caption: "TODO · the real before artifact goes here: the sheet itself, scrubbed. colour-coded cells, the conventions people invented, the column someone named DONE?. it is the most valuable image in this case study, because it is the thing the product had to beat.",
+        caption: "the thing the product had to beat: colour-coded cells, conventions people invented for themselves, and columns nobody could delete because someone might still be reading them.",
+      },
+      {
+        kind: "constraints",
+        label: "what the decisions were based on",
+        items: [
+          { label: "primary research with the teams", text: "sessions with the sales and lxd people who lived in the sheet, before anything was designed. the column list came out of those conversations, not out of the schema." },
+          { label: "clarity session data", text: "how people actually moved through the existing screens, rather than how they described it. this is what made the filter overflow visible as a problem before anyone complained about it." },
+          { label: "algolia search data", text: "what people were actually searching for, which told us which fields were being used as filters by hand because no filter existed for them yet." },
+          { label: "testing with the same people", text: "every phase went back to the teammates who would use it. the onboarding phase is where this changed the design most: columns that turned out to be unused were deleted, and several that were really a sequence of tasks became a checklist instead of a column." },
+        ],
+      },
+      {
+        kind: "decisions",
+        label: "the decisions that shaped the screen",
+        items: [
+          {
+            n: "01",
+            title: "a table, by default, because that is the muscle they already had",
+            why: "the sales team had spent years in a grid. arriving at a product that opened on cards or a form would have made every one of them slower on day one, and day one is when a replacement either earns trust or loses it.",
+            tradeoff: "a table is the densest and least forgiving layout there is, and it commits you to solving density everywhere else: filters, views, permissions, overflow. the friendlier layouts would have deferred those problems rather than removed them.",
+            result: "the switch cost nobody a re-learning period. the work moved into making the table hold more than a sheet could, rather than into teaching people a new shape.",
+          },
+          {
+            n: "02",
+            title: "views instead of one table, once three teams were in the same row",
+            why: "phase 1 was a sales record. phase 2 widened it for lxd, so a payment started carrying slack access, dashboard access and an lxd comment. by phase 3 the onboarding sheet folded in too, and a single table was long enough that both teams were scrolling past two thirds of it to reach their own third.",
+            tradeoff: "views split a shared surface, and a shared surface was half of why the sheet was trusted. so the views overlap deliberately rather than partitioning cleanly, and an all view stays available to anyone who wants the whole row.",
+            result: "sales, lxd and all, with the columns inside each one governed by role and permission rather than by preference.",
+          },
+          {
+            n: "03",
+            title: "friction proportional to consequence",
+            why: "not every cell is equally dangerous. a typo in a comment costs nothing; a change to a payment status moves money and triggers access downstream. a spreadsheet treats both identically, which is precisely the thing it gets wrong.",
+            tradeoff: "every piece of friction is a slower edit for a person who knew exactly what they were doing, and there is no way to add it without occasionally annoying the expert.",
+            result: "each column was sorted into directly editable, or behind an action button that names what is about to happen. change logs sit alongside, so a row can be asked who last touched it, which is the one thing the sheet could technically answer and nobody could actually read.",
+          },
+        ],
       },
       {
         kind: "pipeline",
         label: "three phases, in the order they shipped",
         steps: [
-          { glyph: "grid", label: "phase 1 · the sales sheet", text: "payments sales info, moved into vision to replace the sheet.", note: "sales first, because it is the team that creates the record rather than the teams that read it" },
-          { glyph: "layers", label: "phase 2 · widened for lxd", text: "more columns, added for learner experience and delivery.", note: "the reason a payments record now carries an lxd comment, slack access state and dashboard access status" },
-          { glyph: "converge", label: "phase 3 · the onboarding sheet", text: "the onboarding sheet folded in on the same pattern.", note: "TODO · what made this one harder or easier than the first two" },
+          { glyph: "grid", label: "phase 1 · the sales sheet", text: "the payments record, moved into vision as a table.", note: "sales first, because it is the team that creates the record rather than one of the teams that reads it" },
+          { glyph: "layers", label: "phase 2 · widened for lxd", text: "a confirmed lead goes to lxd for final payment, slack access and dashboard access, so the record widened to carry them.", note: "this is why a payments row now holds an lxd comment and two access states: the sheet had already put them there" },
+          { glyph: "converge", label: "phase 3 · the onboarding sheet", text: "onboarding folded in on the same pattern, and the combined table became too long to be one table.", note: "this is the phase that produced views, and the phase where testing deleted columns rather than adding them" },
         ],
         caption: "staged rather than migrated at once. the sheet was live money the whole time.",
       },
@@ -496,40 +537,44 @@ export const caseStudies: Record<string, CaseStudy> = {
         note: "the record also carries slack access state, onboarding status, an lxd comment and dashboard access status. those are phase 2: other teams' columns, living inside a sales record, because that is where the sheet had put them.",
       },
       {
+        // TODO · same capture as the hero, once a scrubbed one exists.
         kind: "annotated",
         label: "the decisions the screen had to make",
-        media: { type: "image", src: "/case/vision/payments-table.svg", alt: "placeholder frame for the payments record" },
+        media: { type: "image", src: "/case/vision/payments-table.svg", alt: "the payments record" },
         fit: "contain",
         frame: true,
         items: [
+          { title: "constrain anything with a definitive answer", text: "every field with a finite set of correct answers became a dropdown rather than free text. this is what made filtering possible at all: you cannot filter a column that eleven people have spelled eleven ways, and the sheet had exactly that column several times over." },
+          { title: "colour is for spotting, not reading", text: "the statuses that need to be found in a scan are the anomalies, a payment likely to refund, a lead marked confirmed but not paid, a loan rejected. those carry colour. the ordinary states do not, because if everything is coloured nothing is." },
           { title: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: a row was created, the sheet was pulled in, it was already in sync, it was not found or not permitted, it failed, or it was ambiguous. ambiguous is the one that matters. a person at 6pm has to be told which record they are looking at and which one they are not." },
           { title: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are all ordinary places a payment sits. designing them as error states would have told the agent something had gone wrong with their work rather than with the payment." },
-          { title: "the row belongs to three teams", text: "sales writes it, finance reconciles it, delivery acts on it. the hierarchy had to let each of them find their own third without hiding the other two, because the sheet never hid anything and that was half of why people trusted it." },
-          { title: "TODO · what you refused to add", text: "TODO · the thing someone asked for that you kept off this screen. a density case is only credible when something was left out, and this is the one fact i cannot derive from the product." },
+          { title: "the same name leads two different places", text: "click a lead as a sales person and it opens the opportunities page. click the same lead as lxd and it opens the learner profile with the onboarding checklist. the row is shared; the thing you are trying to do with it is not." },
         ],
       },
       {
         kind: "turn",
-        label: "TODO · the wrong turn",
-        tried: "TODO · what was built or assumed first. the two likely candidates, from the shape of what shipped: a form per payment, or a faithful grid clone of the sheet. say which, and why it looked right at the time.",
-        result: "TODO · what happened when it met a real week of data, or a real agent.",
-        change: "TODO · what replaced it, and the rule you carried into phases 2 and 3. this is the section a reader cannot get from the screens, so it is the one worth writing first.",
+        label: "the flaw we shipped",
+        tried: "a name and an email are never read apart, so we stopped treating them as two columns. the name became the line, the email became a subline under it, one cell. it tested well with the sales team, it scanned well, and it gave back a column on a table that badly needed the room.",
+        result: "it broke a workflow nobody had shown us. the people granting slack access do not read emails one at a time, they take the whole column at once. in the sheet that was a single drag and about five minutes for a cohort. as a subline living inside another column there was nothing to select, so the same job became copying addresses out by hand, one row at a time, and it took about fifty minutes. we had researched the team that writes the record and missed the team that consumes it a hundred rows at a time.",
+        change: "the email came back out as a column of its own, and the rule came out with it: a column is not a field, it is a workflow. two things that are read together are not necessarily used together, and merging them is only free if nothing downstream ever operates on one of them alone. after this, every merge candidate got asked a second question. not is it read next to its neighbour, but is it ever selected, sorted, exported or copied by itself.",
       },
       {
         kind: "detail",
         side: "right",
-        media: { type: "image", src: "/case/vision/templates.svg", alt: "placeholder frame for the email template flow" },
+        // TODO · replace with a capture of the redesigned filter bar, expanded.
+        media: { type: "image", src: "/case/vision/filters.svg", alt: "the filter and search redesign" },
         fit: "contain",
-        title: "email templates, for managers and agents",
-        text: "the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product.",
+        title: "filters, and a chicken and egg problem",
+        text: "once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue.",
       },
       {
         kind: "detail",
         side: "left",
-        media: { type: "image", src: "/case/vision/filters.svg", alt: "placeholder frame for the filter and search redesign" },
+        // TODO · replace with a capture of the template flow, manager view.
+        media: { type: "image", src: "/case/vision/templates.svg", alt: "the email template flow" },
         fit: "contain",
-        title: "filters and search, include and exclude",
-        text: "an opportunity in vision carries about twenty five fields across three lifecycle axes that people constantly mistake for one: a status, a stage, and a separate lead status. filtering is where that confusion becomes expensive, because a query that mixes them silently returns the wrong queue. the redesign added include and exclude to search, and a course and cohort filter built for the same dataset.",
+        title: "email templates, for managers and agents",
+        text: "the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product.",
       },
       {
         kind: "statement",
@@ -538,15 +583,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "all three phases shipped into vision - sales, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
-          "TODO · what changed for the people using it. only numbers you can point at. if there is no measurement, say that instead, the way the pre-read case does.",
+          "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
+          "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
           "the screens are shown with synthetic records under an airtribe nda. every name, company, amount and date is invented; the structure is the real thing.",
         ],
       },
-      {
-        kind: "reflection",
-        text: "TODO · in your voice. a candidate, if it is true: the sheet is still there. the honest version of this project is not that a product replaced it, but that a product learned to live next to it, and that the row index is the scar.",
-      },
+      // TODO · REFLECTION — in evana's voice. candidate, if true: the sheet is
+      // still there. a product did not replace it, it learned to live next to
+      // it, and the row index is the scar.
     ],
   },
 
