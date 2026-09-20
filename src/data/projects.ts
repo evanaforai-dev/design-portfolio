@@ -72,16 +72,19 @@ export const projects: Project[] = [
     title: "lipi",
     tags: ["developer tooling", "design systems", "interaction design", "prototyping"],
     category: "playground",
-    cover: "/covers/lipi.gif",
+    cover: "/covers/lipi-tile.gif",
     year: "2026",
     summary:
       "a figma plugin that pressure-tests ui against localized indic copy, fixing where translation breaks layout.",
     link: "https://github.com/evanaforai-dev/lipi",
-    // animated cover: static poster idle, plays on hover
+    // animated cover: static poster idle, plays on hover. The tile copies have
+    // the dark ground lifted out, so the two panels float on the grid like the
+    // other object tiles; the case study still uses the originals on their
+    // ground.
     display: {
       fit: "contain",
       animated: true,
-      poster: "/covers/lipi-poster.png",
+      poster: "/covers/lipi-tile-poster.png",
     },
   },
   {
