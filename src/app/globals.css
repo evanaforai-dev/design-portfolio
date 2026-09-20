@@ -90,6 +90,35 @@ body {
 }
 
 /*
+ * LAUNCH REGISTER TYPE
+ * Product-copy voice for case studies that present an object: monospaced,
+ * uppercase, small and letter-spaced, so specification and narration read in
+ * the same hand. Only the launch sections use it; the editorial pages keep
+ * the sans and their sentence case.
+ */
+.mono-label {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+}
+
+.mono-body {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  font-size: 0.75rem;
+  line-height: 1.85;
+}
+
+@media (min-width: 768px) {
+  .mono-body {
+    font-size: 0.8125rem;
+  }
+}
+
+/*
  * Optical typography for the Malayalam initial "ഇ" that stands in for the
  * Latin "e" in the wordmark. Malayalam glyphs render taller, heavier and on a
  * different optical baseline than Inter's lowercase, so matching CSS font-size

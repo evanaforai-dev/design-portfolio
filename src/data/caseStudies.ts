@@ -930,141 +930,198 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ─────────────────────────────────────────────────────────── deep cuts ──
   "deep-cuts": {
     slug: "deep-cuts",
+    // The device's own palette. The page wears the product.
+    theme: { bg: "#070808", fg: "#EBEBEB", hairline: "rgba(235,235,235,0.16)" },
     hero: {
-      kicker: "interaction design · web",
+      kicker: "clients · experimentation",
       title: "deep cuts",
       subtitle:
-        "a walkman-shaped machine that turns one typed signal into a branching journey, and prints the path as a receipt you can keep.",
-      media: { type: "video", src: "/case/deepcuts/film.mp4", alt: "the deep cuts console running a full journey and printing a receipt" },
-      mediaFit: "contain",
+        "a curiosity machine that turns exploration into collectible artifacts.",
+      media: {
+        type: "video",
+        src: "/case/deepcuts/film.mp4",
+        poster: "/case/deepcuts/launch/poster.png",
+        alt: "the deep cuts console running a full journey and printing a receipt",
+      },
+      mediaFit: "cover",
+      mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "role", value: "design + build" },
-        { label: "type", value: "interaction study" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "prototype + film" },
-        { label: "stack", value: "react · framer motion · web audio" },
+        { label: "clients", value: "experimentation" },
+        { label: "service", value: "ux/ui design · product" },
+        { label: "date", value: "jun 2026" },
       ],
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/deepcuts" }],
     },
-    // The device's own palette, read off its system section: the page wears
-    // the product rather than displaying it against a contrasting ground.
-    theme: { bg: "#070808", fg: "#EBEBEB", hairline: "rgba(235,235,235,0.16)" },
     sections: [
-      { kind: "thesis", text: "i wanted curiosity to feel like operating an object. you tune it, you play it, and at the end you are holding something." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
-          "you type a signal and tune it on a dial. the machine plays a chain of connected cards, each one picking up where the last left off, and at the end it prints a mixtape receipt you can collect into an archive.",
-          "there is no backend and no language model behind it. the journeys are a hand-authored tree, which is the point: every branch leads somewhere genuinely different.",
+          "we have unlimited access to information, but very few ways to preserve the paths that lead us through it. most ai tools optimize for answers.",
+          "the project explores a question: what if ai wasn't designed to deliver answers, but to help people author memorable journeys through knowledge?",
+          "deepcuts is an ai-powered curiosity machine that turns exploration into a collectible artifact. rather than optimizing for answers, it invites users to navigate a series of ai-generated connections, actively curating their own path through knowledge. each completed journey is preserved as a receipt and archived as a permanent record of curiosity, a mixtape for the mind.",
         ],
-      },
-      {
-        kind: "pipeline",
-        label: "behind the experience",
-        steps: [
-          { glyph: "input", label: "question", text: "curiosity starts as one typed word.", note: "/numbers and non-words fall back to a random seed rather than an error" },
-          { glyph: "graph", label: "space", text: "the word is placed among the things it connects to." },
-          { glyph: "layers", label: "paths", text: "the routes worth taking are pulled out of the noise around it." },
-          { glyph: "cards", label: "exploration", text: "three directions surface. you pick one.", note: "/all three have to belong to mutually exclusive genres, or the choice is not a choice" },
-          { glyph: "converge", label: "synthesis", text: "choices compound. each card picks up where the last one left off.", note: "/one fact has to carry the jump, or the chain reads as random" },
-          { glyph: "receipt", label: "receipt", text: "the path you took prints as a record." },
-          { glyph: "archive", label: "archive", text: "saved, stored, and openable again later." },
-        ],
-        caption: "the notes in the margin are the rules that keep it usable. this is the system as designed; in the prototype the tree behind it is seeded by hand.",
-      },
-      {
-        kind: "turn",
-        label: "designed for curiosity",
-        tried: "the early explorations maximised options. every stop offered as many directions as the tree could produce, on the assumption that more branches meant more freedom.",
-        result: "decision paralysis. the extra choice made a journey feel less like yours, not more, because nothing you picked felt like it had cost anything.",
-        change: "every step now offers exactly three directions, and a journey ends after five signal stops. the limit is what produces the feeling of having chosen, and it keeps the last card as interesting as the first.",
-      },
-      {
-        kind: "annotated",
-        label: "interaction design",
-        media: { type: "image", src: "/case/deepcuts/splash.png", alt: "the deep cuts hardware console" },
-        fit: "contain",
-        frame: true,
-        items: [
-          { title: "the wheel navigates, always", text: "turn to scroll a selection, press to lock it. the same gesture does the same thing everywhere, so the thing reads as one device instead of a set of screens." },
-          { title: "switches stay down", text: "a switch remains pressed after activation. an interaction becomes a state you can see rather than a tap that disappears." },
-          { title: "shuffle is not a shortcut", text: "it hands the next choice to the machine. discovery over optimisation, and the only control that takes the decision away from you." },
-          { title: "orange marks one action", text: "the single context action available at that moment. nothing else in the interface carries colour." },
-          { title: "sound is synthesised, not sampled", text: "contacts are filtered noise so they read as material, and a tone is saved for the moment you collect. a softer detent means the machine turned the wheel, not your hand." },
-        ],
-      },
-      {
-        kind: "system",
-        label: "system design",
-        paragraphs: [
-          "a consistent interaction language mattered more than any individual screen. every state follows the same hardware logic, so the interface holds together as one object.",
-        ],
-        mapping: [
-          { from: "wheel", to: "navigate" },
-          { from: "play", to: "progress" },
-          { from: "orange", to: "context action" },
-          { from: "shuffle", to: "autopilot" },
-        ],
-        colors: [
-          { hex: "070808", name: "bg_main" },
-          { hex: "18191A", name: "bg_elevated" },
-          { hex: "54595B", name: "receipt_ghost" },
-          { hex: "E7E5DF", name: "bg_hover" },
-          { hex: "DE723B", name: "bg_selected" },
-        ],
-        type: [
-          { name: "typeface", value: "geist / geist mono" },
-          { name: "primary", value: "EBEBEB" },
-          { name: "secondary", value: "838383" },
-          { name: "metadata", value: "5E5E5E" },
-        ],
-        metrics: [
-          { label: "screen", value: "512px" },
-          { label: "header", value: "94px" },
-          { label: "console", value: "276px" },
-          { label: "switch", value: "82px" },
-          { label: "wheel", value: "115px" },
-          { label: "hub", value: "30px" },
-        ],
-        note: "everything resolves to an 8px grid.",
-      },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/deepcuts/system.png", alt: "the deep cuts component library" },
-        fit: "contain",
-        frame: true,
-        caption: "the component library: header, input, direction cards, device shell, content card, scanning state, and the receipt.",
-      },
-      {
-        kind: "constraints",
-        label: "edge cases",
-        items: [
-          { label: "bad input", text: "numbers and non-words fall back to a random seed instead of an error. offensive or flagged input is redirected to a broader safe category rather than refused." },
-          { label: "the three doors", text: "all three surfaced suggestions have to sit in mutually exclusive genres. without that rule the machine offers you the same door three times." },
-          { label: "runaway journeys", text: "synthesis is capped at five journey stops, so a session cannot wander past the point where any of it is still novel." },
-          { label: "the archive", text: "empty, full, buffering and card overflow are designed states rather than conditions the interface falls into." },
+        creditsLabel: "credits",
+        credits: [
+          { role: "creative direction, strategy, systems architecture, ui/ux", name: "evana sajan" },
+          { role: "eng development", name: "claude, openai" },
+          { role: "design inspiration", name: "teenage eng." },
         ],
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/deepcuts/receipt-in-situ.png", alt: "the printed receipt held in the interface" },
+        media: { type: "image", src: "/case/deepcuts/launch/thesis.png", alt: "the deep cuts mixtape receipt" },
         fit: "contain",
         side: "right",
-        title: "the artifact",
-        text: "your signal, the path taken, leaps and rarity, a timestamp. the scores are read off the real journey tree, so a receipt's numbers mean what they say and never change.",
+        title: "product thesis",
+        // TODO · the live framer page carries hibiki's thesis copy here, not
+        // deep cuts'. Left blank rather than moved across: the maps/sounds
+        // argument belongs to a different product.
+        text: "TODO · write the deep cuts product thesis. the copy currently in this slot on the framer page is hibiki's.",
       },
-      { kind: "statement", text: "the autoplay film presses the same controls a hand presses. nothing on camera is mocked." },
       {
-        kind: "outcome",
+        kind: "bleed",
+        media: { type: "image", src: "/case/deepcuts/launch/devices-bleed.png", alt: "the five console states lit on a dark field" },
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/deepcuts/launch/behind.png", alt: "the seven stages of a deep cuts journey" },
+        overlay: {
+          label: "behind the experience",
+          anchor: "bottom",
+          columns: [
+            { label: "question", text: "curiosity begins with a single word", note: "/all numbers, non words become \u201crandom\u201d /all offensive words, larger umbrella word" },
+            { label: "ai brain", text: "understands / maps space of knowledge" },
+            { label: "paths", text: "ai finds signals in noise" },
+            { label: "exploration", text: "ai surfaces, you decide", note: "/all suggestions will belong to unique genres" },
+            { label: "synthesis", text: "choices compound, meaning formed", note: "/one fact that connects the jump" },
+            { label: "receipt", text: "journey record" },
+            { label: "archive", text: "saved, stored, recovered" },
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "designed for curiosity",
+        emphasise: [2],
         paragraphs: [
-          "deep cuts is a working prototype and a launch film cut entirely from the live product. it runs itself as an unattended loop for the camera.",
-          "the content is a single seeded tree, enough to prove the interaction. a real version would put a live source of knowledge behind the same machine.",
+          "early explorations maximized options. the result was decision paralysis.",
+          "limiting every step to three possible directions created a stronger sense of authorship while keeping exploration open-ended.",
+          "ending the journey at five signal stops is a design decision to limit user from cognitive fatigue and preserve novelty.",
+          "most exploration tools end with an answer. deepcuts ends with an artifact, a mixtape-style receipt stored in a personal archive. make curiosity feel collectible.",
         ],
       },
-      { kind: "reflection", text: "almost all of the work here is in press travel, detents and synthesized clicks, and none of it survives a screenshot. that is why there is a film." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/tune.png", alt: "tune a signal" },
+          { type: "image", src: "/case/deepcuts/launch/directions.png", alt: "choose a direction" },
+        ],
+        // TODO · the framer page carries lipi's captions under these two.
+        captions: [
+          { label: "TODO", text: "caption this pair. the framer page has lipi's localization copy in this slot." },
+          { label: "TODO", text: "caption this pair. the framer page has lipi's preview/reveal copy in this slot." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/receipt.png", alt: "the printed mixtape receipt" },
+          { type: "image", src: "/case/deepcuts/launch/archive-spines.png", alt: "the archive, journeys stored as spines" },
+        ],
+        // TODO · as above.
+        captions: [
+          { label: "TODO", text: "caption this pair. the framer page has lipi's fix/re-check copy in this slot." },
+          { label: "TODO", text: "caption this pair. the framer page has lipi's screen/component/system copy in this slot." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "interaction design",
+        emphasise: [0],
+        paragraphs: [
+          "deepcuts is an instrument.",
+          "inspired by the hardware era of computing, the interface is designed as a constraint against the speed and complexity common in ai products.",
+          "embracing constraints, focused controls, and deliberate interaction, it reveals a small set of meaningful choices at a time.",
+          "the goal is not to maximize exploration, but to make exploration intentional.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/wheel.png", alt: "the scroll wheel" },
+          { type: "image", src: "/case/deepcuts/launch/console.png", alt: "the console face" },
+        ],
+        captions: [
+          {
+            label: "shuffle · discovery over optimization / play · deliberate pace / save · discoveries are collected, not consumed",
+            text: "decisions stay visible. switches remain pressed after activation, transforming interactions from momentary taps into persistent states.",
+          },
+          {
+            label: "intentional interaction",
+            text: "discovery begins with a conscious action rather than an endless feed. directed exploration: ideas unfold as a sequence, not a graph.",
+          },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/deepcuts/launch/system-board.png", alt: "the deep cuts system board: components, states and tokens" },
+        overlay: {
+          label: "system design",
+          paragraphs: [
+            "a consistent interaction language was critical. every state follows the same hardware logic, allowing the interface to feel like a single device rather than a collection of screens.",
+          ],
+          lines: [
+            "wheel → navigate",
+            "play → progress",
+            "orange → context action",
+            "shuffle → autopilot",
+            "8px system",
+            "typography · geist / geist mono",
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "edge cases",
+        emphasise: [0],
+        paragraphs: [
+          "the final phase focused on resilience.",
+          "empty archive / full archive / buffering states / card overflow handling.",
+          "handling bad inputs: non-word or numerical input falls back to random seed generation; offensive or flagged input redirects to a broader safe-category umbrella.",
+          "controlling the ai brain: all three surfaced suggestions belong to mutually exclusive genre tags. data synthesis is capped at five journey steps.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/archive-empty.png", alt: "the empty archive" },
+          { type: "image", src: "/case/deepcuts/launch/archive-full.png", alt: "the full archive, segregated by month" },
+        ],
+        captions: [
+          { label: "empty archive", text: "zero signal count" },
+          { label: "full archive", text: "archive segregated by months" },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/signal-lost.png", alt: "signal lost, with retry and start over" },
+          { type: "image", src: "/case/deepcuts/launch/buffering.png", alt: "a journey resuming from its last step" },
+        ],
+        captions: [
+          { label: "buffering states", text: "imitating radio signaling, progressive" },
+          { label: "unable to collect ai information", text: "journey intact. start from last step or last journey." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/deepcuts/launch/merging-bleed.png", alt: "coffeehouses plus salon culture, merging signals" },
+      },
     ],
   },
+
 
   // ──────────────────────────────────────────────────────────── soundmap ──
   soundmap: {

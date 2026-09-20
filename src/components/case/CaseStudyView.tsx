@@ -44,11 +44,12 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           // No frame, no container, no gutter: the object gets the viewport
           // and stands on its own ground. A hairline box around a product is
           // a specimen case, and a specimen is not a launch.
-          <div className="flex min-h-[78vh] w-full items-center justify-center overflow-hidden px-6 py-10 md:min-h-[88vh] md:px-10">
+          <div className="h-[70vh] w-full overflow-hidden md:h-screen">
             <Media
               asset={hero.media}
-              fit="contain"
-              className="max-h-[74vh] w-auto max-w-full md:max-h-[80vh]"
+              fit="cover"
+              position={hero.mediaPosition}
+              className="h-full w-full"
             />
           </div>
         ) : hero.mediaFit === "contain" ? (

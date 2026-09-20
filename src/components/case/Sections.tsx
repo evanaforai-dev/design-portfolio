@@ -586,6 +586,163 @@ export function renderSection(section: Section, i: number) {
         </Band>
       );
 
+    /* ── launch register ─────────────────────────────────────────────── */
+
+    case "credits":
+      return (
+        <Reveal key={i}>
+          <Container className="py-16 md:py-28">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+              <div className="md:col-span-7">
+                <p className="mono-label mb-6">{section.label ?? "about"}</p>
+                <div className="space-y-5">
+                  {section.paragraphs.map((t, j) => (
+                    <p key={j} className="mono-body max-w-[46rem]">
+                      {t}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              <div className="md:col-span-4 md:col-start-9">
+                <p className="mono-label mb-6">
+                  {section.creditsLabel ?? "credits"}
+                </p>
+                <dl className="space-y-4">
+                  {section.credits.map((c, j) => (
+                    <div key={j} className="grid grid-cols-2 gap-4">
+                      <dt className="mono-body opacity-60">{c.role}</dt>
+                      <dd className="mono-body">{c.name}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </Container>
+        </Reveal>
+      );
+
+    case "bleed":
+      return (
+        <Reveal key={i}>
+          <figure className="relative w-full">
+            <Media
+              asset={section.media}
+              fit="cover"
+              className="h-auto w-full"
+            />
+            {section.overlay && (
+              <div
+                className={`pointer-events-none absolute inset-x-0 px-6 py-10 md:px-10 md:py-14 ${
+                  section.overlay.anchor === "bottom" ? "bottom-0" : "top-0"
+                }`}
+              >
+                <div className="max-w-md">
+                  {section.overlay.label && (
+                    <p className="mono-label mb-4 text-base md:text-lg">
+                      {section.overlay.label}
+                    </p>
+                  )}
+                  {section.overlay.paragraphs?.map((t, j) => (
+                    <p key={j} className="mono-body mb-3">
+                      {t}
+                    </p>
+                  ))}
+                  {section.overlay.lines && (
+                    <div className="mt-6 space-y-1">
+                      {section.overlay.lines.map((l, j) => (
+                        <p key={j} className="mono-body">
+                          {l}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {section.overlay.columns && (
+                  <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4 lg:grid-cols-7">
+                    {section.overlay.columns.map((c, j) => (
+                      <div key={j}>
+                        <p className="mono-label">{c.label}</p>
+                        {c.text && (
+                          <p className="mono-label mt-1 opacity-60">{c.text}</p>
+                        )}
+                        {c.note && (
+                          <p className="mono-label mt-3 opacity-40">{c.note}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+            {section.caption && (
+              <figcaption className="mono-label px-6 py-4 md:px-10">
+                {section.caption}
+              </figcaption>
+            )}
+          </figure>
+        </Reveal>
+      );
+
+    case "duo":
+      return (
+        <Reveal key={i}>
+          <div className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {section.media.map((m, j) => (
+                <Media key={j} asset={m} fit="cover" className="h-auto w-full" />
+              ))}
+            </div>
+            {section.captions && (
+              <div className="grid grid-cols-1 gap-6 px-6 py-6 md:grid-cols-2 md:gap-10 md:px-10">
+                {section.captions.map((c, j) => (
+                  <div key={j}>
+                    {c.label && <p className="mono-label mb-2">{c.label}</p>}
+                    {c.text && <p className="mono-body max-w-sm">{c.text}</p>}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </Reveal>
+      );
+
+    case "panel": {
+      // Inverts the page ground for the length of the panel. The launch pages
+      // run dark, so a white panel is how a chapter break reads as a breath
+      // rather than another section.
+      const inv = section.invert !== false;
+      return (
+        <Reveal key={i}>
+          <section
+            className="w-full px-6 py-20 md:px-10 md:py-32"
+            style={
+              inv
+                ? { backgroundColor: "#f4f4f4", color: "#0a0a0a" }
+                : undefined
+            }
+          >
+            <h2 className="mb-10 text-center text-3xl font-medium uppercase tracking-tight md:mb-14 md:text-5xl">
+              {section.label}
+            </h2>
+            <div className="mx-auto max-w-[44rem] space-y-5">
+              {section.paragraphs.map((t, j) => (
+                <p
+                  key={j}
+                  className={
+                    section.emphasise?.includes(j)
+                      ? "mono-body font-semibold"
+                      : "mono-body"
+                  }
+                >
+                  {t}
+                </p>
+              ))}
+            </div>
+          </section>
+        </Reveal>
+      );
+    }
+
     default:
       return null;
   }

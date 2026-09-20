@@ -75,6 +75,50 @@ export interface DecisionItem {
 }
 
 export type Section =
+  /*
+   * LAUNCH REGISTER
+   * Four sections for a page that presents an object rather than filing a
+   * report on it. They set their own typography (mono, uppercase, small) and
+   * their own ground, so they read as product copy, not case-study prose.
+   */
+  | {
+      kind: "credits";
+      label?: string;
+      paragraphs: string[];
+      creditsLabel?: string;
+      credits: { role: string; name: string }[];
+    }
+  /** Edge to edge, no container, no gutter, no frame. */
+  | {
+      kind: "bleed";
+      media: MediaAsset;
+      /** Copy laid over the image, anchored top-left. */
+      overlay?: {
+        label?: string;
+        paragraphs?: string[];
+        lines?: string[];
+        /** A row of labelled steps anchored to the foot of the image. */
+        columns?: { label: string; text?: string; note?: string }[];
+        /** Anchor the overlay block to the bottom instead of the top. */
+        anchor?: "top" | "bottom";
+      };
+      caption?: string;
+    }
+  /** Two media filling the width, no gap between them. */
+  | {
+      kind: "duo";
+      media: [MediaAsset, MediaAsset];
+      captions?: [{ label?: string; text?: string }, { label?: string; text?: string }];
+    }
+  /** A full-width panel that inverts the ground: centred heading, body left. */
+  | {
+      kind: "panel";
+      label: string;
+      paragraphs: string[];
+      /** Emphasise these paragraph indices (0-based). */
+      emphasise?: number[];
+      invert?: boolean;
+    }
   | { kind: "thesis"; eyebrow?: string; text: string }
   | { kind: "context"; label?: string; paragraphs: string[] }
   | { kind: "question"; text: string }
