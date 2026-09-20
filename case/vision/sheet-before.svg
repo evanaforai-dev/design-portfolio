@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1200" width="2000" height="1200">
+  <!-- PLACEHOLDER. Deliberately not a screen: a blank frame cannot be mistaken
+       for evidence the way a borrowed or invented screenshot can. Replace with
+       a real capture, repopulated from vision-synthetic-cast.csv. -->
+  <defs>
+    <pattern id="h" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="16" stroke="#9a9a9a" stroke-width="1" opacity="0.28"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="1998" height="1198" fill="url(#h)" stroke="#9a9a9a" stroke-width="2"/>
+  <rect x="440" y="530" width="1120" height="140" fill="#f2f0eb"/>
+  <text x="1000" y="592" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34"
+        fill="#5a5a5a" letter-spacing="1">the sales sheet · before</text>
+  <text x="1000" y="642" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26"
+        fill="#8a8a8a" letter-spacing="2">placeholder, awaiting a scrubbed capture</text>
+</svg>
