@@ -27,8 +27,9 @@ const PULL = 14;
  * The hover zoom lives on the <img> rather than on the same wrapper, because
  * two transforms on one element would overwrite each other.
  *
- * CORNER BRACKETS — hairline L's at the cell's corners that grow and thicken on
- * hover, so the grid's construction asserts itself under the pointer.
+ * CORNER MARKS — four small solid squares set inside the image well's corners,
+ * invisible at rest and appearing under the pointer. Registration marks rather
+ * than a frame: they note where the cell is without drawing one.
  */
 export function ProjectCard({ project }: { project: Project }) {
   const reduceMotion = useReducedMotion();
@@ -89,11 +90,11 @@ export function ProjectCard({ project }: { project: Project }) {
     };
   }, []);
 
-  // Invisible until the pointer arrives: nothing at rest, then a heavy
-  // bracket. Thickness is constant so only opacity and size animate, which
-  // keeps the stroke crisp instead of easing through fractional widths.
+  // Invisible until the pointer arrives, then a small solid square. Size is
+  // constant so only opacity animates and the square stays crisp instead of
+  // easing through fractional pixels.
   const corner =
-    "pointer-events-none absolute z-10 h-4 w-4 border-[3px] border-fg opacity-0 transition-all duration-300 ease-editorial group-hover:h-6 group-hover:w-6 group-hover:opacity-100 group-focus-visible:h-6 group-focus-visible:w-6 group-focus-visible:opacity-100";
+    "pointer-events-none absolute z-10 h-1.5 w-1.5 bg-white mix-blend-difference opacity-0 transition-opacity duration-300 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100";
 
   return (
     <Link
@@ -104,14 +105,14 @@ export function ProjectCard({ project }: { project: Project }) {
       onPointerLeave={() => setLive(false)}
       className="group relative flex h-full w-full flex-col"
     >
-      {/* corner brackets — the cell's construction, asserted under the pointer */}
-      <span aria-hidden className={`${corner} left-0 top-0 border-b-0 border-r-0`} />
-      <span aria-hidden className={`${corner} right-0 top-0 border-b-0 border-l-0`} />
-      <span aria-hidden className={`${corner} bottom-0 left-0 border-r-0 border-t-0`} />
-      <span aria-hidden className={`${corner} bottom-0 right-0 border-l-0 border-t-0`} />
-
       {/* image well — the artwork leans toward the pointer inside it */}
       <div className="relative min-h-0 flex-1 overflow-hidden">
+        {/* corner marks — set inside the well, noted under the pointer */}
+        <span aria-hidden className={`${corner} left-2.5 top-2.5`} />
+        <span aria-hidden className={`${corner} right-2.5 top-2.5`} />
+        <span aria-hidden className={`${corner} bottom-2.5 left-2.5`} />
+        <span aria-hidden className={`${corner} bottom-2.5 right-2.5`} />
+
         <div
           ref={pullRef}
           className={`h-full w-full transition-transform duration-500 ease-editorial ${pad}`}
