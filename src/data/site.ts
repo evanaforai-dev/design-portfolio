@@ -12,32 +12,115 @@ export const site = {
 
   social: [
     { label: "email", href: "mailto:hello@evana.design" },
+    // TODO · replace with the real profile url before this goes out.
     { label: "linkedin", href: "https://linkedin.com/" },
     { label: "github", href: "https://github.com/evanaforai-dev" },
   ],
 };
 
 export const about = {
-  headline:
-    "i design products end to end, from research and systems thinking through to the last pixel.",
+  headline: "the practice predates the profession.",
+
   bio: [
-    "i'm a product designer with eight years shaping software for finance, health, and developer tools. i care about clarity: interfaces that explain themselves, systems that scale, and interactions that stay out of the way.",
-    "my work sits between research and craft. i like the messy early questions, what is this really for, who is it for, as much as the final polish of type, spacing, and motion. i've led design at early-stage startups and inside larger product orgs, and i've built and maintained the design systems that hold both together.",
-    "outside client work i keep a small studio practice of experiments, tools, and type, most of it living in the grid on the home page.",
+    "creative technologist, not always digital. i like to practice “let the work speak for itself” a little too seriously, since my time at spa delhi.",
+    "anything that offers a new way to express an idea, and the mechanics of it, usually gets my attention. some interests stay for years, others just long enough to understand them: painting and film, printmaking, animation, writing, architecture, furniture, data viz, music, and maybe even apps.",
+    "being at idc, iit bombay shifted my attention from what we make to why we make it. that curiosity has since wandered through philosophy, mythology, history, business, kickboxing, even formula 1.",
+    "i don’t think of technology as an end in itself. it’s simply another medium. i’m usually more interested in what it causes than what it enables.",
   ],
+
+  /** The two registers the work runs in. Shown as a pair, not a toggle. */
+  hours: [
+    {
+      key: "office hours",
+      note: "finds leverage in systems, strategy, and emerging technology. more interested in defining the right problem than debating a 16px margin.",
+      axes: [
+        "ai native",
+        "user empathy",
+        "visual refinement",
+        "collaborative execution",
+        "systems thinking",
+      ],
+    },
+    {
+      key: "after hours",
+      note: "usually investigating the same thing from different angles: how people make meaning.",
+      axes: ["f1 / kickboxing", "side quests", "films", "drawing", "literature"],
+    },
+  ],
+
+  service: [
+    "product design",
+    "ai workflows",
+    "design research",
+    "design systems",
+    "visual data design",
+    "0 → 1 strategy",
+    "prototyping & development",
+    "architecture",
+  ],
+
   background: [
-    { period: "2022, now", role: "lead product designer", place: "atlas" },
-    { period: "2019, 2022", role: "senior product designer", place: "northwind health" },
-    { period: "2016, 2019", role: "product designer", place: "foundry labs" },
+    {
+      period: "2026",
+      sector: "education",
+      place: "airtribe",
+      role: "ai tools for learners / for business",
+    },
+    {
+      period: "2025",
+      sector: "finance",
+      place: "wells fargo",
+      role: "migration in design systems for lob products",
+    },
+    {
+      period: "2024",
+      sector: "civic tech",
+      place: "kochi metro",
+      role: "academic collaboration",
+    },
+    {
+      period: "2022",
+      sector: "architecture",
+      place: "sangath collective",
+      role: "bv doshi",
+    },
   ],
+
+  education: [
+    { place: "idc, iit bombay", award: "m.des interaction design" },
+    { place: "spa, new delhi", award: "b.arch" },
+  ],
+
+  /** up my sleeve: what i do, and what i do it with. */
+  skills: [
+    "systems thinking",
+    "product strategy",
+    "interaction design",
+    "design engineering",
+    "research synthesis",
+    "information design",
+    "ai experiences",
+    "prototyping",
+  ],
+
   tools: [
     "figma",
+    "cursor",
+    "claude",
     "framer",
-    "origami studio",
-    "swiftui",
-    "react / next.js",
-    "design systems",
-    "user research",
-    "prototyping",
+    "adobe suite",
+    "v0",
+    "notion",
+    "jira",
+  ],
+
+  contact: "let’s create something solid. open to experimentation worldwide.",
+
+  future: [
+    { horizon: "immediate future", line: "contributing to social tech" },
+    {
+      horizon: "plausible future",
+      line: "curate design, discussions, and open my independent gallery",
+    },
   ],
 };
