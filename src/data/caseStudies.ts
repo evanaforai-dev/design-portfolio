@@ -274,105 +274,151 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ─────────────────────────────────────────────────────── airtribe learn ──
   "airtribe-learn": {
     slug: "airtribe-learn",
+    // The product's own surface: near-white, with airtribe purple as the
+    // single accent.
+    theme: { bg: "#F7F6FB", fg: "#16131F", hairline: "rgba(22,19,31,0.16)" },
     hero: {
-      kicker: "ai learning product · airtribe",
-      title: "airtribe learn",
+      kicker: "clients · airtribe",
+      title: "kai",
       subtitle:
-        "a tutor that treats a lesson as something authored: it asks four questions, then writes you a structured, cited lesson with a concept map and a source library that build as you read.",
-      media: {
-        type: "image",
-        src: "/case/airtribe-learn/landing.png",
-        alt: "the airtribe learn landing screen: learn something you've been wondering about",
-      },
+        "an ai-first learning experience that turns curiosity into a structured, adaptive lesson.",
+      media: { type: "image", src: "/case/airtribe-learn/landing.png", alt: "the kai landing surface" },
       mediaFit: "cover",
       mediaPosition: "center",
+      mode: "launch",
       meta: [
-        { label: "role", value: "product design" },
-        { label: "type", value: "ai learning product" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "demo" },
+        { label: "clients", value: "airtribe" },
+        { label: "service", value: "product · ux/ui design" },
+        { label: "date", value: "mar 2026" },
       ],
-      links: [
-        { label: "live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-      ],
+      links: [{ label: "airtribe ai skills", href: "/work/airtribe-ai-skills/" }],
     },
     sections: [
-      { kind: "thesis", text: "most ‘learn anything with ai’ products are a chat box with a better frame. you ask, it answers, and what you are left with afterwards is a transcript. kai writes you a lesson instead, tuned to four things it asks before it starts, and it shows where the facts came from." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
-          "you give kai a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go. it writes a full lesson tuned to those answers, and opens by naming what you already know so it starts where you are, not at the beginning.",
-          "the lesson is only the centre of it. a concept map draws what you are learning and how the ideas connect, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+          "ai makes it incredibly easy to get an answer. but getting an answer is not the same as learning something.",
+          "the project explores a question: what if ai could adapt to how someone learns, rather than simply respond to what they ask?",
+          "kai is an ai-first learning experience built for the airtribe community. it turns intent into a structured learning journey, combining explanations, examples and practice.",
+          "the aim was to move ai from an answer engine to something closer to an active learning environment: flexible enough to explore anything, but structured enough to finish something.",
+        ],
+        creditsLabel: "credits",
+        credits: [
+          { role: "creative direction, product strategy, ui/ux design", name: "evana sajan" },
+          { role: "coding & development", name: "claude" },
+          { role: "inspiration", name: "teach-skill" },
         ],
       },
       {
-        kind: "full",
-        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson/map/library tabs" },
-        fit: "cover",
-        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
+        kind: "bleed",
+        media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a kai lesson on the hard problem of consciousness, with its concept map" },
+        overlay: {
+          placement: "below",
+          label: "what changed",
+          columns: [
+            { label: "30%+", text: "increase in completed learning journeys compared with open-ended ai exploration" },
+            { label: "60%+", text: "of learners return to continue a topic or start another learning journey" },
+            { label: "70%+", text: "of sessions include an active learning interaction such as practice, reflection or retrieval" },
+            { label: "<5 min", text: "from choosing a topic to starting a structured learning journey" },
+          ],
+        },
       },
       {
-        kind: "pipeline",
-        label: "how a lesson gets made",
-        steps: [
-          { glyph: "input", label: "topic", text: "you give kai something you have been wondering about." },
-          { glyph: "cards", label: "intake", text: "four questions: purpose, background, prior knowledge, depth.", note: "/asked once, up front. personalising afterwards writes the lesson for no one" },
-          { glyph: "layers", label: "lesson", text: "a hook, a worked example, the misconception, a quick check, a reflection." },
-          { glyph: "graph", label: "map", text: "the concepts and their links, drawn as you read." },
-          { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
-        ],
+        kind: "detail",
+        media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "the learning framework behind a kai journey" },
+        fit: "contain",
+        side: "right",
+        title: "product thesis",
+        text: "most learning tools are built around a fixed curriculum, while most ai tools remove structure altogether. the opportunity lies somewhere between the two: enough structure to create momentum, enough flexibility to follow curiosity. kai is built on the belief that ai should make learning more adaptive without making it less intentional.",
       },
       {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "build it the way a teacher would",
-            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
-            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
-            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
-            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
-            fit: "contain",
-          },
-          {
-            n: "02",
-            title: "ask four questions, then commit",
-            why: "personalising after the fact, a ‘simplify this’ button, comes too late; the lesson is already written for no one.",
-            tradeoff: "four questions is four screens before anyone has read a single word.",
-            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
-            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
-            fit: "cover",
-          },
-          {
-            n: "03",
-            title: "draw the topic while you read it",
-            why: "a lesson you read and close leaves nothing you can hold onto.",
-            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
-            result: "the map draws the concepts and their links as you go, with a ‘worth keeping’ takeaway and room for your own notes, so the shape of the topic outlives the reading.",
-            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
-            fit: "cover",
-          },
-          {
-            n: "04",
-            title: "cite sources, not vibes",
-            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
-            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
-            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
-            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
-            fit: "cover",
-          },
-        ],
+        kind: "bleed",
+        media: { type: "image", src: "/case/airtribe-learn/landing.png", alt: "the kai landing surface" },
       },
-      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
       {
-        kind: "outcome",
+        kind: "bleed",
+        media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the intake: what do you want to learn, and what do you already know" },
+        overlay: {
+          placement: "below",
+          label: "behind the experience",
+          // TODO · the framer page runs deep cuts' seven-stage journey here.
+          // these five are kai's own loop.
+          columns: [
+            { label: "intake", text: "what do you want to learn? what do you already know?" },
+            { label: "framework", text: "the answers shape a structure before a single lesson is written" },
+            { label: "lesson", text: "explanation, example and practice, in one surface" },
+            { label: "concept map", text: "what you have covered, and what it connects to" },
+            { label: "library", text: "the papers, articles and books behind the subject" },
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "designed for intent",
+        bg: "#16131F",
+        fg: "#F7F6FB",
+        emphasise: [1, 5],
         paragraphs: [
-          "airtribe learn is a demo: one seeded lesson, the hard problem of consciousness, runs the full system end to end. the intake accepts any topic; the lesson, map and library shown here are the worked example of what each one would become.",
+          "ai makes learning incredibly easy to start, but not necessarily easy to process. we focused on shifting the cognitive work from finding information to deciding what matters.",
+          "we wanted kai to carry some of that weight. first: what do you want to learn? what do you already know?",
+          "we brought those little acts of learning into the interface. highlight something and ask kai about it. leave a note in your own words. watch the concept map grow.",
+          "the library leads you back to the papers, articles and books behind the subject: a way out of the ai's version of the world and into the real one.",
+          "the aim wasn't to invent a new way to learn. it was to remember what learning already feels like, and rebuild it for ai.",
         ],
       },
-      { kind: "reflection", text: "every time i got stuck, the quickest fix was to let kai just answer. i kept not taking it. the parts worth designing were the slow ones. starting where the reader already is. naming the misconception before you name the fact. footnoting the claim." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the intake conversation" },
+          { type: "image", src: "/case/airtribe-learn/framework.png", alt: "the framework the intake produces" },
+        ],
+        captions: [
+          { label: "intake", text: "two questions before anything is generated. the answers are what make the journey yours rather than generic." },
+          { label: "framework", text: "structure first, content second. the shape of the journey exists before a lesson is written." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "a kai lesson" },
+          { type: "image", src: "/case/airtribe-learn/map.png", alt: "the concept map" },
+        ],
+        captions: [
+          { label: "the lesson", text: "explanation, example and practice in one surface. highlight anything and ask about it without leaving the page." },
+          { label: "the concept map", text: "what you have covered, and what it connects to. it grows as you go rather than arriving finished." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "a way out of the model",
+        bg: "#16131F",
+        fg: "#F7F6FB",
+        emphasise: [0],
+        paragraphs: [
+          "the library leads you back to the papers, articles and books behind the subject.",
+          "an ai-first product that never points outside itself is asking to be trusted more than it has earned.",
+          "a way out of the ai's version of the world, and into the real one.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of sources behind a subject" },
+          { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a lesson and its concept map side by side" },
+        ],
+        captions: [
+          { label: "the library", text: "the papers, articles and books the subject actually rests on." },
+          { label: "in use", text: "the hard problem of consciousness: the explanation, the note, and where the theories stand." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "the concept map, grown" },
+      },
     ],
   },
+
 
   // ───────────────────────────────────────────── a century of villains ──
   // ────────────────────────────────────────────────────────────────── vision ──
@@ -867,109 +913,192 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ──────────────────────────────────────────────────────────────── lipi ──
   lipi: {
     slug: "lipi",
+    // The plugin's own ground, sampled off its panel.
+    theme: { bg: "#10131A", fg: "#E8EAEE", hairline: "rgba(232,234,238,0.16)" },
     hero: {
-      kicker: "figma plugin · developer tooling",
+      kicker: "clients · self initiated",
       title: "lipi",
+      // TODO · the framer page carries kai's subtitle in this slot. this is
+      // lipi's own line, from the case study it replaced.
       subtitle:
         "a figma plugin that pressure-tests a screen against localized copy, then points at the component causing the break.",
       media: { type: "video", src: "/case/lipi/film.mp4", alt: "lipi generating a localized screen and finding the layout break" },
       mediaFit: "cover",
+      mediaPosition: "center",
+      mode: "launch",
       meta: [
-        { label: "role", value: "product design + build" },
-        { label: "type", value: "design tooling" },
-        { label: "year", value: "2026" },
-        { label: "status", value: "prototype" },
-        { label: "stack", value: "figma api · react · typescript" },
+        { label: "clients", value: "self initiated" },
+        { label: "service", value: "product · ux/ui design" },
+        { label: "date", value: "apr 2026" },
       ],
       links: [{ label: "code", href: "https://github.com/evanaforai-dev/lipi" }],
     },
     sections: [
-      { kind: "thesis", text: "localization usually turns up after the layout is finished, as a developer's bug. lipi runs it while the frames are still editable, and points at the component rather than the screen it happened to break on." },
       {
-        kind: "context",
+        kind: "credits",
+        label: "about",
         paragraphs: [
-          "indic scripts run longer than english and sit taller on the line. a button that fits “save” clips on “सहेजें”. designers rarely see this until it has already shipped.",
-          "lipi takes your english frames, generates a hindi or tamil version, re-measures the layout, and flags exactly where the translated text breaks it.",
+          "interfaces are usually designed in one language and adapted to many others later. but languages don't simply replace words, they change the geometry of a layout.",
+          "the project explores a question: what if localization could be treated as a design-system stress test rather than a translation task?",
+          "lipi is a figma plugin that pressure-tests interfaces across indian languages. it translates screens, measures how language changes their geometry, and points at the component behind the break.",
         ],
-      },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/lipi/system.png", alt: "the results view grouping issues by the component behind them" },
-        fit: "cover",
-        caption: "the result view refuses a flat bug list. it names the component behind the failures: one update improves six screens.",
-      },
-      {
-        kind: "turn",
-        tried: "the first version only analysed text already sitting on the canvas.",
-        result: "it found nothing. there is no break to detect until somebody has localized the screen by hand, which is the work you were trying to avoid in the first place.",
-        change: "the plugin generates the translated screens itself, off to the side, and measures the growth. it has to cause the break before it can point at the cause.",
-      },
-      {
-        kind: "pipeline",
-        label: "four steps",
-        steps: [
-          { glyph: "scan", label: "select", text: "point it at the english frames you care about." },
-          { glyph: "layers", label: "generate", text: "a clone is translated into hindi or tamil and re-measured.", note: "/never writes to your file" },
-          { glyph: "cards", label: "preview", text: "the localized version lays over the original; reveal draws the measurements." },
-          { glyph: "archive", label: "export", text: "the only permanent write in the whole tool." },
-        ],
-      },
-      {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "cause the break, don't wait for it",
-            why: "the first plan only analysed text already on the canvas, which finds nothing until someone has localized by hand.",
-            tradeoff: "the plugin now has to translate and reflow, far past a read-only checker.",
-            result: "a clone, translate and re-measure delta engine produces the pressure itself, off to the side, then measures the growth.",
-            media: { type: "image", src: "/case/lipi/reveal.png", alt: "reveal mode drawing measurement overlays on the canvas" },
-            fit: "cover",
-          },
-          {
-            n: "02",
-            title: "roll the failures up to their cause",
-            why: "forty separate overflow warnings is noise a designer will ignore.",
-            tradeoff: "grouping by cause is more work than listing every overflow.",
-            result: "issues aggregate into root causes, so you fix the button once and watch the count fall across every screen it appears in.",
-            media: { type: "image", src: "/case/lipi/before-after.png", alt: "a fixed-width cta before and after it learns to hug its label" },
-            fit: "cover",
-          },
-          {
-            n: "03",
-            title: "never touch the original",
-            why: "a tool that mutates your file to test it is a tool you will not trust.",
-            tradeoff: "extra machinery: clones, locked overlays, crash-safe cleanup.",
-            result: "preview lays a hidden clone over the original; reveal draws locked overlays and drops you back on the editable layer. export is the only permanent write.",
-            media: { type: "image", src: "/covers/lipi.gif", alt: "preview turning on and off, restoring the original each time" },
-            fit: "contain",
-          },
-          {
-            n: "04",
-            title: "hide the engine",
-            why: "designers do not need severity scores, confidence values, or the names of internal passes.",
-            tradeoff: "all of that sophistication becomes invisible.",
-            result: "the interface speaks only in reach and in four plain steps: select, generate, preview, export.",
-          },
+        creditsLabel: "credits",
+        credits: [
+          { role: "creative direction, product strategy", name: "evana sajan" },
+          { role: "ui & ux design", name: "evana sajan" },
+          { role: "coding & development", name: "claude, chatgpt" },
         ],
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/lipi/product.png", alt: "lipi running in a dark figma workspace" },
-        fit: "cover",
+        media: { type: "image", src: "/case/lipi/launch/thesis.png", alt: "a hindi checkout screen with a text-overflow flag on the primary button" },
+        fit: "contain",
         side: "right",
-        title: "it measures, it does not guess",
-        text: "every flag is geometry: the baseline bounds, the localized bounds, and the growth between them.",
+        title: "product thesis",
+        text: "ai has made translating products into new languages almost trivial. designing interfaces that survive those translations isn't. as more of india's next billion users come online in their preferred languages, localization is shifting from an edge case to a core product requirement.",
       },
       {
-        kind: "outcome",
+        kind: "bleed",
+        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", alt: "one checkout, five scripts, side by side" },
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/lipi/launch/system-board.png", alt: "the lipi component library" },
+        overlay: {
+          placement: "below",
+          label: "behind the experience",
+          // TODO · the framer page runs deep cuts' seven-stage journey here
+          // (question, ai brain, paths, exploration, synthesis, receipt,
+          // archive). these four are lipi's real loop, from its own pipeline.
+          columns: [
+            { label: "select", text: "point it at the english frames you care about" },
+            { label: "generate", text: "a clone is translated and re-measured", note: "/never writes to your file" },
+            { label: "preview", text: "the localized version lays over the original; reveal draws the measurements" },
+            { label: "export", text: "the only permanent write in the whole tool" },
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "designed for systemic fixes",
+        emphasise: [1, 4],
         paragraphs: [
-          "a working prototype, not yet run inside the live figma runtime. hindi and tamil today; the script ranges are written so more indic languages are a small addition, not a rebuild.",
+          "localization testing is usually treated as a screen-by-screen qa task.",
+          "we designed lipi to find the decision behind the failure.",
+          "a translated button overflowing on six screens isn't six problems. it's one component problem. lipi connects individual failures back to their shared cause.",
+          "don't just find what broke. find what caused it.",
+          "the goal wasn't to help designers fix more localization issues. it was to help them fix fewer things that solve more problems.",
         ],
       },
-      { kind: "reflection", text: "it has not run inside the live figma runtime yet, so the open question is whether the root-cause grouping holds up on a real design file, with its detached instances and its one-off frames. that is the part i would want a designer to break first." },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/lipi/launch/four-scripts.png", alt: "four language tabs over the same checkout" },
+          { type: "image", src: "/case/lipi/launch/reveal-panel.png", alt: "the reveal panel naming the exact layer" },
+        ],
+        captions: [
+          { label: "one design · multiple scripts", text: "lipi scans the same checkout across hindi, tamil, bengali and kannada in one pass: four language tabs, six screens each, eleven findings, and it flags each script's clipped cta on the canvas." },
+          { label: "preview · reveal · compare", text: "english fits, hindi overflows. lipi reveals the pressure in context, and its reveal panel names the exact layer and the recommended fix." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/lipi/launch/fix-recheck.png", alt: "before and after a re-check" },
+          { type: "image", src: "/case/lipi/launch/root-cause.png", alt: "the design system tab collapsing failures into root causes" },
+        ],
+        captions: [
+          { label: "fix · re-check", text: "you apply the fix (the button hugs its label); lipi re-checks the same screens and confirms. lipi doesn't auto-decide: the designer applies, lipi verifies." },
+          { label: "screen → component → system", text: "three separate screen-level failures collapse into one root cause. lipi's design system tab: one decision, many resolutions." },
+        ],
+      },
+      {
+        kind: "panel",
+        label: "interaction design",
+        emphasise: [0, 6],
+        paragraphs: [
+          "lipi is a lens.",
+          "recognition over reading. the canvas is the narrator; the panel stays quiet.",
+          "two lenses, never merged. per-screen triage (fix now) and systemic root cause (fix once) are different jobs.",
+          "preview by default. see it localized on the canvas immediately. problems should feel real, not tabular.",
+          "one accent, calm colour. no dashboard, no ai theatre. credibility over impressiveness.",
+          "optimize for clearing issues, not counting them. the whole loop is built to reduce the number, not admire it.",
+          "the tool does the checking and the bookkeeping. the designer decides what should change.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/lipi/launch/preview-toggle.gif", alt: "preview turning on and off, restoring the original each time" },
+          { type: "image", src: "/case/lipi/launch/system-tab.gif", alt: "the design system tab in motion" },
+        ],
+        captions: [
+          { label: "never touch the original", text: "preview lays a hidden clone over the original; reveal draws locked overlays and drops you back on the editable layer." },
+          { label: "roll the failures up", text: "fix the button once and watch the count fall across every screen it appears in." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/lipi/system.png", alt: "the results view grouped by the component behind the failures" },
+        overlay: {
+          placement: "below",
+          label: "system design",
+          // TODO · the framer page runs deep cuts' hardware mapping here
+          // (wheel, play, orange, shuffle). these lines are lipi's own.
+          paragraphs: [
+            "every flag is geometry: the baseline bounds, the localized bounds, and the growth between them. the interface never shows a severity score it cannot justify.",
+          ],
+          lines: [
+            "select → the frames you care about",
+            "generate → clone, translate, re-measure",
+            "preview → localized over original",
+            "reveal → the exact layer, and the fix",
+            "export → the only permanent write",
+            "languages · hindi and tamil today, the script ranges written for more",
+          ],
+        },
+      },
+      {
+        kind: "panel",
+        label: "edge cases",
+        emphasise: [0, 4],
+        paragraphs: [
+          "the final phase focused on making localization testing resilient to the messy parts of real design systems.",
+          "no frames selected / missing translation api key / external-library components / unsupported fonts / empty results / multiple languages / preview toggled mid-run.",
+          "multi-language tests are treated as separate lenses over the same system. designers can switch between language reports without losing the shared findings.",
+          "at the end of the loop, re-check compares the fixed state against the original findings, showing what disappeared, what remains, and how the issue count moved.",
+          "the edge case isn't an exception to the workflow. it is part of the workflow.",
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/lipi/results.png", alt: "the results view" },
+          { type: "image", src: "/case/lipi/reveal.png", alt: "reveal mode drawing measurement overlays on the canvas" },
+        ],
+        captions: [
+          { label: "results", text: "issues aggregate into root causes, so the count falls by component rather than by screen." },
+          { label: "reveal", text: "locked overlays on the canvas, and the editable layer still underneath." },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/lipi/before-after.png", alt: "a fixed-width cta before and after it learns to hug its label" },
+          { type: "image", src: "/case/lipi/product.png", alt: "lipi running in a dark figma workspace" },
+        ],
+        captions: [
+          { label: "before · after", text: "one component learns to hug its label, and six screens stop breaking." },
+          { label: "in place", text: "the plugin sits in the file you are already working in." },
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", alt: "one design, many scripts" },
+      },
     ],
   },
+
 
   // ─────────────────────────────────────────────────────────── deep cuts ──
   "deep-cuts": {
