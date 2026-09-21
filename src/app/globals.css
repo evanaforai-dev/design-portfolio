@@ -23,6 +23,15 @@
   /* Slightly stronger line used only by the cursor-reactive grid overlay,
      which is masked to a soft radius around the pointer. */
   --hairline-strong: rgba(17, 17, 17, 0.11);
+  /*
+   * The one colour on the site. It carries real information (project names in
+   * the index, the wordmark's initial), so it has to clear WCAG AA for body
+   * text against the ground it sits on. Electric magenta #FC0FC0 measures
+   * 3.4:1 on the off-white and fails; this is the same hue held one step
+   * deeper, at 4.7:1. On the dark surface #FC0FC0 already measures 5.6:1, so
+   * dark mode keeps the undiluted colour.
+   */
+  --accent: #d400a0;
   color-scheme: light;
 }
 
@@ -32,6 +41,7 @@
   --muted: var(--fg);
   --hairline: rgba(255, 255, 255, 0.16);
   --hairline-strong: rgba(255, 255, 255, 0.13);
+  --accent: #fc0fc0;
   color-scheme: dark;
 }
 
@@ -68,6 +78,18 @@ body {
 ::selection {
   background: var(--fg);
   color: var(--bg);
+}
+
+/*
+ * KEYBOARD FOCUS. The site draws no borders, shadows or radii, so the browser
+ * default ring is the one piece of chrome that would look borrowed. This is
+ * the same mark in the site's own language: the accent, square, held off the
+ * element so it reads as a registration rather than a box. Pointer users never
+ * see it (:focus-visible), so nothing about the mouse experience changes.
+ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* Sharp corners only — no border-radius anywhere on the site. */
@@ -128,7 +150,7 @@ body {
  * optical spacing before "vana". Colour only, no decorative element.
  */
 .wordmark-initial {
-  color: #fc0fc0;
+  color: var(--accent);
   font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI",
     "Kohinoor Malayalam", var(--font-inter), sans-serif;
   display: inline-block;
@@ -136,7 +158,7 @@ body {
   font-weight: 700;
   /* Malayalam strokes render lighter than Inter at the same weight and thin out
      at small sizes, so a hairline same-colour stroke evens the weight up. */
-  -webkit-text-stroke: 0.4px #fc0fc0;
+  -webkit-text-stroke: 0.4px var(--accent);
   line-height: 1;
   /* The glyph's ink sits ~0.145em BELOW the alphabetic baseline, so lift it up
      to rest its base on the Latin baseline. (Measured against Inter's "n".) */
@@ -223,7 +245,7 @@ body {
   background: var(--bg);
   transform: translateY(0);
   will-change: transform;
-  animation: route-curtain-reveal 320ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  animation: route-curtain-reveal 280ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
 .route-curtain__panel:not(:last-child) {

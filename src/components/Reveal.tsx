@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Subtle, uniform on-scroll reveal. No dramatic entrances. */
+/**
+ * Subtle, uniform on-scroll reveal. No dramatic entrances.
+ *
+ * Reduced motion is handled at the root by <Motion>, which sets framer's
+ * `reducedMotion="user"`: the travel is dropped and the fade is kept.
+ */
 export function Reveal({
   children,
   className = "",

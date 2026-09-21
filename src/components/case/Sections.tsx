@@ -102,6 +102,12 @@ export function renderSection(section: Section, i: number) {
                 ))}
               </ol>
             </div>
+            {/* The run scrolls sideways on a phone by design, but a strip that
+                ends flush at the viewport edge looks like a crop, not a rail.
+                One line says which it is. */}
+            <p className="label mt-3 opacity-60 md:hidden">
+              scroll the run →
+            </p>
             {section.caption && (
               <p className="label mt-6 max-w-[46rem]">{section.caption}</p>
             )}
@@ -670,7 +676,10 @@ export function renderSection(section: Section, i: number) {
                           <p className="mono-label mt-1 opacity-60">{c.text}</p>
                         )}
                         {c.note && (
-                          <p className="mono-label mt-3 opacity-40">{c.note}</p>
+                          /* was opacity-40: 11px mono at ~2.6:1 on the
+                             launch ground, the only outright AA failure on
+                             the site. 60% clears it and still recedes. */
+                          <p className="mono-label mt-3 opacity-60">{c.note}</p>
                         )}
                       </div>
                     ))}

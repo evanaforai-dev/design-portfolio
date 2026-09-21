@@ -12,6 +12,9 @@ const config: Config = {
         fg: "var(--fg)",
         muted: "var(--muted)",
         hairline: "var(--hairline)",
+        // The single accent. Defined per theme in globals.css so it always
+        // clears AA against the ground it is sitting on.
+        accent: "var(--accent)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

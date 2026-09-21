@@ -3,8 +3,16 @@
 import { useEffect, useRef } from "react";
 
 const PANELS = 6;
-const STAGGER = 25;
-const COVER = 280;
+/*
+ * Timings. Every click pays the cover sweep before the browser is even told to
+ * load, so this is latency the visitor experiences as the site being slow.
+ * 280ms + 5x25ms stagger put 405ms in front of each navigation, which on a
+ * nine-project index is most of a minute of curtain for someone clicking
+ * through the work. Trimmed to 305ms total: the sweep still reads as one
+ * movement across the columns, and the page arrives before it feels owed.
+ */
+const STAGGER = 17;
+const COVER = 220;
 const EASE = "cubic-bezier(0.76, 0, 0.24, 1)";
 
 /**
