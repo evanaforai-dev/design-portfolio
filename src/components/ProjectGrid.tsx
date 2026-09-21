@@ -238,7 +238,7 @@ export function ProjectGrid() {
               <h2 id={`register-${band.key}`} className="label text-accent">
                 {band.label}
               </h2>
-              <p className="label opacity-60">{band.note}</p>
+              <p className="label t-dim">{band.note}</p>
             </div>
 
             <div className="relative" style={height ? { height } : undefined}>

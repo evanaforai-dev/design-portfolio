@@ -103,41 +103,90 @@ body {
   text-shadow: none !important;
 }
 
-/* Small, quiet label/eyebrow style. Copy is lowercase in the data itself,
-   so no text-transform is applied. */
+/*
+ * TYPE SCALE
+ *
+ * Six roles, and nothing else on the site may invent a seventh. Before this
+ * there were between eight and fourteen distinct text styles on a single
+ * page, including an uppercase monospace body voice used by every side
+ * project and a 48px all-caps centred panel heading. Two typographic systems
+ * split by project type reads as two people, or as one person who did not
+ * decide.
+ *
+ * Sizes are fluid rather than stepped so a layout reflows instead of the type
+ * simply shrinking. Each clamp's lower bound is the size the role needs at
+ * 320px, not a proportional scale-down.
+ *
+ * The steps at 1440: 12 / 14 / 17 / 20 / 36 / 72.
+ */
+
+/* h1. The page title, and nothing else. */
+.t-display {
+  font-size: clamp(2.5rem, 5.6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  font-weight: 500;
+}
+
+/* The one large editorial statement a section is allowed: a thesis, a
+   reflection, a pull quote. */
+.t-lead {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+/* Section and item headings. One size, everywhere. */
+.t-head {
+  font-size: clamp(1.125rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
+  letter-spacing: -0.011em;
+  font-weight: 500;
+}
+
+/* Running prose. */
+.t-body {
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  letter-spacing: -0.003em;
+}
+
+/* Secondary prose: captions, callouts, the text under a step. */
+.t-note {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: -0.002em;
+}
+
+/* Metadata and eyebrows. Copy is lowercase in the data itself, so no
+   text-transform is applied anywhere. */
 .label {
-  letter-spacing: 0.02em;
   font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
   color: var(--muted);
 }
 
 /*
- * LAUNCH REGISTER TYPE
- * Product-copy voice for case studies that present an object: monospaced,
- * uppercase, small and letter-spaced, so specification and narration read in
- * the same hand. Only the launch sections use it; the editorial pages keep
- * the sans and their sentence case.
+ * MEASURE. Body copy ran at eleven different max-widths (42, 44, 46, 50 and
+ * 54rem plus four Tailwind steps). Two: the page measure, and the narrow one
+ * for prose sitting in a grid column.
  */
-.mono-label {
-  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.6875rem;
-  line-height: 1.5;
+.measure {
+  max-width: 46rem;
+}
+.measure-narrow {
+  max-width: 34rem;
 }
 
-.mono-body {
-  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
-  text-transform: uppercase;
-  letter-spacing: 0.055em;
-  font-size: 0.75rem;
-  line-height: 1.85;
-}
-
-@media (min-width: 768px) {
-  .mono-body {
-    font-size: 0.8125rem;
-  }
+/*
+ * SECONDARY TEXT. --muted resolves to --fg, so the recede is opacity and the
+ * site gets exactly one step of it. It was 40%, 60%, 70% and 80% in different
+ * places; 40% at 11px was the only outright AA failure on the site.
+ */
+.t-dim {
+  opacity: 0.62;
 }
 
 /*

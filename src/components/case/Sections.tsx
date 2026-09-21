@@ -38,7 +38,7 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <p className="label mb-10">{section.label ?? "the turn"}</p>
+            <h2 className="label mb-10">{section.label ?? "the turn"}</h2>
             <div className="border-t border-hairline">
               {rows.map(([label, text]) => (
                 <div
@@ -46,9 +46,7 @@ export function renderSection(section: Section, i: number) {
                   className="grid grid-cols-1 gap-3 border-b border-hairline py-7 md:grid-cols-12 md:gap-10"
                 >
                   <p className="label md:col-span-3">{label}</p>
-                  <p className="max-w-[46rem] text-lg leading-relaxed text-fg md:col-span-9">
-                    {text}
-                  </p>
+                  <p className="measure t-body text-fg md:col-span-9">{text}</p>
                 </div>
               ))}
             </div>
@@ -71,7 +69,7 @@ export function renderSection(section: Section, i: number) {
         <Band key={i}>
           <Container>
             <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-              <p className="label">{section.label ?? "try it"}</p>
+              <h2 className="label">{section.label ?? "try it"}</h2>
               <a
                 href={url}
                 target="_blank"
@@ -82,9 +80,7 @@ export function renderSection(section: Section, i: number) {
               </a>
             </div>
             {section.hint && (
-              <p className="mb-8 max-w-[46rem] text-lg leading-relaxed text-fg">
-                {section.hint}
-              </p>
+              <p className="mb-8 measure t-body text-fg">{section.hint}</p>
             )}
             <div className={phone ? "mx-auto w-full max-w-[400px]" : "w-full"}>
               <div
@@ -114,7 +110,7 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <p className="label mb-12">{section.label ?? "how it works"}</p>
+            <h2 className="label mb-12">{section.label ?? "how it works"}</h2>
             {/* Scrolls sideways on a phone rather than stacking: the point of
                 this section is that it reads as one connected run. */}
             <div className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
@@ -144,11 +140,9 @@ export function renderSection(section: Section, i: number) {
                       className="relative mb-7 h-10 w-10 text-fg"
                     />
                     <p className="label">{st.label}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-fg">
-                      {st.text}
-                    </p>
+                    <p className="mt-2 t-note text-fg">{st.text}</p>
                     {st.note && (
-                      <p className="mt-4 border-l border-hairline pl-3 font-mono text-xs leading-relaxed text-fg opacity-60">
+                      <p className="mt-4 border-l border-hairline pl-3 font-mono text-xs leading-relaxed text-fg t-dim">
                         {st.note}
                       </p>
                     )}
@@ -159,11 +153,9 @@ export function renderSection(section: Section, i: number) {
             {/* The run scrolls sideways on a phone by design, but a strip that
                 ends flush at the viewport edge looks like a crop, not a rail.
                 One line says which it is. */}
-            <p className="label mt-3 opacity-60 md:hidden">
-              scroll the run →
-            </p>
+            <p className="label mt-3 t-dim md:hidden">scroll the run →</p>
             {section.caption && (
-              <p className="label mt-6 max-w-[46rem]">{section.caption}</p>
+              <p className="label mt-6 measure">{section.caption}</p>
             )}
           </Container>
         </Band>
@@ -174,7 +166,7 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <p className="label mb-10">{section.label ?? "in detail"}</p>
+            <h2 className="label mb-10">{section.label ?? "in detail"}</h2>
             <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
               <div className="md:col-span-7">
                 <div
@@ -199,15 +191,13 @@ export function renderSection(section: Section, i: number) {
                 {section.items.map((it, j) => (
                   <li key={j} className="border-b border-hairline py-5">
                     <div className="flex gap-4">
-                      <span className="label shrink-0 tabular-nums opacity-60">
+                      <span className="label shrink-0 tabular-nums t-dim">
                         {String(j + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <p className="text-sm font-medium text-fg">{it.title}</p>
+                        <p className="t-note font-medium text-fg">{it.title}</p>
                         {it.text && (
-                          <p className="mt-2 text-sm leading-relaxed text-fg opacity-80">
-                            {it.text}
-                          </p>
+                          <p className="mt-2 t-note text-fg t-dim">{it.text}</p>
                         )}
                       </div>
                     </div>
@@ -224,11 +214,11 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <p className="label mb-10">{section.label ?? "system"}</p>
+            <h2 className="label mb-10">{section.label ?? "system"}</h2>
             <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
               <div className="space-y-5 md:col-span-5">
                 {section.paragraphs?.map((t, j) => (
-                  <p key={j} className="max-w-[34rem] text-lg leading-relaxed text-fg">
+                  <p key={j} className="measure-narrow t-body text-fg">
                     {t}
                   </p>
                 ))}
@@ -236,14 +226,16 @@ export function renderSection(section: Section, i: number) {
                   <dl className="border-t border-hairline pt-4 font-mono text-xs">
                     {section.mapping.map((m) => (
                       <div key={m.from} className="flex gap-3 py-1.5">
-                        <dt className="w-24 shrink-0 text-fg opacity-60">{m.from}</dt>
+                        <dt className="w-24 shrink-0 text-fg t-dim">
+                          {m.from}
+                        </dt>
                         <dd className="text-fg">→ {m.to}</dd>
                       </div>
                     ))}
                   </dl>
                 )}
                 {section.note && (
-                  <p className="font-mono text-xs leading-relaxed text-fg opacity-60">
+                  <p className="font-mono text-xs leading-relaxed text-fg t-dim">
                     {section.note}
                   </p>
                 )}
@@ -252,7 +244,9 @@ export function renderSection(section: Section, i: number) {
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:col-span-7">
                 {section.colors && (
                   <div>
-                    <p className="label border-b border-hairline pb-3">colour</p>
+                    <p className="label border-b border-hairline pb-3">
+                      colour
+                    </p>
                     <ul>
                       {section.colors.map((c) => (
                         <li
@@ -264,10 +258,12 @@ export function renderSection(section: Section, i: number) {
                             className="h-6 w-6 shrink-0 border border-hairline"
                             style={{ background: `#${c.hex.replace("#", "")}` }}
                           />
-                          <span className="font-mono text-xs tabular-nums text-fg opacity-60">
+                          <span className="font-mono text-xs tabular-nums text-fg t-dim">
                             {c.hex.replace("#", "").toUpperCase()}
                           </span>
-                          <span className="font-mono text-xs text-fg">{c.name}</span>
+                          <span className="font-mono text-xs text-fg">
+                            {c.name}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -276,15 +272,19 @@ export function renderSection(section: Section, i: number) {
                 <div className="space-y-8">
                   {section.type && (
                     <div>
-                      <p className="label border-b border-hairline pb-3">type</p>
+                      <p className="label border-b border-hairline pb-3">
+                        type
+                      </p>
                       <ul>
                         {section.type.map((t) => (
                           <li
                             key={t.name}
                             className="flex justify-between gap-4 border-b border-hairline py-2.5 font-mono text-xs"
                           >
-                            <span className="text-fg opacity-60">{t.name}</span>
-                            <span className="text-right text-fg">{t.value}</span>
+                            <span className="text-fg t-dim">{t.name}</span>
+                            <span className="text-right text-fg">
+                              {t.value}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -292,15 +292,19 @@ export function renderSection(section: Section, i: number) {
                   )}
                   {section.metrics && (
                     <div>
-                      <p className="label border-b border-hairline pb-3">measure</p>
+                      <p className="label border-b border-hairline pb-3">
+                        measure
+                      </p>
                       <ul>
                         {section.metrics.map((m) => (
                           <li
                             key={m.label}
                             className="flex justify-between gap-4 border-b border-hairline py-2.5 font-mono text-xs"
                           >
-                            <span className="text-fg opacity-60">{m.label}</span>
-                            <span className="tabular-nums text-fg">{m.value}</span>
+                            <span className="text-fg t-dim">{m.label}</span>
+                            <span className="tabular-nums text-fg">
+                              {m.value}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -319,11 +323,9 @@ export function renderSection(section: Section, i: number) {
         <Band key={i}>
           <Container>
             {section.eyebrow && (
-              <p className="label mb-6">{section.eyebrow}</p>
+              <h2 className="label mb-6">{section.eyebrow}</h2>
             )}
-            <p className="max-w-[46rem] text-2xl font-medium leading-snug tracking-tight text-fg md:text-4xl md:leading-[1.15]">
-              {section.text}
-            </p>
+            <p className="measure t-lead text-fg">{section.text}</p>
           </Container>
         </Band>
       );
@@ -337,9 +339,9 @@ export function renderSection(section: Section, i: number) {
               <p className="label md:col-span-3">
                 {section.label ?? "context"}
               </p>
-              <div className="max-w-[46rem] space-y-5 md:col-span-9">
+              <div className="measure space-y-5 md:col-span-9">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-lg leading-relaxed text-fg">
+                  <p key={j} className="t-body text-fg">
                     {p}
                   </p>
                 ))}
@@ -355,10 +357,8 @@ export function renderSection(section: Section, i: number) {
         <Band key={i}>
           <Container>
             <div className="border-t border-hairline pt-8">
-              <p className="label mb-8">the question</p>
-              <p className="max-w-[54rem] text-3xl font-medium leading-tight tracking-tight text-fg md:text-6xl md:leading-[1.05]">
-                {section.text}
-              </p>
+              <h2 className="label mb-8">the question</h2>
+              <p className="measure t-lead text-fg">{section.text}</p>
             </div>
           </Container>
         </Band>
@@ -369,15 +369,15 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <p className="label mb-10">{section.label ?? "constraints"}</p>
+            <h2 className="label mb-10">{section.label ?? "constraints"}</h2>
             <div className="grid grid-cols-1 border-t border-hairline sm:grid-cols-2 lg:grid-cols-3">
               {section.items.map((it, j) => (
                 <div
                   key={j}
                   className="border-b border-hairline py-6 pr-8 lg:border-r lg:[&:nth-child(3n)]:border-r-0"
                 >
-                  <p className="mb-2 text-sm font-medium text-fg">{it.label}</p>
-                  <p className="text-sm leading-relaxed text-muted">{it.text}</p>
+                  <p className="mb-2 t-note font-medium text-fg">{it.label}</p>
+                  <p className="t-note text-muted">{it.text}</p>
                 </div>
               ))}
             </div>
@@ -391,9 +391,9 @@ export function renderSection(section: Section, i: number) {
         <Reveal key={i}>
           <section className="py-16 md:py-28">
             <Container>
-              <p className="label mb-12 md:mb-16">
+              <h2 className="label mb-12 md:mb-16">
                 {section.label ?? "key decisions"}
-              </p>
+              </h2>
               <div className="flex flex-col gap-20 md:gap-32">
                 {section.items.map((d, j) => (
                   <div key={j}>
@@ -409,13 +409,11 @@ export function renderSection(section: Section, i: number) {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-10">
                       <div className="md:col-span-5">
                         {d.n && (
-                          <span className="font-mono text-xs font-light text-muted">
+                          <span className="label font-mono tabular-nums">
                             {d.n}
                           </span>
                         )}
-                        <h3 className="mt-2 text-xl font-medium leading-snug tracking-tight text-fg md:text-3xl">
-                          {d.title}
-                        </h3>
+                        <h3 className="mt-2 t-head text-fg">{d.title}</h3>
                       </div>
                       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:col-span-7">
                         {d.why && <MicroField label="why" text={d.why} />}
@@ -456,7 +454,9 @@ export function renderSection(section: Section, i: number) {
                 </div>
               </Container>
             ) : heightClass(section.height) ? (
-              <div className={`w-full overflow-hidden ${heightClass(section.height)}`}>
+              <div
+                className={`w-full overflow-hidden ${heightClass(section.height)}`}
+              >
                 <Media
                   asset={section.media}
                   fit="cover"
@@ -477,7 +477,9 @@ export function renderSection(section: Section, i: number) {
             )}
             {section.caption && (
               <Container>
-                <figcaption className="label mt-4">{section.caption}</figcaption>
+                <figcaption className="label mt-4">
+                  {section.caption}
+                </figcaption>
               </Container>
             )}
           </figure>
@@ -499,12 +501,19 @@ export function renderSection(section: Section, i: number) {
                   section.frame === false ? (
                     // Cut-out artwork: no box, no forced aspect. The image
                     // keeps its own proportions and stands on the page.
-                    <Media key={j} asset={m} fit="contain" className="h-auto w-full" />
+                    <Media
+                      key={j}
+                      asset={m}
+                      fit="contain"
+                      className="h-auto w-full"
+                    />
                   ) : (
                     <div
                       key={j}
                       className={`w-full overflow-hidden border border-hairline ${
-                        section.aspect === "phone" ? "aspect-[9/16]" : "aspect-[4/3]"
+                        section.aspect === "phone"
+                          ? "aspect-[9/16]"
+                          : "aspect-[4/3]"
                       }`}
                     >
                       <Media
@@ -513,11 +522,13 @@ export function renderSection(section: Section, i: number) {
                         className="h-full w-full"
                       />
                     </div>
-                  )
+                  ),
                 )}
               </div>
               {section.caption && (
-                <figcaption className="label mt-4">{section.caption}</figcaption>
+                <figcaption className="label mt-4">
+                  {section.caption}
+                </figcaption>
               )}
             </Container>
           </figure>
@@ -550,12 +561,10 @@ export function renderSection(section: Section, i: number) {
                 }`}
               >
                 {section.title && (
-                  <h3 className="text-xl font-medium leading-snug tracking-tight text-fg md:text-2xl">
-                    {section.title}
-                  </h3>
+                  <h3 className="t-head text-fg">{section.title}</h3>
                 )}
                 {section.text && (
-                  <p className="mt-4 max-w-[34rem] text-base leading-relaxed text-muted">
+                  <p className="mt-4 measure-narrow t-body text-muted">
                     {section.text}
                   </p>
                 )}
@@ -570,19 +579,17 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            {section.label && <p className="label mb-10">{section.label}</p>}
+            {section.label && <h2 className="label mb-10">{section.label}</h2>}
             <div className="flex flex-col items-stretch gap-0 md:flex-row md:items-stretch">
               {section.steps.map((s, j) => (
                 <div key={j} className="flex flex-1 flex-col md:flex-row">
                   <div className="flex-1 border border-hairline p-5 md:p-6">
-                    <span className="font-mono text-xs font-light text-muted">
+                    <span className="label font-mono tabular-nums">
                       {String(j + 1).padStart(2, "0")}
                     </span>
-                    <p className="mt-3 text-sm font-medium text-fg">{s.label}</p>
+                    <p className="mt-3 t-note font-medium text-fg">{s.label}</p>
                     {s.note && (
-                      <p className="mt-2 text-xs leading-relaxed text-muted">
-                        {s.note}
-                      </p>
+                      <p className="mt-2 t-note text-muted">{s.note}</p>
                     )}
                   </div>
                   {j < section.steps.length - 1 && (
@@ -599,9 +606,7 @@ export function renderSection(section: Section, i: number) {
                 </div>
               ))}
             </div>
-            {section.caption && (
-              <p className="label mt-6">{section.caption}</p>
-            )}
+            {section.caption && <p className="label mt-6">{section.caption}</p>}
           </Container>
         </Band>
       );
@@ -609,11 +614,9 @@ export function renderSection(section: Section, i: number) {
     /* STATEMENT — a quiet full-width editorial line. */
     case "statement":
       return (
-        <Band key={i} className="md:py-40">
+        <Band key={i}>
           <Container>
-            <p className="mx-auto max-w-[50rem] text-center text-2xl font-medium leading-snug tracking-tight text-fg md:text-4xl md:leading-[1.2]">
-              {section.text}
-            </p>
+            <p className="measure t-lead text-fg">{section.text}</p>
           </Container>
         </Band>
       );
@@ -624,10 +627,12 @@ export function renderSection(section: Section, i: number) {
         <Band key={i}>
           <Container>
             <div className="grid grid-cols-1 gap-8 border-t border-hairline pt-8 md:grid-cols-12 md:gap-10">
-              <p className="label md:col-span-3">{section.label ?? "outcome"}</p>
-              <div className="max-w-[46rem] space-y-5 md:col-span-9">
+              <h2 className="label md:col-span-3">
+                {section.label ?? "outcome"}
+              </h2>
+              <div className="measure space-y-5 md:col-span-9">
                 {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-lg leading-relaxed text-fg">
+                  <p key={j} className="t-body text-fg">
                     {p}
                   </p>
                 ))}
@@ -653,10 +658,10 @@ export function renderSection(section: Section, i: number) {
               <p className="label md:col-span-3">
                 {section.label ?? "want the full story?"}
               </p>
-              <div className="max-w-[46rem] md:col-span-9">
+              <div className="measure md:col-span-9">
                 <div className="space-y-5">
                   {section.paragraphs.map((p, j) => (
-                    <p key={j} className="text-lg leading-relaxed text-fg">
+                    <p key={j} className="t-body text-fg">
                       {p}
                     </p>
                   ))}
@@ -675,7 +680,7 @@ export function renderSection(section: Section, i: number) {
                       const mail = l.href.startsWith("mailto:");
                       const external = mail || /^https?:/.test(l.href);
                       const cls =
-                        "text-sm text-fg underline-offset-4 hover:underline";
+                        "t-note text-fg underline-offset-4 hover:underline";
                       return external ? (
                         <a
                           key={l.href}
@@ -705,11 +710,9 @@ export function renderSection(section: Section, i: number) {
       return (
         <Band key={i}>
           <Container>
-            <div className="max-w-[46rem]">
-              <p className="label mb-6">reflection</p>
-              <p className="text-xl leading-relaxed text-fg md:text-2xl md:leading-relaxed">
-                {section.text}
-              </p>
+            <div className="measure">
+              <h2 className="label mb-6">reflection</h2>
+              <p className="t-lead text-fg">{section.text}</p>
             </div>
           </Container>
         </Band>
@@ -723,24 +726,24 @@ export function renderSection(section: Section, i: number) {
           <Container className="py-16 md:py-28">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
               <div className="md:col-span-7">
-                <p className="mono-label mb-6">{section.label ?? "about"}</p>
+                <h2 className="label mb-6">{section.label ?? "about"}</h2>
                 <div className="space-y-5">
                   {section.paragraphs.map((t, j) => (
-                    <p key={j} className="mono-body max-w-[46rem]">
+                    <p key={j} className="t-body measure">
                       {t}
                     </p>
                   ))}
                 </div>
               </div>
               <div className="md:col-span-4 md:col-start-9">
-                <p className="mono-label mb-6">
+                <p className="label mb-6">
                   {section.creditsLabel ?? "credits"}
                 </p>
                 <dl className="space-y-4">
                   {section.credits.map((c, j) => (
                     <div key={j} className="grid grid-cols-2 gap-4">
-                      <dt className="mono-body opacity-60">{c.role}</dt>
-                      <dd className="mono-body">{c.name}</dd>
+                      <dt className="t-body t-dim">{c.role}</dt>
+                      <dd className="t-body">{c.name}</dd>
                     </div>
                   ))}
                 </dl>
@@ -763,27 +766,33 @@ export function renderSection(section: Section, i: number) {
               <div
                 className={
                   section.overlay.placement === "below"
-                    ? "px-6 pb-14 pt-8 md:px-10 md:pb-20 md:pt-10"
-                    : `pointer-events-none absolute inset-x-0 px-6 py-10 md:px-10 md:py-14 ${
-                        section.overlay.anchor === "bottom" ? "bottom-0" : "top-0"
+                    ? "px-6 pb-10 pt-8 md:px-10 md:pb-16 md:pt-10"
+                    : `pointer-events-none absolute inset-x-0 px-6 py-10 md:px-10 md:py-16 ${
+                        section.overlay.anchor === "bottom"
+                          ? "bottom-0"
+                          : "top-0"
                       }`
                 }
               >
-                <div className={section.overlay.placement === "below" ? "max-w-3xl" : "max-w-md"}>
+                <div
+                  className={
+                    section.overlay.placement === "below"
+                      ? "measure"
+                      : "max-w-md"
+                  }
+                >
                   {section.overlay.label && (
-                    <p className="mono-label mb-4 text-base md:text-lg">
-                      {section.overlay.label}
-                    </p>
+                    <p className="t-head mb-4">{section.overlay.label}</p>
                   )}
                   {section.overlay.paragraphs?.map((t, j) => (
-                    <p key={j} className="mono-body mb-3">
+                    <p key={j} className="t-body mb-3">
                       {t}
                     </p>
                   ))}
                   {section.overlay.lines && (
                     <div className="mt-6 space-y-1">
                       {section.overlay.lines.map((l, j) => (
-                        <p key={j} className="mono-body">
+                        <p key={j} className="t-body">
                           {l}
                         </p>
                       ))}
@@ -794,15 +803,13 @@ export function renderSection(section: Section, i: number) {
                   <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4 lg:grid-cols-7">
                     {section.overlay.columns.map((c, j) => (
                       <div key={j}>
-                        <p className="mono-label">{c.label}</p>
-                        {c.text && (
-                          <p className="mono-label mt-1 opacity-60">{c.text}</p>
-                        )}
+                        <p className="label">{c.label}</p>
+                        {c.text && <p className="label mt-1 t-dim">{c.text}</p>}
                         {c.note && (
                           /* was opacity-40: 11px mono at ~2.6:1 on the
                              launch ground, the only outright AA failure on
                              the site. 60% clears it and still recedes. */
-                          <p className="mono-label mt-3 opacity-60">{c.note}</p>
+                          <p className="label mt-3 t-dim">{c.note}</p>
                         )}
                       </div>
                     ))}
@@ -811,7 +818,7 @@ export function renderSection(section: Section, i: number) {
               </div>
             )}
             {section.caption && (
-              <figcaption className="mono-label px-6 py-4 md:px-10">
+              <figcaption className="label px-6 py-4 md:px-10">
                 {section.caption}
               </figcaption>
             )}
@@ -825,15 +832,20 @@ export function renderSection(section: Section, i: number) {
           <div className="w-full">
             <div className="grid grid-cols-1 md:grid-cols-2">
               {section.media.map((m, j) => (
-                <Media key={j} asset={m} fit="cover" className="h-auto w-full" />
+                <Media
+                  key={j}
+                  asset={m}
+                  fit="cover"
+                  className="h-auto w-full"
+                />
               ))}
             </div>
             {section.captions && (
               <div className="grid grid-cols-1 gap-6 px-6 py-6 md:grid-cols-2 md:gap-10 md:px-10">
                 {section.captions.map((c, j) => (
                   <div key={j}>
-                    {c.label && <p className="mono-label mb-2">{c.label}</p>}
-                    {c.text && <p className="mono-body max-w-sm">{c.text}</p>}
+                    {c.label && <p className="label mb-2">{c.label}</p>}
+                    {c.text && <p className="t-body max-w-sm">{c.text}</p>}
                   </div>
                 ))}
               </div>
@@ -850,7 +862,7 @@ export function renderSection(section: Section, i: number) {
       return (
         <Reveal key={i}>
           <section
-            className="w-full px-6 py-20 md:px-10 md:py-32"
+            className="w-full py-16 md:py-28"
             style={
               inv
                 ? {
@@ -860,23 +872,23 @@ export function renderSection(section: Section, i: number) {
                 : undefined
             }
           >
-            <h2 className="mb-10 text-center text-3xl font-medium uppercase tracking-tight md:mb-14 md:text-5xl">
-              {section.label}
-            </h2>
-            <div className="mx-auto max-w-[44rem] space-y-5">
-              {section.paragraphs.map((t, j) => (
-                <p
-                  key={j}
-                  className={
-                    section.emphasise?.includes(j)
-                      ? "mono-body font-semibold"
-                      : "mono-body"
-                  }
-                >
-                  {t}
-                </p>
-              ))}
-            </div>
+            <Container>
+              <h2 className="measure mb-8 t-lead md:mb-10">{section.label}</h2>
+              <div className="measure space-y-5">
+                {section.paragraphs.map((t, j) => (
+                  <p
+                    key={j}
+                    className={
+                      section.emphasise?.includes(j)
+                        ? "t-body font-medium"
+                        : "t-body"
+                    }
+                  >
+                    {t}
+                  </p>
+                ))}
+              </div>
+            </Container>
           </section>
         </Reveal>
       );
@@ -891,7 +903,7 @@ function MicroField({ label, text }: { label: string; text: string }) {
   return (
     <div>
       <p className="label mb-2">{label}</p>
-      <p className="text-sm leading-relaxed text-fg">{text}</p>
+      <p className="t-note text-fg">{text}</p>
     </div>
   );
 }

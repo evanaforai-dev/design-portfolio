@@ -29,7 +29,7 @@ export function Nav() {
         <Link
           href="/"
           aria-current={onIndex ? "page" : undefined}
-          className="text-sm font-medium tracking-tight text-fg"
+          className="t-note font-medium tracking-tight text-fg"
           aria-label={`${site.name}, home`}
         >
           {/* Leading Latin "e" replaced by the Malayalam letter ഇ, in electric
@@ -46,8 +46,8 @@ export function Nav() {
               key={item.href}
               href={item.href}
               aria-current={item.current ? "page" : undefined}
-              className={`text-sm transition-colors duration-300 ease-editorial hover:text-fg ${
-                item.current ? "text-fg opacity-40" : "text-muted"
+              className={`t-note transition-colors duration-300 ease-editorial hover:text-fg ${
+                item.current ? "text-fg t-dim" : "text-muted"
               }`}
             >
               {item.label}

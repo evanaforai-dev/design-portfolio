@@ -19,12 +19,12 @@ export function Footer() {
   const onIndex = pathname === "/";
 
   const linkClass =
-    "text-xs text-muted transition-colors duration-300 ease-editorial hover:text-fg";
+    "label transition-colors duration-300 ease-editorial hover:text-fg";
 
   return (
     <footer className="border-t border-hairline">
       <div className="flex flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
-        <span className="text-xs text-muted">
+        <span className="label">
           © {year} {site.name}
         </span>
 

@@ -17,22 +17,22 @@ function Rule({ label }: { label: string }) {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-shell px-6 md:px-10">
-      <section className="border-b border-hairline pb-16 pt-8 md:pb-24 md:pt-16">
+      <section className="border-b border-hairline pb-16 pt-4 md:pb-28 md:pt-6">
         <p className="label mb-6">about</p>
-        <h1 className="max-w-4xl text-3xl font-medium leading-tight tracking-tight text-fg md:text-5xl md:leading-[1.1]">
+        <h1 className="max-w-4xl t-display text-fg">
           {about.headline}
         </h1>
         {/* The discipline, said once, under the line that does not say it. */}
-        <p className="mt-6 max-w-[46rem] text-lg leading-relaxed text-fg md:mt-8 md:text-xl">
+        <p className="mt-6 measure t-body text-fg md:mt-8">
           {about.positioning}
         </p>
       </section>
 
-      <div className="grid grid-cols-1 gap-16 py-16 md:grid-cols-12 md:gap-10 md:py-20">
+      <div className="grid grid-cols-1 gap-16 py-16 md:grid-cols-12 md:gap-10 md:py-28">
         <div className="md:col-span-7 md:col-start-1">
-          <div className="max-w-2xl space-y-5">
+          <div className="measure space-y-5">
             {about.bio.map((para, i) => (
-              <p key={i} className="text-lg leading-relaxed text-fg">
+              <p key={i} className="t-body text-fg">
                 {para}
               </p>
             ))}
@@ -48,7 +48,7 @@ export default function AboutPage() {
                   href={asset(site.resumeUrl)}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm text-fg underline-offset-4 hover:underline"
+                  className="t-note text-fg underline-offset-4 hover:underline"
                 >
                   résumé (pdf) ↗
                 </a>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="text-sm text-fg underline-offset-4 hover:underline"
+                    className="t-note text-fg underline-offset-4 hover:underline"
                   >
                     {s.label} ↗
                   </a>
@@ -70,12 +70,12 @@ export default function AboutPage() {
 
           <div>
             <h2 className="label mb-4">contact</h2>
-            <p className="max-w-xs text-sm leading-relaxed text-muted">
+            <p className="max-w-xs t-note text-muted">
               {about.contact}
             </p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-4 inline-block text-sm text-fg underline underline-offset-4"
+              className="mt-4 inline-block t-note text-fg underline underline-offset-4"
             >
               hit me up
             </a>
@@ -84,20 +84,18 @@ export default function AboutPage() {
       </div>
 
       {/* The two registers the work runs in. */}
-      <section className="pb-16 md:pb-20">
+      <section className="pb-16 md:pb-28">
         <Rule label="office hours / after hours" />
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-10">
           {about.hours.map((h) => (
             <div key={h.key}>
-              <p className="font-mono text-xs font-light text-muted">
-                skill/{h.key.replace(" ", "-")}
-              </p>
-              <p className="mt-3 max-w-sm text-base leading-relaxed text-fg">
+              <p className="label">{h.key}</p>
+              <p className="mt-3 max-w-sm t-note text-fg">
                 {h.note}
               </p>
               <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 {h.axes.map((a) => (
-                  <li key={a} className="text-sm text-muted">
+                  <li key={a} className="t-note text-muted">
                     {a}
                   </li>
                 ))}
@@ -112,7 +110,7 @@ export default function AboutPage() {
           <Rule label="service" />
           <ul className="flex flex-col gap-2">
             {about.service.map((s) => (
-              <li key={s} className="text-base text-fg">
+              <li key={s} className="t-note text-fg">
                 {s}
               </li>
             ))}
@@ -127,13 +125,15 @@ export default function AboutPage() {
                 key={item.period}
                 className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1 border-t border-hairline py-4 md:grid-cols-[8rem_1fr_auto]"
               >
-                <span className="text-sm text-fg md:order-1">
+                <span className="t-note text-fg md:order-1">
                   {item.sector}
                 </span>
-                <span className="col-span-2 max-w-sm text-sm text-muted md:order-2 md:col-span-1">
+                <span className="col-span-2 max-w-sm t-note text-muted md:order-2 md:col-span-1">
                   <span className="text-fg">{item.place}</span> &middot; {item.role}
                 </span>
-                <span className="font-mono text-xs font-light text-muted md:order-3">
+                {/* mono only for the year column, where it is tabular data
+                    that has to align down the list. */}
+                <span className="label font-mono tabular-nums md:order-3">
                   {item.period}
                 </span>
               </li>
@@ -148,8 +148,8 @@ export default function AboutPage() {
                   key={e.place}
                   className="flex flex-col gap-1 border-t border-hairline py-4 md:flex-row md:justify-between"
                 >
-                  <span className="text-sm text-fg">{e.place}</span>
-                  <span className="text-sm text-muted">{e.award}</span>
+                  <span className="t-note text-fg">{e.place}</span>
+                  <span className="t-note text-muted">{e.award}</span>
                 </li>
               ))}
             </ul>
@@ -157,19 +157,19 @@ export default function AboutPage() {
         </section>
       </div>
 
-      <section className="pb-16 md:pb-20">
+      <section className="pb-16 md:pb-28">
         <Rule label="up my sleeve" />
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-10">
           <ul className="flex flex-col gap-2">
             {about.skills.map((s) => (
-              <li key={s} className="text-base text-fg">
+              <li key={s} className="t-note text-fg">
                 {s}
               </li>
             ))}
           </ul>
           <ul className="flex flex-col gap-2">
             {about.tools.map((t) => (
-              <li key={t} className="text-base text-muted">
+              <li key={t} className="t-note text-muted">
                 {t}
               </li>
             ))}
@@ -177,15 +177,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-28">
         <Rule label="where do i see myself" />
         <div className="flex flex-col gap-10 md:flex-row md:gap-20">
           {about.future.map((f) => (
             <div key={f.horizon}>
-              <p className="text-2xl font-medium tracking-tight text-fg md:text-3xl">
+              <p className="t-lead text-fg">
                 {f.horizon}
               </p>
-              <p className="mt-2 max-w-sm text-base text-muted">{f.line}</p>
+              <p className="mt-2 max-w-sm t-note text-muted">{f.line}</p>
             </div>
           ))}
         </div>

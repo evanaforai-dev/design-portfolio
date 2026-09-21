@@ -138,12 +138,12 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       </div>
 
       {/* Title + metadata band */}
-      <Container className="py-14 md:py-20">
+      <Container className="py-12 md:py-20">
         {hero.kicker && <p className="label mb-6">{hero.kicker}</p>}
-        <h1 className="max-w-[18ch] text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-7xl">
+        <h1 className="max-w-[18ch] t-display text-fg">
           {hero.title}
         </h1>
-        <p className="mt-6 max-w-[42rem] text-lg text-fg md:text-2xl md:leading-snug">
+        <p className="mt-6 measure t-lead text-fg">
           {hero.subtitle}
         </p>
 
@@ -161,7 +161,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           {hero.meta.map((m) => (
             <div key={m.label} className="border-b border-hairline py-5 pr-6">
               <dt className="label">{m.label}</dt>
-              <dd className="mt-2 text-sm font-medium text-fg">{m.value}</dd>
+              <dd className="mt-2 t-note font-medium text-fg">{m.value}</dd>
             </div>
           ))}
         </dl>
@@ -174,7 +174,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
               // the domain root and 404 on a project-path host.
               const external = l.href.startsWith("http");
               const className =
-                "text-sm text-fg underline-offset-4 hover:underline";
+                "t-note text-fg underline-offset-4 hover:underline";
               return external ? (
                 <a
                   key={l.href}

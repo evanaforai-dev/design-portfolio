@@ -92,10 +92,10 @@ export function ProjectNavPreview({
             onMouseLeave={clear}
             onFocus={() => show("prev")}
             onBlur={clear}
-            className="group flex flex-col gap-2 border-r border-hairline py-10 pr-6 md:py-14"
+            className="group flex flex-col gap-2 border-r border-hairline py-10 pr-6 md:py-16"
           >
             <span className="label">← previous</span>
-            <span className="text-lg font-medium tracking-tight text-fg transition-colors group-hover:text-muted md:text-2xl">
+            <span className="t-head text-fg transition-colors group-hover:text-muted">
               {prev.title}
             </span>
           </Link>
@@ -105,10 +105,10 @@ export function ProjectNavPreview({
             onMouseLeave={clear}
             onFocus={() => show("next")}
             onBlur={clear}
-            className="group flex flex-col items-end gap-2 py-10 pl-6 text-right md:py-14"
+            className="group flex flex-col items-end gap-2 py-10 pl-6 text-right md:py-16"
           >
             <span className="label">next →</span>
-            <span className="text-lg font-medium tracking-tight text-fg transition-colors group-hover:text-muted md:text-2xl">
+            <span className="t-head text-fg transition-colors group-hover:text-muted">
               {next.title}
             </span>
           </Link>

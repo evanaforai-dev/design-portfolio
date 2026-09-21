@@ -32,8 +32,8 @@ function Fact({
 }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 lg:justify-end">
-      <dt className="label shrink-0 opacity-60">{label}</dt>
-      <dd className="text-sm text-fg">{children}</dd>
+      <dt className="label shrink-0 t-dim">{label}</dt>
+      <dd className="t-note text-fg">{children}</dd>
     </div>
   );
 }
@@ -57,7 +57,7 @@ export function Masthead() {
            * text-balance so the statement splits evenly instead of leaving
            * "a" alone at the end of a line.
            */}
-          <h1 className="text-balance text-2xl font-medium leading-[1.15] tracking-tight text-fg md:text-[1.75rem] md:leading-[1.15] lg:text-[2rem] lg:leading-[1.15]">
+          <h1 className="text-balance t-lead text-fg">
             <span className="sr-only">{site.name}. </span>
             <span className="text-accent">{masthead.lede}</span>{" "}
             <span>{masthead.statement}</span>

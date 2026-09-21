@@ -179,14 +179,14 @@ export function ProjectCard({
           fitted ? "h-20 px-4 md:px-5" : "px-4 py-4"
         }`}
       >
-        <span className="text-sm font-medium leading-snug text-accent">
+        <span className="t-note font-medium leading-snug text-accent">
           {project.title}
         </span>
         {/* Two lines is all the fitted plate has room for. The scrolling
             plate is not height-constrained, so the tag list finishes rather
             than trailing off mid-word. */}
         <span
-          className={`text-xs leading-4 text-fg opacity-70 ${
+          className={`label leading-4 text-fg t-dim ${
             fitted ? "line-clamp-2" : ""
           }`}
         >
