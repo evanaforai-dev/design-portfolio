@@ -475,186 +475,6 @@ export const caseStudies: Record<string, CaseStudy> = {
 
   },
 
-  // ─────────────────────────────────────────────────────── airtribe learn ──
-  "airtribe-learn": {
-    slug: "airtribe-learn",
-    // The product's own surface: near-white, with airtribe purple as the
-    // single accent.
-    theme: { bg: "#F7F6FB", fg: "#16131F", hairline: "rgba(22,19,31,0.16)" },
-    hero: {
-      kicker: "clients · airtribe",
-      title: "kai",
-      subtitle:
-        "an ai-first learning experience that turns curiosity into a structured, adaptive lesson.",
-      media: { type: "image", src: "/case/airtribe-learn/landing.png", alt: "the kai landing surface" },
-      mediaFit: "cover",
-      mediaPosition: "center",
-      mode: "launch",
-      meta: [
-        { label: "role", value: "product designer" },
-        { label: "clients", value: "airtribe" },
-        { label: "service", value: "product · ux/ui design" },
-        { label: "date", value: "mar 2026" },
-      ],
-      links: [{ label: "airtribe ai skills", href: "/work/airtribe-ai-skills/" }],
-    },
-    sections: [
-      {
-        kind: "credits",
-        label: "about",
-        paragraphs: [
-          "ai makes it incredibly easy to get an answer. but getting an answer is not the same as learning something.",
-          "the project explores a question: what if ai could adapt to how someone learns, rather than simply respond to what they ask?",
-          "kai is an ai-first learning experience built for the airtribe community. it turns intent into a structured learning journey, combining explanations, examples and practice.",
-          "the aim was to move ai from an answer engine to something closer to an active learning environment: flexible enough to explore anything, but structured enough to finish something.",
-        ],
-        creditsLabel: "credits",
-        credits: [
-          { role: "creative direction, product strategy, ui/ux design", name: "evana sajan" },
-          { role: "coding & development", name: "claude" },
-          { role: "inspiration", name: "teach-skill" },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a kai lesson on the hard problem of consciousness, with its concept map" },
-        /*
-         * This band used to carry four performance figures: 30%+ more
-         * completed journeys, 60%+ returning learners, 70%+ of sessions with
-         * an active interaction, under five minutes to start. None of them
-         * can be true. Kai is a demo with one seeded lesson, and the intake
-         * capture two screens down has DEMO VERSION printed in its corner, so
-         * a reader could catch the contradiction without leaving the page.
-         * Replaced with what the demo actually is. If real numbers exist from
-         * a study, they belong here and nowhere else.
-         */
-        overlay: {
-          placement: "below",
-          label: "what it is",
-          columns: [
-            { label: "a working demo", text: "one seeded lesson, the hard problem of consciousness, runs the whole system end to end" },
-            { label: "any topic", text: "the intake accepts anything, and the lesson is written to the four answers it collects" },
-            { label: "one lesson, not a transcript", text: "a hook, a worked example, the misconception, a quick check, a reflection" },
-            { label: "sources, not vibes", text: "the library holds what each claim rests on, marked cited and linked out" },
-          ],
-        },
-      },
-      {
-        kind: "detail",
-        media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "the learning framework behind a kai journey" },
-        fit: "contain",
-        side: "right",
-        title: "product thesis",
-        text: "most learning tools are built around a fixed curriculum, while most ai tools remove structure altogether. the opportunity lies somewhere between the two: enough structure to create momentum, enough flexibility to follow curiosity. kai is built on the belief that ai should make learning more adaptive without making it less intentional.",
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/airtribe-learn/landing.png", alt: "the kai landing surface" },
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the intake: what do you want to learn, and what do you already know" },
-        overlay: {
-          placement: "below",
-          label: "behind the experience",
-          // TODO · the framer page runs deep cuts' seven-stage journey here.
-          // these five are kai's own loop.
-          columns: [
-            { label: "intake", text: "four questions: purpose, background, prior knowledge, depth" },
-            { label: "framework", text: "the answers shape a structure before a single lesson is written" },
-            { label: "lesson", text: "explanation, example and practice, in one surface" },
-            { label: "concept map", text: "what you have covered, and what it connects to" },
-            { label: "library", text: "the papers, articles and books behind the subject" },
-          ],
-        },
-      },
-      {
-        kind: "panel",
-        label: "designed for intent",
-        bg: "#16131F",
-        fg: "#F7F6FB",
-        emphasise: [1, 5],
-        paragraphs: [
-          "ai makes learning incredibly easy to start, but not necessarily easy to process. we focused on shifting the cognitive work from finding information to deciding what matters.",
-          "we wanted kai to carry some of that weight. four questions before anything is generated: what you need it for, your background, what you already know, and how far to go.",
-          "we brought those little acts of learning into the interface. highlight something and ask kai about it. leave a note in your own words. watch the concept map grow.",
-          "the library leads you back to the papers, articles and books behind the subject: a way out of the ai's version of the world and into the real one.",
-          "the aim wasn't to invent a new way to learn. it was to remember what learning already feels like, and rebuild it for ai.",
-        ],
-      },
-      /*
-       * Kai's four product decisions live on /work/airtribe-ai-skills/, which
-       * is where kai belongs: it is one of the two skills, not a separate
-       * engagement, and that page now runs both skills as full case studies
-       * under one heading. This page stays what it has always been, the
-       * unhurried visual walkthrough for someone who has read the argument
-       * and wants to see the thing.
-       */
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the intake conversation" },
-          { type: "image", src: "/case/airtribe-learn/framework.png", alt: "the framework the intake produces" },
-        ],
-        captions: [
-          { label: "intake", text: "four questions before anything is generated. the answers are what make the journey yours rather than generic." },
-          { label: "framework", text: "structure first, content second. the shape of the journey exists before a lesson is written." },
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "a kai lesson" },
-          { type: "image", src: "/case/airtribe-learn/map.png", alt: "the concept map" },
-        ],
-        captions: [
-          { label: "the lesson", text: "explanation, example and practice in one surface. highlight anything and ask about it without leaving the page." },
-          { label: "the concept map", text: "what you have covered, and what it connects to. it grows as you go rather than arriving finished." },
-        ],
-      },
-      {
-        kind: "panel",
-        label: "a way out of the model",
-        bg: "#16131F",
-        fg: "#F7F6FB",
-        emphasise: [0],
-        paragraphs: [
-          "the library leads you back to the papers, articles and books behind the subject.",
-          "an ai-first product that never points outside itself is asking to be trusted more than it has earned.",
-          "a way out of the ai's version of the world, and into the real one.",
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of sources behind a subject" },
-          { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a lesson and its concept map side by side" },
-        ],
-        captions: [
-          { label: "the library", text: "the papers, articles and books the subject actually rests on." },
-          { label: "in use", text: "the hard problem of consciousness: the explanation, the note, and where the theories stand." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "the concept map, grown" },
-      },
-      {
-        kind: "deeper",
-        paragraphs: [
-          "kai is a demo, and it is running: one seeded lesson takes the whole system end to end, and the intake will take any topic you give it. the quickest way to judge it is to use it.",
-          "the design language it is built on is a separate piece of work, and the explorations, the rejected directions and what i would change about the intake are best walked through in a conversation.",
-        ],
-        links: [
-          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-          { label: "the design language behind it", href: "/work/airtribe-ai-skills/" },
-          { label: "get in touch", href: `mailto:${site.email}` },
-        ],
-      },
-    ],
-  },
-
-
   // ───────────────────────────────────────────── a century of villains ──
   // ────────────────────────────────────────────────────────────────── vision ──
   "vision": {
@@ -984,10 +804,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "surfaces", value: "pre-reads and cohort live" },
         { label: "year", value: "2026" },
       ],
-      links: [
-        { label: "kai, live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-        { label: "the full kai case", href: "/work/airtribe-learn/" },
-      ],
+      /*
+       * No links in this fold. It used to carry kai's live demo and a link
+       * out to kai's own page, which sent a reader to the second half of the
+       * page before they had read the first, and out of the site entirely
+       * before the pre-read skill, which is what the fold introduces, had
+       * said anything. Kai is now a chapter below rather than a separate
+       * case study, so its demo link sits where kai is discussed.
+       */
     },
     sections: [
       { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
@@ -1283,6 +1107,25 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        /*
+         * Moved here from kai's standalone page, which has been folded into
+         * this one. It is the argument the four decisions below are answers
+         * to, so it reads as the framing rather than a summary.
+         */
+        kind: "panel",
+        label: "designed for intent",
+        bg: "#16131F",
+        fg: "#F7F6FB",
+        emphasise: [1, 4],
+        paragraphs: [
+          "ai makes learning incredibly easy to start, but not necessarily easy to process. we focused on shifting the cognitive work from finding information to deciding what matters.",
+          "we wanted kai to carry some of that weight. four questions before anything is generated: what you need it for, your background, what you already know, and how far to go.",
+          "we brought those little acts of learning into the interface. highlight something and ask kai about it. leave a note in your own words. watch the concept map grow.",
+          "the library leads you back to the papers, articles and books behind the subject: a way out of the ai's version of the world and into the real one.",
+          "the aim wasn't to invent a new way to learn. it was to remember what learning already feels like, and rebuild it for ai.",
+        ],
+      },
+      {
         kind: "decisions",
         label: "key decisions · kai",
         items: [
@@ -1325,6 +1168,22 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "panel",
+        label: "a way out of the model",
+        bg: "#16131F",
+        fg: "#F7F6FB",
+        emphasise: [0],
+        paragraphs: [
+          "the library leads you back to the papers, articles and books behind the subject.",
+          "an ai-first product that never points outside itself is asking to be trusted more than it has earned.",
+          "a way out of the ai's version of the world, and into the real one.",
+        ],
+      },
+      {
+        kind: "bleed",
+        media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a kai lesson on the hard problem of consciousness, with its concept map open beside it" },
+      },
+      {
         kind: "outcome",
         label: "outcome · kai",
         paragraphs: [
@@ -1336,11 +1195,10 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "deeper",
         label: "kai, in full",
         paragraphs: [
-          "the demo is live, and it is the quickest way to judge it. kai also has its own page here, an unhurried walkthrough of the workspace, the intake, the map and the library.",
+          "the demo is live, and using it is the quickest way to judge it. one seeded lesson takes the whole system end to end, and the intake will take any topic you give it.",
         ],
         links: [
           { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-          { label: "the full kai walkthrough", href: "/work/airtribe-learn/" },
         ],
       },
 

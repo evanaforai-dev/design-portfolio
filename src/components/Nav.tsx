@@ -6,15 +6,13 @@ import { site } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 /**
- * Minimal persistent nav: wordmark (links home) on the left; the site's two
- * destinations and the dot mode-toggle on the right.
+ * Minimal persistent nav: wordmark (links home) on the left; "about" and the
+ * dot mode-toggle on the right.
  *
- * This used to be one link that flipped by route — "about" on the index,
- * "work" on about. It reads well on those two pages and breaks on the ten it
- * does not cover: from a case study the slot says "about", and the only route
- * back to the work is the wordmark, which a visitor has to guess is a link.
- * Both destinations are now always present; the one you are on is dimmed and
- * carries aria-current rather than disappearing.
+ * There is no "work" link. The index IS the work, and the wordmark already
+ * goes there, so the slot spent a permanent line of the chrome offering a
+ * second door to a room the signature next to it already opens. The wordmark
+ * carries aria-current on the index so the state is still announced.
  */
 export function Nav() {
   const pathname = usePathname();
@@ -22,7 +20,6 @@ export function Nav() {
   const onIndex = pathname === "/";
 
   const items: { label: string; href: string; current: boolean }[] = [
-    { label: "work", href: "/", current: onIndex },
     { label: "about", href: "/about", current: onAbout },
   ];
 
@@ -31,6 +28,7 @@ export function Nav() {
       <div className="flex items-center justify-between gap-4 px-6 py-5 md:px-8">
         <Link
           href="/"
+          aria-current={onIndex ? "page" : undefined}
           className="text-sm font-medium tracking-tight text-fg"
           aria-label={`${site.name}, home`}
         >

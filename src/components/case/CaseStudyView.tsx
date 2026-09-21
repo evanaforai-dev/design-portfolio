@@ -33,9 +33,20 @@ function isDarkGround(hex: string): boolean {
  * art-directed section sequence, then quiet prev/next navigation.
  */
 export function CaseStudyView({ study }: { study: CaseStudy }) {
-  const idx = projects.findIndex((p) => p.slug === study.slug);
-  const prev = projects[(idx - 1 + projects.length) % projects.length];
-  const next = projects[(idx + 1) % projects.length];
+  /*
+   * Walk the listed projects only. An `unlisted` project keeps its route and
+   * drops off the index (ProjectGrid already filters it out), but this bar
+   * used to walk the raw array, so a page that existed only as a link from
+   * another case study still turned up at the foot of its neighbour as "next
+   * project". That is how kai, which is a chapter of the airtribe ai skills
+   * page, appeared underneath it as the thing to read next.
+   */
+  const ordered = projects.filter((p) => !p.unlisted);
+  // An unlisted study is not in `ordered`; anchor it at the top of the list
+  // rather than letting findIndex's -1 wrap into an arbitrary pair.
+  const idx = Math.max(0, ordered.findIndex((p) => p.slug === study.slug));
+  const prev = ordered[(idx - 1 + ordered.length) % ordered.length];
+  const next = ordered[(idx + 1) % ordered.length];
   const { hero, theme } = study;
   const launch = hero.mode === "launch";
 

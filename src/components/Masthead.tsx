@@ -40,9 +40,8 @@ function Fact({
 
 export function Masthead() {
   const elsewhere = [
-    { label: "email", href: `mailto:${site.email}` },
     { label: "résumé", href: asset(site.resumeUrl) },
-    ...site.social.filter((l) => l.label !== "email"),
+    ...site.social,
   ];
 
   return (

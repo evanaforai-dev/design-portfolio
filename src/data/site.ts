@@ -10,8 +10,14 @@ export const site = {
   email: "hello@evana.design",
   resumeUrl: "/resume.pdf",
 
+  /*
+   * The link lists the chrome carries. Email used to lead here and in the
+   * masthead; behance takes its place, because a portfolio link is the thing
+   * a visitor can act on immediately and the inbox is one click away on the
+   * about page and at the foot of every case study.
+   */
   social: [
-    { label: "email", href: "mailto:hello@evana.design" },
+    { label: "behance", href: "https://www.behance.net/evanapallivathukkal" },
     {
       label: "linkedin",
       href: "https://www.linkedin.com/in/evana-sajan-pallivathukkal/",
