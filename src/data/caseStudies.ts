@@ -287,6 +287,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
+        { label: "role", value: "product designer" },
         { label: "clients", value: "airtribe" },
         { label: "service", value: "product · ux/ui design" },
         { label: "date", value: "mar 2026" },
@@ -855,10 +856,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "service", value: "data storytelling · build" },
         { label: "date", value: "2026" },
       ],
-      links: [
-        { label: "live piece", href: "https://villain2.vercel.app" },
-        { label: "code", href: "https://github.com/evanaforai-dev/a-century-of-villains" },
-      ],
+      links: [{ label: "live piece", href: "https://villain2.vercel.app" }],
     },
     sections: [
       {
@@ -986,7 +984,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "service", value: "product · ux/ui design" },
         { label: "date", value: "apr 2026" },
       ],
-      links: [{ label: "code", href: "https://github.com/evanaforai-dev/lipi" }],
     },
     sections: [
       {
@@ -1179,7 +1176,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "service", value: "ux/ui design · product" },
         { label: "date", value: "jun 2026" },
       ],
-      links: [{ label: "code", href: "https://github.com/evanaforai-dev/deepcuts" }],
     },
     sections: [
       {
@@ -1370,7 +1366,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "service", value: "product design · build" },
         { label: "date", value: "2026" },
       ],
-      links: [{ label: "code", href: "https://github.com/evanaforai-dev/soundmap" }],
     },
     sections: [
       {
@@ -1542,7 +1537,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "service", value: "product design · build" },
         { label: "date", value: "2026" },
       ],
-      links: [{ label: "code", href: "https://github.com/evanaforai-dev/kochi-water-metro" }],
     },
     sections: [
       {

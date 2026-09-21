@@ -12,14 +12,80 @@ export const site = {
 
   social: [
     { label: "email", href: "mailto:hello@evana.design" },
-    // TODO · replace with the real profile url before this goes out.
-    { label: "linkedin", href: "https://linkedin.com/" },
+    {
+      label: "linkedin",
+      href: "https://www.linkedin.com/in/evana-sajan-pallivathukkal/",
+    },
     { label: "github", href: "https://github.com/evanaforai-dev" },
   ],
 };
 
+/**
+ * HOME MASTHEAD — the first ten seconds.
+ *
+ * The index is a grid of objects and says nothing about who made them. This
+ * band, set above it, answers the three questions a cold visitor has before
+ * they will spend a click: what is this person, what do they work on, and who
+ * have they worked for. Every line here is already true elsewhere in the data
+ * (see `about.background` and `about.service`); nothing is claimed that a case
+ * study does not support.
+ *
+ * It stays deliberately short. Hierarchy is doing the work, not volume.
+ */
+export const masthead = {
+  /** The role, stated flatly, because that is the thing being missed. */
+  lede: "product designer.",
+  /** What the work is about, in the voice of the rest of the site. */
+  statement:
+    "ai tools, financial products, and the internal systems a company actually runs on.",
+  /** Where the work was done. Names only: no tense, no claim of tenure. */
+  places: ["airtribe", "wells fargo", "kochi metro"],
+  /** The one credential worth a recruiter's half-second. */
+  credential: "m.des interaction design, idc iit bombay",
+};
+
+/**
+ * THE TWO REGISTERS THE INDEX RUNS IN.
+ *
+ * The about page has said "office hours / after hours" since it was written;
+ * the index had no such distinction, so paid product work and unfinished
+ * personal builds sat in one undifferentiated field of nine tiles and a reader
+ * had to infer which was which from the tags. Same vocabulary, applied to the
+ * work: it costs one line each and it is the difference between "nine projects"
+ * and "four things she was hired to do, and five she does anyway".
+ *
+ * `key` matches the `category` already on every project in projects.ts, so the
+ * split is data that existed rather than a new field to keep in sync.
+ *
+ * The `note` on after hours says "still being built" on purpose. These are
+ * live and genuinely hers, but they are in progress, and a reader who finds
+ * that out by clicking trusts the rest of the page less.
+ */
+export const registers = [
+  {
+    key: "work" as const,
+    label: "office hours",
+    note: "product work, for a company or a client",
+  },
+  {
+    key: "playground" as const,
+    label: "after hours",
+    note: "self-initiated. designed, built, and still being built",
+  },
+];
+
 export const about = {
   headline: "the practice predates the profession.",
+
+  /*
+   * The headline is the voice; this is the fact under it. The bio opens
+   * "creative technologist, not always digital", which is honest and is also
+   * the first thing a hiring reader sees — so the discipline is stated once,
+   * plainly, before the page earns the right to be interesting. Nothing here
+   * is new: it is `background` and `service` said in a sentence.
+   */
+  positioning:
+    "product designer. ai tools, financial products, and the internal systems a company actually runs on. trained as an architect first, which is where the interest in systems came from.",
 
   bio: [
     "creative technologist, not always digital. i like to practice “let the work speak for itself” a little too seriously, since my time at spa delhi.",

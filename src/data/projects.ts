@@ -33,7 +33,7 @@ export const projects: Project[] = [
     cover: "/covers/wells-fargo-plate.svg",
     year: "2025",
     summary:
-      "migrating legacy financial products onto wells fargo's responsive public-site design system: policy-compliant, mobile-first, conversion-focused.",
+      "three legacy financial products migrated onto wells fargo's responsive public-site design system. policy-compliant, mobile-first, and live on wellsfargo.com.",
     link: "https://www.wellsfargo.com/about/responsibility-and-impact/sustainability/",
     // the brand plate on a transparent 1:1 canvas, floated like the other
     // object tiles: the square gives it the kochi water metro tile's width,
@@ -43,30 +43,33 @@ export const projects: Project[] = [
   {
     slug: "vision",
     title: "vision",
-    tags: ["product design", "internal tooling", "b2b saas"],
+    tags: ["product design", "payments", "internal tooling"],
     category: "work",
     // TODO · placeholder frame until a scrubbed capture exists.
     cover: "/case/vision/payments-table.svg",
     year: "2026",
     summary:
-      "moving payments out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
+      "the company's payments moved out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
     display: { fit: "contain", pad: "p-4 md:p-6" },
   },
   {
     slug: "airtribe-ai-skills",
     title: "airtribe ai skills",
-    tags: ["ai tooling", "design systems", "learning design"],
+    tags: ["ai product design", "design systems", "learning design"],
     category: "work",
-    // TODO · a diptych (a pre-read component | kai's lesson) would carry both
-    // halves. for now the pre-read side leads, since it is the one the case
-    // study leads with.
-    cover: "/covers/airtribe-ai-skills.png",
+    // Kai's landing surface leads. The pre-read component sheet is the better
+    // record of the internal half, but it is a page of specification type: at
+    // a 200px tile it reads as grey noise. This one still reads as a product
+    // at thumbnail size, which is the only job a tile has. Both halves are on
+    // the case study itself.
+    cover: "/covers/airtribe-learn.png",
     year: "2026",
     summary:
-      "two skills: a design language the lxd team writes inside so the catalogue stays on-brand, and a tutor that writes a cited lesson for one reader.",
+      "two ai skills at airtribe: a design language the lxd team authors inside so a growing catalogue stays on-brand, and a tutor that writes one cited lesson for one reader.",
     link: "https://willowy-blancmange-6a230b.netlify.app/",
-    // product landing shot (light ui), filled full-bleed.
-    display: { fit: "cover" },
+    // product landing shot (light ui), filled full-bleed from the top so the
+    // headline and the prompt field survive the crop.
+    display: { fit: "cover", position: "top" },
   },
   {
     // Kai's standalone case study. Kept live at /work/airtribe-learn/ and linked
