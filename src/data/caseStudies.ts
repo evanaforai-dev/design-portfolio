@@ -58,8 +58,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, working across the line-of-business product team, legal, cms and engineering, us and india.",
+          "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, with a product designer and a content designer in the us, and across the line-of-business product team, legal, cms and engineering.",
           "the brief was the same each time. make it simpler, make it compliant, make it work on a phone, and do not break the business already running through it.",
+          "three parts of that were ai-assisted: the competitor analysis and synthesis, the early brainstorming and wireframing, and the brand visuals. worth saying plainly, because a regulated bank is the hardest place to use these tools and the easiest place to get them wrong. nothing they produced reached a page without surviving legal review.",
         ],
       },
       {
@@ -89,14 +90,14 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "rescue practice finance",
             why: "the practice-finance site was set for decommission by may 2026 over policy violations and poor mobile usability, taking digital loan origination for ~1,000 monthly visitors with it.",
             tradeoff: "anything i wanted to change for design reasons came after keeping it compliant and keeping it live.",
-            result: "a six-plus-page architecture consolidated into one conversion-focused landing and one simplified contact flow, signed off as a policy-compliant experience.",
+            result: "a six-plus-page architecture consolidated into one conversion-focused landing and one simplified contact flow, signed off as a policy-compliant experience. i designed the decommission messaging alongside it: what a visitor would have met if the date passed and the site came down anyway.",
             media: { type: "image", src: "/case/wells-fargo/strategy.jpg", alt: "who practice finance serves and the experience it needs" },
             fit: "cover",
           },
           {
             n: "02",
             title: "simplify the plcc experience",
-            why: "3.8m retail-services customers, 1m new a year, sat on a dated, non-responsive microsite that drove ~200k monthly visits and 120k service calls a month at $11.37 each.",
+            why: "3.8m retail-services customers, 1m new a year, sat on a dated, non-responsive microsite that drove ~200k monthly visits and 120k service calls a month at $11.37 each, clustered around login, payments, agreements and mobile banking.",
             tradeoff: "the redesign had to fold into wf.com for tracking and seo, not survive as a standalone microsite.",
             result: "a ux audit, competitor synthesis and ia rework cut nine pages to four, over 50% less structural complexity, with clear paths to the highest-frequency tasks and room to reduce those calls.",
             media: { type: "image", src: "/case/wells-fargo/board.jpg", alt: "the breadth of the redesign work, blurred under nda" },
@@ -158,7 +159,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "all three shipped to wf.com through 2026. practice finance and its contact flow are live and linked above, the sustainability experience replaced the pdf outright, and the plcc pages followed in august.",
+          "practice finance and its contact flow are live and linked above, and the sustainability experience replaced the pdf outright. the plcc redesign is designed and handed off, and has not been released yet, so this page links the two you can open and says so about the third.",
           "the internal material stays behind a wells fargo nda, so the comps, the research and the roadmap are described here rather than shown. the live pages are public, and are shown as they run.",
         ],
       },
