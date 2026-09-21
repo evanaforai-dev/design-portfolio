@@ -235,12 +235,12 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/03-goals.png", alt: "the four goals of the redesign" },
         fit: "contain",
         frame: true,
-        caption: "four goals, set before any screen: improve the experience, make travel easier, promote sustainable travel, and repair public perception.",
+        caption: "four goals, set before any screen.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/kochi1app/deck/04-board.png", alt: "the redesign board, all four themes at once" },
-        caption: "the whole redesign on one board: intention-based planning, flexible transfers and contextual information, green nudges, and an experience layer.",
+        caption: "the whole redesign on one board.",
       },
       {
         kind: "full",
@@ -262,7 +262,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/06-background-research.png", alt: "the six stages of the background research" },
         fit: "contain",
         frame: true,
-        caption: "the method, end to end. the study was scoped to produce policy recommendations alongside design ones, since a transfer that does not exist cannot be designed around.",
+        caption: "the method. the study produced policy recommendations alongside design ones, since a transfer that does not exist cannot be designed around.",
       },
       {
         kind: "full",
@@ -281,7 +281,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/09-unboxing.png", alt: "evaluating the existing app: usability goals, heuristic evaluation and task-based evaluation" },
         fit: "contain",
         frame: true,
-        caption: "evaluating what already shipped, three ways: usability goal setting, a heuristic evaluation scored on ten dimensions, and a task-based evaluation with real users. the radar is the shape of the problem.",
+        caption: "what already shipped, evaluated three ways: usability goals, a heuristic evaluation scored on ten dimensions, and a task-based evaluation with real users.",
       },
       {
         kind: "full",
@@ -302,14 +302,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/12-ia-existing.png", alt: "the existing information architecture, colour-coded" },
         fit: "contain",
         frame: true,
-        caption: "the existing architecture, audited node by node: integrate, avoid, or keep as it is. the circle is the planner, which is where the app's actual job lives and where almost none of its screen real estate went.",
+        caption: "the existing architecture, audited node by node. the circled planner is where the app's actual job lives and where almost none of its screen went.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/kochi1app/deck/13-ia-redesigned.png", alt: "the redesigned information architecture" },
         fit: "contain",
         frame: true,
-        caption: "the architecture rebuilt around eight areas: profile, transactions, information, travel mode, planner and booking, explore, daily travel, green incentives and feedback. the planner stops being one item in a menu.",
+        caption: "the architecture rebuilt around eight areas. the planner stops being one item in a menu.",
       },
       {
         kind: "decisions",
@@ -357,12 +357,12 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/15-ui-route.png", alt: "the route suggestion redesign and its iterations" },
         fit: "contain",
         frame: true,
-        caption: "route suggestion, annotated through three rounds: inefficient space, text and icon size against contrast, editing options with no hierarchy, and a bottom bar that was not consistent between screens.",
+        caption: "route suggestion, annotated through three rounds.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/kochi1app/deck/16-user-flows.png", alt: "the full set of user flows" },
-        caption: "every flow in the redesign, including the ones that only exist because the intention layer does: planning by intention, by travel mode, splitting an intermediate journey, and booking from a past transaction.",
+        caption: "every flow in the redesign, including the ones that only exist because the intention layer does.",
       },
       {
         kind: "full",
@@ -422,7 +422,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/22-evaluation-plan.png", alt: "the evaluation plan: key questions, precautions, target users, test goals and screener" },
         fit: "contain",
         frame: true,
-        caption: "the plan before the test: what we wanted to learn, who we needed, and the precautions, including that the experience of travel cannot be replicated in a room, so it has to be carried by the scenario.",
+        caption: "the plan before the test. travel cannot be replicated in a room, so the scenario has to carry it.",
       },
       {
         kind: "full",
@@ -514,14 +514,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", eyebrow: "product thesis", text: "every enrolment, instalment and refund the company took was recorded in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: the sheet was fast, it was visible, and it had never once asked anyone for permission. a product that replaces a spreadsheet people like does not get to start from what it can do better. it has to start from what the spreadsheet was already doing right." },
+      { kind: "thesis", eyebrow: "product thesis", text: "every enrolment, instalment and refund the company took lived in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: it was fast, it was visible, and it had never once asked anyone for permission." },
       {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran this end to end. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions the sections below describe. the ui screens we split between us, and the other designer led the handoff to engineering. we worked alongside one backend and one frontend engineer.",
-          "there was no separate researcher and no separate ux writer, which is why the column list, the payment states and the copy inside the dropdowns are decisions rather than inherited requirements.",
-          "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
+          "two product designers ran this end to end. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions below. the ui screens we split between us, and the other designer led the handoff. we worked alongside one backend and one frontend engineer. no separate researcher and no ux writer, so the column list, the payment states and the dropdown copy are decisions rather than inherited requirements.",
+          "vision is airtribe's internal operations dashboard, none of it learner-facing. payments sit at the seam: sales records what a learner paid and how, and enrolment, slack access, onboarding and invoicing all key off that record.",
                   ],
       },
       {
@@ -560,16 +559,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the onboarding sheet, redacted. the header row is left legible because the columns are the argument: close to thirty for one person, two adjacent and both called remarks, one called problematic leaner, spelled exactly like that. nobody could delete any of it in case somebody was still reading it.",
+        caption: "the onboarding sheet, redacted. the header row is legible because the columns are the argument: close to thirty for one person, two adjacent and both called remarks, one called problematic leaner, spelled exactly like that.",
       },
       {
         kind: "constraints",
         label: "what the decisions were based on",
         items: [
-          { label: "primary research with the teams", text: "sessions with the sales and lxd people who lived in the sheet, before anything was designed. the column list came out of those conversations, not out of the schema." },
-          { label: "clarity session data", text: "how people actually moved through the existing screens, rather than how they described it. this is what made the filter overflow visible as a problem before anyone complained about it." },
-          { label: "algolia search data", text: "what people were actually searching for, which told us which fields were being used as filters by hand because no filter existed for them yet." },
-          { label: "testing with the same people", text: "every phase went back to the teammates who would use it. the onboarding phase is where this changed the design most: columns that turned out to be unused were deleted, and several that were really a sequence of tasks became a checklist instead of a column." },
+          { label: "primary research with the teams", text: "sessions with the sales and lxd people who lived in the sheet, before anything was designed. the column list came out of those, not out of the schema." },
+          { label: "clarity session data", text: "how people moved through the existing screens rather than how they described it. this is what made the filter overflow visible before anyone complained." },
+          { label: "algolia search data", text: "what people searched for, which told us which fields were being filtered by hand because no filter existed yet." },
+          { label: "testing with the same people", text: "every phase went back to the teammates who would use it. onboarding changed most: unused columns were deleted, and several that were really a sequence of tasks became a checklist." },
         ],
       },
       {
@@ -579,15 +578,15 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             n: "01",
             title: "a table, by default, because that is the muscle they already had",
-            why: "the sales team had spent years in a grid. arriving at a product that opened on cards or a form would have made every one of them slower on day one, and day one is when a replacement either earns trust or loses it.",
-            tradeoff: "a table is the densest and least forgiving layout there is, and it commits you to solving density everywhere else: filters, views, permissions, overflow. the friendlier layouts would have deferred those problems rather than removed them.",
-            result: "the switch cost nobody a re-learning period. the work moved into making the table hold more than a sheet could, rather than into teaching people a new shape.",
+            why: "the sales team had spent years in a grid. opening on cards or a form would have made every one of them slower on day one, which is when a replacement earns trust or loses it.",
+            tradeoff: "a table is the least forgiving layout there is, and it commits you to solving density everywhere else: filters, views, permissions, overflow.",
+            result: "nobody needed a re-learning period. the work went into making the table hold more than a sheet could.",
           },
           {
             n: "02",
             title: "views instead of one table, once three teams were in the same row",
-            why: "phase 1 was a sales record. phase 2 widened it for lxd, so a payment started carrying slack access, dashboard access and an lxd comment. by phase 3 the onboarding sheet folded in too, and a single table was long enough that both teams were scrolling past two thirds of it to reach their own third.",
-            tradeoff: "views split a shared surface, and a shared surface was half of why the sheet was trusted. so the views overlap deliberately rather than partitioning cleanly, and an all view stays available to anyone who wants the whole row.",
+            why: "by phase 3 a payment carried slack access, dashboard access, an lxd comment and the onboarding sheet as well. one table meant both teams scrolled past two thirds of it to reach their own third.",
+            tradeoff: "views split a shared surface, and a shared surface was half of why the sheet was trusted. so they overlap deliberately, and an all view stays available.",
             result: "sales, lxd and all, with the columns inside each one governed by role and permission rather than by preference.",
             /*
              * This capture used to be the fold. It is a better argument than
@@ -601,9 +600,9 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             n: "03",
             title: "friction proportional to consequence",
-            why: "not every cell is equally dangerous. a typo in a comment costs nothing; a change to a payment status moves money and triggers access downstream. a spreadsheet treats both identically, which is precisely the thing it gets wrong.",
-            tradeoff: "every piece of friction is a slower edit for a person who knew exactly what they were doing, and there is no way to add it without occasionally annoying the expert.",
-            result: "each column was sorted into directly editable, or behind an action button that names what is about to happen. the menu behind that button is itself role-dependent, so a team is only offered the consequential actions it is allowed to take. change logs sit alongside, so a row can be asked who last touched it, which is the one thing the sheet could technically answer and nobody could actually read.",
+            why: "a typo in a comment costs nothing; a change to a payment status moves money and triggers access downstream. a spreadsheet treats both identically.",
+            tradeoff: "every piece of friction is a slower edit for someone who knew exactly what they were doing.",
+            result: "each column is either directly editable or behind an action button that names what is about to happen, and that menu is role-dependent. change logs sit alongside, so a row can be asked who last touched it.",
           },
         ],
       },
@@ -616,7 +615,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the same rows under the other view. onboarding gets its own filters and its own columns, career service, ctc, profile, the two track assignments, and none of the payment machinery it never touches. that is where the scroll went. the menu on the right is the other half: change cohort, assign unit, re-sync and remove access are rare, consequential or both, so they sit behind a button that names them rather than in a cell you can fall into.",
+        caption: "the same rows under the other view. onboarding gets its own filters and columns, career service, ctc, profile, the two track assignments, and none of the payment machinery it never touches. that is where the scroll went.",
       },
       {
         kind: "pipeline",
@@ -632,8 +631,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "system",
         label: "what one payment record has to hold",
         paragraphs: [
-          "a payment is not an amount. it is an amount, the instrument it arrived by, where that instrument currently is, and what each downstream team is allowed to do next. six payment types and eleven statuses, and the statuses are not a pipeline, they are the states a real payment gets stuck in.",
-          "that is the density problem in one sentence. the screen has to show a row that spans sales, finance and delivery, to people who each only care about their own third of it.",
+          "a payment is not an amount. it is an amount, the instrument it arrived by, where that instrument is now, and what each downstream team may do next. six types and eleven statuses, and the statuses are not a pipeline, they are the states a real payment gets stuck in. the row spans sales, finance and delivery, for people who each care about a third of it.",
         ],
         mapping: [
           { from: "paid in one shot", to: "cleared, or still pending verification" },
@@ -649,7 +647,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { label: "fields on the record", value: "~18" },
           { label: "teams reading the same row", value: "3" },
         ],
-        note: "the record also carries slack access state, onboarding status, an lxd comment and dashboard access status. those are phase 2: other teams' columns, living inside a sales record, because that is where the sheet had put them.",
+        note: "it also carries slack access, onboarding status, an lxd comment and dashboard access. phase 2: other teams' columns inside a sales record, because that is where the sheet had put them.",
       },
       {
         /*
@@ -662,20 +660,20 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "constraints",
         label: "the decisions the screen had to make",
         items: [
-          { label: "constrain anything with a definitive answer", text: "every field with a finite set of correct answers became a dropdown rather than free text. this is what made filtering possible at all: you cannot filter a column that eleven people have spelled eleven ways, and the sheet had exactly that column several times over." },
-          { label: "colour is for spotting, not reading", text: "the statuses that need to be found in a scan are the anomalies, a payment likely to refund, a lead marked confirmed but not paid, a loan rejected. those carry colour. the ordinary states do not, because if everything is coloured nothing is." },
-          { label: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: a row was created, the sheet was pulled in, it was already in sync, it was not found or not permitted, it failed, or it was ambiguous. ambiguous is the one that matters. a person at 6pm has to be told which record they are looking at and which one they are not." },
-          { label: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are all ordinary places a payment sits. designing them as error states would have told the agent something had gone wrong with their work rather than with the payment." },
-          { label: "the same learner, twice, on purpose", text: "a learner who re-enrols into another cohort is a second payment record, not a correction of the first, so duplicates by name are legitimate and cannot be merged away. the latest record carries a live badge. the older ones stay exactly where they are, readable, because the history of what someone paid for is the point of keeping it." },
-          { label: "the same name leads two different places", text: "click a lead as a sales person and it opens the opportunities page. click the same lead as lxd and it opens the learner profile with the onboarding checklist. the row is shared; the thing you are trying to do with it is not." },
+          { label: "constrain anything with a definitive answer", text: "every field with a finite set of correct answers became a dropdown. this is what made filtering possible at all: you cannot filter a column eleven people have spelled eleven ways, and the sheet had several." },
+          { label: "colour is for spotting, not reading", text: "only the anomalies carry colour: likely to refund, confirmed but not paid, loan rejected. the ordinary states do not, because if everything is coloured nothing is." },
+          { label: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: created, pulled in, already in sync, not found or not permitted, failed, or ambiguous. ambiguous is the one that matters, because a person at 6pm has to be told which record they are looking at and which they are not." },
+          { label: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are ordinary places a payment sits. as error states they would say the agent had done something wrong." },
+          { label: "the same learner, twice, on purpose", text: "a learner who re-enrols is a second payment record, not a correction of the first, so duplicates by name are legitimate and cannot be merged away. the latest carries a live badge; the older ones stay readable." },
+          { label: "the same name leads two different places", text: "the same lead opens the opportunities page for sales and the learner profile for lxd. the row is shared; the job you are doing with it is not." },
         ],
       },
       {
         kind: "turn",
         label: "the flaw we shipped",
-        tried: "a name and an email are never read apart, so we stopped treating them as two columns. the name became the line, the email became a subline under it, one cell. it tested well with the sales team, it scanned well, and it gave back a column on a table that badly needed the room.",
-        result: "it broke a workflow nobody had shown us. the people granting slack access do not read emails one at a time, they take the whole column at once: one drag, about five minutes for a cohort. as a subline inside another column there was nothing to select, so the same job became copying addresses by hand, about fifty minutes. we had researched the team that writes the record and missed the team that reads it a hundred rows at a time.",
-        change: "the email came back out as its own column, and the rule came with it: a column is not a field, it is a workflow. two things read together are not necessarily used together. every merge candidate now gets a second question, not is it read beside its neighbour, but is it ever selected, sorted, exported or copied alone.",
+        tried: "a name and an email are never read apart, so we merged them into one cell: name on the line, email as a subline. it tested well with the sales team and gave back a column on a table that needed the room.",
+        result: "it broke a workflow nobody had shown us. the people granting slack access take the whole column at once: one drag, about five minutes for a cohort. as a subline there was nothing to select, so it became copying by hand, about fifty minutes. we had researched the team that writes the record and missed the team that reads it a hundred rows at a time.",
+        change: "the email came back out as its own column, and the rule came with it: a column is not a field, it is a workflow. every merge candidate now gets a second question, not is it read beside its neighbour, but is it ever selected, sorted, exported or copied alone.",
       },
       {
         kind: "full",
@@ -686,14 +684,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "where the repair ended up. the email is a column again, and the job that broke is no longer a job: select the rows, take all ten addresses in one click, or set slack access for all of them in one dialogue that lists whose access is about to change. fifty minutes of copying is now the fastest path in the product.",
+        caption: "the repair. select the rows, take all ten addresses in one click, or set slack access for all of them in one dialogue. fifty minutes of copying is now the fastest path in the product.",
       },
       {
         kind: "context",
         label: "filters, and a chicken and egg problem",
         paragraphs: [
-          "filtering is how anyone finds their own queue, so the obvious fix, put it behind a menu, was the one thing we could not do: two clicks deep would make the product slower than the sheet at the task the sheet was worst at. showing all of them was the overflow. an opportunity carries about twenty five fields across three lifecycle axes people mistake for one: a status, a stage, and a separate lead status.",
-          "the way out was to stop treating the filter set as fixed. a new user gets recommended filters, after that the bar shows what they last used, and the rest expand and collapse in place rather than opening a panel. a combination worth keeping is saved as a named view and returned to. search gained include and exclude alongside it, to stop a query quietly returning the wrong queue.",
+          "an opportunity carries about twenty five fields across three lifecycle axes people mistake for one: a status, a stage, and a separate lead status. showing all of them was the overflow; burying them two clicks deep would have made the product slower than the sheet at the task the sheet was worst at.",
+          "so the filter set stopped being fixed. a new user gets recommended filters, then the bar shows what they last used, and the rest expand in place. a combination worth keeping becomes a named view. search gained include and exclude, to stop a query quietly returning the wrong queue.",
         ],
       },
       {
@@ -705,7 +703,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "before. twenty-nine filters, four rows of them standing between the search box and the table they govern, and the same twenty-nine for everyone whatever any one person actually filters by. there is nowhere to put a combination you will want again tomorrow.",
+        caption: "before. twenty-nine filters over four rows, between the search box and the table they govern, and the same twenty-nine for everyone.",
       },
       {
         kind: "full",
@@ -716,7 +714,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "after. nine, and they are this person's nine. an active filter prints what it is set to and counts the rest, high quality +1, wati course inquiry +3, so the bar states the query instead of just naming the fields it could run one on. the other twenty are behind more filters, one click, expanding in place. a set worth keeping becomes a named view, which is the selector at the top right.",
+        caption: "after. nine, and they are this person's nine. an active filter prints its value and counts the rest, so the bar states the query rather than naming the fields it could run one on. the other twenty expand in place.",
       },
       {
         kind: "context",
@@ -727,8 +725,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "who is allowed to see what",
         paragraphs: [
-          "the row is shared and almost nobody should see all of it, so access runs on four axes that are deliberately not the same thing: department, role, permission group, and who you report to. a title is not a permission. that is why the role column and the permission group column disagree on most rows, and why that is the system working: a manager can sit on team lead permissions because what you are allowed to do is a decision about the work in front of you, not a consequence of your title.",
-          "the permissions themselves are namespaced and filed into eleven categories, and they compose into named groups instead of being handed out one at a time. it is the piece of this product that took the longest to argue for and the piece that makes every other decision on this page enforceable: views, editable columns and the action menu all read from it.",
+          "almost nobody should see the whole row, so access runs on four axes that are deliberately not the same thing: department, role, permission group, and who you report to. a title is not a permission, which is why the role and permission group columns disagree on most rows and why that is the system working.",
+          "permissions are namespaced into eleven categories and compose into named groups rather than being handed out one at a time. it took the longest to argue for, and it is what makes every other decision on this page enforceable: views, editable columns and the action menu all read from it.",
         ],
       },
       {
@@ -740,7 +738,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "four columns because they are four separate questions. six of the eight rows readable here carry a role and a permission group that do not match. the menu keeps the consequential actions together and out of the row: edit, log in as them, block access, remove. blocking and removing are different things, which matters when somebody leaves and their records must not.",
+        caption: "four columns because they are four separate questions. six of the eight rows here carry a role and a permission group that do not match. blocking and removing are different things, which matters when somebody leaves and their records must not.",
       },
       {
         kind: "full",
@@ -751,7 +749,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "composing one. opportunity management alone holds ten permissions, through to manage descendant's opportunities, which reads the reporting line to decide whose records you can touch. the group is ticked together, named, then listed back in full before it exists, and the same review stands between an admin and handing it to a person. a permission group should be boring to audit.",
+        caption: "opportunity management alone holds ten permissions, through to manage descendant's opportunities, which reads the reporting line to decide whose records you can touch. the group is listed back in full before it exists, and again before anyone is given it.",
       },
       {
         kind: "statement",
@@ -760,23 +758,20 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
-          "the sales sheet is no longer the source of truth. three spreadsheets scattered across two departments are now one table, and that table carries the whole lead lifecycle: the first payment through to onboarding into the lms.",
-          "views and role-based permissions cut scroll depth in half. before them, reaching your own columns meant scrolling past everything two other teams needed; now the row arrives as the job you came to do. the change log did the other half of the work, and accidental edits dropped once a row could be asked who last touched it.",
-          "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
-          "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
+          "the sales sheet is no longer the source of truth. three spreadsheets across two departments are now one table carrying the whole lead lifecycle, first payment through to onboarding into the lms. all three phases shipped, alongside the email template flow, the cohort filter and the filters and search redesign.",
+          "views and role-based permissions cut scroll depth in half, and accidental edits dropped once a row could be asked who last touched it. the sales team moved off the sheet with no re-learning period, which was the bar the table layout was chosen to clear. onboarding ended with fewer columns than it started with. the one workflow the design broke, bulk-copying emails, went from five minutes to fifty before it was caught and undone.",
           ],
       },
       {
         kind: "deeper",
         paragraphs: [
-          "one screen of an internal product is not the product. the rest of vision, the opportunities pages, the learner profile, the email templates and the permission work, sits behind an airtribe nda, as do the research sessions and the phases that were tested and cut.",
-          "i can walk through the product, the rounds it went through and the calls behind each column privately.",
+          "the rest of vision, the opportunities pages, the learner profile, the email templates and the permission work, sits behind an airtribe nda, as do the research sessions and the phases that were tested and cut. i can walk through it privately.",
         ],
         links: [{ label: "get in touch", href: `mailto:${site.email}` }],
       },
       {
         kind: "reflection",
-        text: "the first phase went on matching the sheet rather than beating it, and everything after that went on the two things it structurally could not do. i think that order was the whole job. nobody hands over a tool they trust to something that is merely newer, and the sync states are the proof of how long it takes: the product had to be able to say already in sync for months before anyone would agree it was the source of truth.",
+        text: "the first phase went on matching the sheet rather than beating it, and everything after on the two things it structurally could not do. i think that order was the whole job. the sync states are the proof of how long it takes: the product had to say already in sync for months before anyone agreed it was the source of truth.",
       },
     ],
   },
@@ -827,8 +822,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "context",
         paragraphs: [
-          "the two pull in opposite directions. inside, the author is a colleague building for a catalogue, so the risk is drift: fifty lessons that each look slightly like whoever wrote them. outside, the author is the model itself, writing for one reader who has no easy way to check it, so the risk is trust.",
-          "which means the guardrail points the other way in each. the pre-read skill protects the product from its authors. kai protects the reader from the product.",
+          "the two pull in opposite directions. inside, the author is a colleague building for a catalogue, so the risk is drift. outside, the author is the model itself, writing for one reader who cannot easily check it, so the risk is trust. the pre-read skill protects the product from its authors; kai protects the reader from the product.",
         ],
       },
       {
@@ -840,8 +834,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran both of these end to end. i took the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, and the design decisions each case study below describes. the ui screens we split between us, and the other designer led the handoff. we worked alongside one backend and one frontend engineer.",
-          "each skill below is its own case study, with its own decisions and its own result. they share a team, a company and a question, and nothing else.",
+          "two product designers ran both of these end to end. i took the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, and the design decisions below. the ui screens we split between us, and the other designer led the handoff. we worked alongside one backend and one frontend engineer. each skill below is its own case study; they share a team and a question and nothing else.",
         ],
       },
 
@@ -863,14 +856,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "thesis",
         eyebrow: "01 · pre-reads · the internal skill",
-        text: "a pre-read is what a learner gets before a live session, and at airtribe they are written by learning designers rather than visual ones. across a growing catalogue that produced fifty lessons which each looked slightly like whoever wrote them. the problem was never which components existed. it was how much room an author is allowed.",
+        text: "a pre-read is what a learner gets before a live session, and at airtribe they are written by learning designers rather than visual ones. across a growing catalogue that produced fifty lessons which each looked slightly like whoever wrote them.",
       },
       {
         kind: "context",
         label: "what drifted, and how",
         paragraphs: [
-          "the lxd team took up the problem that pre-reads were walls of text, and wanted them interactive enough to be worth opening. the catch is who writes them.",
-          "the restyle checklist in the skill is the record of the drift, because it lists what has to be undone: indigo and violet standing in for the brand purple, warm linen neutrals and cream grounds, a serif hero face, stray teal and blue, warm-black text, and arial leaking into the svgs.",
+          "the lxd team took up the problem that pre-reads were walls of text and wanted them interactive enough to be worth opening. the catch is who writes them. the restyle checklist is the record of the drift, because it lists what has to be undone.",
         ],
       },
       {
@@ -882,7 +874,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/airtribe-ai-skills/boards.webp", alt: "two working boards side by side: on the left the component exploration in light and dark, from avatars and text blocks through chat, quiz, visualisation and loader states; on the right the comp board for the product management programme" },
         fit: "contain",
         frame: true,
-        caption: "the working boards, at the zoom where you stop reading them and start seeing the size of the problem. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
+        caption: "the working boards, at the zoom where you stop reading them and start seeing the size of the problem.",
       },
       /*
        * The four-stage research run that used to sit here (frame, audit,
@@ -899,32 +891,32 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             n: "01",
             title: "a skill, not a template set and not a rulebook",
-            why: "templates hold a catalogue together by capping what a lesson is allowed to be. a rulebook leaves an author free and gets read once. the lxd team needed both halves at the same time, across a catalogue that was still growing.",
-            tradeoff: "a skill has to be comprehensive enough to write an entire lesson inside, which is far more to author and maintain than a page of guidelines.",
+            why: "templates hold a catalogue together by capping what a lesson can be. a rulebook leaves an author free and gets read once. the lxd team needed both halves at once, across a catalogue still growing.",
+            tradeoff: "a skill has to be comprehensive enough to write a whole lesson inside, far more to author and maintain than a page of guidelines.",
             result: "the brand is inherited by construction rather than checked after the fact, so the only thing left for a learning designer to decide is the teaching.",
           },
           {
             n: "02",
             title: "classify by behaviour, so the component nobody has built yet is already covered",
-            why: "most of a real pre-read is not a library primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space. whatever a component library failed to cover would have been the interesting part of the lesson.",
-            tradeoff: "eight behaviours is a coarser instrument than a list of components, and it asks an author to decide what a thing does before they can start building it.",
+            why: "most of a real pre-read is not a library primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space. whatever a library failed to cover would have been the interesting part of the lesson.",
+            tradeoff: "eight behaviours is coarser than a list of components, and it asks an author to decide what a thing does before building it.",
             result: "anything new is placed by what it does, prose, widget, data-figure, chrome or code, inherits that family's surfaces, and comes out airtribe without passing a designer.",
           },
           {
             n: "03",
             title: "govern the look and nothing else",
-            why: "a skill that reached into structure or pedagogy is a skill the learning designers would route around, and the entire value of this one is that they author inside it.",
+            why: "a skill that reached into structure or pedagogy is one the learning designers would route around, and its whole value is that they author inside it.",
             tradeoff: "it can produce a pre-read that is perfectly on-brand and badly taught, and there is no guardrail in it that would catch that.",
-            result: "one accent, cool neutrals, two typefaces, every state defined. structure, sections, which components a concept needs and the teaching itself stay with the author, and the skill says so in as many words.",
+            result: "one accent, cool neutrals, two typefaces, every state defined. structure, sections and the teaching stay with the author, and the skill says so in as many words.",
           },
         ],
       },
       {
         kind: "turn",
         label: "the tool we built and threw away",
-        tried: "the lxd team arrived with a version that had every possible interaction and component in it. we broke it into broad categories, shipped a basic version, and it was rejected: too simple. so we went back and did the pedagogical work we had skipped, what makes a pre-read interactive for someone preparing rather than what is possible to build. then we built a component maker, a framer-like tool for assembling the artifacts.",
-        result: "the component maker made the workflow worse. the chain already ran designer, then program manager, then a copy-paste into the internal dashboard, and the maker added another station to it. it was longer than what it replaced and it had one more place for an error to enter.",
-        change: "we scratched it and built the skill instead, comprehensive enough that the learning experience designer writes the whole lesson inside it and hands over a link. the rule that came out: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem. put the making where the pedagogy already is.",
+        tried: "the lxd team arrived with a version that had every possible interaction in it. we broke it into categories, shipped a basic version, and it was rejected: too simple. so we went back and did the pedagogical work we had skipped, then built a component maker, a framer-like tool for assembling the artifacts.",
+        result: "it made the workflow worse. the chain already ran designer, program manager, copy-paste into the dashboard; the maker added another station and one more place for an error to enter.",
+        change: "we scratched it and built the skill instead, comprehensive enough that the designer writes the whole lesson inside it and hands over a link. the rule: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem.",
       },
       /*
        * The pedagogical pass. The `turn` above says we went back and did the
@@ -939,9 +931,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "contain",
         frame: true,
         items: [
-          { title: "two jobs, and only one of them teaches", text: "we took every interactive element in the prototype and sorted it into two piles. job a forces active thought: the quiz that interrupts the narrative, the prompt that makes you apply it to your own product. job b is visual variety: the radar charts, the fake linear chrome, the mock terminals, the network diagrams." },
-          { title: "job b is allowed, it is just not progress", text: "visual variety makes a page less monotonous to read. it does not change what the learner thinks or remembers. the prototype was dense with job b, and we had been reading that density as evidence the lesson was interactive." },
-          { title: "name the mechanism, or you are only adding widgets", text: "job a works because of retrieval practice, spaced thinking and the generation effect. writing those three down is what let us argue for one interaction over another, instead of arguing about how many there were." },
+          { title: "two jobs, and only one of them teaches", text: "every interactive element in the prototype, sorted into two piles. job a forces active thought: the quiz that interrupts the narrative, the prompt that makes you apply it. job b is visual variety: radar charts, fake linear chrome, mock terminals." },
+          { title: "job b is allowed, it is just not progress", text: "visual variety makes a page less monotonous. it does not change what the learner remembers. the prototype was dense with job b, and we had read that density as evidence the lesson was interactive." },
+          { title: "name the mechanism, or you are only adding widgets", text: "job a works because of retrieval practice, spaced thinking and the generation effect. writing those down let us argue for one interaction over another instead of about how many there were." },
         ],
       },
       {
@@ -949,14 +941,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
         fit: "contain",
         frame: true,
-        caption: "the other half of the same board: what a learner does in a good lesson, as four beats. encounter a situation, form a position, test it against reality, connect it to your own work. the second is the one the old pre-reads did not have, and the expensive one: a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth was already in the product, sitting at the end after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components.",
+        caption: "what a learner does in a good lesson, as four beats. the second is the one the old pre-reads did not have, and the expensive one: a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth was already there, sitting at the end after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/interactivity.png", alt: "probable types of interactivity mapped across three programmes: product management, backend engineering and generative ai" },
         fit: "contain",
         frame: true,
-        caption: "the same question asked three times, because the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios, trade-off sliders and spec critique. a backend answer is executable, so bel gets a sandbox: write the query, run it, find the bug. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list could not have served all three.",
+        caption: "the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios and spec critique. a backend answer is executable, so bel gets a sandbox. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list could not have served all three.",
       },
       {
         kind: "pipeline",
@@ -966,7 +958,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           { glyph: "receipt", label: "a link, not a document", text: "what comes out is an interactive lesson at a url.", note: "before, a program manager copy-pasted the material into the internal dashboard, which is where errors entered" },
           { glyph: "converge", label: "the manager embeds the link", text: "the program manager drops it into the learner dashboard. that is the whole handover.", note: "content quality now belongs to the person with the pedagogy, and uniformity belongs to the skill" },
         ],
-        caption: "the old chain had a transcription step between the person who understood the lesson and the thing the learner read. removing that step is most of what this project did.",
       },
       /*
        * The first spec, and why it had to be loosened. Without this the page
@@ -978,7 +969,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/spec.png", alt: "the first skill's output contract: its five sections, and the required html boilerplate with the pinned babel version and the exact script tag called out" },
         fit: "contain",
-        caption: "section 1.2 of the first version of the skill, typeset from the file. it gives the tag verbatim rather than describing it, and writes the failure next to the version that causes it, because a rule an author can paste is a rule that survives the next person who tidies a dependency list. the left column is the same version's shape, and the part of it that had to change.",
+        caption: "section 1.2 of the first version of the skill, typeset from the file. it gives the tag verbatim and writes the failure next to the version that causes it, because a rule an author can paste survives the next person who tidies a dependency list.",
       },
       /*
        * The part that is not a style guide. A reader can dismiss tokens and
@@ -990,34 +981,33 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "constraints",
         label: "what the spec carries besides colour",
         items: [
-          { label: "a file, not a design file", text: "a pre-read has to arrive as something the platform renders and a learning designer uploads without an engineer. the spec makes that a contract: one self-contained html page, react and tailwind from a cdn, no build step. the whole premise, that the person who knows the material is also the person who ships it, rests on that one line." },
-          { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it, because the next person to tidy a dependency list would otherwise have found that bug the way we did." },
-          { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each of those reintroduces the same blank page, so the spec gives the tag verbatim rather than describing it." },
-          { label: "a weight budget", text: "the renderer accepts up to 500kb. generated pre-reads land between 50 and 80kb, which makes the budget headroom instead of something an author has to think about." },
-          { label: "an allowlist, not a hope", text: "the content security policy has to name the script, font and avatar hosts by hand. a spec that left this out would produce files that work on a designer's laptop and nowhere else, and the failure would arrive weeks later as somebody else's bug." },
-          { label: "no em dashes, anywhere", text: "a copy rule that is really a visual one, checked with a grep before shipping. an empty table cell gets a middle dot for the same reason. it is the smallest rule in the system and the most reliable tell for whether a lesson went through it." },
+          { label: "a file, not a design file", text: "one self-contained html page, react and tailwind from a cdn, no build step, so a learning designer can upload it without an engineer. the whole premise rests on that line." },
+          { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it." },
+          { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each reintroduces the same blank page." },
+          { label: "a weight budget", text: "the renderer accepts 500kb. generated pre-reads land between 50 and 80kb, so the budget is headroom rather than something an author thinks about." },
+          { label: "an allowlist, not a hope", text: "the content security policy names the script, font and avatar hosts by hand. without it a file works on the designer's laptop and nowhere else, and the failure arrives weeks later as somebody else's bug." },
+          { label: "no em dashes, anywhere", text: "a copy rule that is really a visual one, checked with a grep before shipping. the smallest rule in the system and the most reliable tell for whether a lesson went through it." },
         ],
       },
       {
         kind: "turn",
         label: "the spec that was too tight",
-        tried: "the first version was prescriptive. thirteen components with their full source in the file, two permitted border radii, twenty-two named prohibitions, and a rule that said do not invent new components, fall back to a text block if the content does not fit. the boilerplate above is from that version, and on its own terms it worked.",
-        result: "the lxd team found it too limiting. they built their own pre-reads outside it, with components and section types the thirteen did not cover, and those were the ones that went forward. they were also off the visual language. so the outcome was the worst available: a spec nobody authored inside, and a catalogue that had stopped looking like one product.",
-        change: "it was rewritten to govern less. thirteen components became eight behaviour families, radius went back to the author, and the scope line at the top of the spec was narrowed to the visual layer alone, never the structure, the components or the pedagogy. a rule people route around protects nothing, and the version of this system that holds is the one with fewer rules in it.",
+        tried: "the first version was prescriptive: thirteen components with their full source in the file, two permitted border radii, twenty-two named prohibitions, and a rule saying do not invent new components. on its own terms it worked.",
+        result: "the lxd team found it too limiting. they built their own pre-reads outside it, with components the thirteen did not cover, and those were the ones that shipped, off the visual language. the worst available outcome: a spec nobody authored inside, and a catalogue that had stopped looking like one product.",
+        change: "it was rewritten to govern less. thirteen components became eight behaviour families, radius went back to the author, and the scope narrowed to the visual layer alone. a rule people route around protects nothing.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/comps.png", alt: "the component comp board for the product management programme: text, dialogue, table, tab, progressive, quiz, slider calculator and data-viz cards" },
         fit: "contain",
         frame: true,
-        caption: "the component inventory for one programme, and the drift, in the same picture. each column is a behaviour the system would have to cover: text, dialogue, tables, tabs, progressive cards, quizzes, slider calculators, data-viz. the cream grounds, the orange tabs and the serif heading are what the restyle checklist is a list of.",
+        caption: "the inventory for one programme, and the drift, in one picture. each column is a behaviour the system had to cover. the cream grounds, the orange tabs and the serif heading are what the restyle checklist lists.",
       },
       {
         kind: "system",
         label: "eight families, not a component library",
         paragraphs: [
-          "most of a real pre-read is not a shadcn primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space, code blocks, llm pipeline diagrams. a library could not have covered that, and whatever it failed to cover would have been the interesting part of the lesson.",
-          "so the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. each family carries the same three constants, purple is the one accent, neutrals are cool, colour means state, which is why a component invented tomorrow still comes out airtribe.",
+          "the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. each family carries the same three constants, purple is the one accent, neutrals are cool, colour means state, which is why a component invented tomorrow still comes out airtribe.",
         ],
         mapping: [
           { from: "01 reading & narrative", to: "prose on the ground, accent for emphasis, never a boxed paragraph" },
@@ -1041,7 +1031,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { name: "body", value: "inter" },
           { name: "data", value: "jetbrains mono, real code only" },
         ],
-        note: "permissive on purpose. radius is the author's choice as long as one pre-read is consistent with itself, and the skill says in as many words that it governs the visual layer only, never the structure, the components or the pedagogy.",
+        note: "permissive on purpose. radius is the author's choice as long as one pre-read is consistent with itself.",
       },
       {
         kind: "annotated",
@@ -1051,10 +1041,10 @@ export const caseStudies: Record<string, CaseStudy> = {
         frame: true,
         items: [
           { title: "one accent, one job", text: "the score, the slider fill and the chosen row are the same purple. correctness is green, over-budget is red, because colour is only ever allowed to mean state." },
-          { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished, which is the rule that catches the ones built in a hurry." },
-          { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition. durations are written beside the component, so the next author does not have to guess what calm looks like." },
+          { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished." },
+          { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition, written beside the component so the next author does not guess at what calm looks like." },
           { title: "replay, not confetti", text: "the reward for a right answer is the state change, plus a way to run it again." },
-          { title: "a written list of what we are not doing", text: "the motion pass came out as two kinds. kind a hangs off an interaction, eases out, finishes inside 500ms. kind b was decorative, scroll fades on prose, confetti on a correct answer, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under what we are not doing, because it is easier to hold a line when the argument against it is written down." },
+          { title: "a written list of what we are not doing", text: "kind a hangs off an interaction, eases out, finishes inside 500ms. kind b was decorative, scroll fades on prose, confetti, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under what we are not doing, because it is easier to hold a line when the argument against it is written down." },
         ],
       },
       {
@@ -1065,17 +1055,17 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
         columns: 2,
         fit: "contain",
-        caption: "built inside the guardrails, by learning designers: a lesson that opens on its objectives and compares three systems in one tabbed frame, and a four-step trace that fills itself in as you answer. neither is a component in a library. both were placed by behaviour and inherited the treatment.",
+        caption: "built inside the guardrails, by learning designers. neither is a component in a library. both were placed by behaviour and inherited the treatment.",
       },
 
       {
         kind: "outcome",
         label: "outcome · pre-reads",
         paragraphs: [
-          "the skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
-          "a feedback prompt closes each pre-read. of the four hundred and twenty learners who answered in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
-          "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
-          "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
+          "the skill carries around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people with no visual designer in the loop. those are scope figures, not outcome claims.",
+          "of the four hundred and twenty learners who answered the closing prompt in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far.",
+          "because each artifact is placed by behaviour rather than built one-off, a lesson is updated by recombining them instead of remaking them.",
+          "what the system did to the work is still the next thing to measure against a baseline: adoption over one-off styling, review rounds per pre-read before and after, brand-audit pass rate, and whether authors say they can ship on-brand without design support.",
         ],
       },
 
@@ -1083,7 +1073,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "thesis",
         eyebrow: "02 · kai · the consumer skill",
-        text: "most 'learn anything with ai' products are a chat box with a better frame: you ask, it answers, and what you are left with afterwards is a transcript. kai writes a lesson instead. enough structure to build momentum, enough freedom to follow the thing you got curious about, and the whole lesson written to four answers you give before it starts.",
+        text: "most 'learn anything with ai' products are a chat box with a better frame: you ask, it answers, and what you are left with is a transcript. kai writes a lesson instead, to four answers you give before it starts.",
       },
       {
         /*
@@ -1102,14 +1092,13 @@ export const caseStudies: Record<string, CaseStudy> = {
           height: 1403,
         },
         fit: "contain",
-        caption: "the promise on the landing is a guided lesson with sources, not an answer, and the three steps under the prompt field are the whole product. what sits around it is the part a chat box cannot do: a map of what the topic is made of, and a diagram in the place a third paragraph would have gone.",
+        caption: "a guided lesson with sources, not an answer. what sits around the landing is the part a chat box cannot do: a map of what the topic is made of, and a diagram where a third paragraph would have gone.",
       },
       {
         kind: "context",
         label: "what kai is",
         paragraphs: [
-          "kai is an ai-first learning experience for the airtribe community. you give it a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go, and it writes to those answers, opening by naming what you already know so it starts where you are.",
-          "a concept map draws the ideas and their links as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+          "kai is an ai-first learning experience for the airtribe community. you give it a topic, answer four questions, and it writes the lesson to those answers, opening by naming what you already know so it starts where you are. a concept map draws the ideas as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
         ],
       },
       {
@@ -1120,7 +1109,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
         fit: "cover",
-        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
+        caption: "kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture: highlight anything and ask.",
       },
       { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
       {
@@ -1135,25 +1124,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        /*
-         * Moved here from kai's standalone page, which has been folded into
-         * this one. It is the argument the four decisions below are answers
-         * to, so it reads as the framing rather than a summary.
-         */
-        kind: "panel",
-        label: "designed for intent",
-        bg: "#16131F",
-        fg: "#F7F6FB",
-        emphasise: [1, 4],
-        paragraphs: [
-          "ai makes learning incredibly easy to start, but not necessarily easy to process. we focused on shifting the cognitive work from finding information to deciding what matters.",
-          "we wanted kai to carry some of that weight. four questions before anything is generated: what you need it for, your background, what you already know, and how far to go.",
-          "we brought those little acts of learning into the interface. highlight something and ask kai about it. leave a note in your own words. watch the concept map grow.",
-          "the library leads you back to the papers, articles and books behind the subject: a way out of the ai's version of the world and into the real one.",
-          "the aim wasn't to invent a new way to learn. it was to remember what learning already feels like, and rebuild it for ai.",
-        ],
-      },
-      {
         kind: "decisions",
         label: "key decisions · kai",
         items: [
@@ -1162,7 +1132,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "build it the way a teacher would",
             why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
             tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
-            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+            result: "a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, a reflection. the hard idea gets a diagram, not another paragraph.",
             media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
             fit: "contain",
           },
@@ -1171,7 +1141,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "ask four questions, then commit",
             why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
             tradeoff: "four questions is four screens before anyone has read a single word.",
-            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+            result: "purpose, background, prior knowledge and depth are set once, and the lesson, its examples and how far each section pushes are written to them.",
             media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
             fit: "cover",
           },
@@ -1180,7 +1150,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "draw the topic while you read it",
             why: "a lesson you read and close leaves nothing you can hold onto.",
             tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
-            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+            result: "the map draws the concepts and their links as you go, with room for your own notes, so the shape of the topic outlives the reading.",
             media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
             fit: "cover",
           },
@@ -1189,7 +1159,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "cite sources, not vibes",
             why: "an ai that merely sounds confident is easy to build and easy to distrust.",
             tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
-            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+            result: "key sentences are footnoted, and the library gathers the sources, each marked cited and linked out.",
             media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
             fit: "cover",
           },
@@ -1214,33 +1184,26 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "the wait, the map and library as a sheet over the lesson, and the concept map with one concept open. each of the three is a desktop answer that had to be rebuilt rather than resized.",
       },
       {
-        kind: "context",
-        label: "what the phone changed",
-        paragraphs: [
-          "none of what follows was cosmetic. each one was the same signal arriving in a different place: a desktop assumption that did not survive the move to a phone. and each time the better answer was to rethink the piece rather than shrink it.",
-        ],
-      },
-      {
         kind: "turn",
         label: "the wait we tried to hide",
         tried: "generating a lesson takes ten to thirty seconds, and the first instinct was the usual furniture for that gap: a spinner, or a progress bar.",
-        result: "a progress bar that tracks nothing real is a lie, and neither it nor a spinner gives the learner anything to do with the time. the countdown we reached for next was worse than both. naming the seconds left makes the wait feel longer.",
-        change: "the building screen became a wait ladder. a hook lands immediately, 'most people think a rag system searches your docs. it doesn't', and the shape of the lesson assembles line by line underneath it while the rest is written, so the learner is reading and already curious before the lesson exists. a notify me hatch sits under that for anyone who would rather not wait. the rule out of it: dead time is a content problem before it is a loading problem.",
+        result: "a progress bar that tracks nothing is a lie, and neither it nor a spinner gives the learner anything to do. the countdown we tried next was worse than both: naming the seconds left makes the wait feel longer.",
+        change: "the building screen became a wait ladder: a hook lands immediately, then the shape of the lesson assembles line by line while the rest is written, so the learner is reading before the lesson exists. a notify me hatch sits under it. the rule: dead time is a content problem before it is a loading problem.",
       },
       {
         kind: "turn",
         label: "the map that could not be shrunk",
         tried: "on desktop the concept map is an svg, with measured and word-wrapped text and collision-free tree packing. the obvious move for the phone was to scale that same svg down.",
-        result: "shrunk, it is unreadable and un-tappable. the svg had already cost us a layout bug on the way there, labels like 'knowledge argument (mary's room)' overflowing the nodes they sat in, which is what made us look at the packing properly in the first place. the phone version was not a rendering problem. it was the wrong object.",
-        change: "the phone got a different map rather than a smaller one: a native vertical tree, built out of plain dom lists with css connector spines. it scrolls, it wraps, it never overflows, a tap opens a focus card, and it reads like an outline. two renderings for two jobs is better than one that is compromised for both.",
+        result: "shrunk, it is unreadable and un-tappable. the svg had already cost a layout bug, labels like 'knowledge argument (mary's room)' overflowing their nodes. the phone version was not a rendering problem, it was the wrong object.",
+        change: "the phone got a different map rather than a smaller one: a native vertical tree of plain dom lists with css connector spines. it scrolls, it wraps, a tap opens a focus card. two renderings for two jobs beats one compromised for both.",
       },
       {
         kind: "constraints",
         label: "the rest of what the phone changed",
         items: [
-          { label: "kai is a sheet, not a screen", text: "on mobile kai was close to becoming a separate destination, which fights the product: the lesson is the point and kai supports it. it became a peek and expand sheet instead. kai sits as a peek line at the bottom, one tap brings the conversation up over the lesson, and the lesson never leaves. that is what stops lesson-primary drifting into a tab-switching app." },
-          { label: "the header was carrying desktop clutter", text: "two collisions gave it away. teach appeared twice on the expanded kai sheet, because the peek eyebrow did not hide when the sheet took over, and the demo badge sat on the header's map icon. the fix was not to nudge either. the header came down to brand left and map icon right, the breadcrumb went, and the badge moved to the bottom. a collision is usually a density problem in a positioning costume." },
-          { label: "the em dash rule did the editing", text: "the wait ladder's hook was written with em dashes, which the project style forbids. rewriting them out as full sentence breaks made the hook punchier than it had been. the pre-reads spec above carries the same rule, which makes it the smallest constraint in either system and the one that has now done editorial work twice." },
+          { label: "kai is a sheet, not a screen", text: "kai was close to becoming a separate destination, which fights the product: the lesson is the point. it became a peek and expand sheet, a line at the bottom that one tap brings up over the lesson, so the lesson never leaves." },
+          { label: "the header was carrying desktop clutter", text: "teach appeared twice on the expanded sheet, and the demo badge sat on the header's map icon. the fix was not to nudge either: the header came down to brand left and map icon right, the breadcrumb went, the badge moved to the bottom. a collision is usually a density problem in a positioning costume." },
+          { label: "the em dash rule did the editing", text: "the hook was written with em dashes, which the project style forbids. rewriting them as full sentence breaks made it punchier. the pre-reads spec above carries the same rule, so the smallest constraint in either system has now done editorial work twice." },
         ],
       },
       {
@@ -1250,9 +1213,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         fg: "#F7F6FB",
         emphasise: [0],
         paragraphs: [
-          "the library leads you back to the papers, articles and books behind the subject.",
           "an ai-first product that never points outside itself is asking to be trusted more than it has earned.",
-          "a way out of the ai's version of the world, and into the real one.",
         ],
       },
       {
@@ -1263,8 +1224,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         label: "outcome · kai",
         paragraphs: [
-          "kai is a demo, and it is the honest word for it. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic you give it.",
-          "it is not carrying a catalogue the way the internal skill is, and there are no adoption or retention figures behind it, because there is nothing yet to measure. what it demonstrates is the shape: that an ai learning product can be built to plan a lesson rather than answer a question, and that the cost of doing so is four screens of intake before anyone reads a word.",
+          "kai is a demo, and it is the honest word for it. one seeded lesson runs the full system end to end, and the intake accepts any topic.",
+          "it carries no catalogue and there are no adoption or retention figures, because there is nothing yet to measure. what it demonstrates is the shape: an ai learning product can plan a lesson rather than answer a question, and the cost is four screens of intake before anyone reads a word.",
         ],
       },
 
@@ -1291,7 +1252,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { label: "get in touch", href: `mailto:${site.email}` },
         ],
       },
-      { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the skill still governs only how a pre-read looks, so it can produce something on-brand and badly taught. that part stays with the person writing it." },
+      { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was being asked: not more components, but evidence we had thought about the teaching. the skill still governs only how a pre-read looks, so it can produce something on-brand and badly taught." },
     ],
   },
   "a-century-of-villains": {
