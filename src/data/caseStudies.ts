@@ -684,23 +684,34 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "where that repair ended up. the email is a column again, on the right, and the job that broke is no longer a job at all: select the rows, take all ten addresses in one click, or set slack access for every one of them through a single dialogue that lists exactly whose access is about to change. the thing we had turned into fifty minutes of copying is now the fastest path in the product.",
       },
       {
-        /*
-         * A `detail`, with the filter bar beside it. This section spent a
-         * while as prose because no capture existed; the strip is cropped
-         * from the hero, carries no rows at all, and says the thing faster
-         * than the paragraph does.
-         */
-        kind: "detail",
+        kind: "context",
+        label: "filters, and a chicken and egg problem",
+        paragraphs: [
+          "filtering is how anyone finds their own queue, so the obvious fix, put it behind a menu, was the one thing we could not do: burying it two clicks deep would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status.",
+          "the way out was to stop treating the filter set as fixed. a new user gets recommended filters, after that the bar shows what they last used, and the rest expand and collapse in place rather than opening a panel. a combination worth keeping is saved as a named view and returned to. search gained include and exclude alongside it, to stop a query quietly returning the wrong queue.",
+        ],
+      },
+      {
+        kind: "full",
         media: {
           type: "image",
-          src: "/case/vision/filters.png",
-          alt: "the filter bar: twenty-seven filters wrapping onto four rows above the table, three of them active",
+          src: "/case/vision/filters-before.png",
+          alt: "the old filter bar: twenty-nine filter controls wrapping onto four rows",
         },
         fit: "contain",
-        shape: "auto",
-        side: "right",
-        title: "filters, and a chicken and egg problem",
-        text: "once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue.",
+        frame: true,
+        caption: "before. twenty-nine filters, four rows of them standing between the search box and the table they govern, and the same twenty-nine for everyone whatever any one person actually filters by. there is nowhere to put a combination you will want again tomorrow.",
+      },
+      {
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/filters-after.png",
+          alt: "the new filter bar: nine filters over two rows, four of them active and showing their values, with more filters, save filter view and a saved view selector",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "after. nine, and they are this person's nine. an active filter prints what it is set to and counts the rest, high quality +1, wati course inquiry +3, so the bar states the query instead of just naming the fields it could run one on. the other twenty are behind more filters, one click, expanding in place. a set worth keeping becomes a named view, which is the selector at the top right.",
       },
       {
         kind: "context",

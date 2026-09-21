@@ -476,25 +476,14 @@ export function renderSection(section: Section, i: number) {
                   section.side === "right" ? "md:order-2" : ""
                 }`}
               >
-                {section.shape === "auto" ? (
-                  <div className="w-full overflow-hidden border border-hairline">
-                    <Media
-                      asset={section.media}
-                      fit={section.fit ?? "contain"}
-                      position={section.position}
-                      className="h-auto w-full"
-                    />
-                  </div>
-                ) : (
-                  <div className="aspect-[4/3] w-full overflow-hidden border border-hairline">
-                    <Media
-                      asset={section.media}
-                      fit={section.fit ?? "cover"}
-                      position={section.position}
-                      className="h-full w-full"
-                    />
-                  </div>
-                )}
+                <div className="aspect-[4/3] w-full overflow-hidden border border-hairline">
+                  <Media
+                    asset={section.media}
+                    fit={section.fit ?? "cover"}
+                    position={section.position}
+                    className="h-full w-full"
+                  />
+                </div>
               </div>
               <div
                 className={`md:col-span-5 ${
