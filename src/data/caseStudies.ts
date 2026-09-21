@@ -486,11 +486,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
         /*
-         * Three of vision's surfaces composed over a render on a transparent
-         * ground: the payments record, the cohort filter, and the bulk
-         * slack-access modal. All of it runs on the synthetic cast, the leads
-         * are famous mathematicians, the addresses are example.com and the
-         * phone numbers are 9876543210, so nothing here is a real learner.
+         * Vision's surfaces composed on a transparent ground: the saved view
+         * and its filter rows floating above, the payments record itself, the
+         * cohort filter open across three courses, the bulk slack-access
+         * modal, a row's action menu, and the selection bar the bulk actions
+         * hang off. It runs on the synthetic cast, the leads are famous
+         * mathematicians, the addresses are example.com and the phone numbers
+         * are 9876543210, so nothing here is a real learner.
          *
          * The plain payments capture it replaces is still in the page, in the
          * decision that argues for the view control. This fold is the product
@@ -502,7 +504,7 @@ export const caseStudies: Record<string, CaseStudy> = {
          */
         type: "image",
         src: "/case/vision/hero.webp",
-        alt: "three vision surfaces composed over a blue render: the payments record with its filter rows, the cohort filter open across three courses, and a modal setting slack access for several learners at once",
+        alt: "vision's payments record with its surfaces laid around it: the view switcher and filter rows above, the cohort filter open across three courses, a modal setting slack access for several learners at once, a row's action menu offering change cohort, assign unit, re-sync and remove access, and a selection bar reading ten selected",
       },
       mediaFit: "contain",
       mediaFrame: false,
