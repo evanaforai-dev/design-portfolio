@@ -39,6 +39,8 @@ export function Media({
       src={assetUrl(asset.src)}
       alt={asset.alt ?? ""}
       loading="lazy"
+      width={asset.width}
+      height={asset.height}
       style={position ? { objectPosition: position } : undefined}
       className={`${fitClass} ${className}`}
     />

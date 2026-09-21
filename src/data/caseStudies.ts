@@ -1180,6 +1180,24 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        /*
+         * The same three moves on a phone. Cut out of the mobile prototype's
+         * own captures and unframed, so they stand on the page in either
+         * theme. Three separate figures rather than one composed strip: the
+         * grid drops to a single column under md, and a strip of three
+         * phones on a 375px screen is three phones at 100px each.
+         */
+        kind: "figures",
+        columns: 3,
+        frame: false,
+        media: [
+          { type: "image", src: "/case/airtribe-learn/mobile-waiting.webp", width: 822, height: 1635, alt: "kai on a phone while a lesson is being written: the opening hook in large type, ready when you are underneath it, and a start reading button" },
+          { type: "image", src: "/case/airtribe-learn/mobile-map-sheet.webp", width: 822, height: 1635, alt: "the map and library arriving as a sheet over the lesson, with the concept tree listed under retrieval augmented generation" },
+          { type: "image", src: "/case/airtribe-learn/mobile-concept-map.webp", width: 822, height: 1635, alt: "the concept map as a vertical tree, with cosine similarity open in a detail sheet showing what it relates to and a jump to lesson 3 button" },
+        ],
+        caption: "the phone is where each of those decisions has to survive without room. the wait shows the opening hook and ready when you are, rather than a progress bar. the map and the library arrive as a sheet over the lesson instead of a place you leave the lesson for. and the map is a vertical tree, not a canvas: tapping a concept gives you what it is, what it relates to, and the lesson it came from.",
+      },
+      {
         kind: "panel",
         label: "a way out of the model",
         bg: "#16131F",

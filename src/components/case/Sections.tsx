@@ -491,24 +491,30 @@ export function renderSection(section: Section, i: number) {
           <figure className="my-4 md:my-8">
             <Container>
               <div
-                className={`grid grid-cols-1 gap-4 md:gap-6 ${
+                className={`grid grid-cols-1 items-start gap-4 md:gap-6 ${
                   section.columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2"
                 }`}
               >
-                {section.media.map((m, j) => (
-                  <div
-                    key={j}
-                    className={`w-full overflow-hidden border border-hairline ${
-                      section.aspect === "phone" ? "aspect-[9/16]" : "aspect-[4/3]"
-                    }`}
-                  >
-                    <Media
-                      asset={m}
-                      fit={section.fit ?? "cover"}
-                      className="h-full w-full"
-                    />
-                  </div>
-                ))}
+                {section.media.map((m, j) =>
+                  section.frame === false ? (
+                    // Cut-out artwork: no box, no forced aspect. The image
+                    // keeps its own proportions and stands on the page.
+                    <Media key={j} asset={m} fit="contain" className="h-auto w-full" />
+                  ) : (
+                    <div
+                      key={j}
+                      className={`w-full overflow-hidden border border-hairline ${
+                        section.aspect === "phone" ? "aspect-[9/16]" : "aspect-[4/3]"
+                      }`}
+                    >
+                      <Media
+                        asset={m}
+                        fit={section.fit ?? "cover"}
+                        className="h-full w-full"
+                      />
+                    </div>
+                  )
+                )}
               </div>
               {section.caption && (
                 <figcaption className="label mt-4">{section.caption}</figcaption>

@@ -18,6 +18,15 @@ export interface MediaAsset {
   alt?: string;
   /** Poster frame for video. */
   poster?: string;
+  /**
+   * Intrinsic pixel size. Optional, and only needed where the image is laid
+   * out at its own aspect rather than inside a box of a fixed one: without
+   * it such an image is zero-high until it loads, which both shifts the page
+   * under the reader and can stop a lazy image loading at all, because a
+   * zero-high element never comes into view.
+   */
+  width?: number;
+  height?: number;
 }
 
 export interface CaseMeta {
@@ -179,6 +188,12 @@ export type Section =
       fit?: "cover" | "contain";
       /** Frame shape. "phone" for portrait captures that a 4:3 box would crush. */
       aspect?: "figure" | "phone";
+      /**
+       * Each figure sits in a hairline box of a fixed aspect by default. Set
+       * false for artwork cut out on a transparent ground: it then flows at
+       * its own aspect with no box, because there is no edge to draw one on.
+       */
+      frame?: boolean;
       caption?: string;
     }
   | {
