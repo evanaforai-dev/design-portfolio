@@ -716,7 +716,37 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "context",
         label: "email templates, for managers and agents",
-        paragraphs: ["the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product."],
+        paragraphs: ["the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it is the same question the permissions work below asks at the level of the whole product."],
+      },
+      {
+        kind: "context",
+        label: "who is allowed to see what",
+        paragraphs: [
+          "the row is shared and almost nobody should see all of it, so access is built on four axes that are deliberately not the same thing: the department you sit in, the role you hold, the permission group you are in, and who you report to. a title is not a permission. that is why the role column and the permission group column disagree on most rows, and why that is the system working rather than a data problem: a manager can sit on team lead permissions and an associate on manager permissions, because what somebody is allowed to do is a decision about the work in front of them rather than a consequence of their job title.",
+          "the permissions themselves are namespaced and filed into eleven categories, and they compose into named groups instead of being handed out one at a time. it is the piece of this product that took the longest to argue for and the piece that makes every other decision on this page enforceable: views, editable columns and the action menu all read from it.",
+        ],
+      },
+      {
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/team-members.png",
+          alt: "the team members table: department, role, manager and permission group as four separate columns, with a row's action menu open on edit, login as, block access and remove",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "four columns because they are four separate questions. six of the eight rows readable here carry a role and a permission group that do not match. the menu keeps the consequential actions together and out of the row: edit, log in as them, block access, remove. blocking and removing are different things, which matters when somebody leaves and their records must not.",
+      },
+      {
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/permission-group.png",
+          alt: "building a permission group: a category sidebar, namespaced permission checkboxes, and a review dialogue listing every permission selected before the group is created",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "composing one. opportunity management alone holds ten permissions, from create and edit through to distribute, shuffle, and manage descendant's opportunities, which reads the reporting line to decide whose records you can touch. the group is ticked together, named, and then listed back in full before it exists. the same review stands between an admin and handing that group to a person, because a permission group is the kind of object you want to be boring to audit.",
       },
       {
         kind: "statement",
