@@ -42,7 +42,11 @@ export const metadata: Metadata = {
     description,
     siteName: site.name,
   },
-  twitter: { card: "summary", title: `${site.name}, ${site.role}`, description },
+  twitter: {
+    card: "summary",
+    title: `${site.name}, ${site.role}`,
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -66,9 +70,7 @@ export default function RootLayout({
             <Nav />
             {/* Clears the fixed nav (60px) with a deliberate gap, and no more:
               on the index every pixel here comes out of the artwork. */}
-          <main className="pt-[4.5rem] md:pt-[5.5rem]">
-              {children}
-            </main>
+            <main className="pt-[4.5rem] md:pt-[5.5rem]">{children}</main>
             <Footer />
             <RouteCurtain />
           </Motion>

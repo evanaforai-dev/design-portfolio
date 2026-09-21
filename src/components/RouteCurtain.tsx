@@ -79,8 +79,8 @@ export function RouteCurtain() {
       if (a.target && a.target !== "_self") return;
 
       const url = new URL(a.href, window.location.href);
-      if (url.origin !== window.location.origin) return;         // external
-      if (url.pathname === window.location.pathname) return;      // same page / hash
+      if (url.origin !== window.location.origin) return; // external
+      if (url.pathname === window.location.pathname) return; // same page / hash
 
       e.preventDefault();
       e.stopPropagation();
@@ -90,7 +90,12 @@ export function RouteCurtain() {
       const anims = panels.map((p, i) =>
         p.animate(
           [{ transform: "translateY(-100%)" }, { transform: "translateY(0)" }],
-          { duration: COVER, delay: i * STAGGER, easing: EASE, fill: "forwards" },
+          {
+            duration: COVER,
+            delay: i * STAGGER,
+            easing: EASE,
+            fill: "forwards",
+          },
         ),
       );
       const done = Promise.all(

@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { projects } from "@/data/projects";
 import { registers } from "@/data/site";
 import { ProjectCard } from "./ProjectCard";
@@ -104,7 +110,9 @@ export function ProjectGrid() {
   const frameRef = useRef<HTMLDivElement>(null);
   const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
   /** One column count per band. */
-  const [cols, setCols] = useState<number[]>(() => BANDS.map((b) => b.items.length));
+  const [cols, setCols] = useState<number[]>(() =>
+    BANDS.map((b) => b.items.length),
+  );
   /** One artwork height per band, or null when the page scrolls instead. */
   const [art, setArt] = useState<number[] | null>(null);
 
@@ -159,8 +167,12 @@ export function ProjectGrid() {
     const frame = frameRef.current;
     if (!frame) return;
 
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fine = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (!fine || reduce) return;
 
     let raf = 0;
@@ -233,7 +245,11 @@ export function ProjectGrid() {
                 is telling the truth about how much height is left. */}
             <div
               className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-6 pb-3 pt-5 md:px-8"
-              style={fitted ? { height: LABEL, paddingTop: 4, paddingBottom: 6 } : undefined}
+              style={
+                fitted
+                  ? { height: LABEL, paddingTop: 4, paddingBottom: 6 }
+                  : undefined
+              }
             >
               <h2 id={`register-${band.key}`} className="label text-accent">
                 {band.label}

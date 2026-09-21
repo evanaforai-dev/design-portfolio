@@ -82,7 +82,7 @@ export function Masthead() {
                     href={l.href}
                     target={l.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="underline-offset-4 hover:underline"
+                    className="inline-flex min-h-[24px] items-center underline-offset-4 hover:underline"
                   >
                     {l.label} ↗
                   </a>

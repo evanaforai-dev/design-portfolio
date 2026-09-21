@@ -46,11 +46,27 @@ function Paths({ name }: { name: GlyphName }) {
             {...S}
             strokeDasharray="2 3"
           />
-          <path d="M32 8 10 40M32 8l22 32M14 20l40 4M10 40l44-16M32 56 14 20M32 56 54 20" {...S} />
+          <path
+            d="M32 8 10 40M32 8l22 32M14 20l40 4M10 40l44-16M32 56 14 20M32 56 54 20"
+            {...S}
+          />
           {[
-            [32, 8], [14, 20], [54, 20], [10, 40], [54, 40], [32, 56], [32, 30],
+            [32, 8],
+            [14, 20],
+            [54, 20],
+            [10, 40],
+            [54, 40],
+            [32, 56],
+            [32, 30],
           ].map(([cx, cy]) => (
-            <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={2} fill="currentColor" stroke="none" />
+            <circle
+              key={`${cx}-${cy}`}
+              cx={cx}
+              cy={cy}
+              r={2}
+              fill="currentColor"
+              stroke="none"
+            />
           ))}
         </>
       );
@@ -87,7 +103,11 @@ function Paths({ name }: { name: GlyphName }) {
       return (
         <>
           <rect x={8} y={8} width={34} height={44} {...S} />
-          <path d="M14 18h22M14 26h22M14 34h14M14 42h18" {...S} strokeDasharray="2 2" />
+          <path
+            d="M14 18h22M14 26h22M14 34h14M14 42h18"
+            {...S}
+            strokeDasharray="2 2"
+          />
           <path d="M42 22h14v30l-4-3-4 3-4-3-2 2z" {...S} />
           <path d="M46 30h6M46 36h6" {...S} />
         </>
@@ -106,7 +126,10 @@ function Paths({ name }: { name: GlyphName }) {
     case "wave": // a signal read off a surface
       return (
         <>
-          <path d="M4 32c6 0 6-16 12-16s6 32 12 32 6-26 12-26 6 20 12 20 6-10 8-10" {...S} />
+          <path
+            d="M4 32c6 0 6-16 12-16s6 32 12 32 6-26 12-26 6 20 12 20 6-10 8-10"
+            {...S}
+          />
           <path d="M4 52h56" {...S} strokeDasharray="2 3" />
         </>
       );
@@ -123,7 +146,11 @@ function Paths({ name }: { name: GlyphName }) {
       return (
         <>
           <path d="M6 44c10-6 14 4 24-2s14-14 28-8" {...S} />
-          <path d="M6 52c10-6 14 4 24-2s14-14 28-8" {...S} strokeDasharray="2 3" />
+          <path
+            d="M6 52c10-6 14 4 24-2s14-14 28-8"
+            {...S}
+            strokeDasharray="2 3"
+          />
           <circle cx={14} cy={40} r={3} {...S} />
           <circle cx={50} cy={32} r={3} {...S} />
           <path d="M32 10v12M26 16h12" {...S} />
@@ -133,8 +160,19 @@ function Paths({ name }: { name: GlyphName }) {
       return (
         <>
           <rect x={8} y={12} width={48} height={40} {...S} />
-          <path d="M8 22h48M22 22v30M36 22v30M50 22v30M8 32h48M8 42h48" {...S} />
-          <rect x={22} y={32} width={14} height={10} fill="currentColor" stroke="none" opacity={0.28} />
+          <path
+            d="M8 22h48M22 22v30M36 22v30M50 22v30M8 32h48M8 42h48"
+            {...S}
+          />
+          <rect
+            x={22}
+            y={32}
+            width={14}
+            height={10}
+            fill="currentColor"
+            stroke="none"
+            opacity={0.28}
+          />
         </>
       );
   }

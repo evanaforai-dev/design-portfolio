@@ -183,6 +183,7 @@ export type Section =
     }
   | {
       kind: "figures";
+      label?: string;
       media: MediaAsset[];
       columns?: 2 | 3;
       fit?: "cover" | "contain";

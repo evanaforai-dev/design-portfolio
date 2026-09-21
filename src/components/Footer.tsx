@@ -19,7 +19,7 @@ export function Footer() {
   const onIndex = pathname === "/";
 
   const linkClass =
-    "label transition-colors duration-300 ease-editorial hover:text-fg";
+    "inline-flex min-h-[24px] items-center label transition-colors duration-300 ease-editorial hover:text-fg";
 
   return (
     <footer className="border-t border-hairline">
@@ -31,7 +31,11 @@ export function Footer() {
         <nav aria-label="footer">
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <li>
-              <Link href="/" className={linkClass} aria-current={onIndex ? "page" : undefined}>
+              <Link
+                href="/"
+                className={linkClass}
+                aria-current={onIndex ? "page" : undefined}
+              >
                 work
               </Link>
             </li>

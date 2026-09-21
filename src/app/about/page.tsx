@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 /** Section heading + hairline, repeated down the page. */
 function Rule({ label }: { label: string }) {
   return (
-    <h2 className="label mb-6 border-t border-hairline pt-4 md:mb-8">{label}</h2>
+    <h2 className="label mb-6 border-t border-hairline pt-4 md:mb-8">
+      {label}
+    </h2>
   );
 }
 
@@ -19,9 +21,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-shell px-6 md:px-10">
       <section className="border-b border-hairline pb-16 pt-4 md:pb-28 md:pt-6">
         <p className="label mb-6">about</p>
-        <h1 className="max-w-4xl t-display text-fg">
-          {about.headline}
-        </h1>
+        <h1 className="max-w-4xl t-display text-fg">{about.headline}</h1>
         {/* The discipline, said once, under the line that does not say it. */}
         <p className="mt-6 measure t-body text-fg md:mt-8">
           {about.positioning}
@@ -48,7 +48,7 @@ export default function AboutPage() {
                   href={asset(site.resumeUrl)}
                   target="_blank"
                   rel="noreferrer"
-                  className="t-note text-fg underline-offset-4 hover:underline"
+                  className="inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline"
                 >
                   résumé (pdf) ↗
                 </a>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="t-note text-fg underline-offset-4 hover:underline"
+                    className="inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline"
                   >
                     {s.label} ↗
                   </a>
@@ -70,12 +70,10 @@ export default function AboutPage() {
 
           <div>
             <h2 className="label mb-4">contact</h2>
-            <p className="max-w-xs t-note text-muted">
-              {about.contact}
-            </p>
+            <p className="max-w-xs t-note text-muted">{about.contact}</p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-4 inline-block t-note text-fg underline underline-offset-4"
+              className="mt-4 inline-flex min-h-[24px] items-center t-note text-fg underline underline-offset-4"
             >
               hit me up
             </a>
@@ -90,9 +88,7 @@ export default function AboutPage() {
           {about.hours.map((h) => (
             <div key={h.key}>
               <p className="label">{h.key}</p>
-              <p className="mt-3 max-w-sm t-note text-fg">
-                {h.note}
-              </p>
+              <p className="mt-3 max-w-sm t-note text-fg">{h.note}</p>
               <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
                 {h.axes.map((a) => (
                   <li key={a} className="t-note text-muted">
@@ -125,11 +121,10 @@ export default function AboutPage() {
                 key={item.period}
                 className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1 border-t border-hairline py-4 md:grid-cols-[8rem_1fr_auto]"
               >
-                <span className="t-note text-fg md:order-1">
-                  {item.sector}
-                </span>
+                <span className="t-note text-fg md:order-1">{item.sector}</span>
                 <span className="col-span-2 max-w-sm t-note text-muted md:order-2 md:col-span-1">
-                  <span className="text-fg">{item.place}</span> &middot; {item.role}
+                  <span className="text-fg">{item.place}</span> &middot;{" "}
+                  {item.role}
                 </span>
                 {/* mono only for the year column, where it is tabular data
                     that has to align down the list. */}
@@ -182,9 +177,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-10 md:flex-row md:gap-20">
           {about.future.map((f) => (
             <div key={f.horizon}>
-              <p className="t-lead text-fg">
-                {f.horizon}
-              </p>
+              <p className="t-lead text-fg">{f.horizon}</p>
               <p className="mt-2 max-w-sm t-note text-muted">{f.line}</p>
             </div>
           ))}

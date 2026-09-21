@@ -28,8 +28,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       meta: [
         { label: "role", value: "product designer" },
-        { label: "client", value: "wells fargo" },
-        { label: "platform", value: "wf.com public site" },
+        { label: "context", value: "wells fargo · wf.com public site" },
         { label: "year", value: "2025" },
       ],
       links: [
@@ -192,8 +191,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       meta: [
         { label: "role", value: "service design + ux" },
-        { label: "client", value: "kochi metro" },
-        { label: "type", value: "mobility app redesign" },
+        { label: "context", value: "kochi metro · mobility app redesign" },
         { label: "year", value: "2024" },
       ],
       links: [
@@ -511,7 +509,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
-        { label: "product", value: "vision, internal sales and operations" },
+        { label: "context", value: "airtribe · internal sales and operations" },
         { label: "year", value: "2026" },
       ],
     },
@@ -524,8 +522,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "two product designers ran this end to end. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions the sections below describe. the ui screens we split between us, and the other designer led the handoff to engineering. we worked alongside one backend and one frontend engineer.",
           "there was no separate researcher and no separate ux writer, which is why the column list, the payment states and the copy inside the dropdowns are decisions rather than inherited requirements.",
           "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
-          "before this work, that record was a google sheet, and the money moving through it was the company's revenue. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
-        ],
+                  ],
       },
       {
         kind: "question",
@@ -546,7 +543,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the sales sheet, redacted. every enrolment, instalment and refund the company took was a row in here, and finance, delivery and onboarding all read from it. the green bands are cleared payments and the red is a refund flag, which is the only thing in the whole file that could be found at a glance.",
+        caption: "the sales sheet, redacted. green bands are cleared payments, red is a refund flag, and that is the only thing in the file that can be found at a glance.",
       },
       {
         /*
@@ -563,7 +560,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the onboarding sheet, redacted. the rows are struck out and the header row is not, because the columns are the argument: close to thirty of them for one person, two of them adjacent and both called remarks, one asking whether a learner requires career communication skills, and one called problematic leaner, spelled exactly like that. nobody could delete any of it, because somebody might still have been reading it.",
+        caption: "the onboarding sheet, redacted. the header row is left legible because the columns are the argument: close to thirty for one person, two adjacent and both called remarks, one called problematic leaner, spelled exactly like that. nobody could delete any of it in case somebody was still reading it.",
       },
       {
         kind: "constraints",
@@ -767,8 +764,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "views and role-based permissions cut scroll depth in half. before them, reaching your own columns meant scrolling past everything two other teams needed; now the row arrives as the job you came to do. the change log did the other half of the work, and accidental edits dropped once a row could be asked who last touched it.",
           "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
           "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
-          "the screens here are the shipped product running on a synthetic cast: the leads are mathematicians, the addresses are example.com, the amounts and the phone numbers are invented. the views, the filters, the columns, the payment types, the statuses, the action menus and the bulk flows are the real thing, because those are the design.",
-        ],
+          ],
       },
       {
         kind: "deeper",
@@ -780,7 +776,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "reflection",
-        text: "the sheet was never bad at what it did. it was fast, everybody could see it, and that is most of what a tool has to be. what it could not do was say who was allowed to change something, or who had. so the first phase went on matching it rather than beating it, and everything after that went on the two things it structurally could not have. i think that order was the whole job. nobody hands over a tool they trust to something that is merely newer, and the sync states are the proof of how long that takes: the product had to be able to say already in sync for months before anyone would agree it was the source of truth instead.",
+        text: "the first phase went on matching the sheet rather than beating it, and everything after that went on the two things it structurally could not do. i think that order was the whole job. nobody hands over a tool they trust to something that is merely newer, and the sync states are the proof of how long it takes: the product had to be able to say already in sync for months before anyone would agree it was the source of truth.",
       },
     ],
   },
@@ -814,8 +810,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
-        { label: "company", value: "airtribe" },
-        { label: "surfaces", value: "pre-reads and cohort live" },
+        { label: "context", value: "airtribe · pre-reads and cohort live" },
         { label: "year", value: "2026" },
       ],
       /*
@@ -828,7 +823,7 @@ export const caseStudies: Record<string, CaseStudy> = {
        */
     },
     sections: [
-      { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
+      { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe's two are not versions of each other, and in both the work is the same: deciding what the author may change and what they may never touch." },
       {
         kind: "context",
         paragraphs: [
@@ -1272,16 +1267,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           "it is not carrying a catalogue the way the internal skill is, and there are no adoption or retention figures behind it, because there is nothing yet to measure. what it demonstrates is the shape: that an ai learning product can be built to plan a lesson rather than answer a question, and that the cost of doing so is four screens of intake before anyone reads a word.",
         ],
       },
-      {
-        kind: "deeper",
-        label: "kai, in full",
-        paragraphs: [
-          "the demo is live, and using it is the quickest way to judge it. one seeded lesson takes the whole system end to end, and the intake will take any topic you give it.",
-        ],
-        links: [
-          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-        ],
-      },
 
       // ── close ────────────────────────────────────────────────────────────
       {
@@ -1301,9 +1286,12 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the pre-reads the internal skill produces are what paid learners get, so the system and the reasoning are public here and the lessons themselves are not.",
           "the spec, the audit the eight families came out of, and the version that was built and thrown away are all things i am happy to walk through privately.",
         ],
-        links: [{ label: "get in touch", href: `mailto:${site.email}` }],
+        links: [
+          { label: "open the kai demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+          { label: "get in touch", href: `mailto:${site.email}` },
+        ],
       },
-      { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the component maker was the same mistake wearing a different shape, building the thing that makes the artifact instead of fixing where the artifact gets decided. the skill governs how a pre-read looks and nothing about whether the lesson is any good, so it can still produce something on-brand and badly taught. that part is still on the person writing it." },
+      { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the skill still governs only how a pre-read looks, so it can produce something on-brand and badly taught. that part stays with the person writing it." },
     ],
   },
   "a-century-of-villains": {
@@ -1320,9 +1308,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "clients", value: "self-initiated" },
-        { label: "service", value: "data storytelling · build" },
-        { label: "date", value: "2026" },
+        { label: "role", value: "design + build" },
+        { label: "context", value: "self-initiated · data storytelling" },
+        { label: "year", value: "2026" },
       ],
       links: [{ label: "live piece", href: "https://villain2.vercel.app" }],
     },
@@ -1433,7 +1421,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     // The plugin's own ground, sampled off its panel.
     theme: { bg: "#10131A", fg: "#E8EAEE", hairline: "rgba(232,234,238,0.16)" },
     hero: {
-      kicker: "clients · self initiated",
+      kicker: "figma plugin · self-initiated",
       title: "lipi",
       // TODO · the framer page carries kai's subtitle in this slot. this is
       // lipi's own line, from the case study it replaced.
@@ -1444,9 +1432,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "clients", value: "self initiated" },
-        { label: "service", value: "product · ux/ui design" },
-        { label: "date", value: "apr 2026" },
+        { label: "role", value: "design + direction, built with ai" },
+        { label: "context", value: "self-initiated · localisation testing" },
+        { label: "year", value: "2026" },
       ],
     },
     sections: [
@@ -1637,7 +1625,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     // The device's own palette. The page wears the product.
     theme: { bg: "#070808", fg: "#EBEBEB", hairline: "rgba(235,235,235,0.16)" },
     hero: {
-      kicker: "clients · experimentation",
+      kicker: "experiment · self-initiated",
       title: "deep cuts",
       subtitle:
         "a curiosity machine that turns exploration into collectible artifacts.",
@@ -1651,9 +1639,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "clients", value: "experimentation" },
-        { label: "service", value: "ux/ui design · product" },
-        { label: "date", value: "jun 2026" },
+        { label: "role", value: "design + systems, built with ai" },
+        { label: "context", value: "self-initiated · experiment" },
+        { label: "year", value: "2026" },
       ],
     },
     sections: [
@@ -1670,6 +1658,29 @@ export const caseStudies: Record<string, CaseStudy> = {
           { role: "eng development", name: "claude, openai" },
           { role: "design inspiration", name: "teenage eng." },
         ],
+      },
+      {
+        /*
+         * The slot the other four side projects give to a running prototype.
+         * Deep cuts cannot fill it the same way: it needs a node server and a
+         * model behind it, so there is nothing static to embed, and a fake one
+         * would be worse than none. These are the three stills that carry the
+         * loop instead, and the film in the fold above is the system running
+         * end to end.
+         *
+         * They are also the first use the page makes of its own artefacts: it
+         * had twenty-two and was showing one.
+         */
+        kind: "figures",
+        label: "the loop, in three stills",
+        columns: 3,
+        fit: "contain",
+        media: [
+          { type: "image", src: "/case/deepcuts/launch/console.png", alt: "the console dial, scored like a record, with the scroll control at its centre" },
+          { type: "image", src: "/case/deepcuts/launch/directions.png", alt: "choose a direction: three cards fanned out, each a different genre of connection" },
+          { type: "image", src: "/case/deepcuts/launch/receipt.png", alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
+        ],
+        caption: "you turn the dial, you take one of three, and five stops later it prints. deep cuts runs on a server and a model, so unlike the other things here it cannot be embedded and played in the page; the film in the fold above is a full journey, start to receipt.",
       },
       {
         kind: "detail",
@@ -1757,7 +1768,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     // Warm paper, read off the artifact itself.
     theme: { bg: "#EFEDE5", fg: "#1A1917", hairline: "rgba(26,25,23,0.18)" },
     hero: {
-      kicker: "personal product · pwa",
+      kicker: "installable pwa · self-initiated",
       title: "soundmap",
       subtitle:
         "a daily sound journal. record one moment; it becomes a coloured artifact on a calendar.",
@@ -1766,9 +1777,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "clients", value: "self-initiated" },
-        { label: "service", value: "product design · build" },
-        { label: "date", value: "2026" },
+        { label: "role", value: "design + build" },
+        { label: "context", value: "self-initiated · daily sound journal" },
+        { label: "year", value: "2026" },
       ],
     },
     sections: [
@@ -1874,7 +1885,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     // The story layer's own ground, sampled off the app.
     theme: { bg: "#0E2C3A", fg: "#E9F1F4", hairline: "rgba(233,241,244,0.18)" },
     hero: {
-      kicker: "pwa · independent project",
+      kicker: "installable pwa · independent",
       title: "kochi water metro",
       subtitle:
         "an offline-first companion for a ferry ride: the route map, plus a bilingual story that surfaces as each place drifts past.",
@@ -1883,9 +1894,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaPosition: "center",
       mode: "launch",
       meta: [
-        { label: "clients", value: "independent, unaffiliated" },
-        { label: "service", value: "product design · build" },
-        { label: "date", value: "2026" },
+        { label: "role", value: "design + build" },
+        { label: "context", value: "independent, unaffiliated · kochi water metro" },
+        { label: "year", value: "2026" },
       ],
     },
     sections: [

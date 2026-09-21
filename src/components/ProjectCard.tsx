@@ -84,8 +84,12 @@ export function ProjectCard({
 
     // Magnetism is a fine-pointer affordance, and never overrides a stated
     // preference for less motion.
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fine = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (!fine || reduce) return;
 
     let raf = 0;

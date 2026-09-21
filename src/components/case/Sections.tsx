@@ -74,7 +74,7 @@ export function renderSection(section: Section, i: number) {
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                className="label underline underline-offset-4 transition-colors hover:text-accent"
+                className="inline-flex min-h-[24px] items-center label underline underline-offset-4 transition-colors hover:text-accent"
               >
                 open full screen
               </a>
@@ -84,8 +84,17 @@ export function renderSection(section: Section, i: number) {
             )}
             <div className={phone ? "mx-auto w-full max-w-[400px]" : "w-full"}>
               <div
+                /*
+                 * The wide frame used to be 72vh tall at every width, so on a
+                 * 375px screen a desktop tool was rendered into a 327x648 box:
+                 * a landscape ui in a phone-shaped hole. It now keeps a
+                 * landscape aspect until there is room for the tall frame, and
+                 * "open full screen" above carries the rest.
+                 */
                 className={`w-full overflow-hidden border border-hairline ${
-                  phone ? "aspect-[9/19]" : "h-[72vh] md:h-[84vh]"
+                  phone
+                    ? "aspect-[9/19]"
+                    : "aspect-[16/10] md:aspect-auto md:h-[84vh]"
                 }`}
               >
                 <iframe
@@ -492,6 +501,7 @@ export function renderSection(section: Section, i: number) {
         <Reveal key={i}>
           <figure className="my-4 md:my-8">
             <Container>
+              {section.label && <h2 className="label mb-6">{section.label}</h2>}
               <div
                 className={`grid grid-cols-1 items-start gap-4 md:gap-6 ${
                   section.columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2"
@@ -561,7 +571,7 @@ export function renderSection(section: Section, i: number) {
                 }`}
               >
                 {section.title && (
-                  <h3 className="t-head text-fg">{section.title}</h3>
+                  <h2 className="t-head text-fg">{section.title}</h2>
                 )}
                 {section.text && (
                   <p className="mt-4 measure-narrow t-body text-muted">
@@ -680,7 +690,7 @@ export function renderSection(section: Section, i: number) {
                       const mail = l.href.startsWith("mailto:");
                       const external = mail || /^https?:/.test(l.href);
                       const cls =
-                        "t-note text-fg underline-offset-4 hover:underline";
+                        "inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline";
                       return external ? (
                         <a
                           key={l.href}

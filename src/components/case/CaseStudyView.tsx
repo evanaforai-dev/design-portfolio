@@ -6,12 +6,8 @@ import { Media, Container } from "./Media";
 import { renderSection } from "./Sections";
 import { ProjectNavPreview } from "./ProjectNavPreview";
 
-/**
- * Is a case study's own ground dark? Relative luminance of the hex, WCAG's
- * formula, with the usual 0.5-ish split. Used only to decide what to tell the
- * browser about the page (color-scheme) and which end of the accent to use.
- */
-function isDarkGround(hex: string): boolean {
+/** WCAG relative luminance of a hex colour. */
+function luminance(hex: string): number {
   const h = hex.replace("#", "");
   const full =
     h.length === 3
@@ -24,8 +20,41 @@ function isDarkGround(hex: string): boolean {
     const v = parseInt(full.slice(i * 2, i * 2 + 2), 16) / 255;
     return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
   };
-  const l = 0.2126 * channel(0) + 0.7152 * channel(1) + 0.0722 * channel(2);
-  return l < 0.22;
+  return 0.2126 * channel(0) + 0.7152 * channel(1) + 0.0722 * channel(2);
+}
+
+const contrast = (a: string, b: string) => {
+  const [x, y] = [luminance(a), luminance(b)];
+  return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+};
+
+/**
+ * Is a case study's own ground dark? Used to tell the browser what kind of
+ * page it is drawing scrollbars and form controls for.
+ */
+function isDarkGround(hex: string): boolean {
+  return luminance(hex) < 0.22;
+}
+
+/**
+ * The accent on a themed ground, picked by measurement rather than by a
+ * dark/light flip.
+ *
+ * The flip assumed two grounds, the site's own near-white and near-black, and
+ * both magentas clear AA on those. A case study's ground is its own: kochi
+ * water metro runs on a deep teal that is dark enough to take the dark-mode
+ * magenta and light enough that the same magenta only reaches 4.14:1 against
+ * it, so the wordmark's Malayalam initial sat just under AA on that one page.
+ *
+ * Both magentas are tried and the better one wins if it clears AA for small
+ * text. If neither does, the accent falls back to the theme's own foreground,
+ * which clears by construction. No new colour is introduced either way.
+ */
+function accentFor(bg: string, fg: string): string {
+  const best = ["#fc0fc0", "#d400a0"].sort(
+    (a, b) => contrast(b, bg) - contrast(a, bg),
+  )[0];
+  return contrast(best, bg) >= 4.5 ? best : fg;
 }
 
 /**
@@ -44,7 +73,10 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   const ordered = projects.filter((p) => !p.unlisted);
   // An unlisted study is not in `ordered`; anchor it at the top of the list
   // rather than letting findIndex's -1 wrap into an arbitrary pair.
-  const idx = Math.max(0, ordered.findIndex((p) => p.slug === study.slug));
+  const idx = Math.max(
+    0,
+    ordered.findIndex((p) => p.slug === study.slug),
+  );
   const prev = ordered[(idx - 1 + ordered.length) % ordered.length];
   const next = ordered[(idx + 1) % ordered.length];
   const { hero, theme } = study;
@@ -77,7 +109,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
     ? `:root{--bg:${theme.bg};--fg:${theme.fg};--muted:${theme.fg};` +
       `--hairline:${theme.hairline ?? `${theme.fg}29`};` +
       `--hairline-strong:${theme.hairline ?? `${theme.fg}1f`};` +
-      `--accent:${dark ? "#fc0fc0" : "#d400a0"};` +
+      `--accent:${accentFor(theme.bg, theme.fg)};` +
       `color-scheme:${dark ? "dark" : "light"}}`
     : null;
 
@@ -89,7 +121,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       <Container className="pt-4 md:pt-6">
         <Link
           href="/"
-          className="label underline-offset-4 transition-colors hover:underline"
+          className="inline-flex min-h-[24px] items-center label underline-offset-4 transition-colors hover:underline"
         >
           ← all work
         </Link>
@@ -140,12 +172,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       {/* Title + metadata band */}
       <Container className="py-12 md:py-20">
         {hero.kicker && <p className="label mb-6">{hero.kicker}</p>}
-        <h1 className="max-w-[18ch] t-display text-fg">
-          {hero.title}
-        </h1>
-        <p className="mt-6 measure t-lead text-fg">
-          {hero.subtitle}
-        </p>
+        <h1 className="max-w-[18ch] t-display text-fg">{hero.title}</h1>
+        <p className="mt-6 measure t-lead text-fg">{hero.subtitle}</p>
 
         {/*
           One row, always. Fixed at four columns, a five-item band wrapped its
@@ -174,7 +202,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
               // the domain root and 404 on a project-path host.
               const external = l.href.startsWith("http");
               const className =
-                "t-note text-fg underline-offset-4 hover:underline";
+                "inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline";
               return external ? (
                 <a
                   key={l.href}

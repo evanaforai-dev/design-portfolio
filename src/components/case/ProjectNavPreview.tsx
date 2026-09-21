@@ -11,7 +11,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 /** A static thumbnail for a neighbour — never the animated frame. */
 function previewSrc(p: Project) {
-  return p.display?.animated ? p.display.poster ?? p.cover : p.cover;
+  return p.display?.animated ? (p.display.poster ?? p.cover) : p.cover;
 }
 
 function Thumb({ project }: { project: Project }) {
