@@ -22,6 +22,10 @@ export default function AboutPage() {
         <h1 className="max-w-4xl text-3xl font-medium leading-tight tracking-tight text-fg md:text-5xl md:leading-[1.1]">
           {about.headline}
         </h1>
+        {/* The discipline, said once, under the line that does not say it. */}
+        <p className="mt-6 max-w-[46rem] text-lg leading-relaxed text-fg md:mt-8 md:text-xl">
+          {about.positioning}
+        </p>
       </section>
 
       <div className="grid grid-cols-1 gap-16 py-16 md:grid-cols-12 md:gap-10 md:py-20">

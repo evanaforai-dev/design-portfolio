@@ -15,8 +15,15 @@ const PULL = 14;
  * corners.
  *
  * Structure: the image well takes whatever height the grid gives the cell,
- * then a caption plate of fixed height beneath it carrying
- * the name and the full tag list, both always readable.
+ * then a caption plate beneath it carrying the name and the full tag list,
+ * both always readable.
+ *
+ * Two variants, one component. `fitted` is the pointer-device grid, where the
+ * cell's height is solved for and the caption plate is a fixed 80px the solver
+ * has already subtracted. Unfitted is the phone, where the page scrolls: the
+ * well takes a square of its own and the caption plate grows to whatever the
+ * title needs. The title is never clipped in either — a project whose name
+ * reads "airtribe ai s..." is a project nobody clicks.
  *
  * MAGNETIC PULL — the artwork leans toward the pointer and eases back when it
  * leaves. Pointer position is written straight to the element's transform in a
@@ -31,7 +38,30 @@ const PULL = 14;
  * invisible at rest and appearing under the pointer. Registration marks rather
  * than a frame: they note where the cell is without drawing one.
  */
-export function ProjectCard({ project }: { project: Project }) {
+/*
+ * A scrolling cell's well is a square per column it occupies, so a cell that
+ * spans the remainder of a row is the same HEIGHT as its neighbours and simply
+ * wider. Literal class names, for Tailwind's content scan.
+ */
+const WELL: Record<number, string> = {
+  1: "aspect-square",
+  2: "aspect-[2/1]",
+  3: "aspect-[3/1]",
+  4: "aspect-[4/1]",
+  5: "aspect-[5/1]",
+};
+
+export function ProjectCard({
+  project,
+  fitted = true,
+  span = 1,
+}: {
+  project: Project;
+  /** True when the grid has solved a height for this cell (pointer devices). */
+  fitted?: boolean;
+  /** Columns this cell occupies, when it absorbs a row's remainder. */
+  span?: number;
+}) {
   const reduceMotion = useReducedMotion();
   const fit = project.display?.fit ?? "cover";
   const pad = project.display?.pad ?? "";
@@ -106,7 +136,11 @@ export function ProjectCard({ project }: { project: Project }) {
       className="group relative flex h-full w-full flex-col"
     >
       {/* image well — the artwork leans toward the pointer inside it */}
-      <div className="relative min-h-0 flex-1 overflow-hidden">
+      <div
+        className={`relative overflow-hidden ${
+          fitted ? "min-h-0 flex-1" : `w-full ${WELL[span] ?? "aspect-square"}`
+        }`}
+      >
         {/* corner marks — set inside the well, noted under the pointer */}
         <span aria-hidden className={`${corner} left-2.5 top-2.5`} />
         <span aria-hidden className={`${corner} right-2.5 top-2.5`} />
@@ -140,11 +174,22 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* caption plate — name then the full tag list, always visible. */}
-      <div className="flex h-20 shrink-0 flex-col justify-center gap-1 border-t border-hairline px-4 md:px-5">
-        <span className="truncate text-sm font-medium text-[#FC0FC0]">
+      <div
+        className={`flex shrink-0 flex-col justify-center gap-1 border-t border-hairline ${
+          fitted ? "h-20 px-4 md:px-5" : "px-4 py-4"
+        }`}
+      >
+        <span className="text-sm font-medium leading-snug text-accent">
           {project.title}
         </span>
-        <span className="line-clamp-2 text-xs leading-4 text-fg opacity-70">
+        {/* Two lines is all the fitted plate has room for. The scrolling
+            plate is not height-constrained, so the tag list finishes rather
+            than trailing off mid-word. */}
+        <span
+          className={`text-xs leading-4 text-fg opacity-70 ${
+            fitted ? "line-clamp-2" : ""
+          }`}
+        >
           {project.tags.join(" / ")}
         </span>
       </div>
