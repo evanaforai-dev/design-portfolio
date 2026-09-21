@@ -128,6 +128,27 @@ export type Section =
       bg?: string;
       fg?: string;
     }
+  /**
+   * PROTOTYPE — the thing itself, running, inside the page. On a side project
+   * the build is the argument, so the reader gets to use it before the page
+   * spends a paragraph describing it. `src` is site-relative for a prototype
+   * bundled into /public/play, and absolute for one that lives on its own
+   * deployment. `frame: "phone"` is for apps that were drawn for a handset:
+   * a wide well would letterbox them into a stripe.
+   */
+  | {
+      kind: "prototype";
+      label?: string;
+      src: string;
+      /** accessible name for the frame. */
+      title: string;
+      frame?: "wide" | "phone";
+      /** permissions policy, e.g. "microphone" for a recorder. */
+      allow?: string;
+      /** one line telling the reader what to do first. */
+      hint?: string;
+      caption?: string;
+    }
   | { kind: "thesis"; eyebrow?: string; text: string }
   | { kind: "context"; label?: string; paragraphs: string[] }
   | { kind: "question"; text: string }

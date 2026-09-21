@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Section } from "@/types/caseStudy";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
+import { asset as assetUrl } from "@/lib/asset";
 import { Glyph } from "./Glyph";
 
 /** Vertical rhythm wrapper for in-flow (contained) sections. */
@@ -51,6 +52,58 @@ export function renderSection(section: Section, i: number) {
                 </div>
               ))}
             </div>
+          </Container>
+        </Band>
+      );
+    }
+
+    /*
+     * PROTOTYPE — the running build, embedded. Deliberately the loudest thing
+     * on a side-project page: the frame is the tallest element the layout can
+     * hold, and the copy around it is kept to one line in and one line out.
+     * "open full screen" is always offered, because an iframe is a compromise
+     * and some of these were drawn for a whole screen.
+     */
+    case "prototype": {
+      const phone = section.frame === "phone";
+      const url = assetUrl(section.src);
+      return (
+        <Band key={i}>
+          <Container>
+            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+              <p className="label">{section.label ?? "try it"}</p>
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="label underline underline-offset-4 transition-colors hover:text-accent"
+              >
+                open full screen
+              </a>
+            </div>
+            {section.hint && (
+              <p className="mb-8 max-w-[46rem] text-lg leading-relaxed text-fg">
+                {section.hint}
+              </p>
+            )}
+            <div className={phone ? "mx-auto w-full max-w-[400px]" : "w-full"}>
+              <div
+                className={`w-full overflow-hidden border border-hairline ${
+                  phone ? "aspect-[9/19]" : "h-[72vh] md:h-[84vh]"
+                }`}
+              >
+                <iframe
+                  src={url}
+                  title={section.title}
+                  loading="lazy"
+                  allow={section.allow}
+                  className="block h-full w-full border-0"
+                />
+              </div>
+            </div>
+            {section.caption && (
+              <figcaption className="label mt-4">{section.caption}</figcaption>
+            )}
           </Container>
         </Band>
       );

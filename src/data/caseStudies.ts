@@ -1213,14 +1213,19 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
       links: [{ label: "live piece", href: "https://villain2.vercel.app" }],
     },
+    /*
+     * SHORT REGISTER. A side project's argument is the build, so the page
+     * hands the reader the running piece four screens in and then says only
+     * what the piece cannot: what it is, the thesis, why it is not another
+     * chart, how it was made, the calls, and the edges.
+     */
     sections: [
       {
         kind: "credits",
         label: "about",
         paragraphs: [
-          "the bollywood villain is usually argued about one film at a time. i wanted the long view: not who the villains were, but what kind of threat each decade cast as the enemy.",
-          "so i hand-sampled 495 films across ten decades and tagged each villain by archetype, and by whether the threat was personal or systemic.",
-          "column width is how many films a decade actually made, band height is each archetype's share, and thinly-sourced decades wear a triangle.",
+          "the bollywood villain is usually argued about one film at a time. this takes the long view: not who the villains were, but what kind of threat each decade cast as the enemy.",
+          "495 films hand-sampled across ten decades, each villain tagged by archetype and by whether the threat was personal or systemic.",
         ],
         creditsLabel: "credits",
         credits: [
@@ -1231,90 +1236,81 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "prototype",
+        label: "try it",
+        src: "https://villain2.vercel.app",
+        title: "a century of villains, the live piece",
+        frame: "wide",
+        hint: "tap a colour in the legend to isolate one archetype across the whole century. hover a decade to get its two voices, the analytical line and the first-person one.",
+        caption: "the live piece. ten decade columns, thirteen archetypes, and the sampling caveat kept in view under the chart.",
+      },
+      {
         kind: "detail",
         media: { type: "image", src: "/case/villains/launch/piece-mobile.png", alt: "the piece at phone width" },
         fit: "contain",
         side: "right",
         title: "product thesis",
-        text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape.",
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/villains/launch/band-bleed.png", alt: "the streamgraph band, warm to cool across the century" },
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/villains/launch/piece-wide.png", alt: "the full piece, decades and archetypes" },
-        overlay: {
-          placement: "below",
-          label: "how the chart was built",
-          columns: [
-            { label: "sample", text: "495 films, hand-sampled across ten decades", note: "/4 to 20 percent of a decade, leaning toward well-known titles" },
-            { label: "tag", text: "each villain by archetype, and by whether the threat was personal or systemic" },
-            { label: "weight", text: "column width is set by how many films a decade actually made, not by how many i sampled" },
-            { label: "draw", text: "band height is each archetype's share of its decade", note: "/thinly-sourced decades wear a warning glyph" },
-          ],
-        },
+        text: "a villain is a mirror. i wanted to see what ninety years of hindi cinema had been afraid of, and whether the fear had a shape. it does: the enemy stops being a man and becomes a nation, a policy, a system.",
       },
       {
         kind: "panel",
-        label: "encode the doubt into the chart",
+        label: "why this one is different",
         emphasise: [0],
         paragraphs: [
-          "the sample covers only 4 to 20 percent of films in a given decade, and leans toward well-known titles.",
-          "a thinly-sourced decade cannot be allowed to look as certain as a well-covered one.",
-          "so column width is tied to how many films a decade actually made, sparse decades wear a warning glyph, and the copy keeps repeating that this is the shape of a trend, not a count.",
-          "a streamgraph is a persuasive shape, and left alone it will make a thin decade look settled. most of the design was arguing with the chart about that.",
+          "every other version of this argument is an essay about films you have seen.",
+          "this one puts a number on it, then spends most of its design budget admitting how soft the number is.",
+          "for the first time, the 2020s tip systemic.",
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/villains/streamgraph.svg", alt: "the archetype view" },
-          { type: "image", src: "/case/villains/personal-system.svg", alt: "personal versus systemic villains across the decades" },
-        ],
-        captions: [
-          { label: "thirteen archetypes", text: "gangster, terrorist, family opponent, jealous lover, zamindar, politician, corporate, corrupt police, colonial oppressor, supernatural, patriarchy, system, religious extremist." },
-          { label: "personal versus systemic", text: "personal villains in red, systemic ones in blue. for the first time, the 2020s tip systemic." },
-        ],
-      },
-      {
-        kind: "panel",
-        label: "let colour carry the argument",
-        emphasise: [0],
-        paragraphs: [
-          "the whole thesis is a drift from intimate evil to systemic evil.",
-          "warm reds and ambers for personal crimes, cool blues and teals for systemic ones, so the palette itself moves warm to cool as the century turns.",
-          "thirteen archetypes is a lot of hues to keep legible on black. that constraint set the palette, not the other way round.",
+        kind: "constraints",
+        label: "the systems thinking",
+        items: [
+          { label: "sample", text: "495 films across ten decades, hand-sampled rather than scraped, because there is no clean dataset of who the villain was." },
+          { label: "tag", text: "each villain gets an archetype out of thirteen, and a second axis: was the threat a person, or a system." },
+          { label: "weight", text: "column width is how many films a decade actually made, not how many i sampled. the chart is weighted by the industry, not by my reading list." },
+          { label: "draw", text: "band height is each archetype's share of its own decade, so a decade that made forty films and one that made four hundred can still be read against each other." },
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/villains/launch/legend.png", alt: "the archetype legend" },
-          { type: "image", src: "/case/villains/launch/piece-full.png", alt: "the piece end to end" },
-        ],
-        captions: [
-          { label: "tap colour to isolate", text: "the legend is the control. one archetype at a time, across the whole century." },
-          { label: "the piece, end to end", text: "ninety years, ten decade columns, and the sampling caveat kept in view under the chart." },
+        kind: "decisions",
+        label: "key design decisions",
+        items: [
+          {
+            n: "01",
+            title: "encode the doubt into the chart itself",
+            why: "a streamgraph is a persuasive shape. left alone it makes a thinly-sourced decade look exactly as settled as a well-covered one.",
+            tradeoff: "the piece is less striking than it could be, and it interrupts its own argument to say how little it knows.",
+            result: "column width is tied to real output, sparse decades wear a warning glyph, and the caveat sits under the chart rather than in a footnote. most of the design was arguing with the chart about this.",
+          },
+          {
+            n: "02",
+            title: "let colour carry the thesis",
+            why: "the whole finding is a drift from intimate evil to systemic evil, and a legend nobody reads cannot carry that.",
+            tradeoff: "thirteen archetypes is a lot of hues to keep legible on black, so the constraint set the palette rather than the other way round.",
+            result: "warm reds and ambers for personal crimes, cool blues and teals for systemic ones. the palette moves warm to cool as the century turns, so you see the argument before you read it.",
+          },
+          {
+            n: "03",
+            title: "give every decade two voices",
+            why: "a chart states a fact. it rarely makes you feel one, and this subject is half mood.",
+            tradeoff: "twice the copy to write, and twice the copy to keep honest.",
+            result: "each decade pairs a clipped analytical line with a first-person literary one, so the number and the mood arrive in the same hover.",
+          },
         ],
       },
       {
-        kind: "panel",
-        label: "give every decade two voices",
-        emphasise: [0],
-        paragraphs: [
-          "a chart states a fact; it rarely makes you feel one.",
-          "each decade pairs a clipped analytical line with a first-person literary one, so you get the number and the mood in the same hover.",
-          "twice the copy to write, and twice the copy to keep honest.",
-          "the enemy stops being a man and becomes a nation, a policy, a system.",
+        kind: "constraints",
+        label: "edge cases accounted for",
+        items: [
+          { label: "a decade with almost nothing in it", text: "the 1930s and 1940s are the thinnest samples in the set. they keep their real column width and wear the warning glyph, so they cannot quietly pass as evidence." },
+          { label: "thirteen hues on near-black", text: "adjacent bands that read as one colour would invent a trend. the palette was built for separation at small band heights first and for prettiness second." },
+          { label: "a phone in portrait", text: "a ninety-year x-axis does not fit a handset. at phone width the piece keeps the legend as the control and lets the chart scroll, rather than squeezing ten decades into 375px and making all of them illegible." },
+          { label: "an archetype that barely exists", text: "colonial oppressor is most of two decades and almost none of the rest. isolating one archetype from the legend is the only way to see a band that thin, which is why the legend is interactive rather than a key." },
         ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/villains/launch/band-bleed.png", alt: "warm to cool, 1930s to 2020s" },
       },
     ],
+
   },
 
 
@@ -1355,6 +1351,21 @@ export const caseStudies: Record<string, CaseStudy> = {
           { role: "ui & ux design", name: "evana sajan" },
           { role: "coding & development", name: "claude, chatgpt" },
         ],
+      },
+      /*
+       * Lipi keeps its long read: the edge cases ARE the product here, and
+       * cutting them would cut the argument. The demo goes in early anyway,
+       * because a plugin that finds layout breaks is far easier to believe
+       * once you have watched it find one.
+       */
+      {
+        kind: "prototype",
+        label: "try it",
+        src: "/play/lipi/index.html",
+        title: "lipi, running on a simulated figma canvas",
+        frame: "wide",
+        hint: "tick a language, then press generate and test. the demo dictionary runs with no api key, so the whole loop works: it localizes the frames, measures what moved, and marks the components that broke.",
+        caption: "the plugin running against a mock food-delivery app. the canvas is simulated; the panel, the dictionary and the detection are the real build.",
       },
       {
         kind: "detail",
@@ -1537,9 +1548,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "credits",
         label: "about",
         paragraphs: [
-          "we have unlimited access to information, but very few ways to preserve the paths that lead us through it. most ai tools optimize for answers.",
-          "the project explores a question: what if ai wasn't designed to deliver answers, but to help people author memorable journeys through knowledge?",
-          "deepcuts is an ai-powered curiosity machine that turns exploration into a collectible artifact. rather than optimizing for answers, it invites users to navigate a series of ai-generated connections, actively curating their own path through knowledge. each completed journey is preserved as a receipt and archived as a permanent record of curiosity, a mixtape for the mind.",
+          "we have unlimited access to information and very few ways to preserve the paths that lead us through it. most ai tools optimize for answers.",
+          "deep cuts is a curiosity machine that turns exploration into a collectible object. you navigate a series of ai-generated connections, curating your own path, and the finished journey prints as a receipt and goes into a permanent archive. a mixtape for the mind.",
         ],
         creditsLabel: "credits",
         credits: [
@@ -1554,151 +1564,77 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "contain",
         side: "right",
         title: "product thesis",
-        // TODO · the live framer page carries hibiki's thesis copy here, not
-        // deep cuts'. Left blank rather than moved across: the maps/sounds
-        // argument belongs to a different product.
-        text: "TODO · write the deep cuts product thesis. the copy currently in this slot on the framer page is hibiki's.",
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/deepcuts/launch/devices-bleed.png", alt: "the five console states lit on a dark field" },
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/deepcuts/launch/behind.png", alt: "the seven stages of a deep cuts journey" },
-        overlay: {
-          label: "behind the experience",
-          anchor: "bottom",
-          columns: [
-            { label: "question", text: "curiosity begins with a single word", note: "/all numbers, non words become \u201crandom\u201d /all offensive words, larger umbrella word" },
-            { label: "ai brain", text: "understands / maps space of knowledge" },
-            { label: "paths", text: "ai finds signals in noise" },
-            { label: "exploration", text: "ai surfaces, you decide", note: "/all suggestions will belong to unique genres" },
-            { label: "synthesis", text: "choices compound, meaning formed", note: "/one fact that connects the jump" },
-            { label: "receipt", text: "journey record" },
-            { label: "archive", text: "saved, stored, recovered" },
-          ],
-        },
+        text: "the answer is the part you forget. what you remember is the route you took to it, and no ai product gives you that to keep. deep cuts throws the answer away and prints the route.",
       },
       {
         kind: "panel",
-        label: "designed for curiosity",
-        emphasise: [2],
+        label: "why this one is different",
+        emphasise: [1],
         paragraphs: [
-          "early explorations maximized options. the result was decision paralysis.",
-          "limiting every step to three possible directions created a stronger sense of authorship while keeping exploration open-ended.",
-          "ending the journey at five signal stops is a design decision to limit user from cognitive fatigue and preserve novelty.",
-          "most exploration tools end with an answer. deepcuts ends with an artifact, a mixtape-style receipt stored in a personal archive. make curiosity feel collectible.",
+          "every other ai product is racing to hand you a conclusion.",
+          "this one will not give you one at all.",
+          "it is the only version of an ai interface i know of where the output is an object rather than a paragraph, and where going slower is the feature.",
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/deepcuts/launch/tune.png", alt: "tune a signal" },
-          { type: "image", src: "/case/deepcuts/launch/directions.png", alt: "choose a direction" },
-        ],
-        // TODO · the framer page carries lipi's captions under these two.
-        captions: [
-          { label: "TODO", text: "caption this pair. the framer page has lipi's localization copy in this slot." },
-          { label: "TODO", text: "caption this pair. the framer page has lipi's preview/reveal copy in this slot." },
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/deepcuts/launch/receipt.png", alt: "the printed mixtape receipt" },
-          { type: "image", src: "/case/deepcuts/launch/archive-spines.png", alt: "the archive, journeys stored as spines" },
-        ],
-        // TODO · as above.
-        captions: [
-          { label: "TODO", text: "caption this pair. the framer page has lipi's fix/re-check copy in this slot." },
-          { label: "TODO", text: "caption this pair. the framer page has lipi's screen/component/system copy in this slot." },
+        kind: "constraints",
+        label: "the systems thinking",
+        items: [
+          { label: "signal", text: "a journey starts from one word. numbers and non-words resolve to a random signal, and anything offensive is lifted to a larger umbrella word rather than refused." },
+          { label: "directions", text: "every step offers exactly three, and each one has to belong to a distinct genre. the model is re-asked until they are genuinely different, or they are repaired deterministically." },
+          { label: "the bridge fact", text: "each jump has to be justified by a specific connecting fact between the two nodes. a generic one is rejected and regenerated, because a chain of vague links is not a journey." },
+          { label: "length", text: "five signal stops, then a deep cut. the end is fixed rather than open, so the artifact has a shape." },
+          { label: "receipt", text: "the path, the facts, a weirdness score and a rarity score, printed and filed. stored on the server and in local storage, so the archive survives either one going away." },
         ],
       },
       {
-        kind: "panel",
-        label: "interaction design",
-        emphasise: [0],
-        paragraphs: [
-          "deepcuts is an instrument.",
-          "inspired by the hardware era of computing, the interface is designed as a constraint against the speed and complexity common in ai products.",
-          "embracing constraints, focused controls, and deliberate interaction, it reveals a small set of meaningful choices at a time.",
-          "the goal is not to maximize exploration, but to make exploration intentional.",
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/deepcuts/launch/wheel.png", alt: "the scroll wheel" },
-          { type: "image", src: "/case/deepcuts/launch/console.png", alt: "the console face" },
-        ],
-        captions: [
+        kind: "decisions",
+        label: "key design decisions",
+        items: [
           {
-            label: "shuffle · discovery over optimization / play · deliberate pace / save · discoveries are collected, not consumed",
-            text: "decisions stay visible. switches remain pressed after activation, transforming interactions from momentary taps into persistent states.",
+            n: "01",
+            title: "three directions, never more",
+            why: "early explorations maximized options and the result was decision paralysis. a wall of suggestions is the same as no suggestions.",
+            tradeoff: "three is arbitrary and it hides most of the space. a direction you would have loved is often not on the table.",
+            result: "limiting every step to three created a much stronger sense of authorship while keeping exploration open-ended. you are choosing rather than scanning.",
           },
           {
-            label: "intentional interaction",
-            text: "discovery begins with a conscious action rather than an endless feed. directed exploration: ideas unfold as a sequence, not a graph.",
+            n: "02",
+            title: "end it at five, whether or not you are done",
+            why: "an endless journey produces cognitive fatigue and destroys novelty. it also never produces an artifact, because nothing that does not end can be collected.",
+            tradeoff: "the machine cuts you off mid-curiosity, which is exactly when you least want it to.",
+            result: "five stops then a deep cut. the limit is what turns a session into an object with a beginning and an end.",
+          },
+          {
+            n: "03",
+            title: "build it as an instrument, not an app",
+            why: "the interface had to argue against the speed and complexity of every other ai product, and hardware is the only visual language people already read as deliberate.",
+            tradeoff: "a console with focused controls is slower to use and less legible to someone expecting a chat box.",
+            result: "a hardware-era console that reveals a small set of meaningful choices at a time. the goal is not to maximize exploration but to make it intentional.",
+          },
+          {
+            n: "04",
+            title: "make the ending an object",
+            why: "most exploration tools end with an answer, which is the least memorable part and cannot be kept.",
+            tradeoff: "a receipt is only worth having if the journey behind it was good, so the whole system has to hold up for the artifact to mean anything.",
+            result: "a mixtape-style receipt with scores, filed in a personal archive as spines you can pull out. curiosity becomes collectible.",
           },
         ],
       },
       {
-        kind: "bleed",
-        media: { type: "image", src: "/case/deepcuts/launch/system-board.png", alt: "the deep cuts system board: components, states and tokens" },
-        overlay: {
-          label: "system design",
-          paragraphs: [
-            "a consistent interaction language was critical. every state follows the same hardware logic, allowing the interface to feel like a single device rather than a collection of screens.",
-          ],
-          lines: [
-            "wheel → navigate",
-            "play → progress",
-            "orange → context action",
-            "shuffle → autopilot",
-            "8px system",
-            "typography · geist / geist mono",
-          ],
-        },
-      },
-      {
-        kind: "panel",
-        label: "edge cases",
-        emphasise: [0],
-        paragraphs: [
-          "the final phase focused on resilience.",
-          "empty archive / full archive / buffering states / card overflow handling.",
-          "handling bad inputs: non-word or numerical input falls back to random seed generation; offensive or flagged input redirects to a broader safe-category umbrella.",
-          "controlling the ai brain: all three surfaced suggestions belong to mutually exclusive genre tags. data synthesis is capped at five journey steps.",
+        kind: "constraints",
+        label: "edge cases accounted for",
+        items: [
+          { label: "a signal that is not a word", text: "numbers, keysmashes and empty input resolve to a random signal rather than an error, because the machine refusing to start is a worse failure than it starting somewhere unexpected." },
+          { label: "a signal nobody should type", text: "offensive input is lifted to a larger umbrella concept instead of being rejected. the journey continues and the subject quietly changes." },
+          { label: "the model going in a circle", text: "directions are checked against the current node and the previous one, so the machine cannot offer you a self-loop or an immediate backtrack dressed as a new direction." },
+          { label: "a weak connecting fact", text: "the bridge fact is validated and regenerated up to three times. on the last attempt the best effort is accepted rather than failing the journey, because a stalled machine is worse than a soft link." },
+          { label: "the model not answering at all", text: "every failure, network, timeout, malformed body, collapses to one uniform failure handled in one place, so the interface never has two different ideas about what went wrong." },
+          { label: "the archive with nothing in it", text: "scores are derived deterministically from the journey rather than asked for, so a receipt never prints as zero out of zero." },
         ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/deepcuts/launch/archive-empty.png", alt: "the empty archive" },
-          { type: "image", src: "/case/deepcuts/launch/archive-full.png", alt: "the full archive, segregated by month" },
-        ],
-        captions: [
-          { label: "empty archive", text: "zero signal count" },
-          { label: "full archive", text: "archive segregated by months" },
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/deepcuts/launch/signal-lost.png", alt: "signal lost, with retry and start over" },
-          { type: "image", src: "/case/deepcuts/launch/buffering.png", alt: "a journey resuming from its last step" },
-        ],
-        captions: [
-          { label: "buffering states", text: "imitating radio signaling, progressive" },
-          { label: "unable to collect ai information", text: "journey intact. start from last step or last journey." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/deepcuts/launch/merging-bleed.png", alt: "coffeehouses plus salon culture, merging signals" },
       },
     ],
+
   },
 
 
@@ -1727,8 +1663,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "credits",
         label: "about",
         paragraphs: [
-          "once a day you record about thirty seconds. the app listens, reads the sound, and renders it as a two-colour gradient drawn from the muted palette of traditional japanese hues.",
-          "that artifact takes its place on a month calendar. tapping a day replays the audio while the gradient re-reveals in step with it.",
+          "once a day you record about thirty seconds. the app reads the sound and renders it as a two-colour gradient drawn from traditional japanese hues, and that artifact takes its place on a month calendar.",
           "the colours are not decoration. they are read from the recording, and the same soundscape always resolves to the same artifact.",
         ],
         creditsLabel: "credits",
@@ -1739,6 +1674,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "prototype",
+        label: "try it",
+        src: "/play/soundmap/index.html",
+        title: "soundmap, running",
+        frame: "phone",
+        allow: "microphone",
+        hint: "the month is already seeded, so tap any coloured day to replay it and watch the gradient re-reveal in step with the audio. recording your own asks for the microphone; decline it and everything else still works.",
+        caption: "the real build, running on device. nothing you record here leaves the browser, because there is nowhere for it to go.",
+      },
+      {
         kind: "detail",
         media: { type: "image", src: "/case/soundmap/launch/artifact.png", alt: "one day's finished artifact with its metadata" },
         fit: "contain",
@@ -1747,129 +1692,66 @@ export const caseStudies: Record<string, CaseStudy> = {
         text: "a photo of a moment is easy to keep. a recording of one is awkward to go back to. soundmap is an attempt at a sound you would actually return to, without it turning into a feed.",
       },
       {
-        kind: "bleed",
-        media: { type: "image", src: "/case/soundmap/launch/gradient-bleed.png", alt: "one recording resolving into its gradient, four moments apart" },
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/soundmap/launch/archive-bleed.png", alt: "the calendar, a recording and the finished day" },
-        overlay: {
-          placement: "below",
-          label: "one day, one recording",
-          columns: [
-            { label: "record", text: "about thirty seconds, once a day", note: "/the button spends itself after a single take and rests until tomorrow" },
-            { label: "read", text: "loudness, instability and warmth are measured off the recording" },
-            { label: "artifact", text: "those three readings resolve to a two-colour gradient", note: "/the same soundscape always resolves to the same artifact" },
-            { label: "calendar", text: "the day takes its place in the month, and the days you missed stay visible" },
-          ],
-        },
-      },
-      {
         kind: "panel",
-        label: "one recording a day",
+        label: "why this one is different",
         bg: "#1A1917",
         fg: "#EFEDE5",
         emphasise: [1],
         paragraphs: [
-          "a feed of your own moments is not a keepsake, it is a chore.",
-          "the record button spends itself after a single take and rests until tomorrow.",
-          "you can miss a day, and you cannot hoard. the scarcity is what makes the moment worth choosing.",
-          "you cannot retake it. whatever you caught that day is the day.",
+          "every other audio journal is a list of files you will never open.",
+          "this one gives the day a face before it gives you a filename.",
+          "you can recognise a tuesday in march by its colour a year later, which is the whole product.",
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/soundmap/launch/calendar.png", alt: "the month archive of coloured day tiles" },
-          { type: "image", src: "/case/soundmap/launch/artifact-early.png", alt: "an artifact resolving as the recording runs" },
-        ],
-        captions: [
-          { label: "the archive", text: "a real calendar, weekday header and all. the days you did not record are still there, so the gaps in the record are part of the record." },
-          { label: "the artifact, forming", text: "the gradient is drawn while you record, not applied afterwards." },
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/soundmap/launch/reading.png", alt: "the acoustic reading behind its toggle" },
-          { type: "image", src: "/case/soundmap/launch/artifact-late.png", alt: "the resting artifact" },
-        ],
-        captions: [
-          { label: "the reading", text: "human 54 · machine 22 · nature 12 · music 12. temperate, loud, drifting, and the two colours the sound chose." },
-          { label: "at rest", text: "the resting artifact stays calm. all of the analysis the app computes is invisible by default." },
+        kind: "constraints",
+        label: "the systems thinking",
+        items: [
+          { label: "read", text: "three things are measured off the recording: loudness, instability and warmth. nothing else." },
+          { label: "map", text: "loudness sets where the two colours meet, instability sets how softly they blend, warmth nudges the temperature. the mapping is fixed." },
+          { label: "store", text: "audio and artifact both live in the browser's own indexeddb, on one device. there is no account and no server." },
+          { label: "share", text: "a shared link carries the visual signature only. the sound is not in it." },
         ],
       },
       {
-        kind: "panel",
-        label: "make the colour deterministic",
-        bg: "#1A1917",
-        fg: "#EFEDE5",
-        emphasise: [0],
-        paragraphs: [
-          "if the visual were random it would mean nothing.",
-          "loudness sets where the two colours meet. instability sets how softly they blend. warmth nudges the temperature.",
-          "a strict mapping is harder to design than a pretty accident, and it is the only version worth keeping.",
+        kind: "decisions",
+        label: "key design decisions",
+        items: [
+          {
+            n: "01",
+            title: "one recording a day, and no retakes",
+            why: "a feed of your own moments is not a keepsake, it is a chore. unlimited capture would turn this into a voice-memo app with a nicer skin.",
+            tradeoff: "you cannot fix a bad take, and a day you miss is gone. some people will find that annoying rather than meaningful.",
+            result: "the record button spends itself after a single take and rests until tomorrow. the scarcity is what makes the moment worth choosing.",
+          },
+          {
+            n: "02",
+            title: "make the colour deterministic",
+            why: "if the visual were random it would mean nothing, and the calendar would be wallpaper rather than a record.",
+            tradeoff: "a strict mapping is much harder to design than a pretty accident, and it rules out tuning a result that comes out ugly.",
+            result: "the same soundscape always resolves to the same artifact, so the colour is evidence rather than ornament.",
+          },
+          {
+            n: "03",
+            title: "keep it local by principle, not by default",
+            why: "an archive of your own days should not live on someone else's server, and a sync feature would quietly make it theirs.",
+            tradeoff: "no backup, no second device, and if you clear site data the year is gone.",
+            result: "the audio never leaves the browser. no sync, no accounts, one device, and the acoustic reading sits behind a quiet toggle for anyone who goes looking.",
+          },
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/soundmap/launch/recording.png", alt: "the artifact emerging while recording" },
-          { type: "image", src: "/case/soundmap/launch/spent.png", alt: "the spent state: today is recorded" },
+        kind: "constraints",
+        label: "edge cases accounted for",
+        items: [
+          { label: "a day you missed", text: "empty days still render as days. the gaps in the record are part of the record, so a month you fell off does not quietly close up." },
+          { label: "a microphone you never granted", text: "the calendar, the artifacts and the replay all work without it. only the record button needs permission, and it is the last thing the app asks for rather than the first." },
+          { label: "near-silence, and a fire alarm", text: "the two ends of the loudness range are where a naive mapping produces mud or a flat block. the scale is clamped so a very quiet room and a very loud one still resolve to two distinguishable colours." },
+          { label: "a link sent to someone else", text: "a shared artifact is a visual signature with no audio behind it. the failure mode of a sharing feature on a private journal is that it shares the private part, so it does not carry it at all." },
         ],
-        captions: [
-          { label: "recording", text: "thirty seconds, and the colour arrives with the sound." },
-          { label: "spent", text: "today is recorded. the button rests until tomorrow." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/soundmap/launch/gradient-bleed.png", alt: "the same sound, four readings apart" },
-        overlay: {
-          placement: "below",
-          label: "system design",
-          paragraphs: [
-            "three readings, one artifact. the mapping is fixed, so a day can be recognised by its colour a year later.",
-          ],
-          lines: [
-            "loudness → where the colours meet",
-            "instability → how softly they blend",
-            "warmth → temperature",
-            "palette · traditional japanese hues",
-            "storage · indexeddb, on device",
-            "upload · never",
-          ],
-        },
-      },
-      {
-        kind: "panel",
-        label: "keep it local by principle",
-        bg: "#1A1917",
-        fg: "#EFEDE5",
-        emphasise: [0],
-        paragraphs: [
-          "an archive of your own days should not live on someone else's server.",
-          "the audio stays in the browser's own storage and is never uploaded. no sync, no accounts, one device.",
-          "a shared link carries only the visual signature, not the sound.",
-          "the acoustic reading sits behind a quiet toggle. it is there if you go looking for it.",
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/soundmap/launch/home.png", alt: "the calendar archive" },
-          { type: "image", src: "/case/soundmap/launch/artifact.png", alt: "a finished artifact and its metadata" },
-        ],
-        captions: [
-          { label: "empty days read as days", text: "the gaps in the record are part of the record." },
-          { label: "the artifact", text: "the colours are not decoration. they are read from the recording." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/soundmap/launch/archive-bleed.png", alt: "a month of days, each one a colour" },
       },
     ],
+
   },
 
 
@@ -1898,9 +1780,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "credits",
         label: "about",
         paragraphs: [
-          "kochi's water metro crosses backwaters most apps render as blank blue. this is an independent, non-commercial companion built on top of the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
-          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes.",
-          "there is a full english version and a full malayalam one, narration included.",
+          "kochi's water metro crosses backwaters most apps render as blank blue. this is an independent, non-commercial companion built on the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
+          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. there is a full english version and a full malayalam one, narration included.",
         ],
         creditsLabel: "credits",
         credits: [
@@ -1911,6 +1792,15 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
+        kind: "prototype",
+        label: "try it",
+        src: "/play/kochi-water-metro/index.html",
+        title: "kochi water metro, along the way",
+        frame: "phone",
+        hint: "pick a boarding terminal and a destination, press begin, and then stop touching it. the toggle at the top right switches the whole thing, narration included, into malayalam.",
+        caption: "the real build. the embedded copy has its service worker removed, since installing one from inside a portfolio page would be a rude thing to do to a visitor.",
+      },
+      {
         kind: "detail",
         media: { type: "image", src: "/case/kochi/launch/picker.png", alt: "choosing a boarding terminal and a destination" },
         fit: "contain",
@@ -1919,127 +1809,67 @@ export const caseStudies: Record<string, CaseStudy> = {
         text: "you do not really need navigation on a ferry. there is one route and someone else is steering. what you might want is something telling you what you are passing.",
       },
       {
-        kind: "bleed",
-        media: { type: "image", src: "/case/kochi/launch/journey-bleed.png", alt: "one journey, five moments apart" },
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/kochi/launch/stories-bleed.png", alt: "the picker, a landmark story and a waterway story" },
-        overlay: {
-          placement: "below",
-          label: "a journey, end to end",
-          columns: [
-            { label: "choose", text: "a boarding terminal and a destination. then you put the phone down." },
-            { label: "sail", text: "the ferry follows the real water channels; status cycles from boarding to arrived." },
-            { label: "stories", text: "photos and stories surface as each place passes, in either language." },
-            { label: "offline", text: "map, photos, fonts and narration are all cached up front.", note: "/zero external requests. the malayalam font is bundled" },
-          ],
-        },
-      },
-      {
         kind: "panel",
-        label: "no buttons to press",
+        label: "why this one is different",
         bg: "#F2F6F7",
         fg: "#0E2C3A",
-        emphasise: [0],
+        emphasise: [1],
         paragraphs: [
-          "you are on a boat with a phone in your hand, not at a desk.",
-          "you choose a journey, then put the phone down. the ferry drives and the interface reflects; the stories arrive on their own.",
-          "you give up fine-grained control of the interface. on a ferry that is not a loss.",
+          "a transit app assumes you are trying to get somewhere and are late.",
+          "on a ferry you have already arrived at the only decision there was.",
+          "so this one spends its whole interface on the window, not on the route.",
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/kochi/launch/picker.png", alt: "every ride has a story to tell" },
-          { type: "image", src: "/case/kochi/launch/route.png", alt: "the route drawn on the official map" },
-        ],
-        captions: [
-          { label: "boarding at", text: "high court to fort kochi. direct service, no changes on the way." },
-          { label: "the route", text: "the geometry over the official map is hand-traced, so the ferry never crosses land." },
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/kochi/launch/story-marine.png", alt: "the marine drive waterfront story" },
-          { type: "image", src: "/case/kochi/launch/story-harbour.png", alt: "the cochin harbour story" },
-        ],
-        captions: [
-          { label: "landmark", text: "marine drive: the busiest water the metro crosses, shared with cargo ships slipping toward the container port." },
-          { label: "waterway", text: "the cochin harbour: where vembanad lake meets the arabian sea, one of the richest estuaries on the west coast." },
+        kind: "constraints",
+        label: "the systems thinking",
+        items: [
+          { label: "map", text: "the official public route map, attributed, with hand-traced channel geometry over it so the ferry never crosses land." },
+          { label: "journey", text: "you choose two terminals and the ride drives itself. status cycles boarding, under way, arrived; the interface reflects rather than waits for input." },
+          { label: "stories", text: "each terminal and each stretch of water carries a landmark story and a waterway story, surfaced by position rather than by tapping." },
+          { label: "language", text: "malayalam is the language of the place, not a translation of the english. every story, fact and label exists twice, and the narration doubles." },
+          { label: "offline", text: "map, photos, fonts and narration are cached up front. zero external requests, and the malayalam webfont is bundled rather than fetched." },
         ],
       },
       {
-        kind: "panel",
-        label: "work with no signal",
-        bg: "#F2F6F7",
-        fg: "#0E2C3A",
-        emphasise: [0],
-        paragraphs: [
-          "mid-river is exactly where a connection drops.",
-          "everything, map, photos, fonts and narration, has to be cached up front.",
-          "an offline-first install caches the whole experience, and a single missing file never breaks it.",
+        kind: "decisions",
+        label: "key design decisions",
+        items: [
+          {
+            n: "01",
+            title: "no buttons to press",
+            why: "you are on a boat with a phone in your hand, not at a desk. an interface that needs attention competes with the thing it is describing.",
+            tradeoff: "you give up fine-grained control. you cannot skip ahead, scrub, or pull up a place you already passed.",
+            result: "you choose a journey, then put the phone down. the ferry drives, the interface reflects, and the stories arrive on their own.",
+          },
+          {
+            n: "02",
+            title: "assume there is no signal",
+            why: "mid-river is exactly where a connection drops, which is also exactly when the next story is due.",
+            tradeoff: "everything has to be cached up front, so the first load is heavy and the content cannot be updated without a new install.",
+            result: "an offline-first install caches the whole experience, narration included, and a single missing file never breaks the journey.",
+          },
+          {
+            n: "03",
+            title: "bilingual as equals, not as a setting",
+            why: "a malayalam mode that is a thinner version of the english one tells a local reader exactly what the product thinks of them.",
+            tradeoff: "twice the content to write, twice to keep accurate, and a recorded narration in both rather than one.",
+            result: "the two versions are the same product. the font is bundled so malayalam never falls back to a system face, and the narration has a timed read-along fallback in both languages.",
+          },
         ],
       },
       {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/kochi/launch/marine.png", alt: "marine drive waterfront" },
-          { type: "image", src: "/case/kochi/launch/spice.png", alt: "the spice quarter" },
+        kind: "constraints",
+        label: "edge cases accounted for",
+        items: [
+          { label: "a terminal that is not on the route", text: "the network is a real graph rather than a list, so an impossible pair cannot be chosen and a journey with a change on the way is described as one." },
+          { label: "the connection dropping mid-river", text: "the whole experience is cached before the ride starts, so losing signal halfway is indistinguishable from not losing it." },
+          { label: "a missing photo or narration file", text: "a single absent asset degrades to its story text rather than failing the journey. an offline app that breaks on one 404 is not an offline app." },
+          { label: "a malayalam font that never loads", text: "bundled rather than fetched, because a system fallback for malayalam is usually no malayalam at all, and the read-along fallback covers narration that will not play." },
         ],
-        captions: [
-          { label: "marine drive", text: "the waterfront promenade the route opens on." },
-          { label: "the spice quarter", text: "the warehouses the channel runs behind." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/kochi/launch/journey-bleed.png", alt: "the journey, cached end to end" },
-        overlay: {
-          placement: "below",
-          label: "system design",
-          paragraphs: [
-            "malayalam is the language of the place, not a translation of the english. every story, fact and label exists twice, and the narration doubles.",
-          ],
-          lines: [
-            "map · official public asset, attributed",
-            "route · hand-traced channel geometry",
-            "fonts · malayalam webfont, bundled",
-            "narration · recorded, with a timed read-along fallback",
-            "external requests · zero",
-            "re-localises mid-ride without starting over",
-          ],
-        },
-      },
-      {
-        kind: "panel",
-        label: "bilingual as equals",
-        bg: "#F2F6F7",
-        fg: "#0E2C3A",
-        emphasise: [0],
-        paragraphs: [
-          "malayalam is the language of the place, not a translation of the english.",
-          "parallel content in both languages, a real malayalam webfont, and a journey that re-localizes mid-ride without starting over.",
-          "every story, fact and label exists twice, and the narration doubles. that is the cost, and it is the right one.",
-        ],
-      },
-      {
-        kind: "duo",
-        media: [
-          { type: "image", src: "/case/kochi/map.svg", alt: "the official water metro route map" },
-          { type: "image", src: "/case/kochi/launch/mangrove.png", alt: "the mangrove eco-zone" },
-        ],
-        captions: [
-          { label: "the stage", text: "the official map, reused as the stage the journey plays out on." },
-          { label: "the mangrove eco-zone", text: "the quiet stretch, and the reason the route is worth watching." },
-        ],
-      },
-      {
-        kind: "bleed",
-        media: { type: "image", src: "/case/kochi/launch/stories-bleed.png", alt: "the companion, running without a signal" },
       },
     ],
+
   },
 
 };
