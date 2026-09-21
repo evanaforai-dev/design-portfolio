@@ -43,16 +43,20 @@ import { ProjectCard } from "./ProjectCard";
  */
 
 /*
- * Order within each band. Office hours reads as a recruiter reads: the ai
- * systems first, then the financial products, then the service-design study.
- * After hours is ordered by how much product thinking each one carries, not by
- * how pretty the tile is. Anything not listed still renders, appended in data
- * order, so adding a project to projects.ts is enough to publish it.
+ * Order within each band. Office hours leads with the internal operations
+ * product, then the ai systems, then the financial products, then the
+ * service-design study. Vision is first because it is the densest piece of
+ * product work here and the one a platform team recognises as their own
+ * problem: roles, permissions, views, state, and a migration run on live
+ * money. After hours is ordered by how much product thinking each one
+ * carries, not by how pretty the tile is. Anything not listed still renders,
+ * appended in data order, so adding a project to projects.ts is enough to
+ * publish it.
  */
 const LAYOUT: string[] = [
+  "vision",
   "airtribe-ai-skills",
   "wells-fargo",
-  "vision",
   "kochi1app",
   "lipi",
   "kochi-water-metro",

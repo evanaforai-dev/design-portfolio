@@ -697,6 +697,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "outcome",
         paragraphs: [
+          "the sales sheet is no longer the source of truth. three spreadsheets scattered across two departments are now one table, and that table carries the whole lead lifecycle: the first payment through to onboarding into the lms.",
+          "views and role-based permissions cut scroll depth in half. before them, reaching your own columns meant scrolling past everything two other teams needed; now the row arrives as the job you came to do. the change log did the other half of the work, and accidental edits dropped once a row could be asked who last touched it.",
           "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
           "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
           "the capture at the top is the live product with the people taken out of it. the agent and lead name columns are destroyed rather than blurred, and nothing else is touched: the filter bar, the column names, the payment types, the statuses, the dates and the amounts are the real thing, because those are the design.",
@@ -710,15 +712,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
         links: [{ label: "get in touch", href: `mailto:${site.email}` }],
       },
-      /*
-       * Written from what is already on this page: the sync section, which
-       * resolves six ways including "already in sync", and the three phases,
-       * which staged around a sheet that stayed live throughout. The product
-       * was never designed to switch the sheet off.
-       */
       {
         kind: "reflection",
-        text: "i went in expecting to replace the sheet and came out having built something that has to live next to it. the sync states are the tell: a product that had genuinely replaced a spreadsheet would not need a word for already in sync. what i would argue for now is that this was the right outcome rather than a compromise. the sheet was never the problem. the problem was that it could not say who was allowed to change what, and that is the only thing worth taking away from someone who trusts their own tools.",
+        text: "the sheet was never bad at what it did. it was fast, everybody could see it, and that is most of what a tool has to be. what it could not do was say who was allowed to change something, or who had. so the first phase went on matching it rather than beating it, and everything after that went on the two things it structurally could not have. i think that order was the whole job. nobody hands over a tool they trust to something that is merely newer, and the sync states are the proof of how long that takes: the product had to be able to say already in sync for months before anyone would agree it was the source of truth instead.",
       },
     ],
   },
@@ -762,12 +758,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learner. one is used by the learning designers who write the material paid learners get. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
+      { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
       {
         kind: "context",
         paragraphs: [
-          "the two pull in opposite directions. outside, the author is the model itself, writing for one reader who has no easy way to check it, so the risk is trust. inside, the author is a colleague building for a catalogue, so the risk is drift: fifty lessons that each look slightly like whoever wrote them.",
-          "which means the guardrail points the other way in each. kai protects the reader from the product. the pre-read skill protects the product from its authors.",
+          "the two pull in opposite directions. inside, the author is a colleague building for a catalogue, so the risk is drift: fifty lessons that each look slightly like whoever wrote them. outside, the author is the model itself, writing for one reader who has no easy way to check it, so the risk is trust.",
+          "which means the guardrail points the other way in each. the pre-read skill protects the product from its authors. kai protects the reader from the product.",
         ],
       },
       {
@@ -785,115 +781,23 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
 
       /*
-       * ── 01 · KAI, THE CONSUMER SKILL ──────────────────────────────────
+       * ── 01 · PRE-READS, THE INTERNAL SKILL ────────────────────────────
        *
        * Two case studies share this page, and each one runs its own full
        * arc: thesis, context, question, the product, the decisions, the
        * outcome. They open on a `thesis` rather than a labelled `context`
        * because the eyebrow plus display type is the only break on this site
        * big enough to read as "a new project starts here" in one scroll.
+       *
+       * The internal skill leads. Both are ai work, but this is the one that
+       * is a system somebody else has to author inside, and that is the
+       * harder thing to have done. Kai follows, and the page still opens on
+       * kai's landing, because the index tile is kai and a reader clicking a
+       * tile should arrive at the picture they clicked.
        */
       {
         kind: "thesis",
-        eyebrow: "01 · kai · the consumer skill",
-        text: "most 'learn anything with ai' products are a chat box with a better frame: you ask, it answers, and what you are left with afterwards is a transcript. kai writes a lesson instead. enough structure to build momentum, enough freedom to follow the thing you got curious about, and the whole lesson written to four answers you give before it starts.",
-      },
-      {
-        kind: "context",
-        label: "what kai is",
-        paragraphs: [
-          "kai is an ai-first learning experience for the airtribe community. you give it a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go, and it writes to those answers, opening by naming what you already know so it starts where you are.",
-          "a concept map draws the ideas and their links as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
-        ],
-      },
-      {
-        kind: "question",
-        text: "what if ai adapted to how someone learns, instead of only answering what they asked?",
-      },
-      {
-        kind: "full",
-        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
-        fit: "cover",
-        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
-      },
-      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
-      {
-        kind: "pipeline",
-        label: "how a lesson gets made",
-        steps: [
-          { glyph: "input", label: "topic", text: "you give kai something you have been wondering about." },
-          { glyph: "cards", label: "intake", text: "four questions: purpose, background, prior knowledge, depth.", note: "asked once, up front. personalising afterwards writes the lesson for no one" },
-          { glyph: "layers", label: "lesson", text: "a hook, a worked example, the misconception, a quick check, a reflection." },
-          { glyph: "graph", label: "map", text: "the concepts and their links, drawn as you read." },
-          { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
-        ],
-      },
-      {
-        kind: "decisions",
-        label: "key decisions · kai",
-        items: [
-          {
-            n: "01",
-            title: "build it the way a teacher would",
-            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
-            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
-            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
-            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
-            fit: "contain",
-          },
-          {
-            n: "02",
-            title: "ask four questions, then commit",
-            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
-            tradeoff: "four questions is four screens before anyone has read a single word.",
-            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
-            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
-            fit: "cover",
-          },
-          {
-            n: "03",
-            title: "draw the topic while you read it",
-            why: "a lesson you read and close leaves nothing you can hold onto.",
-            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
-            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
-            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
-            fit: "cover",
-          },
-          {
-            n: "04",
-            title: "cite sources, not vibes",
-            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
-            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
-            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
-            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
-            fit: "cover",
-          },
-        ],
-      },
-      {
-        kind: "outcome",
-        label: "outcome · kai",
-        paragraphs: [
-          "kai is a demo, and it is the honest word for it. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic you give it.",
-          "it is not carrying a catalogue the way the internal skill is, and there are no adoption or retention figures behind it, because there is nothing yet to measure. what it demonstrates is the shape: that an ai learning product can be built to plan a lesson rather than answer a question, and that the cost of doing so is four screens of intake before anyone reads a word.",
-        ],
-      },
-      {
-        kind: "deeper",
-        label: "kai, in full",
-        paragraphs: [
-          "the demo is live, and it is the quickest way to judge it. kai also has its own page here, an unhurried walkthrough of the workspace, the intake, the map and the library.",
-        ],
-        links: [
-          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-          { label: "the full kai walkthrough", href: "/work/airtribe-learn/" },
-        ],
-      },
-
-      /* ── 02 · PRE-READS, THE INTERNAL SKILL ───────────────────────────── */
-      {
-        kind: "thesis",
-        eyebrow: "02 · pre-reads · the internal skill",
+        eyebrow: "01 · pre-reads · the internal skill",
         text: "a pre-read is what a learner gets before a live session, and at airtribe they are written by learning designers rather than visual ones. across a growing catalogue that produced fifty lessons which each looked slightly like whoever wrote them. the problem was never which components existed. it was how much room an author is allowed.",
       },
       {
@@ -1034,10 +938,108 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
 
+      /* ── 02 · KAI, THE CONSUMER SKILL ─────────────────────────────────── */
+      {
+        kind: "thesis",
+        eyebrow: "02 · kai · the consumer skill",
+        text: "most 'learn anything with ai' products are a chat box with a better frame: you ask, it answers, and what you are left with afterwards is a transcript. kai writes a lesson instead. enough structure to build momentum, enough freedom to follow the thing you got curious about, and the whole lesson written to four answers you give before it starts.",
+      },
+      {
+        kind: "context",
+        label: "what kai is",
+        paragraphs: [
+          "kai is an ai-first learning experience for the airtribe community. you give it a topic and answer four quick questions, what you need it for, your background, what you already know, and how far to go, and it writes to those answers, opening by naming what you already know so it starts where you are.",
+          "a concept map draws the ideas and their links as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+        ],
+      },
+      {
+        kind: "question",
+        text: "what if ai adapted to how someone learns, instead of only answering what they asked?",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
+        fit: "cover",
+        caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
+      },
+      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
+      {
+        kind: "pipeline",
+        label: "how a lesson gets made",
+        steps: [
+          { glyph: "input", label: "topic", text: "you give kai something you have been wondering about." },
+          { glyph: "cards", label: "intake", text: "four questions: purpose, background, prior knowledge, depth.", note: "asked once, up front. personalising afterwards writes the lesson for no one" },
+          { glyph: "layers", label: "lesson", text: "a hook, a worked example, the misconception, a quick check, a reflection." },
+          { glyph: "graph", label: "map", text: "the concepts and their links, drawn as you read." },
+          { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
+        ],
+      },
+      {
+        kind: "decisions",
+        label: "key decisions · kai",
+        items: [
+          {
+            n: "01",
+            title: "build it the way a teacher would",
+            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
+            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
+            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
+            fit: "contain",
+          },
+          {
+            n: "02",
+            title: "ask four questions, then commit",
+            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
+            tradeoff: "four questions is four screens before anyone has read a single word.",
+            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
+            fit: "cover",
+          },
+          {
+            n: "03",
+            title: "draw the topic while you read it",
+            why: "a lesson you read and close leaves nothing you can hold onto.",
+            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
+            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
+            fit: "cover",
+          },
+          {
+            n: "04",
+            title: "cite sources, not vibes",
+            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
+            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
+            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
+            fit: "cover",
+          },
+        ],
+      },
+      {
+        kind: "outcome",
+        label: "outcome · kai",
+        paragraphs: [
+          "kai is a demo, and it is the honest word for it. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic you give it.",
+          "it is not carrying a catalogue the way the internal skill is, and there are no adoption or retention figures behind it, because there is nothing yet to measure. what it demonstrates is the shape: that an ai learning product can be built to plan a lesson rather than answer a question, and that the cost of doing so is four screens of intake before anyone reads a word.",
+        ],
+      },
+      {
+        kind: "deeper",
+        label: "kai, in full",
+        paragraphs: [
+          "the demo is live, and it is the quickest way to judge it. kai also has its own page here, an unhurried walkthrough of the workspace, the intake, the map and the library.",
+        ],
+        links: [
+          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+          { label: "the full kai walkthrough", href: "/work/airtribe-learn/" },
+        ],
+      },
+
       // ── close ────────────────────────────────────────────────────────────
       {
         kind: "statement",
-        text: "both are defined by what they refuse. kai refuses to just answer. the pre-read skill refuses confetti. in a system that generates, the design decision worth having is almost always a subtraction.",
+        text: "both are defined by what they refuse. the pre-read skill refuses confetti. kai refuses to just answer. in a system that generates, the design decision worth having is almost always a subtraction.",
       },
       /*
        * The single combined outcome that used to sit here has been split in
