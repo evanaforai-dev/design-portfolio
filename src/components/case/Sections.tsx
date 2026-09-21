@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Section } from "@/types/caseStudy";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
@@ -571,6 +572,69 @@ export function renderSection(section: Section, i: number) {
                     {p}
                   </p>
                 ))}
+              </div>
+            </div>
+          </Container>
+        </Band>
+      );
+
+    /*
+     * DEEPER — the closing invitation, set as the quietest band on the page.
+     * It borrows outcome's label rail so it reads as the last row of the
+     * record rather than a call to action bolted onto the end, and its links
+     * are the same understated underline the hero band uses. An internal href
+     * goes through next/link so it picks up the basePath; a raw anchor would
+     * resolve against the domain root and 404 on a project-path host.
+     */
+    case "deeper":
+      return (
+        <Band key={i}>
+          <Container>
+            <div className="grid grid-cols-1 gap-8 border-t border-hairline pt-8 md:grid-cols-12 md:gap-10">
+              <p className="label md:col-span-3">
+                {section.label ?? "want the full story?"}
+              </p>
+              <div className="max-w-[46rem] md:col-span-9">
+                <div className="space-y-5">
+                  {section.paragraphs.map((p, j) => (
+                    <p key={j} className="text-lg leading-relaxed text-fg">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+                {section.links && section.links.length > 0 && (
+                  <div className="mt-8 flex flex-wrap gap-6">
+                    {section.links.map((l) => {
+                      /*
+                       * Anything carrying a scheme leaves the site, mailto
+                       * included: routing a mailto through next/link would
+                       * hand the router a url it cannot navigate to, and the
+                       * arrow would promise a page that does not exist. Only
+                       * a mail client gets a new tab, because a compose
+                       * window replacing the portfolio is a dead end.
+                       */
+                      const mail = l.href.startsWith("mailto:");
+                      const external = mail || /^https?:/.test(l.href);
+                      const cls =
+                        "text-sm text-fg underline-offset-4 hover:underline";
+                      return external ? (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target={mail ? undefined : "_blank"}
+                          rel="noreferrer"
+                          className={cls}
+                        >
+                          {l.label} ↗
+                        </a>
+                      ) : (
+                        <Link key={l.href} href={l.href} className={cls}>
+                          {l.label} →
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           </Container>

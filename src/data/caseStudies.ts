@@ -1,4 +1,5 @@
 import type { CaseStudy } from "@/types/caseStudy";
+import { site } from "./site";
 
 /**
  * Case-study content. Every claim here is grounded in the actual project repos.
@@ -47,9 +48,16 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and a deadline. two of the three are live on wellsfargo.com, so you can check the result rather than take my word for it." },
+      { kind: "thesis", eyebrow: "product thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and a deadline. two of the three are live on wellsfargo.com, so you can check the result rather than take my word for it." },
       {
+        /*
+         * Labelled rather than left as the default "context": on a page about
+         * an enterprise migration run by a team across two countries, the
+         * first question a reader has is which parts were the author's. The
+         * answer is co-led, and it says so in the label as well as the prose.
+         */
         kind: "context",
+        label: "role and ownership",
         paragraphs: [
           "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, working across the line-of-business product team, legal, cms and engineering, us and india.",
           "the brief was the same each time. make it simpler, make it compliant, make it work on a phone, and do not break the business already running through it.",
@@ -155,6 +163,14 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the internal material stays behind a wells fargo nda, so the comps, the research and the roadmap are described here rather than shown. the live pages are public, and are shown as they run.",
         ],
       },
+      {
+        kind: "deeper",
+        paragraphs: [
+          "what is shown here is the public half: three live pages and the reasoning that got them there. the comps, the research, the ia explorations and the directions that were rejected along the way stay behind a wells fargo nda.",
+          "i am happy to walk through the full process privately, including the parts that did not ship.",
+        ],
+        links: [{ label: "get in touch", href: `mailto:${site.email}` }],
+      },
       { kind: "reflection", text: "most of the work that mattered happened before anything looked like a screen: cutting scope with the product team, getting legal and engineering to agree on what was possible. by the time i was moving things around a page, the difficult calls had already been made." },
     ],
   },
@@ -188,9 +204,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "people could already find a route in kochi1app. what they could not find was what the trip would actually be like, whether the transfer was walkable, where the exit came out, how long they would be standing in the sun waiting for the connection. the redesign is mostly about that gap." },
+      { kind: "thesis", eyebrow: "product thesis", text: "people could already find a route in kochi1app. what they could not find was what the trip would actually be like, whether the transfer was walkable, where the exit came out, how long they would be standing in the sun waiting for the connection. the redesign is mostly about that gap." },
       {
         kind: "context",
+        label: "role and ownership",
         paragraphs: [
           "kochi1app is the official app for kochi's metro and water metro. i ran an end-to-end service-design study across the city's multimodal transport, interviews with riders, station staff and management, personas, journey maps, service blueprints and a competitor teardown, to find where the app leaves people stranded rather than just where a screen looks dated.",
           "three things kept coming up. why someone was making the trip at all. how little the app did to make the greener route the attractive one. and how much of a journey happens outside the route itself, in the transfer, the walk, the auto at the other end.",
@@ -267,6 +284,20 @@ export const caseStudies: Record<string, CaseStudy> = {
           "it was delivered to kochi metro as a service-design study, personas, journey maps, service blueprints and policy plus design recommendations, not just a set of screens.",
         ],
       },
+      {
+        kind: "deeper",
+        paragraphs: [
+          "what is on this page is the argument and the redesign. the study behind it is much longer: the interviews, the five personas, the journey maps, the service blueprints, the competitor teardown and the policy recommendations that went out alongside the design ones.",
+          "the full service-design report is public. i am happy to walk through the research and the rounds the screens went through privately.",
+        ],
+        links: [
+          {
+            label: "the complete study",
+            href: "https://www.behance.net/gallery/212543637/Public-Transport-Systems-Service-Design",
+          },
+          { label: "get in touch", href: `mailto:${site.email}` },
+        ],
+      },
       { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file. the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers waiting outside, the walk at the end that nobody had mapped." },
     ],
   },
@@ -314,14 +345,24 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "bleed",
         media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a kai lesson on the hard problem of consciousness, with its concept map" },
+        /*
+         * This band used to carry four performance figures: 30%+ more
+         * completed journeys, 60%+ returning learners, 70%+ of sessions with
+         * an active interaction, under five minutes to start. None of them
+         * can be true. Kai is a demo with one seeded lesson, and the intake
+         * capture two screens down has DEMO VERSION printed in its corner, so
+         * a reader could catch the contradiction without leaving the page.
+         * Replaced with what the demo actually is. If real numbers exist from
+         * a study, they belong here and nowhere else.
+         */
         overlay: {
           placement: "below",
-          label: "what changed",
+          label: "what it is",
           columns: [
-            { label: "30%+", text: "increase in completed learning journeys compared with open-ended ai exploration" },
-            { label: "60%+", text: "of learners return to continue a topic or start another learning journey" },
-            { label: "70%+", text: "of sessions include an active learning interaction such as practice, reflection or retrieval" },
-            { label: "<5 min", text: "from choosing a topic to starting a structured learning journey" },
+            { label: "a working demo", text: "one seeded lesson, the hard problem of consciousness, runs the whole system end to end" },
+            { label: "any topic", text: "the intake accepts anything, and the lesson is written to the four answers it collects" },
+            { label: "one lesson, not a transcript", text: "a hook, a worked example, the misconception, a quick check, a reflection" },
+            { label: "sources, not vibes", text: "the library holds what each claim rests on, marked cited and linked out" },
           ],
         },
       },
@@ -346,7 +387,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           // TODO · the framer page runs deep cuts' seven-stage journey here.
           // these five are kai's own loop.
           columns: [
-            { label: "intake", text: "what do you want to learn? what do you already know?" },
+            { label: "intake", text: "four questions: purpose, background, prior knowledge, depth" },
             { label: "framework", text: "the answers shape a structure before a single lesson is written" },
             { label: "lesson", text: "explanation, example and practice, in one surface" },
             { label: "concept map", text: "what you have covered, and what it connects to" },
@@ -362,10 +403,52 @@ export const caseStudies: Record<string, CaseStudy> = {
         emphasise: [1, 5],
         paragraphs: [
           "ai makes learning incredibly easy to start, but not necessarily easy to process. we focused on shifting the cognitive work from finding information to deciding what matters.",
-          "we wanted kai to carry some of that weight. first: what do you want to learn? what do you already know?",
+          "we wanted kai to carry some of that weight. four questions before anything is generated: what you need it for, your background, what you already know, and how far to go.",
           "we brought those little acts of learning into the interface. highlight something and ask kai about it. leave a note in your own words. watch the concept map grow.",
           "the library leads you back to the papers, articles and books behind the subject: a way out of the ai's version of the world and into the real one.",
           "the aim wasn't to invent a new way to learn. it was to remember what learning already feels like, and rebuild it for ai.",
+        ],
+      },
+      /*
+       * The four product decisions, moved here from /work/airtribe-ai-skills/.
+       * That page is an argument about two skills and was carrying a second
+       * case study down its middle; this one had every screenshot of kai and
+       * none of the reasoning behind them. The media is deliberately left off:
+       * the duos immediately below show the same four surfaces, and printing
+       * them twice on one page is a wall of screenshots, not evidence.
+       */
+      {
+        kind: "decisions",
+        label: "key decisions",
+        items: [
+          {
+            n: "01",
+            title: "build it the way a teacher would",
+            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
+            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
+            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+          },
+          {
+            n: "02",
+            title: "ask four questions, then commit",
+            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
+            tradeoff: "four questions is four screens before anyone has read a single word.",
+            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+          },
+          {
+            n: "03",
+            title: "draw the topic while you read it",
+            why: "a lesson you read and close leaves nothing you can hold onto.",
+            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
+            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+          },
+          {
+            n: "04",
+            title: "cite sources, not vibes",
+            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
+            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
+            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+          },
         ],
       },
       {
@@ -375,7 +458,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/airtribe-learn/framework.png", alt: "the framework the intake produces" },
         ],
         captions: [
-          { label: "intake", text: "two questions before anything is generated. the answers are what make the journey yours rather than generic." },
+          { label: "intake", text: "four questions before anything is generated. the answers are what make the journey yours rather than generic." },
           { label: "framework", text: "structure first, content second. the shape of the journey exists before a lesson is written." },
         ],
       },
@@ -417,6 +500,18 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "bleed",
         media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "the concept map, grown" },
       },
+      {
+        kind: "deeper",
+        paragraphs: [
+          "kai is a demo, and it is running: one seeded lesson takes the whole system end to end, and the intake will take any topic you give it. the quickest way to judge it is to use it.",
+          "the design language it is built on is a separate piece of work, and the explorations, the rejected directions and what i would change about the intake are best walked through in a conversation.",
+        ],
+        links: [
+          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+          { label: "the design language behind it", href: "/work/airtribe-ai-skills/" },
+          { label: "get in touch", href: `mailto:${site.email}` },
+        ],
+      },
     ],
   },
 
@@ -454,7 +549,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "every enrolment, instalment and refund the company took was recorded in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: the sheet was fast, it was visible, and it had never once asked anyone for permission. a product that replaces a spreadsheet people like does not get to start from what it can do better. it has to start from what the spreadsheet was already doing right." },
+      { kind: "thesis", eyebrow: "product thesis", text: "every enrolment, instalment and refund the company took was recorded in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: the sheet was fast, it was visible, and it had never once asked anyone for permission. a product that replaces a spreadsheet people like does not get to start from what it can do better. it has to start from what the spreadsheet was already doing right." },
       {
         kind: "context",
         paragraphs: [
@@ -603,9 +698,24 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the screens are shown with synthetic records under an airtribe nda. every name, company, amount and date is invented; the structure is the real thing.",
         ],
       },
-      // TODO · REFLECTION — in evana's voice. candidate, if true: the sheet is
-      // still there. a product did not replace it, it learned to live next to
-      // it, and the row index is the scar.
+      {
+        kind: "deeper",
+        paragraphs: [
+          "vision is an internal product, so what is shown here is the reasoning rather than the screens. the records are synthetic, the interface itself sits behind an airtribe nda, and the research sessions, the column-by-column decisions and the phases that were tested and cut are not public.",
+          "i can walk through the product, the rounds it went through and the calls behind each column privately.",
+        ],
+        links: [{ label: "get in touch", href: `mailto:${site.email}` }],
+      },
+      /*
+       * Written from what is already on this page: the sync section, which
+       * resolves six ways including "already in sync", and the three phases,
+       * which staged around a sheet that stayed live throughout. The product
+       * was never designed to switch the sheet off.
+       */
+      {
+        kind: "reflection",
+        text: "i went in expecting to replace the sheet and came out having built something that has to live next to it. the sync states are the tell: a product that had genuinely replaced a spreadsheet would not need a word for already in sync. what i would argue for now is that this was the right outcome rather than a compromise. the sheet was never the problem. the problem was that it could not say who was allowed to change what, and that is the only thing worth taking away from someone who trusts their own tools.",
+      },
     ],
   },
 
@@ -637,7 +747,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
+      { kind: "thesis", eyebrow: "product thesis", text: "a skill is a packaged set of instructions a model works inside. airtribe has two, and they are not versions of each other. one is used by the learning designers who write the material paid learners get. one is used by the learner. in both, the work is the same and it is not a screen: deciding what the author may change and what they may never touch." },
       {
         kind: "context",
         paragraphs: [
@@ -666,14 +776,39 @@ export const caseStudies: Record<string, CaseStudy> = {
         frame: true,
         caption: "the working board, roughly 20,000 by 22,000 px. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
       },
+      /*
+       * The four-stage research run that used to sit here (frame, audit,
+       * scan, synthesise) came out. It documented method rather than
+       * decisions, and everything it carried is said more usefully elsewhere:
+       * the audit is the restyle checklist quoted in the context above, and
+       * the eight families are the system section below. The decisions block
+       * that replaces it is the same work, cut as calls rather than steps.
+       */
       {
-        kind: "pipeline",
-        label: "how the board got there",
-        steps: [
-          { glyph: "map", label: "frame", text: "what a pre-read is for, and where interactivity actually helps someone prepare." },
-          { glyph: "scan", label: "audit", text: "shipped pre-reads pulled side by side, to find where consistency broke and how." },
-          { glyph: "archive", label: "scan", text: "references and patterns for interactive learning content, light and dark." },
-          { glyph: "converge", label: "synthesise", text: "every recurring piece clustered into reusable families.", note: "eight of them, which is what the catalogue needed rather than a round number" },
+        kind: "decisions",
+        label: "key decisions",
+        items: [
+          {
+            n: "01",
+            title: "a skill, not a template set and not a rulebook",
+            why: "templates hold a catalogue together by capping what a lesson is allowed to be. a rulebook leaves an author free and gets read once. the lxd team needed both halves at the same time, across a catalogue that was still growing.",
+            tradeoff: "a skill has to be comprehensive enough to write an entire lesson inside, which is far more to author and maintain than a page of guidelines.",
+            result: "the brand is inherited by construction rather than checked after the fact, so the only thing left for a learning designer to decide is the teaching.",
+          },
+          {
+            n: "02",
+            title: "classify by behaviour, so the component nobody has built yet is already covered",
+            why: "most of a real pre-read is not a library primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space. whatever a component library failed to cover would have been the interesting part of the lesson.",
+            tradeoff: "eight behaviours is a coarser instrument than a list of components, and it asks an author to decide what a thing does before they can start building it.",
+            result: "anything new is placed by what it does, prose, widget, data-figure, chrome or code, inherits that family's surfaces, and comes out airtribe without passing a designer.",
+          },
+          {
+            n: "03",
+            title: "govern the look and nothing else",
+            why: "a skill that reached into structure or pedagogy is a skill the learning designers would route around, and the entire value of this one is that they author inside it.",
+            tradeoff: "it can produce a pre-read that is perfectly on-brand and badly taught, and there is no guardrail in it that would catch that.",
+            result: "one accent, cool neutrals, two typefaces, every state defined. structure, sections, which components a concept needs and the teaching itself stay with the author, and the skill says so in as many words.",
+          },
         ],
       },
       {
@@ -682,10 +817,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         tried: "the lxd team arrived with a version of interactive pre-reads that had every possible interaction and every possible component in it. we broke that down into broad categories and shipped a basic version, and it was rejected: too simple, not good enough. so we went back and did the pedagogical work we had skipped, what actually makes a pre-read interactive for someone preparing, rather than what is technically possible to build. then we built a component maker, a framer-like tool for assembling the artifacts.",
         result: "the component maker made the workflow worse. the chain already ran designer, then program manager, then a copy-paste into the internal dashboard, and the maker added another station to it. it was longer than what it replaced and it had one more place for an error to enter.",
         change: "we scratched it and built the skill instead, comprehensive enough that the learning experience designer writes the whole lesson inside it and hands over a link. the rule that came out: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem. put the making where the pedagogy already is.",
-      },
-      {
-        kind: "statement",
-        text: "don't choose between freedom and consistency. make the brand inherited by construction, so the only thing left to design is the teaching.",
       },
       {
         kind: "pipeline",
@@ -702,7 +833,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "eight families, not a component library",
         paragraphs: [
           "most of a real pre-read is not a shadcn primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space, code blocks, llm pipeline diagrams. a library could not have covered that, and whatever it failed to cover would have been the interesting part of the lesson.",
-          "so the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. anything that does not exist yet gets placed by what it does, prose, widget, data-figure, chrome or code, inherits that family's surfaces, and holds three constants: purple is the one accent, neutrals are cool, colour means state. a component invented tomorrow still comes out airtribe.",
+          "so the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. each family carries the same three constants, purple is the one accent, neutrals are cool, colour means state, which is why a component invented tomorrow still comes out airtribe.",
         ],
         mapping: [
           { from: "01 reading & narrative", to: "prose on the ground, accent for emphasis, never a boxed paragraph" },
@@ -743,17 +874,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kind: "constraints",
-        label: "the guardrails, deliberately narrow",
-        items: [
-          { label: "one accent", text: "purple is the only brand colour. never indigo, never another purple." },
-          { label: "cool neutrals", text: "cool grey on pure white. no cream, no warm greys." },
-          { label: "two typefaces", text: "plus jakarta sans and inter, with mono kept for real code." },
-          { label: "every state", text: "an interactive element defines all of its states or it is not finished." },
-          { label: "what stays free", text: "structure, sections, which components a concept needs, and the pedagogy. the skill governs how a pre-read looks and nothing else, which is the line that makes authors trust it." },
-        ],
-      },
-      {
         kind: "figures",
         media: [
           { type: "image", src: "/case/airtribe-ai-skills/lesson.png", alt: "a pre-read opening with its learning objectives and a tabbed comparison of three systems" },
@@ -779,6 +899,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "cover",
         caption: "the workspace: kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture, highlight anything and ask.",
       },
+      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
       {
         kind: "pipeline",
         label: "how a lesson gets made",
@@ -790,48 +911,14 @@ export const caseStudies: Record<string, CaseStudy> = {
           { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
         ],
       },
-      {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "build it the way a teacher would",
-            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
-            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
-            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
-            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
-            fit: "contain",
-          },
-          {
-            n: "02",
-            title: "ask four questions, then commit",
-            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
-            tradeoff: "four questions is four screens before anyone has read a single word.",
-            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
-            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
-            fit: "cover",
-          },
-          {
-            n: "03",
-            title: "draw the topic while you read it",
-            why: "a lesson you read and close leaves nothing you can hold onto.",
-            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
-            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
-            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
-            fit: "cover",
-          },
-          {
-            n: "04",
-            title: "cite sources, not vibes",
-            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
-            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
-            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
-            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
-            fit: "cover",
-          },
-        ],
-      },
-      { kind: "statement", text: "kai opens a lesson by naming what you already know. it is one sentence, and it does more for trust than anything else in the product." },
+      /*
+       * Kai's four product decisions used to sit here, each with a screenshot.
+       * They now live on kai's own page, which is where someone who wants the
+       * product rather than the argument is going: that page had the pictures
+       * and none of the reasoning, and this one was running two full case
+       * studies down a single column. What stays here is the summary, the
+       * workspace and how a lesson gets made, with the door to the rest.
+       */
 
       // ── close ────────────────────────────────────────────────────────────
       {
@@ -846,6 +933,18 @@ export const caseStudies: Record<string, CaseStudy> = {
           "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
           "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
           "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic.",
+        ],
+      },
+      {
+        kind: "deeper",
+        paragraphs: [
+          "kai has its own case study, with the product in full. the internal skill does not, and cannot: the pre-reads it produces are what paid learners get, so the system and the reasoning are public here and the lessons themselves are not.",
+          "the spec, the audit the eight families came out of, and the version that was built and thrown away are all things i am happy to walk through privately.",
+        ],
+        links: [
+          { label: "the full kai case", href: "/work/airtribe-learn/" },
+          { label: "kai, live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+          { label: "get in touch", href: `mailto:${site.email}` },
         ],
       },
       { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the component maker was the same mistake wearing a different shape, building the thing that makes the artifact instead of fixing where the artifact gets decided. the skill governs how a pre-read looks and nothing about whether the lesson is any good, so it can still produce something on-brand and badly taught. that part is still on the person writing it." },

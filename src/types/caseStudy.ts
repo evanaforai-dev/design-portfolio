@@ -168,6 +168,20 @@ export type Section =
   | { kind: "outcome"; label?: string; paragraphs: string[] }
   | { kind: "reflection"; text: string }
   /**
+   * DEEPER — the closing invitation. A public case study is the high-signal
+   * version, not the whole file: the research, the explorations, the rejected
+   * directions and the material that sits behind an nda all live in the
+   * conversation this section is asking for. Every professional case study
+   * ends with one, so no reader reaches the bottom of a page with nothing to
+   * do but hit back.
+   */
+  | {
+      kind: "deeper";
+      label?: string;
+      paragraphs: string[];
+      links?: CaseLink[];
+    }
+  /**
    * TURN — the direction that was tried first and abandoned. Every case study
    * gets one: it is the section a reader cannot get from a screenshot, and the
    * thing that separates a record of work from a presentation of it.
