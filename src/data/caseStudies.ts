@@ -410,47 +410,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       /*
-       * The four product decisions, moved here from /work/airtribe-ai-skills/.
-       * That page is an argument about two skills and was carrying a second
-       * case study down its middle; this one had every screenshot of kai and
-       * none of the reasoning behind them. The media is deliberately left off:
-       * the duos immediately below show the same four surfaces, and printing
-       * them twice on one page is a wall of screenshots, not evidence.
+       * Kai's four product decisions live on /work/airtribe-ai-skills/, which
+       * is where kai belongs: it is one of the two skills, not a separate
+       * engagement, and that page now runs both skills as full case studies
+       * under one heading. This page stays what it has always been, the
+       * unhurried visual walkthrough for someone who has read the argument
+       * and wants to see the thing.
        */
-      {
-        kind: "decisions",
-        label: "key decisions",
-        items: [
-          {
-            n: "01",
-            title: "build it the way a teacher would",
-            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
-            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
-            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
-          },
-          {
-            n: "02",
-            title: "ask four questions, then commit",
-            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
-            tradeoff: "four questions is four screens before anyone has read a single word.",
-            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
-          },
-          {
-            n: "03",
-            title: "draw the topic while you read it",
-            why: "a lesson you read and close leaves nothing you can hold onto.",
-            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
-            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
-          },
-          {
-            n: "04",
-            title: "cite sources, not vibes",
-            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
-            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
-            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
-          },
-        ],
-      },
       {
         kind: "duo",
         media: [
@@ -527,20 +493,27 @@ export const caseStudies: Record<string, CaseStudy> = {
         "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
         /*
-         * The sales sheet itself, redacted. The text is destroyed by squeezing
-         * the image along one axis and stretching it back, not blurred: a blur
-         * is a convolution and convolutions can be attacked, while these
-         * pixels no longer exist. Crushing only X averages each word into a
-         * streak and leaves every row edge and fill colour exactly where it
-         * was, so it reads as a document with its contents struck out rather
-         * than as a photograph somebody smeared.
+         * The payments record in vision, live. The agent column carried five
+         * colleagues' full names and their real @airtribe.live addresses, and
+         * the lead column carried names whose emails had been masked upstream
+         * but whose names had not, so both are destroyed by squeezing along
+         * one axis and stretching back: a blur is a convolution and
+         * convolutions can be attacked, while these pixels no longer exist.
+         * Crushing only X leaves every row edge, baseline and fill colour
+         * where it was, so the table still reads as a table.
+         *
+         * Nothing else is touched. The column names, the filter bar, the
+         * payment types, the dates and the amounts are the real product,
+         * because those are the design.
+         *
+         * Contained rather than cropped: this is a dense table and the point
+         * of it is how much it holds. A cover crop would cut off the argument.
          */
         type: "image",
-        src: "/case/vision/sheet-sales.jpg",
-        alt: "the sales sheet the product replaced, with every cell's contents redacted: columns of struck-out rows, cleared payments banded in green, refund flags cutting across in red",
+        src: "/case/vision/payments-table.png",
+        alt: "the payments record in vision: a filter bar of nineteen filters over a table of payment rows, with the agent and lead name columns redacted",
       },
-      mediaFit: "cover",
-      mediaPosition: "center",
+      mediaFit: "contain",
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -552,7 +525,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       { kind: "thesis", eyebrow: "product thesis", text: "every enrolment, instalment and refund the company took was recorded in one google sheet, and finance, delivery and onboarding all read from it. the brief was to replace it. the harder fact was that nobody was unhappy with it: the sheet was fast, it was visible, and it had never once asked anyone for permission. a product that replaces a spreadsheet people like does not get to start from what it can do better. it has to start from what the spreadsheet was already doing right." },
       {
         kind: "context",
+        label: "role and ownership",
         paragraphs: [
+          "two product designers ran this end to end: the ground research, the problem framing, the conversations with every team that touches a payment, the prototyping and the final testing. i am one of the two, working alongside one backend and one frontend engineer. there was no separate researcher and no separate ux writer, so the column list, the copy inside the dropdowns and the decisions below are ours.",
           "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
           "before this work, that record was a google sheet, and the money moving through it was the company's revenue. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
         ],
@@ -560,6 +535,23 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "question",
         text: "what does a product have to do before someone gives up a spreadsheet they trust?",
+      },
+      {
+        /*
+         * The sales sheet, redacted the same way. It used to be the hero, from
+         * a time when no capture of vision itself could leave. Now that one
+         * can, the two sheets belong together as the before: the product opens
+         * the page, and the thing it replaced is the evidence underneath it.
+         */
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/sheet-sales.jpg",
+          alt: "the sales sheet the product replaced, with every cell's contents redacted: columns of struck-out rows, cleared payments banded in green, refund flags cutting across in red",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "the sales sheet, redacted. every enrolment, instalment and refund the company took was a row in here, and finance, delivery and onboarding all read from it. the green bands are cleared payments and the red is a refund flag, which is the only thing in the whole file that could be found at a glance.",
       },
       {
         /*
@@ -675,11 +667,23 @@ export const caseStudies: Record<string, CaseStudy> = {
         change: "the email came back out as a column of its own, and the rule came out with it: a column is not a field, it is a workflow. two things that are read together are not necessarily used together, and merging them is only free if nothing downstream ever operates on one of them alone. after this, every merge candidate got asked a second question. not is it read next to its neighbour, but is it ever selected, sorted, exported or copied by itself.",
       },
       {
-        // Was a `detail` beside a placeholder frame. No capture of the filter
-        // bar exists that can leave, and the account does not need one.
-        kind: "context",
-        label: "filters, and a chicken and egg problem",
-        paragraphs: ["once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue."],
+        /*
+         * Back to a `detail`, with the real filter bar beside it. This section
+         * spent a while as prose because no capture existed; the strip is
+         * cropped from the redacted screenshot above, carries no rows and
+         * therefore no personal data, and says the thing faster than the
+         * paragraph does.
+         */
+        kind: "detail",
+        media: {
+          type: "image",
+          src: "/case/vision/filters.png",
+          alt: "the filter bar: nineteen filters wrapping onto three rows above the table, two of them active",
+        },
+        fit: "contain",
+        side: "right",
+        title: "filters, and a chicken and egg problem",
+        text: "once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue.",
       },
       {
         kind: "context",
@@ -695,13 +699,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         paragraphs: [
           "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
           "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
-          "the screens are shown with synthetic records under an airtribe nda. every name, company, amount and date is invented; the structure is the real thing.",
+          "the capture at the top is the live product with the people taken out of it. the agent and lead name columns are destroyed rather than blurred, and nothing else is touched: the filter bar, the column names, the payment types, the statuses, the dates and the amounts are the real thing, because those are the design.",
         ],
       },
       {
         kind: "deeper",
         paragraphs: [
-          "vision is an internal product, so what is shown here is the reasoning rather than the screens. the records are synthetic, the interface itself sits behind an airtribe nda, and the research sessions, the column-by-column decisions and the phases that were tested and cut are not public.",
+          "one screen of an internal product is not the product. the rest of vision, the opportunities pages, the learner profile, the email templates and the permission work, sits behind an airtribe nda, as do the research sessions and the phases that were tested and cut.",
           "i can walk through the product, the rounds it went through and the calls behind each column privately.",
         ],
         links: [{ label: "get in touch", href: `mailto:${site.email}` }],
@@ -753,6 +757,19 @@ export const caseStudies: Record<string, CaseStudy> = {
         paragraphs: [
           "the two pull in opposite directions. inside, the author is a colleague building for a catalogue, so the risk is drift: fifty lessons that each look slightly like whoever wrote them. outside, the author is the model itself, writing for one reader who has no easy way to check it, so the risk is trust.",
           "which means the guardrail points the other way in each. the pre-read skill protects the product from its authors. kai protects the reader from the product.",
+        ],
+      },
+      {
+        /*
+         * Stated once, at the top, rather than repeated inside each of the
+         * two case studies below: it is one team and one way of working
+         * across both skills.
+         */
+        kind: "context",
+        label: "role and ownership",
+        paragraphs: [
+          "two product designers ran both of these end to end: the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, the prototyping and the final testing. i am one of the two, working alongside one backend and one frontend engineer.",
+          "each skill below is its own case study, with its own decisions and its own result. they share a team, a company and a question, and nothing else.",
         ],
       },
 
@@ -884,6 +901,17 @@ export const caseStudies: Record<string, CaseStudy> = {
         caption: "built inside the guardrails, by learning designers: a lesson that opens on its objectives and compares three systems in one tabbed frame, and a four-step trace that fills itself in as you answer. neither is a component in a library. both were placed by behaviour and inherited the treatment.",
       },
 
+      {
+        kind: "outcome",
+        label: "outcome · the internal skill",
+        paragraphs: [
+          "the skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
+          "a feedback prompt closes each pre-read. of the four hundred and twenty learners who answered in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
+          "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
+          "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
+        ],
+      },
+
       // ── 02 · consumer ────────────────────────────────────────────────────
       {
         kind: "context",
@@ -911,41 +939,87 @@ export const caseStudies: Record<string, CaseStudy> = {
           { glyph: "archive", label: "library", text: "the source behind each claim, marked cited and linked out." },
         ],
       },
-      /*
-       * Kai's four product decisions used to sit here, each with a screenshot.
-       * They now live on kai's own page, which is where someone who wants the
-       * product rather than the argument is going: that page had the pictures
-       * and none of the reasoning, and this one was running two full case
-       * studies down a single column. What stays here is the summary, the
-       * workspace and how a lesson gets made, with the door to the rest.
-       */
+      {
+        kind: "decisions",
+        label: "key decisions · kai",
+        items: [
+          {
+            n: "01",
+            title: "build it the way a teacher would",
+            why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
+            tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
+            result: "every lesson is built the way a teacher builds one: a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, and a reflection to sit with. the hard idea gets a diagram, not another paragraph.",
+            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
+            fit: "contain",
+          },
+          {
+            n: "02",
+            title: "ask four questions, then commit",
+            why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
+            tradeoff: "four questions is four screens before anyone has read a single word.",
+            result: "purpose, background, prior knowledge and depth are set once, up front, and the whole lesson, its examples and how far each section pushes, is written to them.",
+            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
+            fit: "cover",
+          },
+          {
+            n: "03",
+            title: "draw the topic while you read it",
+            why: "a lesson you read and close leaves nothing you can hold onto.",
+            tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
+            result: "the map draws the concepts and their links as you go, with a worth-keeping takeaway and room for your own notes, so the shape of the topic outlives the reading.",
+            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
+            fit: "cover",
+          },
+          {
+            n: "04",
+            title: "cite sources, not vibes",
+            why: "an ai that merely sounds confident is easy to build and easy to distrust.",
+            tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
+            result: "key sentences are footnoted, and the library gathers the sources, kai's picks, browse-by-concept, and go-further, each marked cited and linked out.",
+            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
+            fit: "cover",
+          },
+        ],
+      },
+      {
+        kind: "outcome",
+        label: "outcome · kai",
+        paragraphs: [
+          "kai is a demo, and it is the honest word for it. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic you give it.",
+          "it is not carrying a catalogue the way the internal skill is, and there are no adoption or retention figures behind it, because there is nothing yet to measure. what it demonstrates is the shape: that an ai learning product can be built to plan a lesson rather than answer a question, and that the cost of doing so is four screens of intake before anyone reads a word.",
+        ],
+      },
+      {
+        kind: "deeper",
+        label: "kai, in full",
+        paragraphs: [
+          "the demo is live, and it is the quickest way to judge it. kai also has its own page here, an unhurried walkthrough of the workspace, the intake, the map and the library.",
+        ],
+        links: [
+          { label: "open the demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
+          { label: "the full kai walkthrough", href: "/work/airtribe-learn/" },
+        ],
+      },
 
       // ── close ────────────────────────────────────────────────────────────
       {
         kind: "statement",
         text: "both are defined by what they refuse. the pre-read skill refuses confetti. kai refuses to just answer. in a system that generates, the design decision worth having is almost always a subtraction.",
       },
-      {
-        kind: "outcome",
-        paragraphs: [
-          "the pre-read skill carries the catalogue: around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people without a visual designer in the loop. those are scope figures, what it covers, not outcome claims.",
-          "a feedback prompt closes each pre-read. of the four hundred and twenty learners who answered in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far. inline quizzes sit through the lesson rather than at the end, so a learner checks their own understanding while they are still in it.",
-          "the artifacts are also cheaper to keep. because each one is placed by behaviour rather than built one-off, a lesson can be updated by dropping artifacts in and recombining them instead of remaking them.",
-          "what the system did to the work is still the next thing to measure, against a baseline rather than asserted early: adoption of the system over one-off styling, design-review rounds per pre-read before and after, brand-audit pass rate on a fixed checklist, and whether authors say they can ship on-brand without design support.",
-          "kai is a demo. one seeded lesson, the hard problem of consciousness, runs the full system end to end, and the intake accepts any topic.",
-        ],
-      },
+      /*
+       * The single combined outcome that used to sit here has been split in
+       * two and moved: each skill now closes its own case study with its own
+       * result, because a catalogue of fifty pre-reads and a one-lesson demo
+       * are not the same kind of claim and reading them as one paragraph
+       * invited someone to average them.
+       */
       {
         kind: "deeper",
         paragraphs: [
-          "kai has its own case study, with the product in full. the internal skill does not, and cannot: the pre-reads it produces are what paid learners get, so the system and the reasoning are public here and the lessons themselves are not.",
+          "the pre-reads the internal skill produces are what paid learners get, so the system and the reasoning are public here and the lessons themselves are not.",
           "the spec, the audit the eight families came out of, and the version that was built and thrown away are all things i am happy to walk through privately.",
         ],
-        links: [
-          { label: "the full kai case", href: "/work/airtribe-learn/" },
-          { label: "kai, live demo", href: "https://willowy-blancmange-6a230b.netlify.app/" },
-          { label: "get in touch", href: `mailto:${site.email}` },
-        ],
+        links: [{ label: "get in touch", href: `mailto:${site.email}` }],
       },
       { kind: "reflection", text: "i was annoyed when the first version came back as too simple, and it took me a while to hear what was actually being asked: not more components, but evidence that we had thought about the teaching. the component maker was the same mistake wearing a different shape, building the thing that makes the artifact instead of fixing where the artifact gets decided. the skill governs how a pre-read looks and nothing about whether the lesson is any good, so it can still produce something on-brand and badly taught. that part is still on the person writing it." },
     ],
