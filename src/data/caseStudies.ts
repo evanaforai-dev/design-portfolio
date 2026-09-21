@@ -919,6 +919,38 @@ export const caseStudies: Record<string, CaseStudy> = {
         result: "the component maker made the workflow worse. the chain already ran designer, then program manager, then a copy-paste into the internal dashboard, and the maker added another station to it. it was longer than what it replaced and it had one more place for an error to enter.",
         change: "we scratched it and built the skill instead, comprehensive enough that the learning experience designer writes the whole lesson inside it and hands over a link. the rule that came out: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem. put the making where the pedagogy already is.",
       },
+      /*
+       * The pedagogical pass. The `turn` above says we went back and did the
+       * work we had skipped; this is that work, and without it the claim is
+       * just a sentence. The finding that mattered is the cheapest one on the
+       * board: the last beat already existed, it was in the wrong place.
+       */
+      {
+        kind: "annotated",
+        label: "what interactive was actually doing",
+        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-jobs.png", alt: "a board splitting the prototype's interactive elements into two jobs: forcing active thought, and visual variety as a palate cleanser" },
+        fit: "contain",
+        frame: true,
+        items: [
+          { title: "two jobs, and only one of them teaches", text: "we took every interactive element in the prototype and sorted it into two piles. job a forces active thought: the quiz that interrupts the narrative, the prompt that makes you apply it to your own product. job b is visual variety: the radar charts, the fake linear chrome, the mock terminals, the network diagrams." },
+          { title: "job b is allowed, it is just not progress", text: "visual variety makes a page less monotonous to read. it does not change what the learner thinks or remembers. the prototype was dense with job b, and we had been reading that density as evidence the lesson was interactive." },
+          { title: "name the mechanism, or you are only adding widgets", text: "job a works because of retrieval practice, spaced thinking and the generation effect. writing those three down is what let us argue for one interaction over another, instead of arguing about how many there were." },
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
+        fit: "contain",
+        frame: true,
+        caption: "the other half of the same board: what a learner does in a good lesson, written as four beats. encounter a situation, form a position, test it against reality, connect it to your own work. the second beat is the one the old pre-reads did not have, and it is the expensive one, because a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth beat, apply this to your own context, was already in the product. it was sitting at the end, after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components at all.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-ai-skills/interactivity.png", alt: "probable types of interactivity mapped across three programmes: product management, backend engineering and generative ai" },
+        fit: "contain",
+        frame: true,
+        caption: "the same question asked three times, because the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios with authored consequences, trade-off sliders and spec critique. a backend answer is executable, so bel gets a sandbox: write the query, run it, predict the output, find the bug. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list of exercises could not have served all three, which is the argument for classifying by behaviour underneath.",
+      },
       {
         kind: "pipeline",
         label: "the workflow the skill actually changed",
@@ -928,6 +960,13 @@ export const caseStudies: Record<string, CaseStudy> = {
           { glyph: "converge", label: "the manager embeds the link", text: "the program manager drops it into the learner dashboard. that is the whole handover.", note: "content quality now belongs to the person with the pedagogy, and uniformity belongs to the skill" },
         ],
         caption: "the old chain had a transcription step between the person who understood the lesson and the thing the learner read. removing that step is most of what this project did.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-ai-skills/comps.png", alt: "the component comp board for the product management programme: text, dialogue, table, tab, progressive, quiz, slider calculator and data-viz cards" },
+        fit: "contain",
+        frame: true,
+        caption: "the component inventory for one programme, and the drift, in the same picture. each column is a behaviour the system would have to cover: text, dialogue, tables, tabs, progressive cards, quizzes, slider calculators, data-viz. the cream grounds, the orange tabs and the serif heading are what the restyle checklist is a list of.",
       },
       {
         kind: "system",
@@ -959,6 +998,24 @@ export const caseStudies: Record<string, CaseStudy> = {
           { name: "data", value: "jetbrains mono, real code only" },
         ],
         note: "permissive on purpose. radius is the author's choice as long as one pre-read is consistent with itself, and the skill says in as many words that it governs the visual layer only, never the structure, the components or the pedagogy.",
+      },
+      /*
+       * The part that is not a style guide. A reader can dismiss tokens and
+       * families as taste; these are the rules that decide whether the file
+       * renders on the platform at all, and they are the reason an author
+       * without an engineer can ship one.
+       */
+      {
+        kind: "constraints",
+        label: "what the spec carries besides colour",
+        items: [
+          { label: "a file, not a design file", text: "a pre-read has to arrive as something the platform renders and a learning designer uploads without an engineer. the spec makes that a contract: one self-contained html page, react and tailwind from a cdn, no build step. the whole premise, that the person who knows the material is also the person who ships it, rests on that one line." },
+          { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it, because the next person to tidy a dependency list would otherwise have found that bug the way we did." },
+          { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each of those reintroduces the same blank page, so the spec gives the tag verbatim rather than describing it." },
+          { label: "a weight budget", text: "the renderer accepts up to 500kb. generated pre-reads land between 50 and 80kb, which makes the budget headroom instead of something an author has to think about." },
+          { label: "an allowlist, not a hope", text: "the content security policy has to name the script, font and avatar hosts by hand. a spec that left this out would produce files that work on a designer's laptop and nowhere else, and the failure would arrive weeks later as somebody else's bug." },
+          { label: "no em dashes, anywhere", text: "a copy rule that is really a visual one, checked with a grep before shipping. an empty table cell gets a middle dot for the same reason. it is the smallest rule in the system and the most reliable tell for whether a lesson went through it." },
+        ],
       },
       {
         kind: "annotated",
