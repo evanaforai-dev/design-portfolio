@@ -162,6 +162,14 @@ export type Section =
       text?: string;
       /** which side the media sits on (desktop). */
       side?: "left" | "right";
+      /**
+       * Media box shape. "figure" (default) is the 4:3 well most detail
+       * media wants. "auto" drops the well and lets the image stand at its
+       * own height, for a strip whose whole point is that it is wide: a
+       * 5:1 filter bar inside a 4:3 box is one quarter picture and three
+       * quarters empty.
+       */
+      shape?: "figure" | "auto";
     }
   | { kind: "flow"; label?: string; steps: { label: string; note?: string }[]; caption?: string }
   | { kind: "statement"; text: string }

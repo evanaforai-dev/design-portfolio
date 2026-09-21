@@ -493,25 +493,20 @@ export const caseStudies: Record<string, CaseStudy> = {
         "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
         /*
-         * The payments record in vision, live. The agent column carried five
-         * colleagues' full names and their real @airtribe.live addresses, and
-         * the lead column carried names whose emails had been masked upstream
-         * but whose names had not, so both are destroyed by squeezing along
-         * one axis and stretching back: a blur is a convolution and
-         * convolutions can be attacked, while these pixels no longer exist.
-         * Crushing only X leaves every row edge, baseline and fill colour
-         * where it was, so the table still reads as a table.
-         *
-         * Nothing else is touched. The column names, the filter bar, the
-         * payment types, the dates and the amounts are the real product,
-         * because those are the design.
+         * The payments record in vision, captured on the synthetic cast: the
+         * leads are famous mathematicians, the addresses are example.com, the
+         * phone numbers are 9876543210. It replaced a production capture that
+         * had been redacted by destroying two columns, which was honest about
+         * provenance and unreadable as a product. This one shows the same
+         * screen with everything legible, including the view control at the
+         * top, which is the decision the case study spends the most time on.
          *
          * Contained rather than cropped: this is a dense table and the point
          * of it is how much it holds. A cover crop would cut off the argument.
          */
         type: "image",
-        src: "/case/vision/payments-table.png",
-        alt: "the payments record in vision: a filter bar of nineteen filters over a table of payment rows, with the agent and lead name columns redacted",
+        src: "/case/vision/payments-all.png",
+        alt: "the payments record in vision: a view switcher reading all and onboarding, four rows of filters, and a table of payment rows with inline track dropdowns",
       },
       mediaFit: "contain",
       meta: [
@@ -603,9 +598,20 @@ export const caseStudies: Record<string, CaseStudy> = {
             title: "friction proportional to consequence",
             why: "not every cell is equally dangerous. a typo in a comment costs nothing; a change to a payment status moves money and triggers access downstream. a spreadsheet treats both identically, which is precisely the thing it gets wrong.",
             tradeoff: "every piece of friction is a slower edit for a person who knew exactly what they were doing, and there is no way to add it without occasionally annoying the expert.",
-            result: "each column was sorted into directly editable, or behind an action button that names what is about to happen. change logs sit alongside, so a row can be asked who last touched it, which is the one thing the sheet could technically answer and nobody could actually read.",
+            result: "each column was sorted into directly editable, or behind an action button that names what is about to happen. the menu behind that button is itself role-dependent, so a team is only offered the consequential actions it is allowed to take. change logs sit alongside, so a row can be asked who last touched it, which is the one thing the sheet could technically answer and nobody could actually read.",
           },
         ],
+      },
+      {
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/onboarding-view.png",
+          alt: "the onboarding view: a different filter set and a different column set, with a row's action menu open on change cohort, assign unit, re-sync and remove access",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "the same rows under the other view. onboarding gets its own filter set and its own columns, career service, ctc, profile, the two track assignments, and none of the payment machinery it never touches. that is where the scroll went. the menu on the right is the other half of the argument: change cohort, assign unit, re-sync and remove access are rare, consequential, or both, so they sit behind a button that names them rather than inside a cell you can fall into. which of them you are offered depends on the team you are on.",
       },
       {
         kind: "pipeline",
@@ -642,11 +648,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         /*
-         * These were callouts beside a screenshot of the payments record. No
-         * scrubbed capture of it exists, and the NDA note above is the reason
-         * it may never — but none of these six needs the picture. Each states
-         * its own decision in full, so they are set as the decisions rather
-         * than as annotations on a frame that is not there.
+         * These were written as callouts for a screenshot that did not exist
+         * yet. Captures do exist now and sit above and below this block, but
+         * these six stay as prose: each states its own decision in full, and
+         * six labels pinned around one frame would make a diagram out of
+         * something that reads better as a list.
          */
         kind: "constraints",
         label: "the decisions the screen had to make",
@@ -667,20 +673,31 @@ export const caseStudies: Record<string, CaseStudy> = {
         change: "the email came back out as a column of its own, and the rule came out with it: a column is not a field, it is a workflow. two things that are read together are not necessarily used together, and merging them is only free if nothing downstream ever operates on one of them alone. after this, every merge candidate got asked a second question. not is it read next to its neighbour, but is it ever selected, sorted, exported or copied by itself.",
       },
       {
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/vision/slack-bulk.png",
+          alt: "rows selected across the table, a bar reading ten selected with copy ten emails and update slack access, and the dialogue that collects the selected addresses as chips",
+        },
+        fit: "contain",
+        frame: true,
+        caption: "where that repair ended up. the email is a column again, on the right, and the job that broke is no longer a job at all: select the rows, take all ten addresses in one click, or set slack access for every one of them through a single dialogue that lists exactly whose access is about to change. the thing we had turned into fifty minutes of copying is now the fastest path in the product.",
+      },
+      {
         /*
-         * Back to a `detail`, with the real filter bar beside it. This section
-         * spent a while as prose because no capture existed; the strip is
-         * cropped from the redacted screenshot above, carries no rows and
-         * therefore no personal data, and says the thing faster than the
-         * paragraph does.
+         * A `detail`, with the filter bar beside it. This section spent a
+         * while as prose because no capture existed; the strip is cropped
+         * from the hero, carries no rows at all, and says the thing faster
+         * than the paragraph does.
          */
         kind: "detail",
         media: {
           type: "image",
           src: "/case/vision/filters.png",
-          alt: "the filter bar: nineteen filters wrapping onto three rows above the table, two of them active",
+          alt: "the filter bar: twenty-seven filters wrapping onto four rows above the table, three of them active",
         },
         fit: "contain",
+        shape: "auto",
         side: "right",
         title: "filters, and a chicken and egg problem",
         text: "once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue.",
@@ -701,7 +718,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           "views and role-based permissions cut scroll depth in half. before them, reaching your own columns meant scrolling past everything two other teams needed; now the row arrives as the job you came to do. the change log did the other half of the work, and accidental edits dropped once a row could be asked who last touched it.",
           "all three phases shipped into vision - sales: the payments record, the lxd extension and the onboarding sheet, alongside the email template flow, the course and cohort filter and the filters and search redesign.",
           "the sales team moved off the sheet without a re-learning period, which was the bar the table layout was chosen to clear. the onboarding phase ended with fewer columns than it started with. the one workflow the design did break, bulk-copying emails for slack access, went from five minutes to fifty before it was caught and undone.",
-          "the capture at the top is the live product with the people taken out of it. the agent and lead name columns are destroyed rather than blurred, and nothing else is touched: the filter bar, the column names, the payment types, the statuses, the dates and the amounts are the real thing, because those are the design.",
+          "the screens here are the shipped product running on a synthetic cast: the leads are mathematicians, the addresses are example.com, the amounts and the phone numbers are invented. the views, the filters, the columns, the payment types, the statuses, the action menus and the bulk flows are the real thing, because those are the design.",
         ],
       },
       {
