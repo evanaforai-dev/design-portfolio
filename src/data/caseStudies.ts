@@ -1195,7 +1195,37 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/airtribe-learn/mobile-map-sheet.webp", width: 822, height: 1635, alt: "the map and library arriving as a sheet over the lesson, with the concept tree listed under retrieval augmented generation" },
           { type: "image", src: "/case/airtribe-learn/mobile-concept-map.webp", width: 822, height: 1635, alt: "the concept map as a vertical tree, with cosine similarity open in a detail sheet showing what it relates to and a jump to lesson 3 button" },
         ],
-        caption: "the phone is where each of those decisions has to survive without room. the wait shows the opening hook and ready when you are, rather than a progress bar. the map and the library arrive as a sheet over the lesson instead of a place you leave the lesson for. and the map is a vertical tree, not a canvas: tapping a concept gives you what it is, what it relates to, and the lesson it came from.",
+        caption: "the wait, the map and library as a sheet over the lesson, and the concept map with one concept open. each of the three is a desktop answer that had to be rebuilt rather than resized.",
+      },
+      {
+        kind: "context",
+        label: "what the phone changed",
+        paragraphs: [
+          "none of what follows was cosmetic. each one was the same signal arriving in a different place: a desktop assumption that did not survive the move to a phone. and each time the better answer was to rethink the piece rather than shrink it.",
+        ],
+      },
+      {
+        kind: "turn",
+        label: "the wait we tried to hide",
+        tried: "generating a lesson takes ten to thirty seconds, and the first instinct was the usual furniture for that gap: a spinner, or a progress bar.",
+        result: "a progress bar that tracks nothing real is a lie, and neither it nor a spinner gives the learner anything to do with the time. the countdown we reached for next was worse than both. naming the seconds left makes the wait feel longer.",
+        change: "the building screen became a wait ladder. a sharp hook lands immediately, 'most people think a rag system searches your docs. it doesn't', and the shape of the lesson assembles line by line underneath it while the rest is still being written, so the learner is already reading and already curious before the lesson exists. a notify me escape hatch sits under that for anyone who would rather not wait at all. the weakest moment in the product is now one of the better ones, and the rule that came out of it is that dead time is a content problem before it is a loading problem.",
+      },
+      {
+        kind: "turn",
+        label: "the map that could not be shrunk",
+        tried: "on desktop the concept map is an svg, with measured and word-wrapped text and collision-free tree packing. the obvious move for the phone was to scale that same svg down.",
+        result: "shrunk, it is unreadable and un-tappable. the svg had already cost us a layout bug on the way there, labels like 'knowledge argument (mary's room)' overflowing the nodes they sat in, which is what made us look at the packing properly in the first place. the phone version was not a rendering problem. it was the wrong object.",
+        change: "the phone got a different map rather than a smaller one: a native vertical tree, built out of plain dom lists with css connector spines. it scrolls, it wraps, it never overflows, a tap opens a focus card, and it reads like an outline. two renderings for two jobs is better than one that is compromised for both.",
+      },
+      {
+        kind: "constraints",
+        label: "the rest of what the phone changed",
+        items: [
+          { label: "kai is a sheet, not a screen", text: "on mobile kai was close to becoming a separate destination, which fights the whole product: the lesson is the point and kai is there to support it. it became a peek and expand bottom sheet instead. kai is always present as a peek line at the bottom, one tap brings the conversation up over the lesson, and the lesson never leaves. that is what keeps lesson-primary honest rather than letting it drift into a tab-switching app." },
+          { label: "the header was carrying desktop clutter", text: "two collisions gave it away. teach appeared twice on the expanded kai sheet, because the peek eyebrow did not hide when the sheet took over, and the demo version badge sat on top of the header's map icon. the fix was not to nudge either one. the mobile header came down to the brand on the left and the map icon on the right, the breadcrumb went entirely, and the badge moved to the bottom above the kai sheet. a collision is usually a density problem wearing a positioning costume." },
+          { label: "the em dash rule did the editing", text: "the wait ladder's hook was written with em dashes, which the project style forbids. rewriting them out as full sentence breaks made the hook punchier than it had been. it is the same rule that governs the pre-reads above, and it is the smallest one in either system, still doing actual editorial work." },
+        ],
       },
       {
         kind: "panel",
