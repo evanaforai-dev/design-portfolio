@@ -373,8 +373,28 @@ export function renderSection(section: Section, i: number) {
         </Band>
       );
 
-    /* CONSTRAINTS — honest grid of limits. */
-    case "constraints":
+    /*
+     * CONSTRAINTS — honest grid of limits.
+     *
+     * The rules ARE the layout here, so both ways a rule can misbehave are
+     * handled rather than left to chance.
+     *
+     * Gutter: a cell in column two or three sits against its own left rule,
+     * so it is padded off it. Column one is not, because its text has to stay
+     * flush with every other left edge on the page. The column index is
+     * computed per breakpoint from the item's position rather than written as
+     * an nth-child variant, so the two column counts cannot disagree.
+     *
+     * Closing rule: a ragged final row used to leave the bottom rule stopping
+     * under the last item, and a column rule hanging in empty space. Empty
+     * cells now complete the row. They are per-breakpoint because the column
+     * count is; `display:none` removes the inapplicable set from the grid
+     * entirely, so only one set ever occupies a cell.
+     */
+    case "constraints": {
+      const n = section.items.length;
+      const smFill = (2 - (n % 2)) % 2;
+      const lgFill = (3 - (n % 3)) % 3;
       return (
         <Band key={i}>
           <Container>
@@ -383,16 +403,38 @@ export function renderSection(section: Section, i: number) {
               {section.items.map((it, j) => (
                 <div
                   key={j}
-                  className="border-b border-hairline py-6 pr-8 lg:border-r lg:[&:nth-child(3n)]:border-r-0"
+                  className={[
+                    "border-b border-hairline py-7 pr-8",
+                    j % 2 === 1 ? "sm:pl-8" : "sm:pl-0",
+                    j % 3 === 0 ? "lg:pl-0" : "lg:pl-8",
+                    j % 3 === 2 ? "lg:border-r-0" : "lg:border-r",
+                  ].join(" ")}
                 >
                   <p className="mb-2 t-note font-medium text-fg">{it.label}</p>
                   <p className="t-note text-muted">{it.text}</p>
                 </div>
               ))}
+              {Array.from({ length: smFill }, (_, j) => (
+                <div
+                  key={`sm-${j}`}
+                  aria-hidden
+                  className="hidden border-b border-hairline sm:block lg:hidden"
+                />
+              ))}
+              {Array.from({ length: lgFill }, (_, j) => (
+                <div
+                  key={`lg-${j}`}
+                  aria-hidden
+                  className={`hidden border-b border-hairline lg:block ${
+                    (n % 3) + j === 2 ? "" : "lg:border-r"
+                  }`}
+                />
+              ))}
             </div>
           </Container>
         </Band>
       );
+    }
 
     /* DECISIONS — the core: decision / why / tradeoff / result, with media. */
     case "decisions":
@@ -865,9 +907,17 @@ export function renderSection(section: Section, i: number) {
       );
 
     case "panel": {
-      // Inverts the page ground for the length of the panel. The launch pages
-      // run dark, so a white panel is how a chapter break reads as a breath
-      // rather than another section.
+      /*
+       * Inverts the page ground for the length of the panel, so a chapter
+       * break reads as a breath rather than another section.
+       *
+       * The inversion is the site's own two colours, read off the live
+       * tokens, so it follows light and dark mode. It used to be a literal
+       * #f4f4f4 on #0a0a0a, which was written when every launch page carried
+       * its own dark theme: with those gone, a #f4f4f4 panel on the #fafafa
+       * page was a grey block a reader could barely see, and in dark mode it
+       * was a hardcoded pair that ignored the theme entirely.
+       */
       const inv = section.invert !== false;
       return (
         <Reveal key={i}>
@@ -875,10 +925,7 @@ export function renderSection(section: Section, i: number) {
             className="w-full py-16 md:py-28"
             style={
               inv
-                ? {
-                    backgroundColor: section.bg ?? "#f4f4f4",
-                    color: section.fg ?? "#0a0a0a",
-                  }
+                ? { backgroundColor: "var(--fg)", color: "var(--bg)" }
                 : undefined
             }
           >

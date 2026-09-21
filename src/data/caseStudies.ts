@@ -1210,8 +1210,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "panel",
         label: "a way out of the model",
-        bg: "#16131F",
-        fg: "#F7F6FB",
         emphasise: [0],
         paragraphs: [
           "an ai-first product that never points outside itself is asking to be trusted more than it has earned.",
@@ -1258,14 +1256,12 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "a-century-of-villains": {
     slug: "a-century-of-villains",
-    // The piece runs on near-black; the page runs on it too.
-    theme: { bg: "#050507", fg: "#EDEDED", hairline: "rgba(237,237,237,0.18)" },
     hero: {
       kicker: "data visualization · self-initiated",
       title: "a century of villains",
       subtitle:
         "an interactive streamgraph tracing how the hindi-cinema villain changed shape across ninety years.",
-      media: { type: "image", src: "/case/villains/launch/piece-wide.png", alt: "the streamgraph of villain archetypes from the 1930s to the 2020s" },
+      media: { type: "image", src: "/case/villains/launch/piece-wide.webp", alt: "the streamgraph of villain archetypes from the 1930s to the 2020s", width: 3200, height: 2000 },
       mediaFit: "cover",
       mediaPosition: "center",
       mode: "launch",
@@ -1309,7 +1305,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/villains/launch/piece-mobile.png", alt: "the piece at phone width" },
+        media: { type: "image", src: "/case/villains/launch/piece-mobile.webp", alt: "the streamgraph at phone width, with the decade axis and the thirteen-archetype legend", width: 1290, height: 1646 },
         fit: "contain",
         side: "right",
         title: "product thesis",
@@ -1380,8 +1376,6 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ──────────────────────────────────────────────────────────────── lipi ──
   lipi: {
     slug: "lipi",
-    // The plugin's own ground, sampled off its panel.
-    theme: { bg: "#10131A", fg: "#E8EAEE", hairline: "rgba(232,234,238,0.16)" },
     hero: {
       kicker: "figma plugin · self-initiated",
       title: "lipi",
@@ -1584,8 +1578,6 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ─────────────────────────────────────────────────────────── deep cuts ──
   "deep-cuts": {
     slug: "deep-cuts",
-    // The device's own palette. The page wears the product.
-    theme: { bg: "#070808", fg: "#EBEBEB", hairline: "rgba(235,235,235,0.16)" },
     hero: {
       kicker: "experiment · self-initiated",
       title: "deep cuts",
@@ -1727,8 +1719,6 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ──────────────────────────────────────────────────────────── soundmap ──
   soundmap: {
     slug: "soundmap",
-    // Warm paper, read off the artifact itself.
-    theme: { bg: "#EFEDE5", fg: "#1A1917", hairline: "rgba(26,25,23,0.18)" },
     hero: {
       kicker: "installable pwa · self-initiated",
       title: "soundmap",
@@ -1780,8 +1770,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "panel",
         label: "why this one is different",
-        bg: "#1A1917",
-        fg: "#EFEDE5",
         emphasise: [1],
         paragraphs: [
           "every other audio journal is a list of files you will never open.",
@@ -1844,8 +1832,6 @@ export const caseStudies: Record<string, CaseStudy> = {
   // ───────────────────────────────────────────────────── kochi water metro ──
   "kochi-water-metro": {
     slug: "kochi-water-metro",
-    // The story layer's own ground, sampled off the app.
-    theme: { bg: "#0E2C3A", fg: "#E9F1F4", hairline: "rgba(233,241,244,0.18)" },
     hero: {
       kicker: "installable pwa · independent",
       title: "kochi water metro",
@@ -1897,8 +1883,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "panel",
         label: "why this one is different",
-        bg: "#F2F6F7",
-        fg: "#0E2C3A",
         emphasise: [1],
         paragraphs: [
           "a transit app assumes you are trying to get somewhere and are late.",

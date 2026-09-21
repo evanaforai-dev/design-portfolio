@@ -6,56 +6,14 @@ import { Media, Container } from "./Media";
 import { renderSection } from "./Sections";
 import { ProjectNavPreview } from "./ProjectNavPreview";
 
-/** WCAG relative luminance of a hex colour. */
-function luminance(hex: string): number {
-  const h = hex.replace("#", "");
-  const full =
-    h.length === 3
-      ? h
-          .split("")
-          .map((c) => c + c)
-          .join("")
-      : h.slice(0, 6);
-  const channel = (i: number) => {
-    const v = parseInt(full.slice(i * 2, i * 2 + 2), 16) / 255;
-    return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-  };
-  return 0.2126 * channel(0) + 0.7152 * channel(1) + 0.0722 * channel(2);
-}
-
-const contrast = (a: string, b: string) => {
-  const [x, y] = [luminance(a), luminance(b)];
-  return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
-};
-
-/**
- * Is a case study's own ground dark? Used to tell the browser what kind of
- * page it is drawing scrollbars and form controls for.
+/*
+ * The palette lives in globals.css and nowhere else. This file used to
+ * carry a luminance/contrast pair and an accent picker, because a case
+ * study could declare a ground of its own and the wordmark had to be
+ * re-measured against it. No page does now: the site has one light
+ * ground and one dark one, and `CaseTheme` has been removed from the
+ * model so a bespoke ground cannot be reintroduced by data alone.
  */
-function isDarkGround(hex: string): boolean {
-  return luminance(hex) < 0.22;
-}
-
-/**
- * The accent on a themed ground, picked by measurement rather than by a
- * dark/light flip.
- *
- * The flip assumed two grounds, the site's own near-white and near-black, and
- * both magentas clear AA on those. A case study's ground is its own: kochi
- * water metro runs on a deep teal that is dark enough to take the dark-mode
- * magenta and light enough that the same magenta only reaches 4.14:1 against
- * it, so the wordmark's Malayalam initial sat just under AA on that one page.
- *
- * Both magentas are tried and the better one wins if it clears AA for small
- * text. If neither does, the accent falls back to the theme's own foreground,
- * which clears by construction. No new colour is introduced either way.
- */
-function accentFor(bg: string, fg: string): string {
-  const best = ["#fc0fc0", "#d400a0"].sort(
-    (a, b) => contrast(b, bg) - contrast(a, bg),
-  )[0];
-  return contrast(best, bg) >= 4.5 ? best : fg;
-}
 
 /**
  * Full case-study page: a powerful opening visual, a title/metadata band, the
@@ -79,7 +37,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   );
   const prev = ordered[(idx - 1 + ordered.length) % ordered.length];
   const next = ordered[(idx + 1) % ordered.length];
-  const { hero, theme } = study;
+  const { hero } = study;
   const launch = hero.mode === "launch";
 
   // Literal class names, so Tailwind's content scan can see them.
@@ -92,29 +50,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       5: "lg:grid-cols-5",
     }[Math.min(hero.meta.length, 5)] ?? "lg:grid-cols-4";
 
-  // A themed case study redefines the palette tokens for the whole document,
-  // not just its own subtree: the fixed nav lives outside this component, and
-  // a launch page with a pale bar across the top of its field is not a launch
-  // page. Every text-fg and border-hairline on the route follows automatically,
-  // because they all resolve through these variables.
-  //
-  // color-scheme and the accent are read off the theme's own ground rather
-  // than assumed. This used to declare `color-scheme: dark` for every themed
-  // page, which is right for the launch register and wrong for kai, whose
-  // ground is near-white: that page was handing the browser a dark scrollbar
-  // to draw down the side of a white document. The accent follows the same
-  // measurement, so the wordmark keeps its contrast either way.
-  const dark = theme ? isDarkGround(theme.bg) : false;
-  const themeCss = theme
-    ? `:root{--bg:${theme.bg};--fg:${theme.fg};--muted:${theme.fg};` +
-      `--hairline:${theme.hairline ?? `${theme.fg}29`};` +
-      `--accent:${accentFor(theme.bg, theme.fg)};` +
-      `color-scheme:${dark ? "dark" : "light"}}`
-    : null;
-
   return (
     <article>
-      {themeCss && <style dangerouslySetInnerHTML={{ __html: themeCss }} />}
       {/* Back to the index. Says "work" because that is what the nav and the
           footer call it; "index" was a third word for one place. */}
       <Container className="pt-4 md:pt-6">

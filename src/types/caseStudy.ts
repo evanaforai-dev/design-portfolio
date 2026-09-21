@@ -67,18 +67,6 @@ export interface CaseHero {
   links?: CaseLink[];
 }
 
-/**
- * A case study may wear its subject's own palette instead of the site's.
- * Only for work whose colour IS the work: a black device shown on the site's
- * off-white is a page arguing with its own object.
- */
-export interface CaseTheme {
-  bg: string;
-  fg: string;
-  /** Defaults to fg at 16% opacity if omitted. */
-  hairline?: string;
-}
-
 export interface DecisionItem {
   /** index like "01". */
   n?: string;
@@ -139,10 +127,13 @@ export type Section =
       paragraphs: string[];
       /** Emphasise these paragraph indices (0-based). */
       emphasise?: number[];
+      /**
+       * A panel inverts the page ground by default, which is what makes it
+       * read as a chapter break. It inverts into the site's OWN two colours
+       * and cannot be given a ground of its own: a bespoke panel colour is
+       * how five side projects each ended up wearing a different near-black.
+       */
       invert?: boolean;
-      /** Panel ground. Defaults to near-white on dark pages. */
-      bg?: string;
-      fg?: string;
     }
   /**
    * PROTOTYPE — the thing itself, running, inside the page. On a side project
@@ -286,7 +277,5 @@ export type Section =
 export interface CaseStudy {
   slug: string;
   hero: CaseHero;
-  /** Page palette. Omit to use the site's own. */
-  theme?: CaseTheme;
   sections: Section[];
 }
