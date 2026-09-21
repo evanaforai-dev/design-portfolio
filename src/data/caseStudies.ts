@@ -961,6 +961,43 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
         caption: "the old chain had a transcription step between the person who understood the lesson and the thing the learner read. removing that step is most of what this project did.",
       },
+      /*
+       * The first spec, and why it had to be loosened. Without this the page
+       * contradicts itself: it argues for eight behaviour families while the
+       * artifact on screen is a thirteen-component library. The contradiction
+       * is the story, so it is stated rather than cropped out.
+       */
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/airtribe-ai-skills/spec.png", alt: "the first skill's output contract: its five sections, and the required html boilerplate with the pinned babel version and the exact script tag called out" },
+        fit: "contain",
+        caption: "section 1.2 of the first version of the skill, typeset from the file. it gives the tag verbatim rather than describing it, and writes the failure next to the version that causes it, because a rule an author can paste is a rule that survives the next person who tidies a dependency list. the left column is the same version's shape, and the part of it that had to change.",
+      },
+      /*
+       * The part that is not a style guide. A reader can dismiss tokens and
+       * families as taste; these are the rules that decide whether the file
+       * renders on the platform at all, and they are the reason an author
+       * without an engineer can ship one.
+       */
+      {
+        kind: "constraints",
+        label: "what the spec carries besides colour",
+        items: [
+          { label: "a file, not a design file", text: "a pre-read has to arrive as something the platform renders and a learning designer uploads without an engineer. the spec makes that a contract: one self-contained html page, react and tailwind from a cdn, no build step. the whole premise, that the person who knows the material is also the person who ships it, rests on that one line." },
+          { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it, because the next person to tidy a dependency list would otherwise have found that bug the way we did." },
+          { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each of those reintroduces the same blank page, so the spec gives the tag verbatim rather than describing it." },
+          { label: "a weight budget", text: "the renderer accepts up to 500kb. generated pre-reads land between 50 and 80kb, which makes the budget headroom instead of something an author has to think about." },
+          { label: "an allowlist, not a hope", text: "the content security policy has to name the script, font and avatar hosts by hand. a spec that left this out would produce files that work on a designer's laptop and nowhere else, and the failure would arrive weeks later as somebody else's bug." },
+          { label: "no em dashes, anywhere", text: "a copy rule that is really a visual one, checked with a grep before shipping. an empty table cell gets a middle dot for the same reason. it is the smallest rule in the system and the most reliable tell for whether a lesson went through it." },
+        ],
+      },
+      {
+        kind: "turn",
+        label: "the spec that was too tight",
+        tried: "the first version was prescriptive. thirteen components with their full source in the file, two permitted border radii, twenty-two named prohibitions, and a rule that said do not invent new components, fall back to a text block if the content does not fit. the boilerplate above is from that version, and on its own terms it worked.",
+        result: "the lxd team found it too limiting. they built their own pre-reads outside it, with components and section types the thirteen did not cover, and those were the ones that went forward. they were also off the visual language. so the outcome was the worst available: a spec nobody authored inside, and a catalogue that had stopped looking like one product.",
+        change: "it was rewritten to govern less. thirteen components became eight behaviour families, radius went back to the author, and the scope line at the top of the spec was narrowed to the visual layer alone, never the structure, the components or the pedagogy. a rule people route around protects nothing, and the version of this system that holds is the one with fewer rules in it.",
+      },
       {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/comps.png", alt: "the component comp board for the product management programme: text, dialogue, table, tab, progressive, quiz, slider calculator and data-viz cards" },
@@ -998,24 +1035,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           { name: "data", value: "jetbrains mono, real code only" },
         ],
         note: "permissive on purpose. radius is the author's choice as long as one pre-read is consistent with itself, and the skill says in as many words that it governs the visual layer only, never the structure, the components or the pedagogy.",
-      },
-      /*
-       * The part that is not a style guide. A reader can dismiss tokens and
-       * families as taste; these are the rules that decide whether the file
-       * renders on the platform at all, and they are the reason an author
-       * without an engineer can ship one.
-       */
-      {
-        kind: "constraints",
-        label: "what the spec carries besides colour",
-        items: [
-          { label: "a file, not a design file", text: "a pre-read has to arrive as something the platform renders and a learning designer uploads without an engineer. the spec makes that a contract: one self-contained html page, react and tailwind from a cdn, no build step. the whole premise, that the person who knows the material is also the person who ships it, rests on that one line." },
-          { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it, because the next person to tidy a dependency list would otherwise have found that bug the way we did." },
-          { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each of those reintroduces the same blank page, so the spec gives the tag verbatim rather than describing it." },
-          { label: "a weight budget", text: "the renderer accepts up to 500kb. generated pre-reads land between 50 and 80kb, which makes the budget headroom instead of something an author has to think about." },
-          { label: "an allowlist, not a hope", text: "the content security policy has to name the script, font and avatar hosts by hand. a spec that left this out would produce files that work on a designer's laptop and nowhere else, and the failure would arrive weeks later as somebody else's bug." },
-          { label: "no em dashes, anywhere", text: "a copy rule that is really a visual one, checked with a grep before shipping. an empty table cell gets a middle dot for the same reason. it is the smallest rule in the system and the most reliable tell for whether a lesson went through it." },
-        ],
       },
       {
         kind: "annotated",
