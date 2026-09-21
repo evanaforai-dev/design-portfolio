@@ -45,33 +45,38 @@ export const projects: Project[] = [
     title: "vision",
     tags: ["product design", "payments", "internal tooling"],
     category: "work",
-    // The sheet the product replaced, redacted. No capture of vision itself can
-    // leave, and this is the more honest tile anyway: the case study is about
-    // killing this thing, and nothing else on the index looks remotely like it.
-    cover: "/covers/vision.jpg",
+    /*
+     * Vision itself, on placeholder data: the payments table, the cohort
+     * filter and the slack-access modal, composed over a render on a
+     * transparent ground. It replaces the redacted google sheet, which was
+     * the honest tile while no capture of the product could leave, and is
+     * the better one now that one can: the case study is about what was
+     * built, not only about what it killed. Every name, address and number
+     * in the frame is seeded, not a real learner.
+     */
+    cover: "/covers/vision.webp",
     year: "2026",
     summary:
       "the company's payments moved out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
-    display: { fit: "cover" },
+    display: { fit: "contain" },
   },
   {
     slug: "airtribe-ai-skills",
     title: "airtribe ai skills",
     tags: ["ai product design", "design systems", "learning design"],
     category: "work",
-    // Kai's landing surface leads. The pre-read component sheet is the better
-    // record of the internal half, but it is a page of specification type: at
-    // a 200px tile it reads as grey noise. This one still reads as a product
-    // at thumbnail size, which is the only job a tile has. Both halves are on
-    // the case study itself.
-    cover: "/covers/airtribe-learn.png",
+    /*
+     * Kai's landing surface, composed on a transparent ground. Contained
+     * rather than filled: the art is drawn to its own edges and cropping it
+     * cuts the knot or the prompt field, and a transparent ground means the
+     * letterboxing is the page rather than a band of another colour.
+     */
+    cover: "/covers/airtribe-ai-skills.webp",
     year: "2026",
     summary:
       "two ai skills at airtribe: a design language the lxd team authors inside so a growing catalogue stays on-brand, and a tutor that writes one cited lesson for one reader.",
     link: "https://willowy-blancmange-6a230b.netlify.app/",
-    // product landing shot (light ui), filled full-bleed from the top so the
-    // headline and the prompt field survive the crop.
-    display: { fit: "cover", position: "top" },
+    display: { fit: "contain" },
   },
   {
     slug: "a-century-of-villains",

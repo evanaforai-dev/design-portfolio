@@ -111,7 +111,13 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           </div>
         ) : hero.mediaFit === "contain" ? (
           <Container>
-            <div className="flex items-center justify-center border border-hairline py-12 md:py-20">
+            <div
+              className={`flex items-center justify-center ${
+                hero.mediaFrame === false
+                  ? "py-2 md:py-4"
+                  : "border border-hairline py-12 md:py-20"
+              }`}
+            >
               <Media
                 asset={hero.media}
                 fit="contain"

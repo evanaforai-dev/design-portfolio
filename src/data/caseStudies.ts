@@ -780,23 +780,23 @@ export const caseStudies: Record<string, CaseStudy> = {
       subtitle:
         "two skills at airtribe. one is used by the team that writes what paid learners get, one by the learner. in both, the thing being designed is not a screen, it is how much room the author is allowed.",
       /*
-       * Kai's landing surface. The page used to open on a pre-read quiz
-       * component, from when the internal skill led; kai runs first now, and
-       * the index tile is already kai's landing, so the tile and the hero are
-       * continuous instead of showing two different products for one link.
+       * The pre-read components themselves, composed over a render on a
+       * transparent ground: a rice calculator with its live ranking, the
+       * three-column dimensions table, the type-hint lab and a budget
+       * allocator already two weeks over. The fold introduces the internal
+       * skill, so it opens on what that skill produces.
        *
-       * Cropped from the top rather than the centre: this is a 1.6:1 capture
-       * going into a band nearer 2:1, and anchoring the top keeps the
-       * headline, the promise under it and the prompt field, which is the
-       * whole product in one screen. Centring cut the prompt field.
+       * Contained, not filled. The cards are laid to the frame's edges and a
+       * cover crop eats the outermost two; the transparent ground means the
+       * space either side is the page, not a band.
        */
       media: {
         type: "image",
-        src: "/case/airtribe-learn/landing.png",
-        alt: "kai's landing surface: learn something you've been wondering about, over a prompt field and a row of suggested topics",
+        src: "/case/airtribe-ai-skills/hero.webp",
+        alt: "four pre-read components composed over a purple render: a rice calculator with a live priority ranking, a table comparing the product manager's job across three company stages, a type-hint clarity lab, and a quarterly budget allocator flagged two weeks over",
       },
-      mediaFit: "cover",
-      mediaPosition: "top",
+      mediaFit: "contain",
+      mediaFrame: false,
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -870,10 +870,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/board.png", alt: "the research board: problem framing, an audit of shipped pre-reads, a reference scan and component exploration in light and dark" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/boards.webp", alt: "two working boards side by side: on the left the component exploration in light and dark, from avatars and text blocks through chat, quiz, visualisation and loader states; on the right the comp board for the product management programme" },
         fit: "contain",
         frame: true,
-        caption: "the working board, roughly 20,000 by 22,000 px. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
+        caption: "the working boards, at the zoom where you stop reading them and start seeing the size of the problem. the two obvious answers were both bad: templates are consistent and cap what a lesson can be, a rulebook is free and gets read once.",
       },
       /*
        * The four-stage research run that used to sit here (frame, audit,

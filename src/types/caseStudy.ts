@@ -38,6 +38,13 @@ export interface CaseHero {
   subtitle: string;
   media: MediaAsset;
   mediaFit?: "cover" | "contain";
+  /**
+   * Contained heroes sit in a hairline frame by default, which is right for a
+   * captured document. Set false for artwork drawn on a transparent ground:
+   * there is no edge to draw a box around, and a box around it reads as a
+   * specimen case rather than a product.
+   */
+  mediaFrame?: boolean;
   /** optional object-position for cover crops. */
   mediaPosition?: string;
   /**
