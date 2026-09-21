@@ -522,7 +522,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran this end to end: the ground research, the problem framing, the conversations with every team that touches a payment, the prototyping and the final testing. i am one of the two, working alongside one backend and one frontend engineer. there was no separate researcher and no separate ux writer, so the column list, the copy inside the dropdowns and the decisions below are ours.",
+          "two product designers ran this end to end, and the split between us was clean. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions the sections below describe. the other designer took the ui and the handoff to engineering, so the screens on this page are their execution of those calls. we worked alongside one backend and one frontend engineer.",
+          "there was no separate researcher and no separate ux writer, which is why the column list, the payment states and the copy inside the dropdowns are decisions rather than inherited requirements.",
           "vision is airtribe's internal operations dashboard. sales, post-sales, finance, learner delivery, support and people all run out of it, and none of it is learner-facing. payments sit at the seam: the sales team records what a learner paid and how, and everything downstream, enrolment, slack access, onboarding, invoicing, keys off that record.",
           "before this work, that record was a google sheet, and the money moving through it was the company's revenue. it was fast, everyone could see it, and it had no idea who was allowed to change what.",
         ],
@@ -833,7 +834,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran both of these end to end: the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, the prototyping and the final testing. i am one of the two, working alongside one backend and one frontend engineer.",
+          "two product designers ran both of these end to end, split the same way. i took the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, and the design decisions each case study below describes. the other designer took the ui and the handoff. we worked alongside one backend and one frontend engineer.",
           "each skill below is its own case study, with its own decisions and its own result. they share a team, a company and a question, and nothing else.",
         ],
       },
