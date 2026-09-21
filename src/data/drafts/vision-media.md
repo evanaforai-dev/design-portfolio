@@ -1,5 +1,20 @@
 # vision · media brief
 
+> **Status, 21 sep 2026.** The two "before" sheets are done and live:
+> `/case/vision/sheet-sales.jpg` and `/case/vision/sheet-onboarding.png`, both
+> redacted from the real screenshots. The method is in `scrub` notes in
+> caseStudies.ts: squeeze along X and stretch back, which destroys every glyph
+> while leaving row edges and fill colours intact. Not a blur — a blur is
+> reversible enough to be a bad idea on this data, and the originals are
+> readable at 4x upscale. The onboarding sheet keeps its header row at full
+> resolution on purpose; column names are not personal data and they are the
+> argument.
+>
+> Still missing, and still the reason this case has no product imagery: a
+> scrubbed capture of vision itself. The hero, table, templates and filters
+> slots below are unfilled, and the sections that pointed at them have been
+> rewritten to stand without a picture rather than to hold a placeholder.
+
 The NDA allows the interface and forbids the data. That decision only holds if
 the scrub is complete and consistent, so this file is the method, not a
 suggestion.

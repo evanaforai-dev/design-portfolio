@@ -431,13 +431,21 @@ export const caseStudies: Record<string, CaseStudy> = {
       subtitle:
         "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
-        // TODO · replace with a scrubbed capture of the payments record,
-        // repopulated from src/data/drafts/vision-synthetic-cast.csv.
+        /*
+         * The sales sheet itself, redacted. The text is destroyed by squeezing
+         * the image along one axis and stretching it back, not blurred: a blur
+         * is a convolution and convolutions can be attacked, while these
+         * pixels no longer exist. Crushing only X averages each word into a
+         * streak and leaves every row edge and fill colour exactly where it
+         * was, so it reads as a document with its contents struck out rather
+         * than as a photograph somebody smeared.
+         */
         type: "image",
-        src: "/case/vision/payments-table.svg",
-        alt: "the payments record in vision",
+        src: "/case/vision/sheet-sales.jpg",
+        alt: "the sales sheet the product replaced, with every cell's contents redacted: columns of struck-out rows, cleared payments banded in green, refund flags cutting across in red",
       },
-      mediaFit: "contain",
+      mediaFit: "cover",
+      mediaPosition: "center",
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -459,13 +467,21 @@ export const caseStudies: Record<string, CaseStudy> = {
         text: "what does a product have to do before someone gives up a spreadsheet they trust?",
       },
       {
-        // TODO · replace with the real before artifact: the sales sheet,
-        // scrubbed. it is the most valuable image on this page.
+        /*
+         * The onboarding sheet. Data rows destroyed, header row deliberately
+         * left at full resolution: column names are not personal data, and
+         * they are the whole argument. The one thing a reader can recover by
+         * zooming is the one thing worth recovering.
+         */
         kind: "full",
-        media: { type: "image", src: "/case/vision/sheet-before.svg", alt: "the sales sheet, before" },
+        media: {
+          type: "image",
+          src: "/case/vision/sheet-onboarding.png",
+          alt: "the onboarding sheet: a legible header row of close to thirty column names above rows of colour-coded cells whose contents have been destroyed",
+        },
         fit: "contain",
         frame: true,
-        caption: "the thing the product had to beat: colour-coded cells, conventions people invented for themselves, and columns nobody could delete because someone might still be reading them.",
+        caption: "the onboarding sheet, redacted. the rows are struck out and the header row is not, because the columns are the argument: close to thirty of them for one person, two of them adjacent and both called remarks, one asking whether a learner requires career communication skills, and one called problematic leaner, spelled exactly like that. nobody could delete any of it, because somebody might still have been reading it.",
       },
       {
         kind: "constraints",
@@ -538,19 +554,22 @@ export const caseStudies: Record<string, CaseStudy> = {
         note: "the record also carries slack access state, onboarding status, an lxd comment and dashboard access status. those are phase 2: other teams' columns, living inside a sales record, because that is where the sheet had put them.",
       },
       {
-        // TODO · same capture as the hero, once a scrubbed one exists.
-        kind: "annotated",
+        /*
+         * These were callouts beside a screenshot of the payments record. No
+         * scrubbed capture of it exists, and the NDA note above is the reason
+         * it may never — but none of these six needs the picture. Each states
+         * its own decision in full, so they are set as the decisions rather
+         * than as annotations on a frame that is not there.
+         */
+        kind: "constraints",
         label: "the decisions the screen had to make",
-        media: { type: "image", src: "/case/vision/payments-table.svg", alt: "the payments record" },
-        fit: "contain",
-        frame: true,
         items: [
-          { title: "constrain anything with a definitive answer", text: "every field with a finite set of correct answers became a dropdown rather than free text. this is what made filtering possible at all: you cannot filter a column that eleven people have spelled eleven ways, and the sheet had exactly that column several times over." },
-          { title: "colour is for spotting, not reading", text: "the statuses that need to be found in a scan are the anomalies, a payment likely to refund, a lead marked confirmed but not paid, a loan rejected. those carry colour. the ordinary states do not, because if everything is coloured nothing is." },
-          { title: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: a row was created, the sheet was pulled in, it was already in sync, it was not found or not permitted, it failed, or it was ambiguous. ambiguous is the one that matters. a person at 6pm has to be told which record they are looking at and which one they are not." },
-          { title: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are all ordinary places a payment sits. designing them as error states would have told the agent something had gone wrong with their work rather than with the payment." },
-          { title: "the same learner, twice, on purpose", text: "a learner who re-enrols into another cohort is a second payment record, not a correction of the first, so duplicates by name are legitimate and cannot be merged away. the latest record carries a live badge. the older ones stay exactly where they are, readable, because the history of what someone paid for is the point of keeping it." },
-          { title: "the same name leads two different places", text: "click a lead as a sales person and it opens the opportunities page. click the same lead as lxd and it opens the learner profile with the onboarding checklist. the row is shared; the thing you are trying to do with it is not." },
+          { label: "constrain anything with a definitive answer", text: "every field with a finite set of correct answers became a dropdown rather than free text. this is what made filtering possible at all: you cannot filter a column that eleven people have spelled eleven ways, and the sheet had exactly that column several times over." },
+          { label: "colour is for spotting, not reading", text: "the statuses that need to be found in a scan are the anomalies, a payment likely to refund, a lead marked confirmed but not paid, a loan rejected. those carry colour. the ordinary states do not, because if everything is coloured nothing is." },
+          { label: "sync is a state, not a success message", text: "reconciling with the sheet resolves six ways: a row was created, the sheet was pulled in, it was already in sync, it was not found or not permitted, it failed, or it was ambiguous. ambiguous is the one that matters. a person at 6pm has to be told which record they are looking at and which one they are not." },
+          { label: "a rejected loan is a state, not an error", text: "loan rejected, access removed, awaiting documents and waiting for disbursement are all ordinary places a payment sits. designing them as error states would have told the agent something had gone wrong with their work rather than with the payment." },
+          { label: "the same learner, twice, on purpose", text: "a learner who re-enrols into another cohort is a second payment record, not a correction of the first, so duplicates by name are legitimate and cannot be merged away. the latest record carries a live badge. the older ones stay exactly where they are, readable, because the history of what someone paid for is the point of keeping it." },
+          { label: "the same name leads two different places", text: "click a lead as a sales person and it opens the opportunities page. click the same lead as lxd and it opens the learner profile with the onboarding checklist. the row is shared; the thing you are trying to do with it is not." },
         ],
       },
       {
@@ -561,22 +580,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         change: "the email came back out as a column of its own, and the rule came out with it: a column is not a field, it is a workflow. two things that are read together are not necessarily used together, and merging them is only free if nothing downstream ever operates on one of them alone. after this, every merge candidate got asked a second question. not is it read next to its neighbour, but is it ever selected, sorted, exported or copied by itself.",
       },
       {
-        kind: "detail",
-        side: "right",
-        // TODO · replace with a capture of the redesigned filter bar, expanded.
-        media: { type: "image", src: "/case/vision/filters.svg", alt: "the filter and search redesign" },
-        fit: "contain",
-        title: "filters, and a chicken and egg problem",
-        text: "once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue.",
+        // Was a `detail` beside a placeholder frame. No capture of the filter
+        // bar exists that can leave, and the account does not need one.
+        kind: "context",
+        label: "filters, and a chicken and egg problem",
+        paragraphs: ["once sales and onboarding shared a table, the column list was long enough that the filters overflowed. the obvious fix, put them behind a menu, was the one thing we could not do: filtering is how anyone finds their own queue, and burying it behind two clicks would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. the way out was to stop treating the filter set as fixed. a new user gets recommended filters; after that the bar shows what they last used, and the whole thing expands and collapses in place. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status, so search gained include and exclude to keep a query from silently returning the wrong queue."],
       },
       {
-        kind: "detail",
-        side: "left",
-        // TODO · replace with a capture of the template flow, manager view.
-        media: { type: "image", src: "/case/vision/templates.svg", alt: "the email template flow" },
-        fit: "contain",
-        title: "email templates, for managers and agents",
-        text: "the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product.",
+        kind: "context",
+        label: "email templates, for managers and agents",
+        paragraphs: ["the same product, a different muscle. templates are what the sales team sends from, and the design question is not the editor, it is the line between the two roles: what a manager can author and what an agent can only send. it shipped alongside a separate piece of work bucketing permissions by role, which is the same question asked at the level of the whole product."],
       },
       {
         kind: "statement",

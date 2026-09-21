@@ -45,12 +45,14 @@ export const projects: Project[] = [
     title: "vision",
     tags: ["product design", "payments", "internal tooling"],
     category: "work",
-    // TODO · placeholder frame until a scrubbed capture exists.
-    cover: "/case/vision/payments-table.svg",
+    // The sheet the product replaced, redacted. No capture of vision itself can
+    // leave, and this is the more honest tile anyway: the case study is about
+    // killing this thing, and nothing else on the index looks remotely like it.
+    cover: "/covers/vision.jpg",
     year: "2026",
     summary:
       "the company's payments moved out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
-    display: { fit: "contain", pad: "p-4 md:p-6" },
+    display: { fit: "cover" },
   },
   {
     slug: "airtribe-ai-skills",
