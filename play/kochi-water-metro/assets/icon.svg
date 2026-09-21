@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="108" fill="#eef7f8"/>
+  <g transform="translate(256 268) scale(3.05) translate(-40 -30)" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M6 40 L22 12 L30 26 L40 8 L50 26 L58 12 L74 40 Z" stroke="#3bb54a" stroke-width="6"/>
+    <path d="M14 44 L30 16 L40 34 L50 16 L66 44" stroke="#1b3c8f" stroke-width="6"/>
+  </g>
+  <text x="256" y="430" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="46" font-weight="800" fill="#1b3c8f" letter-spacing="1">WATER METRO</text>
+</svg>

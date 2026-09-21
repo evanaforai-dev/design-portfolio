@@ -1,0 +1,63 @@
+{
+ "viewBox": [0, 0, 3178, 2384],
+ "terminals": {
+  "highcourt":    { "en": "High Court",        "ml": "ഹൈക്കോടതി",        "svg": [1470, 1700], "story": "highcourt", "official": "HighCourt",         "featured": true, "hub": true },
+  "vypin":        { "en": "Vypin",             "ml": "വൈപ്പിൻ",          "svg": [810, 1630],  "story": "vypin",     "official": "Vypin",             "featured": true },
+  "fortkochi":    { "en": "Fort Kochi",        "ml": "ഫോർട്ട് കൊച്ചി",   "svg": [811, 1792],  "story": "fortkochi", "official": "Fort Kochi",        "featured": true },
+  "willingdon":   { "en": "Willingdon Island", "ml": "വെല്ലിംഗ്ടൺ ദ്വീപ്", "svg": [1166, 1789], "story": null,        "official": "Willingdon Island" },
+  "mattancherry": { "en": "Mattancherry",      "ml": "മട്ടാഞ്ചേരി",      "svg": [1167, 1990], "story": "mattanch",  "official": "Mattancherry",      "featured": true },
+  "schittoor":    { "en": "South Chittoor",    "ml": "സൗത്ത് ചിറ്റൂർ",   "svg": [1411, 790],  "story": "schittoor", "official": "South Chittoor" },
+  "cheranalloor": { "en": "Cheranalloor",      "ml": "ചേരാനല്ലൂർ",       "svg": [1577, 221],  "story": null,        "official": "Cheranalloor" },
+  "eloor":        { "en": "Eloor",             "ml": "ഏലൂർ",             "svg": [1598, 128],  "story": "eloor",     "official": "Eloor" },
+  "vyttila":      { "en": "Vyttila",           "ml": "വൈറ്റില",          "svg": [2111, 1791], "story": "vyttila",   "official": "Vytilla",           "featured": true },
+  "kakkanad":     { "en": "Kakkanad",          "ml": "കാക്കനാട്",        "svg": [2499, 1487], "story": "kakkanad",  "official": "Kakkanad",          "featured": true }
+ },
+ "edges": [
+  {
+   "a": "highcourt", "b": "vypin",
+   "pts":  [[1470,1700],[1451,1702],[813,1702],[813,1636],[810,1630]],
+   "nav":  [[1470,1700],[1451,1702],[813,1702],[813,1636],[810,1630]]
+  },
+  {
+   "a": "vypin", "b": "fortkochi",
+   "pts":  [[810,1630],[811,1653],[811,1792]],
+   "nav":  [[810,1630],[811,1653],[811,1792]]
+  },
+  {
+   "a": "highcourt", "b": "fortkochi",
+   "pts":  [[1470,1700],[1451,1702],[813,1702],[811,1792]],
+   "nav":  [[1470,1700],[1451,1702],[813,1702],[811,1792]]
+  },
+  {
+   "a": "highcourt", "b": "willingdon",
+   "pts":  [[1470,1700],[1457,1714],[1147,1714],[1137,1734],[1166,1789]],
+   "nav":  [[1470,1700],[1457,1714],[1147,1714],[1137,1734],[1166,1789]]
+  },
+  {
+   "a": "willingdon", "b": "mattancherry",
+   "pts":  [[1166,1789],[1212,1893],[1167,1990]],
+   "nav":  [[1166,1789],[1212,1893],[1167,1990]]
+  },
+  {
+   "a": "highcourt", "b": "schittoor",
+   "pts":  [[1470,1700],[1400,1560],[1300,1351],[1200,1150],[1185,1112],[1235,975],[1300,921],[1410,917],[1411,800],[1411,790]],
+   "nav":  [[1470,1700],[1400,1560],[1300,1351],[1200,1150],[1185,1112],[1235,975],[1300,921],[1410,917],[1411,800],[1411,790]]
+  },
+  {
+   "a": "schittoor", "b": "cheranalloor",
+   "pts":  [[1411,790],[1411,679],[1361,666],[1302,659],[1240,555],[1244,472],[1265,461],[1325,460],[1359,412],[1444,402],[1544,402],[1544,346],[1547,286],[1560,259],[1572,232],[1577,221]],
+   "nav":  [[1411,790],[1411,679],[1361,666],[1302,659],[1240,555],[1244,472],[1265,461],[1325,460],[1359,412],[1444,402],[1544,402],[1544,346],[1547,286],[1560,259],[1572,232],[1577,221]]
+  },
+  {
+   "a": "cheranalloor", "b": "eloor",
+   "pts":  [[1577,221],[1585,205],[1597,177],[1598,148],[1598,128]],
+   "nav":  [[1577,221],[1585,205],[1597,177],[1598,148],[1598,128]]
+  },
+  {
+   "a": "vyttila", "b": "kakkanad",
+   "pts":  [[2111,1791],[2132,1792],[2158,1788],[2158,1641],[2177,1632],[2324,1632],[2348,1623],[2416,1493],[2479,1492],[2499,1487]],
+   "nav":  [[2111,1791],[2132,1792],[2158,1788],[2158,1641],[2177,1632],[2324,1632],[2348,1623],[2416,1493],[2479,1492],[2499,1487]]
+  }
+ ],
+ "note": "Operational network: connectivity from official /api/schedule; geometry hand-digitised from the official interactive map's grey water channels + coloured service corridors. edge.pts (route highlight) and edge.nav (boat path) are identical and both stay strictly on real navigable waterways — never crossing land or open water. Vertices sampled directly from the map's <path> d-data. Component A hub=High Court; Component B=Vyttila-Kakkanad (isolated)."
+}

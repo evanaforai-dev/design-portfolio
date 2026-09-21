@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#0a4a63" />
+<title>Kochi Water Metro · Along the Way</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="assets/icon.svg" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ================= MAP LAYER (official interactive map) ================= -->
+  <div id="stage">
+    <div id="map"><!-- official SVG injected here --></div>
+  </div>
+
+  <!-- ================= PLANNER ================= -->
+  <section class="screen planner-screen" id="s-plan">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 40 L22 12 L30 26 L40 8 L50 26 L58 12 L74 40 Z" fill="none" stroke="#3bb54a" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M14 44 L30 16 L40 34 L50 16 L66 44" fill="none" stroke="#1b3c8f" stroke-width="5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand-txt">
+        <b>Water Metro</b>
+        <span data-i="tagline">Along the Way</span>
+      </div>
+      <div class="langsw" role="group" aria-label="Language">
+        <button id="lang-en" class="on" data-lang="en">EN</button>
+        <button id="lang-ml" data-lang="ml" class="lang-ml">മല</button>
+      </div>
+    </div>
+
+    <div class="planner">
+      <div class="hero">
+        <div class="kick" data-i="kick">Your backwater companion</div>
+        <h1 id="heroTitle"></h1>
+        <p data-i="heroP"></p>
+      </div>
+
+      <div class="field">
+        <label data-i="boardLbl" class="field-label"><span class="dot from"></span> <span class="lbltxt"></span></label>
+        <div class="select-wrap"><select id="from" aria-label="Boarding terminal"></select></div>
+      </div>
+
+      <div class="swap"><button id="swap" aria-label="Swap terminals">⇅</button></div>
+
+      <div class="field">
+        <label data-i="offLbl" class="field-label"><span class="dot to"></span> <span class="lbltxt"></span></label>
+        <div class="select-wrap"><select id="to" aria-label="Destination terminal"></select></div>
+      </div>
+
+      <button class="go" id="start">
+        <span data-i="begin"></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="hint" id="hint"></div>
+      <div class="route-note" id="routeNote"></div>
+    </div>
+  </section>
+
+  <!-- ================= JOURNEY ================= -->
+  <section class="screen journey-screen hide" id="s-journey">
+    <div class="jhead">
+      <div class="jtop">
+        <button class="icon-btn back" id="back" aria-label="End journey">←</button>
+        <div class="route-pill">
+          <div class="r"><span id="r-from">—</span><span class="arw">▸</span><span id="r-to">—</span></div>
+          <div class="meta" id="r-meta">—</div>
+        </div>
+        <div class="langsw" role="group" aria-label="Language">
+          <button id="lang-en2" class="on" data-lang="en">EN</button>
+          <button id="lang-ml2" data-lang="ml" class="lang-ml">മല</button>
+        </div>
+      </div>
+      <div class="railwrap"><div class="rail" id="rail"></div></div>
+    </div>
+
+    <!-- live journey status (ambient system message) -->
+    <div class="jstatus" id="jstatus">
+      <span class="js-dot" id="jsDot"></span>
+      <div class="js-txt"><div class="js-title" id="jsTitle"></div><div class="js-sub" id="jsSub"></div></div>
+    </div>
+
+    <!-- tiny observation banner -->
+    <div class="obs" id="obs"><span class="obs-ic">👁</span><span class="obs-tx" id="obsTx"></span></div>
+
+    <!-- floating transit card (boat keeps moving) -->
+    <div class="floatcard" id="floatcard"></div>
+
+    <!-- terminal story: light bottom card (auto-advances, no buttons) -->
+    <div class="sheet" id="sheet">
+      <div class="sheet-grip"></div>
+      <div class="sheet-head" id="sheetHead"></div>
+      <div class="sheet-scroll" id="sheetScroll"></div>
+      <div class="miniaudio" id="miniaudio">
+        <button class="playbtn" id="play" aria-label="Pause narration">
+          <svg id="playicon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="ma-meta"><div class="ma-title" id="now-title"></div><div class="pprog"><span id="pprog"></span></div></div>
+        <button class="replay" id="replay" aria-label="Replay narration">↺</button>
+      </div>
+    </div>
+
+    <!-- arrival overlay -->
+    <div class="arrival-sheet" id="arrivalSheet">
+      <div class="as-check">✓</div>
+      <div class="as-kicker" id="asKicker"></div>
+      <h2 class="as-title" id="asTitle"></h2>
+      <p class="as-thanks" id="asThanks"></p>
+      <div class="as-hl-label" id="asHlLabel"></div>
+      <div class="as-highlights" id="asHighlights"></div>
+      <div class="as-continue" id="asContinue"></div>
+    </div>
+  </section>
+
+  <!-- boot / loading -->
+  <div id="boot"><div class="boot-mark"><svg viewBox="0 0 80 60"><path d="M6 40 L22 12 L30 26 L40 8 L50 26 L58 12 L74 40 Z" fill="none" stroke="#3bb54a" stroke-width="5" stroke-linejoin="round"/><path d="M14 44 L30 16 L40 34 L50 16 L66 44" fill="none" stroke="#7fe3ef" stroke-width="5" stroke-linejoin="round"/></svg></div></div>
+
+</div>
+
+<!-- subtle, self-dismissing indicator shown once the whole app is cached for offline use -->
+<div id="offlineReady" role="status" aria-live="polite" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 7 4"/><path d="M20 12a8 8 0 0 1-8 8 8 8 0 0 1-7-4"/><path d="M9 12l2 2 4-4"/></svg>
+  <span>Available offline</span>
+</div>
+
+<script src="app.js" type="module"></script>
+<script>
+/* Progressive Web App: register the service worker and surface the
+   "Available offline" indicator once every asset is cached. Kept separate from
+   app.js so it never touches the UI/animation/storytelling logic. */
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  var toast = document.getElementById("offlineReady");
+  var SHOWN_KEY = "kwm-offline-shown";
+
+  function flashOffline(version) {
+    if (!toast) return;
+    try { if (localStorage.getItem(SHOWN_KEY) === version) return; } catch (e) {}
+    toast.classList.add("show");
+    toast.setAttribute("aria-hidden", "false");
+    setTimeout(function () {
+      toast.classList.remove("show");
+      toast.setAttribute("aria-hidden", "true");
+    }, 3600);
+    try { localStorage.setItem(SHOWN_KEY, version); } catch (e) {}
+  }
+
+  navigator.serviceWorker.addEventListener("message", function (e) {
+    if (e.data && e.data.type === "offline-ready" && e.data.complete) flashOffline(e.data.version);
+  });
+
+  window.addEventListener("load", function () {
+    /* embedded copy: no service worker. offline caching is the point of the
+       standalone app, but installing one from inside a portfolio iframe puts a
+       worker on that origin for no benefit. */
+  });
+})();
+</script>
+</body>
+</html>
