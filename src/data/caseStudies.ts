@@ -731,13 +731,24 @@ export const caseStudies: Record<string, CaseStudy> = {
       title: "airtribe ai skills",
       subtitle:
         "two skills at airtribe. one is used by the team that writes what paid learners get, one by the learner. in both, the thing being designed is not a screen, it is how much room the author is allowed.",
+      /*
+       * Kai's landing surface. The page used to open on a pre-read quiz
+       * component, from when the internal skill led; kai runs first now, and
+       * the index tile is already kai's landing, so the tile and the hero are
+       * continuous instead of showing two different products for one link.
+       *
+       * Cropped from the top rather than the centre: this is a 1.6:1 capture
+       * going into a band nearer 2:1, and anchoring the top keeps the
+       * headline, the promise under it and the prompt field, which is the
+       * whole product in one screen. Centring cut the prompt field.
+       */
       media: {
         type: "image",
-        src: "/case/airtribe-ai-skills/components-hero.png",
-        alt: "a quiz component in its answered state, correct option filled green, with its motion spec printed in the corner",
+        src: "/case/airtribe-learn/landing.png",
+        alt: "kai's landing surface: learn something you've been wondering about, over a prompt field and a row of suggested topics",
       },
       mediaFit: "cover",
-      mediaPosition: "center",
+      mediaPosition: "top",
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
