@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { projects } from "@/data/projects";
 import { registers } from "@/data/site";
 import { ProjectCard } from "./ProjectCard";
@@ -41,11 +35,6 @@ import { ProjectCard } from "./ProjectCard";
  * frame; each cell draws only its right + bottom line, so the hairlines run
  * continuously across the band.
  *
- * Microinteraction — CURSOR-REACTIVE GRID: a second, masked copy of each
- * band's lines (`.reactive-grid-overlay`) fades up near the pointer. The base
- * geometry never moves; only local emphasis changes. Pointer tracking writes
- * CSS variables in a rAF loop (no React re-render), and the effect is disabled
- * on touch / reduced-motion devices.
  */
 
 /*
@@ -108,7 +97,6 @@ const WIDEST = Math.max(...BANDS.map((b) => b.items.length));
 
 export function ProjectGrid() {
   const frameRef = useRef<HTMLDivElement>(null);
-  const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
   /** One column count per band. */
   const [cols, setCols] = useState<number[]>(() =>
     BANDS.map((b) => b.items.length),
@@ -162,55 +150,6 @@ export function ProjectGrid() {
     window.addEventListener("resize", solve);
     return () => window.removeEventListener("resize", solve);
   }, [solve]);
-
-  useEffect(() => {
-    const frame = frameRef.current;
-    if (!frame) return;
-
-    const fine = window.matchMedia(
-      "(hover: hover) and (pointer: fine)",
-    ).matches;
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (!fine || reduce) return;
-
-    let raf = 0;
-    let cx = 0;
-    let cy = 0;
-    const paint = () => {
-      raf = 0;
-      // Each band's overlay is masked around the pointer in its OWN
-      // coordinates, so the emphasis crosses the seam between bands instead of
-      // restarting at it.
-      for (const el of overlayRefs.current) {
-        if (!el) continue;
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", `${cx - r.left}px`);
-        el.style.setProperty("--my", `${cy - r.top}px`);
-      }
-    };
-    const onMove = (e: PointerEvent) => {
-      cx = e.clientX;
-      cy = e.clientY;
-      if (!raf) raf = requestAnimationFrame(paint);
-    };
-    const show = (v: string) => () => {
-      for (const el of overlayRefs.current) if (el) el.style.opacity = v;
-    };
-    const onEnter = show("1");
-    const onLeave = show("0");
-
-    frame.addEventListener("pointermove", onMove);
-    frame.addEventListener("pointerenter", onEnter);
-    frame.addEventListener("pointerleave", onLeave);
-    return () => {
-      frame.removeEventListener("pointermove", onMove);
-      frame.removeEventListener("pointerenter", onEnter);
-      frame.removeEventListener("pointerleave", onLeave);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
 
   const fitted = art !== null;
 
@@ -284,33 +223,6 @@ export function ProjectGrid() {
                 })}
               </div>
 
-              {/* Masked emphasis layer: exactly mirrors the lines above. Only
-                  the fitted layout has equal rows for it to mirror — in the
-                  scrolling layout each row is as tall as its own caption, so a
-                  second copy on 1fr rows would sit a few pixels off the real
-                  lines and read as a misregistration rather than an emphasis. */}
-              {fitted && (
-                <div
-                  ref={(el) => {
-                    overlayRefs.current[b] = el;
-                  }}
-                  aria-hidden
-                  className="reactive-grid-overlay pointer-events-none absolute inset-0 grid border-l border-t"
-                  style={template}
-                >
-                  {band.items.map((p, j) => (
-                    <div
-                      key={p.slug}
-                      className="border-b border-r"
-                      style={
-                        j === n - 1 && span > 1
-                          ? { gridColumn: `span ${span}` }
-                          : undefined
-                      }
-                    />
-                  ))}
-                </div>
-              )}
             </div>
           </section>
         );

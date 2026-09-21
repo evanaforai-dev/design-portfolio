@@ -247,7 +247,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/05-gaps.png", alt: "the gaps, sorted into seven categories" },
         fit: "contain",
         frame: true,
-        caption: "the gaps, sorted before they were solved: reliability, navigation and real-time information, feedback and engagement, payment and ticketing, sustainability, tourism, and first and last mile. the question under the slide is the real one, which of these do we fill first.",
+        caption: "the gaps, sorted before any of them were solved. the question under the slide is the real one: which of these do we fill first.",
       },
       {
         kind: "context",
@@ -295,7 +295,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/11-sorting-the-pile.png", alt: "what to retain and what to improve" },
         fit: "contain",
         frame: true,
-        caption: "sorting the pile into two questions: what has to be kept because people rely on it, and what would actually make it better. geofencing alerts, a minimal data mode and unified ticketing on one side; crowd information, carbon tracking, green routes and pooling on the other.",
+        caption: "sorting the pile into two questions: what has to be kept because people rely on it, and what would actually make it better.",
       },
       {
         kind: "full",
@@ -350,7 +350,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/14-ui-homescreen.png", alt: "the homescreen redesign and its iterations" },
         fit: "contain",
         frame: true,
-        caption: "the homescreen, with the reasoning kept next to it: all options overweighted, no leads for a novice, no resemblance to familiar ui, icon and text size. the version that shipped puts green nudges and frequent tasks first and defaults geodata for a novice.",
+        caption: "the homescreen, with the reasoning kept beside it. the version that shipped leads with green nudges and frequent tasks, and defaults geodata for a novice.",
       },
       {
         kind: "full",
@@ -616,7 +616,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the same rows under the other view. onboarding gets its own filter set and its own columns, career service, ctc, profile, the two track assignments, and none of the payment machinery it never touches. that is where the scroll went. the menu on the right is the other half of the argument: change cohort, assign unit, re-sync and remove access are rare, consequential, or both, so they sit behind a button that names them rather than inside a cell you can fall into. which of them you are offered depends on the team you are on.",
+        caption: "the same rows under the other view. onboarding gets its own filters and its own columns, career service, ctc, profile, the two track assignments, and none of the payment machinery it never touches. that is where the scroll went. the menu on the right is the other half: change cohort, assign unit, re-sync and remove access are rare, consequential or both, so they sit behind a button that names them rather than in a cell you can fall into.",
       },
       {
         kind: "pipeline",
@@ -674,8 +674,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "turn",
         label: "the flaw we shipped",
         tried: "a name and an email are never read apart, so we stopped treating them as two columns. the name became the line, the email became a subline under it, one cell. it tested well with the sales team, it scanned well, and it gave back a column on a table that badly needed the room.",
-        result: "it broke a workflow nobody had shown us. the people granting slack access do not read emails one at a time, they take the whole column at once. in the sheet that was a single drag and about five minutes for a cohort. as a subline living inside another column there was nothing to select, so the same job became copying addresses out by hand, one row at a time, and it took about fifty minutes. we had researched the team that writes the record and missed the team that consumes it a hundred rows at a time.",
-        change: "the email came back out as a column of its own, and the rule came out with it: a column is not a field, it is a workflow. two things that are read together are not necessarily used together, and merging them is only free if nothing downstream ever operates on one of them alone. after this, every merge candidate got asked a second question. not is it read next to its neighbour, but is it ever selected, sorted, exported or copied by itself.",
+        result: "it broke a workflow nobody had shown us. the people granting slack access do not read emails one at a time, they take the whole column at once: one drag, about five minutes for a cohort. as a subline inside another column there was nothing to select, so the same job became copying addresses by hand, about fifty minutes. we had researched the team that writes the record and missed the team that reads it a hundred rows at a time.",
+        change: "the email came back out as its own column, and the rule came with it: a column is not a field, it is a workflow. two things read together are not necessarily used together. every merge candidate now gets a second question, not is it read beside its neighbour, but is it ever selected, sorted, exported or copied alone.",
       },
       {
         kind: "full",
@@ -686,13 +686,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "where that repair ended up. the email is a column again, on the right, and the job that broke is no longer a job at all: select the rows, take all ten addresses in one click, or set slack access for every one of them through a single dialogue that lists exactly whose access is about to change. the thing we had turned into fifty minutes of copying is now the fastest path in the product.",
+        caption: "where the repair ended up. the email is a column again, and the job that broke is no longer a job: select the rows, take all ten addresses in one click, or set slack access for all of them in one dialogue that lists whose access is about to change. fifty minutes of copying is now the fastest path in the product.",
       },
       {
         kind: "context",
         label: "filters, and a chicken and egg problem",
         paragraphs: [
-          "filtering is how anyone finds their own queue, so the obvious fix, put it behind a menu, was the one thing we could not do: burying it two clicks deep would have made the product slower than the sheet at the exact task the sheet was worst at. but showing all of them was the overflow. an opportunity carries about twenty five fields across three lifecycle axes people constantly mistake for one, a status, a stage, and a separate lead status.",
+          "filtering is how anyone finds their own queue, so the obvious fix, put it behind a menu, was the one thing we could not do: two clicks deep would make the product slower than the sheet at the task the sheet was worst at. showing all of them was the overflow. an opportunity carries about twenty five fields across three lifecycle axes people mistake for one: a status, a stage, and a separate lead status.",
           "the way out was to stop treating the filter set as fixed. a new user gets recommended filters, after that the bar shows what they last used, and the rest expand and collapse in place rather than opening a panel. a combination worth keeping is saved as a named view and returned to. search gained include and exclude alongside it, to stop a query quietly returning the wrong queue.",
         ],
       },
@@ -727,7 +727,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "who is allowed to see what",
         paragraphs: [
-          "the row is shared and almost nobody should see all of it, so access is built on four axes that are deliberately not the same thing: the department you sit in, the role you hold, the permission group you are in, and who you report to. a title is not a permission. that is why the role column and the permission group column disagree on most rows, and why that is the system working rather than a data problem: a manager can sit on team lead permissions and an associate on manager permissions, because what somebody is allowed to do is a decision about the work in front of them rather than a consequence of their job title.",
+          "the row is shared and almost nobody should see all of it, so access runs on four axes that are deliberately not the same thing: department, role, permission group, and who you report to. a title is not a permission. that is why the role column and the permission group column disagree on most rows, and why that is the system working: a manager can sit on team lead permissions because what you are allowed to do is a decision about the work in front of you, not a consequence of your title.",
           "the permissions themselves are namespaced and filed into eleven categories, and they compose into named groups instead of being handed out one at a time. it is the piece of this product that took the longest to argue for and the piece that makes every other decision on this page enforceable: views, editable columns and the action menu all read from it.",
         ],
       },
@@ -751,7 +751,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "composing one. opportunity management alone holds ten permissions, from create and edit through to distribute, shuffle, and manage descendant's opportunities, which reads the reporting line to decide whose records you can touch. the group is ticked together, named, and then listed back in full before it exists. the same review stands between an admin and handing that group to a person, because a permission group is the kind of object you want to be boring to audit.",
+        caption: "composing one. opportunity management alone holds ten permissions, through to manage descendant's opportunities, which reads the reporting line to decide whose records you can touch. the group is ticked together, named, then listed back in full before it exists, and the same review stands between an admin and handing it to a person. a permission group should be boring to audit.",
       },
       {
         kind: "statement",
@@ -922,7 +922,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "turn",
         label: "the tool we built and threw away",
-        tried: "the lxd team arrived with a version of interactive pre-reads that had every possible interaction and every possible component in it. we broke that down into broad categories and shipped a basic version, and it was rejected: too simple, not good enough. so we went back and did the pedagogical work we had skipped, what actually makes a pre-read interactive for someone preparing, rather than what is technically possible to build. then we built a component maker, a framer-like tool for assembling the artifacts.",
+        tried: "the lxd team arrived with a version that had every possible interaction and component in it. we broke it into broad categories, shipped a basic version, and it was rejected: too simple. so we went back and did the pedagogical work we had skipped, what makes a pre-read interactive for someone preparing rather than what is possible to build. then we built a component maker, a framer-like tool for assembling the artifacts.",
         result: "the component maker made the workflow worse. the chain already ran designer, then program manager, then a copy-paste into the internal dashboard, and the maker added another station to it. it was longer than what it replaced and it had one more place for an error to enter.",
         change: "we scratched it and built the skill instead, comprehensive enough that the learning experience designer writes the whole lesson inside it and hands over a link. the rule that came out: when a tool sits between the person who understands the material and the thing the learner reads, the tool is the problem. put the making where the pedagogy already is.",
       },
@@ -949,14 +949,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
         fit: "contain",
         frame: true,
-        caption: "the other half of the same board: what a learner does in a good lesson, written as four beats. encounter a situation, form a position, test it against reality, connect it to your own work. the second beat is the one the old pre-reads did not have, and it is the expensive one, because a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth beat, apply this to your own context, was already in the product. it was sitting at the end, after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components at all.",
+        caption: "the other half of the same board: what a learner does in a good lesson, as four beats. encounter a situation, form a position, test it against reality, connect it to your own work. the second is the one the old pre-reads did not have, and the expensive one: a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth was already in the product, sitting at the end after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/interactivity.png", alt: "probable types of interactivity mapped across three programmes: product management, backend engineering and generative ai" },
         fit: "contain",
         frame: true,
-        caption: "the same question asked three times, because the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios with authored consequences, trade-off sliders and spec critique. a backend answer is executable, so bel gets a sandbox: write the query, run it, predict the output, find the bug. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list of exercises could not have served all three, which is the argument for classifying by behaviour underneath.",
+        caption: "the same question asked three times, because the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios, trade-off sliders and spec critique. a backend answer is executable, so bel gets a sandbox: write the query, run it, find the bug. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list could not have served all three.",
       },
       {
         kind: "pipeline",
@@ -1054,7 +1054,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished, which is the rule that catches the ones built in a hurry." },
           { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition. durations are written beside the component, so the next author does not have to guess what calm looks like." },
           { title: "replay, not confetti", text: "the reward for a right answer is the state change, plus a way to run it again." },
-          { title: "a written list of what we are not doing", text: "the motion pass came out as two kinds. kind a hangs off an interaction, eases out and finishes inside 500ms. kind b was the decorative half, scroll-triggered fades on prose, confetti on a correct answer, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under the heading what we are not doing, as a list, because it is easier to hold a line when the argument against it is already written down." },
+          { title: "a written list of what we are not doing", text: "the motion pass came out as two kinds. kind a hangs off an interaction, eases out, finishes inside 500ms. kind b was decorative, scroll fades on prose, confetti on a correct answer, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under what we are not doing, because it is easier to hold a line when the argument against it is written down." },
         ],
       },
       {
@@ -1225,7 +1225,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "the wait we tried to hide",
         tried: "generating a lesson takes ten to thirty seconds, and the first instinct was the usual furniture for that gap: a spinner, or a progress bar.",
         result: "a progress bar that tracks nothing real is a lie, and neither it nor a spinner gives the learner anything to do with the time. the countdown we reached for next was worse than both. naming the seconds left makes the wait feel longer.",
-        change: "the building screen became a wait ladder. a sharp hook lands immediately, 'most people think a rag system searches your docs. it doesn't', and the shape of the lesson assembles line by line underneath it while the rest is still being written, so the learner is already reading and already curious before the lesson exists. a notify me escape hatch sits under that for anyone who would rather not wait at all. the weakest moment in the product is now one of the better ones, and the rule that came out of it is that dead time is a content problem before it is a loading problem.",
+        change: "the building screen became a wait ladder. a hook lands immediately, 'most people think a rag system searches your docs. it doesn't', and the shape of the lesson assembles line by line underneath it while the rest is written, so the learner is reading and already curious before the lesson exists. a notify me hatch sits under that for anyone who would rather not wait. the rule out of it: dead time is a content problem before it is a loading problem.",
       },
       {
         kind: "turn",
@@ -1238,8 +1238,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "constraints",
         label: "the rest of what the phone changed",
         items: [
-          { label: "kai is a sheet, not a screen", text: "on mobile kai was close to becoming a separate destination, which fights the whole product: the lesson is the point and kai is there to support it. it became a peek and expand bottom sheet instead. kai is always present as a peek line at the bottom, one tap brings the conversation up over the lesson, and the lesson never leaves. that is what keeps lesson-primary honest rather than letting it drift into a tab-switching app." },
-          { label: "the header was carrying desktop clutter", text: "two collisions gave it away. teach appeared twice on the expanded kai sheet, because the peek eyebrow did not hide when the sheet took over, and the demo version badge sat on top of the header's map icon. the fix was not to nudge either one. the mobile header came down to the brand on the left and the map icon on the right, the breadcrumb went entirely, and the badge moved to the bottom above the kai sheet. a collision is usually a density problem wearing a positioning costume." },
+          { label: "kai is a sheet, not a screen", text: "on mobile kai was close to becoming a separate destination, which fights the product: the lesson is the point and kai supports it. it became a peek and expand sheet instead. kai sits as a peek line at the bottom, one tap brings the conversation up over the lesson, and the lesson never leaves. that is what stops lesson-primary drifting into a tab-switching app." },
+          { label: "the header was carrying desktop clutter", text: "two collisions gave it away. teach appeared twice on the expanded kai sheet, because the peek eyebrow did not hide when the sheet took over, and the demo badge sat on the header's map icon. the fix was not to nudge either. the header came down to brand left and map icon right, the breadcrumb went, and the badge moved to the bottom. a collision is usually a density problem in a positioning costume." },
           { label: "the em dash rule did the editing", text: "the wait ladder's hook was written with em dashes, which the project style forbids. rewriting them out as full sentence breaks made the hook punchier than it had been. the pre-reads spec above carries the same rule, which makes it the smallest constraint in either system and the one that has now done editorial work twice." },
         ],
       },

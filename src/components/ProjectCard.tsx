@@ -1,13 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import type { Project } from "@/types/project";
 import { asset } from "@/lib/asset";
-
-/** How far the artwork leans toward the pointer, in px at the cell's edge. */
-const PULL = 14;
 
 /**
  * A project rendered as an object placed inside its grid cell (the cell and its
@@ -24,12 +21,6 @@ const PULL = 14;
  * well takes a square of its own and the caption plate grows to whatever the
  * title needs. The title is never clipped in either — a project whose name
  * reads "airtribe ai s..." is a project nobody clicks.
- *
- * MAGNETIC PULL — the artwork leans toward the pointer and eases back when it
- * leaves. Pointer position is written straight to the element's transform in a
- * rAF loop (no React re-render, matching ProjectGrid's overlay); the easing
- * that makes it feel magnetic rather than glued is the CSS transition, not the
- * maths. Only the artwork moves: the caption stays put so text never jitters.
  *
  * The hover zoom lives on the <img> rather than on the same wrapper, because
  * two transforms on one element would overwrite each other.
@@ -75,54 +66,7 @@ export function ProjectCard({
   const baseSrc = animated ? poster : project.cover;
 
   const rootRef = useRef<HTMLAnchorElement>(null);
-  const pullRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const root = rootRef.current;
-    const art = pullRef.current;
-    if (!root || !art) return;
-
-    // Magnetism is a fine-pointer affordance, and never overrides a stated
-    // preference for less motion.
-    const fine = window.matchMedia(
-      "(hover: hover) and (pointer: fine)",
-    ).matches;
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (!fine || reduce) return;
-
-    let raf = 0;
-    let x = 0;
-    let y = 0;
-
-    const paint = () => {
-      raf = 0;
-      art.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    };
-    const queue = () => {
-      if (!raf) raf = requestAnimationFrame(paint);
-    };
-    const onMove = (e: PointerEvent) => {
-      const r = root.getBoundingClientRect();
-      x = ((e.clientX - r.left) / r.width - 0.5) * PULL * 2;
-      y = ((e.clientY - r.top) / r.height - 0.5) * PULL * 2;
-      queue();
-    };
-    const onLeave = () => {
-      x = 0;
-      y = 0;
-      queue();
-    };
-
-    root.addEventListener("pointermove", onMove);
-    root.addEventListener("pointerleave", onLeave);
-    return () => {
-      root.removeEventListener("pointermove", onMove);
-      root.removeEventListener("pointerleave", onLeave);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
 
   // Invisible until the pointer arrives, then a small solid square. Size is
   // constant so only opacity animates and the square stays crisp instead of
@@ -151,10 +95,7 @@ export function ProjectCard({
         <span aria-hidden className={`${corner} bottom-2.5 left-2.5`} />
         <span aria-hidden className={`${corner} bottom-2.5 right-2.5`} />
 
-        <div
-          ref={pullRef}
-          className={`h-full w-full transition-transform duration-500 ease-editorial ${pad}`}
-        >
+        <div className={`h-full w-full ${pad}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={asset(baseSrc)}

@@ -108,7 +108,6 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   const themeCss = theme
     ? `:root{--bg:${theme.bg};--fg:${theme.fg};--muted:${theme.fg};` +
       `--hairline:${theme.hairline ?? `${theme.fg}29`};` +
-      `--hairline-strong:${theme.hairline ?? `${theme.fg}1f`};` +
       `--accent:${accentFor(theme.bg, theme.fg)};` +
       `color-scheme:${dark ? "dark" : "light"}}`
     : null;
