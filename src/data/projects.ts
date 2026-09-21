@@ -45,20 +45,14 @@ export const projects: Project[] = [
     title: "vision",
     tags: ["product design", "payments", "internal tooling"],
     category: "work",
-    /*
-     * Vision itself, on placeholder data: the payments table, the cohort
-     * filter and the slack-access modal, composed over a render on a
-     * transparent ground. It replaces the redacted google sheet, which was
-     * the honest tile while no capture of the product could leave, and is
-     * the better one now that one can: the case study is about what was
-     * built, not only about what it killed. Every name, address and number
-     * in the frame is seeded, not a real learner.
-     */
-    cover: "/covers/vision.webp",
+    // The sheet the product replaced, redacted. No capture of vision itself can
+    // leave, and this is the more honest tile anyway: the case study is about
+    // killing this thing, and nothing else on the index looks remotely like it.
+    cover: "/covers/vision.jpg",
     year: "2026",
     summary:
       "the company's payments moved out of a google sheet and into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
-    display: { fit: "contain" },
+    display: { fit: "cover" },
   },
   {
     slug: "airtribe-ai-skills",

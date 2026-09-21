@@ -486,22 +486,26 @@ export const caseStudies: Record<string, CaseStudy> = {
         "the whole company's payments ran through a google sheet. moving them into airtribe's internal sales and operations product, in three phases, without the sheet ever going dark.",
       media: {
         /*
-         * The payments record in vision, captured on the synthetic cast: the
-         * leads are famous mathematicians, the addresses are example.com, the
-         * phone numbers are 9876543210. It replaced a production capture that
-         * had been redacted by destroying two columns, which was honest about
-         * provenance and unreadable as a product. This one shows the same
-         * screen with everything legible, including the view control at the
-         * top, which is the decision the case study spends the most time on.
+         * Three of vision's surfaces composed over a render on a transparent
+         * ground: the payments record, the cohort filter, and the bulk
+         * slack-access modal. All of it runs on the synthetic cast, the leads
+         * are famous mathematicians, the addresses are example.com and the
+         * phone numbers are 9876543210, so nothing here is a real learner.
          *
-         * Contained rather than cropped: this is a dense table and the point
-         * of it is how much it holds. A cover crop would cut off the argument.
+         * The plain payments capture it replaces is still in the page, in the
+         * decision that argues for the view control. This fold is the product
+         * as an object; that figure is the screen as an argument.
+         *
+         * Contained and unframed: the artwork is drawn to its own edges on a
+         * transparent ground, so a cover crop would cut the outer surfaces and
+         * a hairline box would put a specimen case around a product shot.
          */
         type: "image",
-        src: "/case/vision/payments-all.png",
-        alt: "the payments record in vision: a view switcher reading all and onboarding, four rows of filters, and a table of payment rows with inline track dropdowns",
+        src: "/case/vision/hero.webp",
+        alt: "three vision surfaces composed over a blue render: the payments record with its filter rows, the cohort filter open across three courses, and a modal setting slack access for several learners at once",
       },
       mediaFit: "contain",
+      mediaFrame: false,
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -586,6 +590,14 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "phase 1 was a sales record. phase 2 widened it for lxd, so a payment started carrying slack access, dashboard access and an lxd comment. by phase 3 the onboarding sheet folded in too, and a single table was long enough that both teams were scrolling past two thirds of it to reach their own third.",
             tradeoff: "views split a shared surface, and a shared surface was half of why the sheet was trusted. so the views overlap deliberately rather than partitioning cleanly, and an all view stays available to anyone who wants the whole row.",
             result: "sales, lxd and all, with the columns inside each one governed by role and permission rather than by preference.",
+            /*
+             * This capture used to be the fold. It is a better argument than
+             * an opening image: the view switcher reading all and onboarding
+             * is the decision, and it is legible here next to the reasoning
+             * rather than sitting above it unexplained.
+             */
+            media: { type: "image", src: "/case/vision/payments-all.png", alt: "the payments record in vision: a view switcher reading all and onboarding, four rows of filters, and a table of payment rows with inline track dropdowns" },
+            fit: "contain",
           },
           {
             n: "03",
