@@ -203,6 +203,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
       ],
     },
+    /*
+     * The deck, in its own order. This case study used to show three images
+     * and describe the rest; the study itself is twenty-four slides and the
+     * argument is in them, so they run here in the sequence they were made,
+     * with the narrative sections holding them together rather than
+     * replacing them.
+     */
     sections: [
       { kind: "thesis", eyebrow: "product thesis", text: "people could already find a route in kochi1app. what they could not find was what the trip would actually be like, whether the transfer was walkable, where the exit came out, how long they would be standing in the sun waiting for the connection. the redesign is mostly about that gap." },
       {
@@ -210,29 +217,161 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "role and ownership",
         paragraphs: [
           "kochi1app is the official app for kochi's metro and water metro. i ran an end-to-end service-design study across the city's multimodal transport, interviews with riders, station staff and management, personas, journey maps, service blueprints and a competitor teardown, to find where the app leaves people stranded rather than just where a screen looks dated.",
-          "three things kept coming up. why someone was making the trip at all. how little the app did to make the greener route the attractive one. and how much of a journey happens outside the route itself, in the transfer, the walk, the auto at the other end.",
+          "everything on this page is mine: the research, the framing, the information architecture, the screens and the usability testing.",
         ],
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/data.png", alt: "survey data on why people adopt public transport in kochi" },
-        fit: "contain",
-        frame: true,
-        caption: "the case, in the city's own numbers: half of kochi's 2.6 million travellers already move on public transport, and the top unmet asks are direct services and better information (cppr mobility study).",
+        media: { type: "image", src: "/case/kochi1app/deck/01-why-care.png", alt: "survey data on why people adopt public transport in kochi" },
+        caption: "the case, in the city's own numbers: around 60 per cent mode share across kochi's 2.6 million travellers, 72 per cent asking for direct services and 60 per cent for better information (cppr mobility study).",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/personas.png", alt: "five rider personas and the study's recommendations" },
+        media: { type: "image", src: "/case/kochi1app/deck/02-existing-app.png", alt: "the existing kochi1 app, its feature set and its store rating" },
         fit: "contain",
         frame: true,
-        caption: "five riders the app has to serve at once, a school student, a new call-centre commuter, a daily-wage worker, a last-mile auto driver, and a first-time visitor, and the recommendations the study prioritised.",
+        caption: "what had already shipped. plan trips, book tickets, manage the kochi1 card, explore the city, bus and metro details, emergency messages. over 100,000 downloads and 2.5 stars across 2.26k reviews, which is the gap this project starts in.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/redesign.jpg", alt: "the redesigned kochi1app screens across its four themes" },
+        media: { type: "image", src: "/case/kochi1app/deck/03-goals.png", alt: "the four goals of the redesign" },
         fit: "contain",
         frame: true,
-        caption: "the redesign in one board: intention-based planning, weather-aware transfers, green nudges, and an experience layer of landmarks you can add to a route.",
+        caption: "four goals, set before any screen: improve the experience, make travel easier, promote sustainable travel, and repair public perception.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/04-board.png", alt: "the redesign board, all four themes at once" },
+        caption: "the whole redesign on one board: intention-based planning, flexible transfers and contextual information, green nudges, and an experience layer.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/05-gaps.png", alt: "the gaps, sorted into seven categories" },
+        fit: "contain",
+        frame: true,
+        caption: "the gaps, sorted before they were solved: reliability, navigation and real-time information, feedback and engagement, payment and ticketing, sustainability, tourism, and first and last mile. the question under the slide is the real one, which of these do we fill first.",
+      },
+      {
+        kind: "context",
+        label: "the research",
+        paragraphs: [
+          "secondary research and case studies from ahmedabad, kolkata, chennai and bangalore, then primary work in kochi: ecosystem mapping, interviews across riders, station staff and management, stakeholder and affinity mapping, and service experience mapping through a customer gap model, touchpoint maps and causal loops.",
+          "it ended in two kinds of recommendation, policy and design, because several of the failures were not things an app can fix.",
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/06-background-research.png", alt: "the six stages of the background research" },
+        fit: "contain",
+        frame: true,
+        caption: "the method, end to end. the study was scoped to produce policy recommendations alongside design ones, since a transfer that does not exist cannot be designed around.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/07-competitor-analysis.png", alt: "a feature matrix comparing eight transit apps" },
+        fit: "contain",
+        frame: true,
+        caption: "eight apps against twelve capabilities. kochi1app is the only one in the set with no offline access, no first and last mile suggestions, no multimodal transport, no live crowd information and no fare calculation. the red column is the brief.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/08-personas.png", alt: "five rider personas across the city" },
+        caption: "five riders the app has to serve at once: a school student, a new call-centre commuter, a daily-wage worker who walks when the fare is too high, a last-mile auto driver, and a visitor with no local knowledge.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/09-unboxing.png", alt: "evaluating the existing app: usability goals, heuristic evaluation and task-based evaluation" },
+        fit: "contain",
+        frame: true,
+        caption: "evaluating what already shipped, three ways: usability goal setting, a heuristic evaluation scored on ten dimensions, and a task-based evaluation with real users. the radar is the shape of the problem.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/10-findings.png", alt: "what users said about the existing app" },
+        fit: "contain",
+        frame: true,
+        caption: "the findings in the words they arrived in. the homepage does not cater to the primary task, the route turns from horizontal to vertical halfway, options in filter and sort do not make sense, and it felt like a generic app.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/11-sorting-the-pile.png", alt: "what to retain and what to improve" },
+        fit: "contain",
+        frame: true,
+        caption: "sorting the pile into two questions: what has to be kept because people rely on it, and what would actually make it better. geofencing alerts, a minimal data mode and unified ticketing on one side; crowd information, carbon tracking, green routes and pooling on the other.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/12-ia-existing.png", alt: "the existing information architecture, colour-coded" },
+        fit: "contain",
+        frame: true,
+        caption: "the existing architecture, audited node by node: integrate, avoid, or keep as it is. the circle is the planner, which is where the app's actual job lives and where almost none of its screen real estate went.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/13-ia-redesigned.png", alt: "the redesigned information architecture" },
+        fit: "contain",
+        frame: true,
+        caption: "the architecture rebuilt around eight areas: profile, transactions, information, travel mode, planner and booking, explore, daily travel, green incentives and feedback. the planner stops being one item in a menu.",
+      },
+      {
+        kind: "decisions",
+        label: "key design decisions",
+        items: [
+          {
+            n: "01",
+            title: "plan by intention",
+            why: "people don't only travel to an address. they travel to explore, to catch a scenic route, to be home before dark. the old app only understood destinations.",
+            tradeoff: "the planner has to turn a fuzzy intent, i want to explore the city, into concrete routes.",
+            result: "a dynamic intention layer: choose cultural, scenic, food, half a day or home by dinner, and the trip is built around that, not only the fastest line.",
+          },
+          {
+            n: "02",
+            title: "make the greener choice the easy one",
+            why: "a sustainability nudge only works if it costs the rider nothing to think about.",
+            tradeoff: "reward mechanics turn gimmicky fast if they are not tied to something real.",
+            result: "a green card tracks carbon saved against a monthly target and pays out small, real rewards, a free ride or an offer, for low-carbon routes.",
+          },
+          {
+            n: "03",
+            title: "design the transfer and the last mile",
+            why: "the trip breaks where the app stops: the confusing exit, the missed connection, the walk nobody mapped.",
+            tradeoff: "far more surface than a point-to-point route: buffers, alternatives, live context.",
+            result: "editable transfer buffers, alternative modes priced inline, and weather-aware routing, a shaded route when it is sunny and a place to wait out a downpour.",
+          },
+          {
+            n: "04",
+            title: "let the city be part of the trip",
+            why: "a first-time visitor and a daily commuter want different things from the same line.",
+            tradeoff: "surfacing places and stories without burying the core task of getting somewhere.",
+            result: "landmarks, cultural stops and quieter paths you can add to a route, so a journey can be built around what is worth seeing rather than only how fast it is.",
+          },
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/14-ui-homescreen.png", alt: "the homescreen redesign and its iterations" },
+        fit: "contain",
+        frame: true,
+        caption: "the homescreen, with the reasoning kept next to it: all options overweighted, no leads for a novice, no resemblance to familiar ui, icon and text size. the version that shipped puts green nudges and frequent tasks first and defaults geodata for a novice.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/15-ui-route.png", alt: "the route suggestion redesign and its iterations" },
+        fit: "contain",
+        frame: true,
+        caption: "route suggestion, annotated through three rounds: inefficient space, text and icon size against contrast, editing options with no hierarchy, and a bottom bar that was not consistent between screens.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/16-user-flows.png", alt: "the full set of user flows" },
+        caption: "every flow in the redesign, including the ones that only exist because the intention layer does: planning by intention, by travel mode, splitting an intermediate journey, and booking from a past transaction.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/17-what-you-see.png", alt: "the nearest point of commute flow" },
+        fit: "contain",
+        frame: true,
+        caption: "the first thing the app now does is answer where you are and what is near you, rather than opening on a menu.",
       },
       {
         kind: "pipeline",
@@ -245,49 +384,82 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kind: "decisions",
-        items: [
-          {
-            n: "01",
-            title: "plan by intention",
-            why: "people don't only travel to an address. they travel to explore, to catch a scenic route, to be home before dark. the old app only understood destinations.",
-            tradeoff: "the planner has to turn a fuzzy intent, ‘i want to explore the city’, into concrete routes.",
-            result: "a dynamic intention layer: choose cultural, scenic, food, ‘half a day’ or ‘home by dinner’, and the trip is built around that, not only the fastest line.",
-          },
-          {
-            n: "02",
-            title: "make the greener choice the easy one",
-            why: "a sustainability nudge only works if it costs the rider nothing to think about.",
-            tradeoff: "reward mechanics turn gimmicky fast if they aren't tied to something real.",
-            result: "a green card tracks carbon saved against a monthly target (‘energy equivalent to 3 trees’) and pays out small, real rewards, a free ride, an offer, for low-carbon routes.",
-          },
-          {
-            n: "03",
-            title: "design the transfer and the last mile",
-            why: "the trip breaks where the app stops: the confusing exit, the missed connection, the walk nobody mapped.",
-            tradeoff: "far more surface than a point-to-point route, buffers, alternatives, live context.",
-            result: "editable transfer buffers, alternative modes (walk, cycle, auto) priced inline, and weather-aware routing, a shaded route when it's sunny, a place to wait out a downpour.",
-          },
-          {
-            n: "04",
-            title: "let the city be part of the trip",
-            why: "a first-time visitor and a daily commuter want different things from the same line.",
-            tradeoff: "surfacing places and stories without burying the core task of getting somewhere.",
-            result: "landmarks, cultural stops and quieter paths you can add to a route, so a journey can be built around what is worth seeing rather than only how fast it is.",
-          },
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/18-daily-route.png", alt: "the daily route and monthly pass flow" },
+        fit: "contain",
+        frame: true,
+        caption: "the daily route and the monthly pass: the commuter case, where the job is to remove decisions rather than offer them.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/19-travel-mode.png", alt: "planning by travel mode" },
+        fit: "contain",
+        frame: true,
+        caption: "planning by travel mode, through to the qr at the gate and the places worth stopping at on the way.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/20-edit-intermediate.png", alt: "editing intermediate travel options" },
+        fit: "contain",
+        frame: true,
+        caption: "the transfer, made editable. an intermediate leg can be changed without rebuilding the journey, which is the part the old planner could not do at all.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/21-previous-transactions.png", alt: "booking a journey from a previous transaction" },
+        fit: "contain",
+        frame: true,
+        caption: "booking from a past transaction, because most trips in a commuter's week are a trip they have already taken.",
+      },
+      {
+        kind: "context",
+        label: "testing it",
+        paragraphs: [
+          "the redesign was tested with sixteen participants aged fifteen to fifty, against three task scenarios: intention-based navigation, micro-route suggestions, and the sustainability nudges.",
+          "the protocol was written before the prototype: welcome and overview, objectives, consent, the test itself on normal scenarios, then a post-test discussion. what to observe was written down too, so difficulty, recognition, efficiency and frustration were recorded rather than remembered.",
         ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/22-evaluation-plan.png", alt: "the evaluation plan: key questions, precautions, target users, test goals and screener" },
+        fit: "contain",
+        frame: true,
+        caption: "the plan before the test: what we wanted to learn, who we needed, and the precautions, including that the experience of travel cannot be replicated in a room, so it has to be carried by the scenario.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/23-test-design.png", alt: "the test protocol and the three task scenarios with their metrics" },
+        fit: "contain",
+        frame: true,
+        caption: "three scenarios with their success criteria set in advance: intention-based navigation at 80 per cent, micro-route suggestions at 90, sustainability nudges at 70. writing the target down first is what makes a result a result.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/kochi1app/deck/24-test-results.png", alt: "the test results: sus and nasa-tlx scores, per-task completion and the four failures" },
+        fit: "contain",
+        frame: true,
+        caption: "the results, including the parts that did not work.",
+      },
+      {
+        kind: "turn",
+        label: "the part of the thesis the testing did not support",
+        tried: "the sustainability layer was the argument i cared most about: carbon saved against a monthly target, small real rewards for low-carbon routes, and the greener option surfaced inside the planner rather than parked in its own tab.",
+        result: "it tested worst of the three. the sustainability scenario scored 70 on sus against 80.5 and 85 for the other two, it was the only task that did not reach full completion, and nine of the sixteen participants failed to recognise which routes were the sustainable ones at all.",
+        change: "a nudge is a visual-hierarchy problem before it is a behavioural one. the rest of the work assumed that if the greener route was present and cheap to choose, it would be chosen, and the testing showed that most people never saw it was being offered. recognition has to be measured separately from completion, because a task can complete at ninety per cent while the thing it was meant to demonstrate goes unseen.",
       },
       {
         kind: "outcome",
         paragraphs: [
-          "the redesign was validated with usability testing across the personas. user satisfaction rose from below 50% to 70%, and to 90% after refinement cycles.",
+          "tested with sixteen participants across three task scenarios. the redesign scored 80 on the system usability scale, 80.5 for intention-based navigation, 85 for micro-route suggestions and 70 for the sustainability nudges. task completion was 100 per cent, 100 per cent and 90 per cent against targets of 80, 90 and 70 set before the test.",
+          "cognitive load came out at 53.8 on nasa-tlx, with mental demand at 70 and temporal demand at 65 the two highest components and frustration lowest at 29.8. the load is in reading and deciding rather than in operating the interface, which is the right place for it in a planner and the wrong place for it in a commuter's daily route.",
+          "the failures are the more useful half. thirteen of sixteen could not cancel a trip, ten of sixteen were confused by sorting for the nearest station, nine of sixteen did not recognise the sustainable routes, and five of sixteen missed the qr code after confirming a trip. three of those four are recognition failures rather than comprehension ones.",
           "it was delivered to kochi metro as a service-design study, personas, journey maps, service blueprints and policy plus design recommendations, not just a set of screens.",
         ],
       },
       {
         kind: "deeper",
         paragraphs: [
-          "what is on this page is the argument and the redesign. the study behind it is much longer: the interviews, the five personas, the journey maps, the service blueprints, the competitor teardown and the policy recommendations that went out alongside the design ones.",
+          "the twenty-four boards above are the study as it was made. what is not here is the raw material behind them: the interview transcripts, the full service blueprints, the causal loop diagrams and the policy recommendations that went out alongside the design ones.",
           "the full service-design report is public. i am happy to walk through the research and the rounds the screens went through privately.",
         ],
         links: [
@@ -298,8 +470,9 @@ export const caseStudies: Record<string, CaseStudy> = {
           { label: "get in touch", href: `mailto:${site.email}` },
         ],
       },
-      { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file. the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers waiting outside, the walk at the end that nobody had mapped." },
+      { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file, and the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers waiting outside, the walk at the end that nobody had mapped. the testing then did the thing testing is for, which is to disagree with you. the part i was most attached to is the part sixteen people could not find." },
     ],
+
   },
 
   // ─────────────────────────────────────────────────────── airtribe learn ──
