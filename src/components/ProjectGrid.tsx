@@ -44,20 +44,22 @@ import { ProjectCard } from "./ProjectCard";
 
 /*
  * Order within each band. Office hours leads with the internal operations
- * product, then the ai systems, then the financial products, then the
- * service-design study. Vision is first because it is the densest piece of
+ * product, then the ai systems, then the service-design study, then the
+ * financial products. Vision is first because it is the densest piece of
  * product work here and the one a platform team recognises as their own
  * problem: roles, permissions, views, state, and a migration run on live
- * money. After hours is ordered by how much product thinking each one
- * carries, not by how pretty the tile is. Anything not listed still renders,
- * appended in data order, so adding a project to projects.ts is enough to
- * publish it.
+ * money. Kochi1app sits ahead of wells fargo because it is the one that
+ * shows the research: sixteen people tested, and a finding that disagreed
+ * with the design. After hours is ordered by how much product thinking each
+ * one carries, not by how pretty the tile is. Anything not listed still
+ * renders, appended in data order, so adding a project to projects.ts is
+ * enough to publish it.
  */
 const LAYOUT: string[] = [
   "vision",
   "airtribe-ai-skills",
-  "wells-fargo",
   "kochi1app",
+  "wells-fargo",
   "lipi",
   "kochi-water-metro",
   "a-century-of-villains",

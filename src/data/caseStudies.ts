@@ -1091,6 +1091,25 @@ export const caseStudies: Record<string, CaseStudy> = {
         text: "most 'learn anything with ai' products are a chat box with a better frame: you ask, it answers, and what you are left with afterwards is a transcript. kai writes a lesson instead. enough structure to build momentum, enough freedom to follow the thing you got curious about, and the whole lesson written to four answers you give before it starts.",
       },
       {
+        /*
+         * The chapter opener, straight after the eyebrow that names it, so
+         * the second case study starts on an image the way the page does.
+         * Contained on a transparent ground and unframed, like the two
+         * heroes: the artwork is drawn to its own edges and a box round it
+         * would read as a specimen case.
+         */
+        kind: "full",
+        media: {
+          type: "image",
+          src: "/case/airtribe-learn/kai-opener.webp",
+          alt: "kai's landing: learn something you've been wondering about, a prompt field, and three steps reading you bring the question, kai builds the lesson around you, you learn test and explore. around it, a concept map of consciousness and a diagram of photosynthesis, both produced inside a lesson",
+          width: 2000,
+          height: 1403,
+        },
+        fit: "contain",
+        caption: "the promise on the landing is a guided lesson with sources, not an answer, and the three steps under the prompt field are the whole product. what sits around it is the part a chat box cannot do: a map of what the topic is made of, and a diagram in the place a third paragraph would have gone.",
+      },
+      {
         kind: "context",
         label: "what kai is",
         paragraphs: [
