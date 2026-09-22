@@ -63,9 +63,9 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
         </Link>
       </Container>
 
-      {/* Opening visual */}
-      <div className={launch ? "mt-2 md:mt-4" : "mt-6 md:mt-8"}>
-        {launch ? (
+      {/* Opening visual. Absent on the pages that open on their title. */}
+      <div className={!hero.media ? "" : launch ? "mt-2 md:mt-4" : "mt-6 md:mt-8"}>
+        {!hero.media ? null : launch ? (
           // No frame, no container, no gutter: the object gets the viewport
           // and stands on its own ground. A hairline box around a product is
           // a specimen case, and a specimen is not a launch.

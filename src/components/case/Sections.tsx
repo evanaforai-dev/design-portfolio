@@ -82,30 +82,68 @@ export function renderSection(section: Section, i: number) {
             {section.hint && (
               <p className="mb-8 measure t-body text-fg">{section.hint}</p>
             )}
-            <div className={phone ? "mx-auto w-full max-w-[400px]" : "w-full"}>
-              <div
-                /*
-                 * The wide frame used to be 72vh tall at every width, so on a
-                 * 375px screen a desktop tool was rendered into a 327x648 box:
-                 * a landscape ui in a phone-shaped hole. It now keeps a
-                 * landscape aspect until there is room for the tall frame, and
-                 * "open full screen" above carries the rest.
-                 */
-                className={`w-full overflow-hidden border border-hairline ${
-                  phone
-                    ? "aspect-[9/19]"
-                    : "aspect-[16/10] md:aspect-auto md:h-[84vh]"
-                }`}
-              >
-                <iframe
-                  src={url}
-                  title={section.title}
-                  loading="lazy"
-                  allow={section.allow}
-                  className="block h-full w-full border-0"
-                />
+            {phone ? (
+              /*
+               * Handset builds run inside a device shell rather than a bare
+               * rectangle: a phone ui in an unframed box reads as a broken
+               * desktop page, and the bezel tells a reader what they are
+               * looking at before they touch it.
+               *
+               * Proportions are an iPhone's: 430x932pt, a 55pt screen radius
+               * and a 125x36pt island, expressed as percentages so the shell
+               * scales with its column. The shell is --fg, so it is the
+               * site's black on the light theme and its white on the dark
+               * one; the hairline ring keeps the black shell off the near
+               * black page.
+               */
+              <div className="mx-auto w-full max-w-[380px]">
+                <div
+                  data-device="shell"
+                  className="relative aspect-[430/932] w-full bg-fg p-[2.4%] ring-1 ring-hairline"
+                >
+                  <div
+                    data-device="screen"
+                    className="relative h-full w-full overflow-hidden bg-bg"
+                  >
+                    <iframe
+                      src={url}
+                      title={section.title}
+                      loading="lazy"
+                      allow={section.allow}
+                      className="block h-full w-full border-0"
+                    />
+                    {/*
+                      No island is drawn. These builds were made for a browser
+                      and do not reserve the safe-area inset, so a pill at the
+                      top of the screen sat on top of their own headers: on
+                      kochi it covered the product's name. The shell reads as a
+                      handset from its proportions and its corners without one.
+                    */}
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="w-full">
+                <div
+                  /*
+                   * The wide frame used to be 72vh tall at every width, so on
+                   * a 375px screen a desktop tool was rendered into a 327x648
+                   * box: a landscape ui in a phone-shaped hole. It now keeps a
+                   * landscape aspect until there is room for the tall frame,
+                   * and "open full screen" above carries the rest.
+                   */
+                  className="aspect-[16/10] w-full overflow-hidden border border-hairline md:aspect-auto md:h-[84vh]"
+                >
+                  <iframe
+                    src={url}
+                    title={section.title}
+                    loading="lazy"
+                    allow={section.allow}
+                    className="block h-full w-full border-0"
+                  />
+                </div>
+              </div>
+            )}
             {section.caption && (
               <figcaption className="label mt-4">{section.caption}</figcaption>
             )}

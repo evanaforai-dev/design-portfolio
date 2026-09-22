@@ -45,7 +45,14 @@ export interface CaseHero {
   title: string;
   /** one line: what is this. */
   subtitle: string;
-  media: MediaAsset;
+  /**
+   * Optional. A case study may open straight on its title: the launch crop is
+   * a landscape box, and a portrait phone recording forced through it is shown
+   * at about a third of itself, hugely magnified. Where no still reads at that
+   * size, the page opens on type and lets the prototype below carry the first
+   * look at the product.
+   */
+  media?: MediaAsset;
   mediaFit?: "cover" | "contain";
   /**
    * Contained heroes sit in a hairline frame by default, which is right for a

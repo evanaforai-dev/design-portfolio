@@ -93,6 +93,23 @@ body {
   border-radius: 0 !important;
 }
 
+/*
+ * The single exception, and it is a drawing of an object rather than a piece
+ * of the interface: the shell a handset prototype runs inside. A phone with
+ * square corners is not a phone, and the rule above had quietly squared off
+ * the mockup. Radii are two-axis percentages taken from an iPhone (430x932pt,
+ * 55pt screen radius), so the shell keeps its proportions at any width.
+ *
+ * Scoped to these two data attributes, so the sharp-corner rule still
+ * governs every other element on the site and no class can opt in by accident.
+ */
+[data-device="shell"] {
+  border-radius: 12.8% / 5.9% !important;
+}
+[data-device="screen"] {
+  border-radius: 10.8% / 5.1% !important;
+}
+
 /* No text shadow anywhere on the site — in any state. Legibility comes from the
    light/dark colour rule, never from a shadow, glow, or outline. */
 * {

@@ -1491,7 +1491,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "duo",
         media: [
           { type: "image", src: "/case/lipi/launch/four-scripts.png", width: 1300, height: 1300, alt: "four language tabs over the same checkout" },
-          { type: "image", src: "/case/lipi/launch/reveal-panel.png", width: 1300, height: 2000, alt: "the reveal panel naming the exact layer" },
+          { type: "image", src: "/case/lipi/launch/reveal-panel.png", width: 1300, height: 1300, alt: "the reveal panel naming the exact layer" },
         ],
         captions: [
           { label: "one design · multiple scripts", text: "lipi scans the same checkout across hindi, tamil, bengali and kannada in one pass: four language tabs, six screens each, eleven findings, and it flags each script's clipped cta on the canvas." },
@@ -1501,7 +1501,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/launch/fix-recheck.png", width: 1300, height: 1202, alt: "before and after a re-check" },
+          { type: "image", src: "/case/lipi/launch/fix-recheck.png", width: 1300, height: 1300, alt: "before and after a re-check" },
           { type: "image", src: "/case/lipi/launch/root-cause.png", width: 1300, height: 1300, alt: "the design system tab collapsing failures into root causes" },
         ],
         captions: [
@@ -1605,15 +1605,19 @@ export const caseStudies: Record<string, CaseStudy> = {
       title: "deep cuts",
       subtitle:
         "a curiosity machine that turns exploration into collectible artifacts.",
+      /*
+       * The poster the film used to sit behind, now the opening image in its
+       * own right. It is square, so it is shown contained: the launch crop is
+       * a landscape band and it took the top and bottom off the dial.
+       */
       media: {
-        type: "video",
-        src: "/case/deepcuts/film.mp4",
-        poster: "/case/deepcuts/launch/poster.png",
-        alt: "the deep cuts console running a full journey and printing a receipt",
+        type: "image",
+        src: "/case/deepcuts/launch/poster.png",
+        width: 1254,
+        height: 1254,
+        alt: "the deep cuts console: a dial scored like a record, with the scroll control at its centre",
       },
-      mediaFit: "cover",
-      mediaPosition: "center",
-      mode: "launch",
+      mediaFit: "contain",
       meta: [
         { label: "role", value: "design + systems, built with ai" },
         { label: "context", value: "self-initiated · experiment" },
@@ -1641,8 +1645,9 @@ export const caseStudies: Record<string, CaseStudy> = {
          * Deep cuts cannot fill it the same way: it needs a node server and a
          * model behind it, so there is nothing static to embed, and a fake one
          * would be worse than none. These are the three stills that carry the
-         * loop instead, and the film in the fold above is the system running
-         * end to end.
+         * loop instead. The film that used to run in the fold above is gone:
+         * it was a portrait capture in a landscape crop, so a reader met the
+         * product magnified to about a third of itself.
          *
          * They are also the first use the page makes of its own artefacts: it
          * had twenty-two and was showing one.
@@ -1656,7 +1661,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/deepcuts/launch/directions.png", width: 1200, height: 1318, alt: "choose a direction: three cards fanned out, each a different genre of connection" },
           { type: "image", src: "/case/deepcuts/launch/receipt.png", width: 1200, height: 1318, alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
         ],
-        caption: "you turn the dial, you take one of three, and five stops later it prints. it runs on a server and a model, so unlike the others here it cannot be embedded; the film above is a full journey, start to receipt.",
+        caption: "you turn the dial, you take one of three, and five stops later it prints. it runs on a server and a model, so unlike the others here it cannot be embedded.",
       },
       {
         kind: "detail",
@@ -1746,10 +1751,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       title: "soundmap",
       subtitle:
         "a daily sound journal. record one moment; it becomes a coloured artifact on a calendar.",
-      media: { type: "video", src: "/case/soundmap/film.mp4", alt: "browsing the soundmap calendar and opening a day's artifact" },
-      mediaFit: "cover",
-      mediaPosition: "center",
-      mode: "launch",
       meta: [
         { label: "role", value: "design + build" },
         { label: "context", value: "self-initiated · daily sound journal" },
@@ -1859,10 +1860,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       title: "kochi water metro",
       subtitle:
         "an offline-first companion for a ferry ride: the route map, plus a bilingual story that surfaces as each place drifts past.",
-      media: { type: "video", src: "/case/kochi/film.mp4", alt: "a full simulated ferry journey playing out on the map" },
-      mediaFit: "cover",
-      mediaPosition: "center",
-      mode: "launch",
       meta: [
         { label: "role", value: "design + build" },
         { label: "context", value: "independent, unaffiliated · kochi water metro" },
