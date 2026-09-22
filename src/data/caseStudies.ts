@@ -49,7 +49,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     sections: [
-      { kind: "thesis", eyebrow: "product thesis", text: "three public-site products, three different kinds of trouble. one was scheduled for decommission over policy violations. one had never been made responsive. one existed only as a pdf. i worked on all three, and on every one of them the constraints were the same: policy, legal, a legacy cms, and a deadline. two of the three are live on wellsfargo.com, so you can check the result rather than take my word for it." },
+      { kind: "thesis", eyebrow: "product thesis", text: "three public-site products, three kinds of trouble: one scheduled for decommission over policy violations, one never made responsive, one that existed only as a pdf. same constraints on all three: policy, legal, a legacy cms, a deadline. two are live on wellsfargo.com, so you can check the result." },
       {
         /*
          * Labelled rather than left as the default "context": on a page about
@@ -62,7 +62,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         paragraphs: [
           "as a product designer on the public site, i co-led the migration of legacy financial experiences onto wells fargo's responsive design system, with a product designer and a content designer in the us, and across the line-of-business product team, legal, cms and engineering.",
           "the brief was the same each time. make it simpler, make it compliant, make it work on a phone, and do not break the business already running through it.",
-          "three parts of that were ai-assisted: the competitor analysis and synthesis, the early brainstorming and wireframing, and the brand visuals. worth saying plainly, because a regulated bank is the hardest place to use these tools and the easiest place to get them wrong. nothing they produced reached a page without surviving legal review.",
+          "three parts of that were ai-assisted: the competitor analysis and synthesis, the early brainstorming and wireframing, and the brand visuals. nothing they produced reached a page without surviving legal review.",
         ],
       },
       {
@@ -70,7 +70,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/wells-fargo/before-after.jpg", width: 1800, height: 1012, alt: "practice finance before and after: fragmented pages consolidated into one conversion page" },
         fit: "contain",
         frame: true,
-        caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. the working file is blurred; the page it became is unblurred further down, because it shipped.",
+        caption: "the working file, blurred under nda. six-plus fragmented pages consolidated into one conversion-focused landing; the page it became is unblurred further down, because it shipped.",
       },
       {
         kind: "constraints",
@@ -120,8 +120,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "shipped, and public",
         paragraphs: [
-          "everything below this line is a live wellsfargo.com page, captured september 2026. no redaction, because there is nothing left to redact: a page a bank publishes to the open internet is not confidential, whatever the comps behind it are.",
-          "it is worth being precise about what this proves and what it does not. it proves the work survived policy, legal review, a legacy cms and enterprise accessibility, which is the part of this job that actually kills designs. it does not prove which pixels were mine. i co-led these migrations with a line-of-business product team across the us and india.",
+          "everything below is a live wellsfargo.com page, captured september 2026. nothing left to redact: a page a bank publishes to the open internet is not confidential.",
+          "what it proves: the work survived policy, legal review, a legacy cms and enterprise accessibility, which is the part of this job that kills designs. what it does not prove is which pixels were mine. i co-led these migrations with a line-of-business product team across the us and india.",
         ],
       },
       {
@@ -129,14 +129,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/wells-fargo/live/practice-finance-desktop.png", width: 1400, height: 2333, alt: "the live wells fargo practice finance landing page" },
         fit: "contain",
         frame: true,
-        caption: "practice finance, live. the six-plus page architecture arrives as one page: a single financing promise, three reasons to trust it, two entry paths (buy or start, expand or relocate), four needs, and one repeated call to action. the decommission notice it was under is the reason it looks like this.",
+        caption: "practice finance, live. six-plus pages arrive as one: a financing promise, two entry paths, four needs, one repeated call to action. the decommission notice is the reason it looks like this.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/wells-fargo/live/practice-finance-form-desktop.png", width: 1400, height: 1750, alt: "the live practice finance contact form" },
         fit: "contain",
         frame: true,
-        caption: "the simplified contact flow, live. every field that could be optional is marked optional, borrowing needs are checkboxes rather than a call, and the submit stays disabled until the form can actually be sent. a dentist between appointments is the person this was drawn for.",
+        caption: "the simplified contact flow. every field that could be optional is marked optional, borrowing needs are checkboxes rather than a call, and submit stays disabled until the form can actually be sent.",
       },
       {
         kind: "figures",
@@ -148,27 +148,27 @@ export const caseStudies: Record<string, CaseStudy> = {
         columns: 3,
         aspect: "phone",
         fit: "cover",
-        caption: "the same three pages at phone width. poor mobile usability was one of the two findings that put practice finance on the decommission list, so this view is the deliverable, not a demonstration of it.",
+        caption: "the same three pages at phone width. poor mobile usability was one of the two findings that put practice finance on the decommission list, so this view is the deliverable.",
       },
       {
         kind: "full",
         media: { type: "image", src: "/case/wells-fargo/live/sustainability-desktop.png", width: 1400, height: 2333, alt: "the live wells fargo sustainability web experience" },
         fit: "contain",
         frame: true,
-        caption: "sustainability, live: the report that used to be a pdf. the goals that were a table of figures are now a responsive card grid that reflows across six breakpoints, and the disclosure index and forward-looking statement, the two blocks legal cannot lose, sit in the reading column rather than an appendix.",
+        caption: "sustainability, live. the goals that were a table of figures are now a responsive card grid across six breakpoints, and the disclosure index and forward-looking statement, the two blocks legal cannot lose, sit in the reading column rather than an appendix.",
       },
       { kind: "statement", text: "the person i kept coming back to was someone on a phone between appointments, looking for one number. that was the test i could actually apply to a page." },
       {
         kind: "outcome",
         paragraphs: [
-          "practice finance and its contact flow are live and linked above, and the sustainability experience replaced the pdf outright. the plcc redesign is designed and handed off, and has not been released yet, so this page links the two you can open and says so about the third.",
+          "practice finance and its contact flow are live and linked above, and the sustainability experience replaced the pdf outright. the plcc redesign is designed and handed off, and has not been released yet.",
           "the internal material stays behind a wells fargo nda, so the comps, the research and the roadmap are described here rather than shown. the live pages are public, and are shown as they run.",
         ],
       },
       {
         kind: "deeper",
         paragraphs: [
-          "what is shown here is the public half: three live pages and the reasoning that got them there. the comps, the research, the ia explorations and the directions that were rejected along the way stay behind a wells fargo nda.",
+          "the comps, the research, the ia explorations and the directions that were rejected along the way stay behind a wells fargo nda.",
           "i am happy to walk through the full process privately, including the parts that did not ship.",
         ],
         links: [{ label: "get in touch", href: `mailto:${site.email}` }],
@@ -252,14 +252,13 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/05-gaps.png", width: 1920, height: 1316, alt: "the gaps, sorted into seven categories" },
         fit: "contain",
         frame: true,
-        caption: "the gaps, sorted before any of them were solved. the question under the slide is the real one: which of these do we fill first.",
+        caption: "the gaps, sorted before any of them were solved.",
       },
       {
         kind: "context",
         label: "the research",
         paragraphs: [
           "secondary research and case studies from ahmedabad, kolkata, chennai and bangalore, then primary work in kochi: ecosystem mapping, interviews across riders, station staff and management, stakeholder and affinity mapping, and service experience mapping through a customer gap model, touchpoint maps and causal loops.",
-          "it ended in two kinds of recommendation, policy and design, because several of the failures were not things an app can fix.",
         ],
       },
       {
@@ -355,7 +354,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/kochi1app/deck/14-ui-homescreen.png", width: 2683, height: 1334, alt: "the homescreen redesign and its iterations" },
         fit: "contain",
         frame: true,
-        caption: "the homescreen, with the reasoning kept beside it. the version that shipped leads with green nudges and frequent tasks, and defaults geodata for a novice.",
+        caption: "the homescreen. it leads with green nudges and frequent tasks, and defaults geodata for a novice.",
       },
       {
         kind: "full",
@@ -419,7 +418,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "testing it",
         paragraphs: [
           "the redesign was tested with sixteen participants aged fifteen to fifty, against three task scenarios: intention-based navigation, micro-route suggestions, and the sustainability nudges.",
-          "the protocol was written before the prototype: welcome and overview, objectives, consent, the test itself on normal scenarios, then a post-test discussion. what to observe was written down too, so difficulty, recognition, efficiency and frustration were recorded rather than remembered.",
+          "the protocol was written before the prototype, and so was what to observe, so difficulty, recognition, efficiency and frustration were recorded rather than remembered.",
         ],
       },
       {
@@ -448,7 +447,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "the part of the thesis the testing did not support",
         tried: "the sustainability layer was the argument i cared most about: carbon saved against a monthly target, small real rewards for low-carbon routes, and the greener option surfaced inside the planner rather than parked in its own tab.",
         result: "it tested worst of the three. the sustainability scenario scored 70 on sus against 80.5 and 85 for the other two, it was the only task that did not reach full completion, and nine of the sixteen participants failed to recognise which routes were the sustainable ones at all.",
-        change: "a nudge is a visual-hierarchy problem before it is a behavioural one. the rest of the work assumed that if the greener route was present and cheap to choose, it would be chosen, and the testing showed that most people never saw it was being offered. recognition has to be measured separately from completion, because a task can complete at ninety per cent while the thing it was meant to demonstrate goes unseen.",
+        change: "a nudge is a visual-hierarchy problem before it is a behavioural one. the work assumed that if the greener route was present and cheap to choose it would be chosen; most people never saw it was on offer. recognition has to be measured separately from completion, because a task can complete at ninety per cent while the thing it was meant to demonstrate goes unseen.",
       },
       {
         kind: "outcome",
@@ -473,7 +472,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { label: "get in touch", href: `mailto:${site.email}` },
         ],
       },
-      { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file, and the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers waiting outside, the walk at the end that nobody had mapped. the testing then did the thing testing is for, which is to disagree with you. the part i was most attached to is the part sixteen people could not find." },
+      { kind: "reflection", text: "i spent far more of this project in interviews and service blueprints than in a design file, and the screens only got obvious once i could see the whole service around them: the station staff, the auto drivers outside, the walk at the end nobody had mapped. the testing then did what testing is for, which is to disagree with you. the part i was most attached to is the part sixteen people could not find." },
     ],
 
   },
@@ -526,7 +525,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran this end to end. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions below. the ui screens we split between us, and the other designer led the handoff. we worked alongside one backend and one frontend engineer. no separate researcher and no ux writer, so the column list, the payment states and the dropdown copy are decisions rather than inherited requirements.",
+          "two product designers ran this end to end. i took the ground research, the problem framing, the conversations with every team that touches a payment, and the design decisions below; we split the ui screens, and the other designer led the handoff. one backend and one frontend engineer alongside. no researcher and no ux writer, so the column list, the payment states and the dropdown copy are decisions rather than inherited requirements.",
           "vision is airtribe's internal operations dashboard, none of it learner-facing. payments sit at the seam: sales records what a learner paid and how, and enrolment, slack access, onboarding and invoicing all key off that record.",
                   ],
       },
@@ -551,7 +550,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the sales sheet, redacted. green bands are cleared payments, red is a refund flag, and that is the only thing in the file that can be found at a glance.",
+        caption: "the sales sheet, redacted. green is a cleared payment, red a refund flag, and that is the only thing in the file findable at a glance.",
       },
       {
         /*
@@ -570,7 +569,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "the onboarding sheet, redacted. the header row is legible because the columns are the argument: close to thirty for one person, two adjacent and both called remarks, one called problematic leaner, spelled exactly like that.",
+        caption: "the onboarding sheet, redacted. close to thirty columns for one person, two adjacent and both called remarks, one called problematic leaner, spelled exactly like that.",
       },
       {
         kind: "constraints",
@@ -588,14 +587,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           {
             n: "01",
-            title: "a table, by default, because that is the muscle they already had",
+            title: "a table, by default",
             why: "the sales team had spent years in a grid. opening on cards or a form would have made every one of them slower on day one, which is when a replacement earns trust or loses it.",
             tradeoff: "a table is the least forgiving layout there is, and it commits you to solving density everywhere else: filters, views, permissions, overflow.",
             result: "nobody needed a re-learning period. the work went into making the table hold more than a sheet could.",
           },
           {
             n: "02",
-            title: "views instead of one table, once three teams were in the same row",
+            title: "views instead of one table",
             why: "by phase 3 a payment carried slack access, dashboard access, an lxd comment and the onboarding sheet as well. one table meant both teams scrolled past two thirds of it to reach their own third.",
             tradeoff: "views split a shared surface, and a shared surface was half of why the sheet was trusted. so they overlap deliberately, and an all view stays available.",
             result: "sales, lxd and all, with the columns inside each one governed by role and permission rather than by preference.",
@@ -644,7 +643,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "system",
         label: "what one payment record has to hold",
         paragraphs: [
-          "a payment is not an amount. it is an amount, the instrument it arrived by, where that instrument is now, and what each downstream team may do next. six types and eleven statuses, and the statuses are not a pipeline, they are the states a real payment gets stuck in. the row spans sales, finance and delivery, for people who each care about a third of it.",
+          "a payment is an amount, the instrument it arrived by, where that instrument is now, and what each downstream team may do next. the statuses are not a pipeline, they are the states a real payment gets stuck in. the row spans sales, finance and delivery, for people who each care about a third of it.",
         ],
         mapping: [
           { from: "paid in one shot", to: "cleared, or still pending verification" },
@@ -733,7 +732,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
         fit: "contain",
         frame: true,
-        caption: "after. nine, and they are this person's nine. an active filter prints its value and counts the rest, so the bar states the query rather than naming the fields it could run one on. the other twenty expand in place.",
+        caption: "after. nine, and they are this person's nine. an active filter prints its value and counts the rest, so the bar states the query rather than the fields. the other twenty expand in place.",
       },
       {
         kind: "context",
@@ -744,7 +743,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "who is allowed to see what",
         paragraphs: [
-          "almost nobody should see the whole row, so access runs on four axes that are deliberately not the same thing: department, role, permission group, and who you report to. a title is not a permission, which is why the role and permission group columns disagree on most rows and why that is the system working.",
+          "almost nobody should see the whole row, so access runs on four axes that are deliberately not the same thing: department, role, permission group, and who you report to. a title is not a permission.",
           "permissions are namespaced into eleven categories and compose into named groups rather than being handed out one at a time. it took the longest to argue for, and it is what makes every other decision on this page enforceable: views, editable columns and the action menu all read from it.",
         ],
       },
@@ -782,7 +781,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         paragraphs: [
           "the sales sheet is no longer the source of truth. three spreadsheets across two departments are now one table carrying the whole lead lifecycle, first payment through to onboarding into the lms. all three phases shipped, alongside the email template flow, the cohort filter and the filters and search redesign.",
-          "views and role-based permissions cut scroll depth in half, and accidental edits dropped once a row could be asked who last touched it. the sales team moved off the sheet with no re-learning period, which was the bar the table layout was chosen to clear. onboarding ended with fewer columns than it started with. the one workflow the design broke, bulk-copying emails, went from five minutes to fifty before it was caught and undone.",
+          "views and role-based permissions cut scroll depth in half, and accidental edits dropped once a row could be asked who last touched it. the sales team moved off the sheet with no re-learning period. onboarding ended with fewer columns than it started with. the one workflow the design broke, bulk-copying emails, went from five minutes to fifty before it was caught.",
           ],
       },
       {
@@ -806,7 +805,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       kicker: "ai systems · airtribe",
       title: "airtribe ai skills",
       subtitle:
-        "two skills at airtribe. one is used by the team that writes what paid learners get, one by the learner. in both, the thing being designed is not a screen, it is how much room the author is allowed.",
+        "two skills at airtribe. one used by the team that writes what paid learners get, one by the learner. in both, what is being designed is how much room the author is allowed.",
       /*
        * The pre-read components themselves, composed over a render on a
        * transparent ground: a rice calculator with its live ranking, the
@@ -859,7 +858,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "role and ownership",
         paragraphs: [
-          "two product designers ran both of these end to end. i took the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, and the design decisions below. the ui screens we split between us, and the other designer led the handoff. we worked alongside one backend and one frontend engineer. each skill below is its own case study; they share a team and a question and nothing else.",
+          "two product designers ran both of these end to end. i took the ground research, the problem framing, the conversations with the lxd team and the stakeholders around them, and the design decisions below; we split the ui screens, and the other designer led the handoff. one backend and one frontend engineer alongside. each skill below is its own case study.",
         ],
       },
 
@@ -887,7 +886,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "what drifted, and how",
         paragraphs: [
-          "the lxd team took up the problem that pre-reads were walls of text and wanted them interactive enough to be worth opening. the catch is who writes them. the restyle checklist is the record of the drift, because it lists what has to be undone.",
+          "the lxd team took up the problem that pre-reads were walls of text and wanted them interactive enough to be worth opening. the catch is who writes them.",
         ],
       },
       {
@@ -915,14 +914,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           {
             n: "01",
-            title: "a skill, not a template set and not a rulebook",
+            title: "a skill, not templates or a rulebook",
             why: "templates hold a catalogue together by capping what a lesson can be. a rulebook leaves an author free and gets read once. the lxd team needed both halves at once, across a catalogue still growing.",
             tradeoff: "a skill has to be comprehensive enough to write a whole lesson inside, far more to author and maintain than a page of guidelines.",
             result: "the brand is inherited by construction rather than checked after the fact, so the only thing left for a learning designer to decide is the teaching.",
           },
           {
             n: "02",
-            title: "classify by behaviour, so the component nobody has built yet is already covered",
+            title: "classify by behaviour",
             why: "most of a real pre-read is not a library primitive. it is dioramas, chat dialogues, tap-sort exercises, a gamification rail, a 3d rice space. whatever a library failed to cover would have been the interesting part of the lesson.",
             tradeoff: "eight behaviours is coarser than a list of components, and it asks an author to decide what a thing does before building it.",
             result: "anything new is placed by what it does, prose, widget, data-figure, chrome or code, inherits that family's surfaces, and comes out airtribe without passing a designer.",
@@ -956,7 +955,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "contain",
         frame: true,
         items: [
-          { title: "two jobs, and only one of them teaches", text: "every interactive element in the prototype, sorted into two piles. job a forces active thought: the quiz that interrupts the narrative, the prompt that makes you apply it. job b is visual variety: radar charts, fake linear chrome, mock terminals." },
+          { title: "two jobs, and only one of them teaches", text: "every interactive element in the prototype, sorted into two piles. job a forces active thought: the quiz that interrupts the narrative, the prompt that makes you apply it. job b is visual variety: radar charts, fake chrome, mock terminals." },
           { title: "job b is allowed, it is just not progress", text: "visual variety makes a page less monotonous. it does not change what the learner remembers. the prototype was dense with job b, and we had read that density as evidence the lesson was interactive." },
           { title: "name the mechanism, or you are only adding widgets", text: "job a works because of retrieval practice, spaced thinking and the generation effect. writing those down let us argue for one interaction over another instead of about how many there were." },
         ],
@@ -966,7 +965,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", width: 1000, height: 920, alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
         fit: "contain",
         frame: true,
-        caption: "what a learner does in a good lesson, as four beats. the second is the one the old pre-reads did not have, and the expensive one: a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth was already there, sitting at the end after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components.",
+        caption: "what a learner does in a good lesson, as four beats. the second is new: commit to an answer before the explanation arrives, and the explanation can be written as a reply to what you picked. the fourth existed but sat at the end. moving it cost no new components.",
       },
       {
         kind: "full",
@@ -994,7 +993,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "full",
         media: { type: "image", src: "/case/airtribe-ai-skills/spec.png", width: 2000, height: 1236, alt: "the first skill's output contract: its five sections, and the required html boilerplate with the pinned babel version and the exact script tag called out" },
         fit: "contain",
-        caption: "section 1.2 of the first version of the skill, typeset from the file. it gives the tag verbatim and writes the failure next to the version that causes it, because a rule an author can paste survives the next person who tidies a dependency list.",
+        caption: "section 1.2 of the first skill version, typeset from the file: the tag verbatim, with the failure written next to the version that causes it. a rule an author can paste survives the next person who tidies a dependency list.",
       },
       /*
        * The part that is not a style guide. A reader can dismiss tokens and
@@ -1006,7 +1005,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "constraints",
         label: "what the spec carries besides colour",
         items: [
-          { label: "a file, not a design file", text: "one self-contained html page, react and tailwind from a cdn, no build step, so a learning designer can upload it without an engineer. the whole premise rests on that line." },
+          { label: "a file, not a design file", text: "one self-contained html page, react and tailwind from a cdn, no build step, so a learning designer can upload it without an engineer." },
           { label: "a pinned version, with the reason next to it", text: "babel standalone is pinned to 7.17.12. newer builds default to the automatic jsx runtime, which injects an import into a non-module script and renders a blank page. the pin is written down with the failure beside it." },
           { label: "one exact script tag", text: "type text/babel, with no data-presets, no data-type and no type module. each reintroduces the same blank page." },
           { label: "a weight budget", text: "the renderer accepts 500kb. generated pre-reads land between 50 and 80kb, so the budget is headroom rather than something an author thinks about." },
@@ -1032,7 +1031,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "system",
         label: "eight families, not a component library",
         paragraphs: [
-          "the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. each family carries the same three constants, purple is the one accent, neutrals are cool, colour means state, which is why a component invented tomorrow still comes out airtribe.",
+          "the catalogue is not a set of components, it is eight behaviours with a visual treatment attached. each family carries the same three constants: purple is the one accent, neutrals are cool, colour means state.",
         ],
         mapping: [
           { from: "01 reading & narrative", to: "prose on the ground, accent for emphasis, never a boxed paragraph" },
@@ -1069,7 +1068,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { title: "every state, or it isn't done", text: "hover, focus-visible, selected, correct, incorrect, disabled. a component with only a default state is unfinished." },
           { title: "the spec sits in the corner", text: "200ms, ease-out, colour transition, written beside the component so the next author does not guess at what calm looks like." },
           { title: "replay, not confetti", text: "the reward for a right answer is the state change, plus a way to run it again." },
-          { title: "a written list of what we are not doing", text: "kind a hangs off an interaction, eases out, finishes inside 500ms. kind b was decorative, scroll fades on prose, confetti, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under what we are not doing, because it is easier to hold a line when the argument against it is written down." },
+          { title: "a written list of what we are not doing", text: "kind a hangs off an interaction, eases out, finishes inside 500ms. kind b was decorative, scroll fades on prose, confetti, ambient loops, bounce and elastic easings, and it did not ship. it sits in the spec under what we are not doing." },
         ],
       },
       {
@@ -1089,7 +1088,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         paragraphs: [
           "the skill carries around fifty pre-reads across fifty modules, five subtracks and three courses, reaching more than fifteen hundred learners, authored by ten to fifteen people with no visual designer in the loop. those are scope figures, not outcome claims.",
           "of the four hundred and twenty learners who answered the closing prompt in phase one, sixty per cent called the format more positive and engaging. that is one phase across two tracks, not the catalogue, and it is the one measured signal this work has so far.",
-          "because each artifact is placed by behaviour rather than built one-off, a lesson is updated by recombining them instead of remaking them.",
           "what the system did to the work is still the next thing to measure against a baseline: adoption over one-off styling, review rounds per pre-read before and after, brand-audit pass rate, and whether authors say they can ship on-brand without design support.",
         ],
       },
@@ -1123,7 +1121,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "context",
         label: "what kai is",
         paragraphs: [
-          "kai is an ai-first learning experience for the airtribe community. you give it a topic, answer four questions, and it writes the lesson to those answers, opening by naming what you already know so it starts where you are. a concept map draws the ideas as you read, a library holds the source behind every claim, and kai waits in the margin to unpack any phrase you highlight.",
+          "kai is an ai-first learning experience for the airtribe community: give it a topic, answer four questions, and it writes the lesson to those answers. a concept map draws the ideas as you read, a library holds the source behind every claim, and kai unpacks any phrase you highlight.",
         ],
       },
       {
@@ -1228,7 +1226,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         items: [
           { label: "kai is a sheet, not a screen", text: "kai was close to becoming a separate destination, which fights the product: the lesson is the point. it became a peek and expand sheet, a line at the bottom that one tap brings up over the lesson, so the lesson never leaves." },
           { label: "the header was carrying desktop clutter", text: "teach appeared twice on the expanded sheet, and the demo badge sat on the header's map icon. the fix was not to nudge either: the header came down to brand left and map icon right, the breadcrumb went, the badge moved to the bottom. a collision is usually a density problem in a positioning costume." },
-          { label: "the em dash rule did the editing", text: "the hook was written with em dashes, which the project style forbids. rewriting them as full sentence breaks made it punchier. the pre-reads spec above carries the same rule, so the smallest constraint in either system has now done editorial work twice." },
+          { label: "the em dash rule did the editing", text: "the hook was written with em dashes, which the project style forbids. rewriting them as full sentence breaks made it punchier. the pre-reads spec above carries the same rule." },
         ],
       },
       {
@@ -1454,7 +1452,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         fit: "contain",
         side: "right",
         title: "product thesis",
-        text: "ai has made translating products into new languages almost trivial. designing interfaces that survive those translations isn't. as more of india's next billion users come online in their preferred languages, localization is shifting from an edge case to a core product requirement.",
+        text: "ai has made translating products into new languages almost trivial. designing interfaces that survive those translations isn't.",
       },
       {
         kind: "bleed",
@@ -1658,7 +1656,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/deepcuts/launch/directions.png", width: 1200, height: 1318, alt: "choose a direction: three cards fanned out, each a different genre of connection" },
           { type: "image", src: "/case/deepcuts/launch/receipt.png", width: 1200, height: 1318, alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
         ],
-        caption: "you turn the dial, you take one of three, and five stops later it prints. deep cuts runs on a server and a model, so unlike the other things here it cannot be embedded and played in the page; the film in the fold above is a full journey, start to receipt.",
+        caption: "you turn the dial, you take one of three, and five stops later it prints. it runs on a server and a model, so unlike the others here it cannot be embedded; the film above is a full journey, start to receipt.",
       },
       {
         kind: "detail",
@@ -1877,7 +1875,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         label: "about",
         paragraphs: [
           "kochi's water metro crosses backwaters most apps render as blank blue. this is an independent, non-commercial companion built on the official public map: pick a boarding terminal and a destination, and a journey plays out on its own.",
-          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. there is a full english version and a full malayalam one, narration included.",
+          "the ferry animates along the real water channels, its status cycles from boarding to arrived, and photos and stories surface as each place passes. full english and full malayalam, narration included.",
         ],
         creditsLabel: "credits",
         credits: [
