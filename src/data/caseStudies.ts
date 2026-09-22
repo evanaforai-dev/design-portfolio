@@ -1245,8 +1245,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         label: "outcome · kai",
         paragraphs: [
-          "kai runs inside airtribe and has reached more than ten thousand learners.",
-          "what is linked here is a standalone build of it: one seeded lesson running the full system end to end, with the intake open to any topic, so the shape can be read without an account. that shape is the claim, an ai learning product can plan a lesson rather than answer a question, and the cost is four screens of intake before anyone reads a word.",
+          "kai runs inside airtribe and has reached more than ten thousand learners. it sits behind the login, where it is available to enrolled learners and nobody else.",
+          "so what is linked here is a demo build: one seeded lesson running the full system end to end, with the intake open to any topic. it exists so that this page has something you can actually open. what it carries is the shape, an ai learning product can plan a lesson rather than answer a question, and the cost is four screens of intake before anyone reads a word.",
         ],
       },
 
