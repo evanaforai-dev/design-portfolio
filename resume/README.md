@@ -17,7 +17,11 @@ Headless equivalent:
     chrome --headless=new --print-to-pdf=public/resume.pdf \
       --no-pdf-header-footer resume/resume.html
 
-Keep it to ONE page, filled. The content box at these margins is 703 x
-1039 css px; the current layout lands at 1010, so there is about 29px of
-headroom. Adding a bullet means taking one out. The accent is #c0007f, a print-weight version of the
-site's magenta: the screen accent sits lighter than ink wants on white paper.
+Keep it to ONE page, filled. At the current margins (16mm top/bottom,
+18mm sides) the content box is 658 x 1002 css px and the layout lands at
+978, so there is about 24px of headroom. Adding a bullet means taking one
+out.
+
+No colour. The document is black on white and links are identified by the
+underline, not by a hue: the site's magenta is a screen accent and it
+reads as decoration on a printed page.
