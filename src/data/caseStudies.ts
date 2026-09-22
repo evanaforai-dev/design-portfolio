@@ -22,6 +22,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: {
         type: "image",
         src: "/case/wells-fargo/hero.jpg",
+        width: 1800,
+        height: 894,
         alt: "devices arranged as the wells fargo star on a warm gradient",
       },
       mediaFit: "cover",
@@ -65,7 +67,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/wells-fargo/before-after.jpg", alt: "practice finance before and after: fragmented pages consolidated into one conversion page" },
+        media: { type: "image", src: "/case/wells-fargo/before-after.jpg", width: 1800, height: 1012, alt: "practice finance before and after: fragmented pages consolidated into one conversion page" },
         fit: "contain",
         frame: true,
         caption: "practice finance, at risk of removal for policy and mobile-usability failures, consolidated from six-plus fragmented pages into one conversion-focused, policy-compliant landing. the working file is blurred; the page it became is unblurred further down, because it shipped.",
@@ -91,7 +93,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "the practice-finance site was set for decommission by may 2026 over policy violations and poor mobile usability, taking digital loan origination for ~1,000 monthly visitors with it.",
             tradeoff: "anything i wanted to change for design reasons came after keeping it compliant and keeping it live.",
             result: "a six-plus-page architecture consolidated into one conversion-focused landing and one simplified contact flow, signed off as a policy-compliant experience. i designed the decommission messaging alongside it: what a visitor would have met if the date passed and the site came down anyway.",
-            media: { type: "image", src: "/case/wells-fargo/strategy.jpg", alt: "who practice finance serves and the experience it needs" },
+            media: { type: "image", src: "/case/wells-fargo/strategy.jpg", width: 1600, height: 955, alt: "who practice finance serves and the experience it needs" },
             fit: "cover",
           },
           {
@@ -100,7 +102,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "3.8m retail-services customers, 1m new a year, sat on a dated, non-responsive microsite that drove ~200k monthly visits and 120k service calls a month at $11.37 each, clustered around login, payments, agreements and mobile banking.",
             tradeoff: "the redesign had to fold into wf.com for tracking and seo, not survive as a standalone microsite.",
             result: "a ux audit, competitor synthesis and ia rework cut nine pages to four, over 50% less structural complexity, with clear paths to the highest-frequency tasks and room to reduce those calls.",
-            media: { type: "image", src: "/case/wells-fargo/board.jpg", alt: "the breadth of the redesign work, blurred under nda" },
+            media: { type: "image", src: "/case/wells-fargo/board.jpg", width: 1600, height: 955, alt: "the breadth of the redesign work, blurred under nda" },
             fit: "cover",
           },
           {
@@ -109,7 +111,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "wells fargo's annual esg report was trapped in a static, inaccessible pdf, a version-control and compliance risk with a poor mobile experience.",
             tradeoff: "dense legacy charts and tables had to fit the design system across six breakpoints and pass enterprise wcag, on a speed-to-market deadline.",
             result: "a responsive, accessible web experience: 100% digital adoption, the legacy pdf deprecated so outdated compliance data can no longer circulate.",
-            media: { type: "image", src: "/case/wells-fargo/esg.jpg", alt: "the live wells fargo sustainability web experience" },
+            media: { type: "image", src: "/case/wells-fargo/esg.jpg", width: 1800, height: 1012, alt: "the live wells fargo sustainability web experience" },
             fit: "cover",
           },
         ],
@@ -124,14 +126,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-desktop.png", alt: "the live wells fargo practice finance landing page" },
+        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-desktop.png", width: 1400, height: 2333, alt: "the live wells fargo practice finance landing page" },
         fit: "contain",
         frame: true,
         caption: "practice finance, live. the six-plus page architecture arrives as one page: a single financing promise, three reasons to trust it, two entry paths (buy or start, expand or relocate), four needs, and one repeated call to action. the decommission notice it was under is the reason it looks like this.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-form-desktop.png", alt: "the live practice finance contact form" },
+        media: { type: "image", src: "/case/wells-fargo/live/practice-finance-form-desktop.png", width: 1400, height: 1750, alt: "the live practice finance contact form" },
         fit: "contain",
         frame: true,
         caption: "the simplified contact flow, live. every field that could be optional is marked optional, borrowing needs are checkboxes rather than a call, and the submit stays disabled until the form can actually be sent. a dentist between appointments is the person this was drawn for.",
@@ -139,9 +141,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "figures",
         media: [
-          { type: "image", src: "/case/wells-fargo/live/practice-finance-mobile.png", alt: "practice finance on a phone" },
-          { type: "image", src: "/case/wells-fargo/live/practice-finance-form-mobile.png", alt: "the contact form on a phone" },
-          { type: "image", src: "/case/wells-fargo/live/sustainability-mobile.png", alt: "the sustainability experience on a phone" },
+          { type: "image", src: "/case/wells-fargo/live/practice-finance-mobile.png", width: 620, height: 1102, alt: "practice finance on a phone" },
+          { type: "image", src: "/case/wells-fargo/live/practice-finance-form-mobile.png", width: 620, height: 1102, alt: "the contact form on a phone" },
+          { type: "image", src: "/case/wells-fargo/live/sustainability-mobile.png", width: 620, height: 1102, alt: "the sustainability experience on a phone" },
         ],
         columns: 3,
         aspect: "phone",
@@ -150,7 +152,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/wells-fargo/live/sustainability-desktop.png", alt: "the live wells fargo sustainability web experience" },
+        media: { type: "image", src: "/case/wells-fargo/live/sustainability-desktop.png", width: 1400, height: 2333, alt: "the live wells fargo sustainability web experience" },
         fit: "contain",
         frame: true,
         caption: "sustainability, live: the report that used to be a pdf. the goals that were a table of figures are now a responsive card grid that reflows across six breakpoints, and the disclosure index and forward-looking statement, the two blocks legal cannot lose, sit in the reading column rather than an appendix.",
@@ -186,6 +188,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: {
         type: "image",
         src: "/case/kochi1app/hero.jpg",
+        width: 1800,
+        height: 992,
         alt: "hands holding a phone over a metro concourse, route lines flowing outward",
       },
       mediaFit: "cover",
@@ -221,31 +225,31 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/01-why-care.png", alt: "survey data on why people adopt public transport in kochi" },
+        media: { type: "image", src: "/case/kochi1app/deck/01-why-care.png", width: 1920, height: 1869, alt: "survey data on why people adopt public transport in kochi" },
         caption: "the case, in the city's own numbers: around 60 per cent mode share across kochi's 2.6 million travellers, 72 per cent asking for direct services and 60 per cent for better information (cppr mobility study).",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/02-existing-app.png", alt: "the existing kochi1 app, its feature set and its store rating" },
+        media: { type: "image", src: "/case/kochi1app/deck/02-existing-app.png", width: 1920, height: 1445, alt: "the existing kochi1 app, its feature set and its store rating" },
         fit: "contain",
         frame: true,
         caption: "what had already shipped. plan trips, book tickets, manage the kochi1 card, explore the city, bus and metro details, emergency messages. over 100,000 downloads and 2.5 stars across 2.26k reviews, which is the gap this project starts in.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/03-goals.png", alt: "the four goals of the redesign" },
+        media: { type: "image", src: "/case/kochi1app/deck/03-goals.png", width: 1920, height: 1080, alt: "the four goals of the redesign" },
         fit: "contain",
         frame: true,
         caption: "four goals, set before any screen.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/04-board.png", alt: "the redesign board, all four themes at once" },
+        media: { type: "image", src: "/case/kochi1app/deck/04-board.png", width: 2171, height: 3200, alt: "the redesign board, all four themes at once" },
         caption: "the whole redesign on one board.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/05-gaps.png", alt: "the gaps, sorted into seven categories" },
+        media: { type: "image", src: "/case/kochi1app/deck/05-gaps.png", width: 1920, height: 1316, alt: "the gaps, sorted into seven categories" },
         fit: "contain",
         frame: true,
         caption: "the gaps, sorted before any of them were solved. the question under the slide is the real one: which of these do we fill first.",
@@ -260,54 +264,54 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/06-background-research.png", alt: "the six stages of the background research" },
+        media: { type: "image", src: "/case/kochi1app/deck/06-background-research.png", width: 1920, height: 1185, alt: "the six stages of the background research" },
         fit: "contain",
         frame: true,
         caption: "the method. the study produced policy recommendations alongside design ones, since a transfer that does not exist cannot be designed around.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/07-competitor-analysis.png", alt: "a feature matrix comparing eight transit apps" },
+        media: { type: "image", src: "/case/kochi1app/deck/07-competitor-analysis.png", width: 1920, height: 1275, alt: "a feature matrix comparing eight transit apps" },
         fit: "contain",
         frame: true,
         caption: "eight apps against twelve capabilities. kochi1app is the only one in the set with no offline access, no first and last mile suggestions, no multimodal transport, no live crowd information and no fare calculation. the red column is the brief.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/08-personas.png", alt: "five rider personas across the city" },
+        media: { type: "image", src: "/case/kochi1app/deck/08-personas.png", width: 1920, height: 2136, alt: "five rider personas across the city" },
         caption: "five riders the app has to serve at once: a school student, a new call-centre commuter, a daily-wage worker who walks when the fare is too high, a last-mile auto driver, and a visitor with no local knowledge.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/09-unboxing.png", alt: "evaluating the existing app: usability goals, heuristic evaluation and task-based evaluation" },
+        media: { type: "image", src: "/case/kochi1app/deck/09-unboxing.png", width: 1920, height: 1453, alt: "evaluating the existing app: usability goals, heuristic evaluation and task-based evaluation" },
         fit: "contain",
         frame: true,
         caption: "what already shipped, evaluated three ways: usability goals, a heuristic evaluation scored on ten dimensions, and a task-based evaluation with real users.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/10-findings.png", alt: "what users said about the existing app" },
+        media: { type: "image", src: "/case/kochi1app/deck/10-findings.png", width: 1920, height: 1394, alt: "what users said about the existing app" },
         fit: "contain",
         frame: true,
         caption: "the findings in the words they arrived in. the homepage does not cater to the primary task, the route turns from horizontal to vertical halfway, options in filter and sort do not make sense, and it felt like a generic app.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/11-sorting-the-pile.png", alt: "what to retain and what to improve" },
+        media: { type: "image", src: "/case/kochi1app/deck/11-sorting-the-pile.png", width: 1920, height: 1325, alt: "what to retain and what to improve" },
         fit: "contain",
         frame: true,
         caption: "sorting the pile into two questions: what has to be kept because people rely on it, and what would actually make it better.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/12-ia-existing.png", alt: "the existing information architecture, colour-coded" },
+        media: { type: "image", src: "/case/kochi1app/deck/12-ia-existing.png", width: 1920, height: 1394, alt: "the existing information architecture, colour-coded" },
         fit: "contain",
         frame: true,
         caption: "the existing architecture, audited node by node. the circled planner is where the app's actual job lives and where almost none of its screen went.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/13-ia-redesigned.png", alt: "the redesigned information architecture" },
+        media: { type: "image", src: "/case/kochi1app/deck/13-ia-redesigned.png", width: 1920, height: 1550, alt: "the redesigned information architecture" },
         fit: "contain",
         frame: true,
         caption: "the architecture rebuilt around eight areas. the planner stops being one item in a menu.",
@@ -348,26 +352,26 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/14-ui-homescreen.png", alt: "the homescreen redesign and its iterations" },
+        media: { type: "image", src: "/case/kochi1app/deck/14-ui-homescreen.png", width: 2683, height: 1334, alt: "the homescreen redesign and its iterations" },
         fit: "contain",
         frame: true,
         caption: "the homescreen, with the reasoning kept beside it. the version that shipped leads with green nudges and frequent tasks, and defaults geodata for a novice.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/15-ui-route.png", alt: "the route suggestion redesign and its iterations" },
+        media: { type: "image", src: "/case/kochi1app/deck/15-ui-route.png", width: 2243, height: 1308, alt: "the route suggestion redesign and its iterations" },
         fit: "contain",
         frame: true,
         caption: "route suggestion, annotated through three rounds.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/16-user-flows.png", alt: "the full set of user flows" },
+        media: { type: "image", src: "/case/kochi1app/deck/16-user-flows.png", width: 2143, height: 5922, alt: "the full set of user flows" },
         caption: "every flow in the redesign, including the ones that only exist because the intention layer does.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/17-what-you-see.png", alt: "the nearest point of commute flow" },
+        media: { type: "image", src: "/case/kochi1app/deck/17-what-you-see.png", width: 2370, height: 1703, alt: "the nearest point of commute flow" },
         fit: "contain",
         frame: true,
         caption: "the first thing the app now does is answer where you are and what is near you, rather than opening on a menu.",
@@ -384,28 +388,28 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/18-daily-route.png", alt: "the daily route and monthly pass flow" },
+        media: { type: "image", src: "/case/kochi1app/deck/18-daily-route.png", width: 4562, height: 1141, alt: "the daily route and monthly pass flow" },
         fit: "contain",
         frame: true,
         caption: "the daily route and the monthly pass: the commuter case, where the job is to remove decisions rather than offer them.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/19-travel-mode.png", alt: "planning by travel mode" },
+        media: { type: "image", src: "/case/kochi1app/deck/19-travel-mode.png", width: 4035, height: 1141, alt: "planning by travel mode" },
         fit: "contain",
         frame: true,
         caption: "planning by travel mode, through to the qr at the gate and the places worth stopping at on the way.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/20-edit-intermediate.png", alt: "editing intermediate travel options" },
+        media: { type: "image", src: "/case/kochi1app/deck/20-edit-intermediate.png", width: 2584, height: 1141, alt: "editing intermediate travel options" },
         fit: "contain",
         frame: true,
         caption: "the transfer, made editable. an intermediate leg can be changed without rebuilding the journey, which is the part the old planner could not do at all.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/21-previous-transactions.png", alt: "booking a journey from a previous transaction" },
+        media: { type: "image", src: "/case/kochi1app/deck/21-previous-transactions.png", width: 1905, height: 1141, alt: "booking a journey from a previous transaction" },
         fit: "contain",
         frame: true,
         caption: "booking from a past transaction, because most trips in a commuter's week are a trip they have already taken.",
@@ -420,21 +424,21 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/22-evaluation-plan.png", alt: "the evaluation plan: key questions, precautions, target users, test goals and screener" },
+        media: { type: "image", src: "/case/kochi1app/deck/22-evaluation-plan.png", width: 746, height: 836, alt: "the evaluation plan: key questions, precautions, target users, test goals and screener" },
         fit: "contain",
         frame: true,
         caption: "the plan before the test. travel cannot be replicated in a room, so the scenario has to carry it.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/23-test-design.png", alt: "the test protocol and the three task scenarios with their metrics" },
+        media: { type: "image", src: "/case/kochi1app/deck/23-test-design.png", width: 865, height: 697, alt: "the test protocol and the three task scenarios with their metrics" },
         fit: "contain",
         frame: true,
         caption: "three scenarios with their success criteria set in advance: intention-based navigation at 80 per cent, micro-route suggestions at 90, sustainability nudges at 70. writing the target down first is what makes a result a result.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/kochi1app/deck/24-test-results.png", alt: "the test results: sus and nasa-tlx scores, per-task completion and the four failures" },
+        media: { type: "image", src: "/case/kochi1app/deck/24-test-results.png", width: 871, height: 337, alt: "the test results: sus and nasa-tlx scores, per-task completion and the four failures" },
         fit: "contain",
         frame: true,
         caption: "the results, including the parts that did not work.",
@@ -503,6 +507,8 @@ export const caseStudies: Record<string, CaseStudy> = {
          */
         type: "image",
         src: "/case/vision/hero.webp",
+        width: 2000,
+        height: 1392,
         alt: "vision's payments record with its surfaces laid around it: the view switcher and filter rows above, the cohort filter open across three courses, a modal setting slack access for several learners at once, a row's action menu offering change cohort, assign unit, re-sync and remove access, and a selection bar reading ten selected",
       },
       mediaFit: "contain",
@@ -539,6 +545,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/sheet-sales.jpg",
+          width: 1978,
+          height: 1398,
           alt: "the sales sheet the product replaced, with every cell's contents redacted: columns of struck-out rows, cleared payments banded in green, refund flags cutting across in red",
         },
         fit: "contain",
@@ -556,6 +564,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/sheet-onboarding.png",
+          width: 1764,
+          height: 770,
           alt: "the onboarding sheet: a legible header row of close to thirty column names above rows of colour-coded cells whose contents have been destroyed",
         },
         fit: "contain",
@@ -595,7 +605,7 @@ export const caseStudies: Record<string, CaseStudy> = {
              * is the decision, and it is legible here next to the reasoning
              * rather than sitting above it unexplained.
              */
-            media: { type: "image", src: "/case/vision/payments-all.png", alt: "the payments record in vision: a view switcher reading all and onboarding, four rows of filters, and a table of payment rows with inline track dropdowns" },
+            media: { type: "image", src: "/case/vision/payments-all.png", width: 1078, height: 742, alt: "the payments record in vision: a view switcher reading all and onboarding, four rows of filters, and a table of payment rows with inline track dropdowns" },
             fit: "contain",
           },
           {
@@ -612,6 +622,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/onboarding-view.png",
+          width: 1498,
+          height: 924,
           alt: "the onboarding view: a different filter set and a different column set, with a row's action menu open on change cohort, assign unit, re-sync and remove access",
         },
         fit: "contain",
@@ -681,6 +693,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/slack-bulk.png",
+          width: 1662,
+          height: 744,
           alt: "rows selected across the table, a bar reading ten selected with copy ten emails and update slack access, and the dialogue that collects the selected addresses as chips",
         },
         fit: "contain",
@@ -700,6 +714,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/filters-before.png",
+          width: 1045,
+          height: 155,
           alt: "the old filter bar: twenty-nine filter controls wrapping onto four rows",
         },
         fit: "contain",
@@ -711,6 +727,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/filters-after.png",
+          width: 1160,
+          height: 145,
           alt: "the new filter bar: nine filters over two rows, four of them active and showing their values, with more filters, save filter view and a saved view selector",
         },
         fit: "contain",
@@ -735,6 +753,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/team-members.png",
+          width: 1294,
+          height: 1068,
           alt: "the team members table: department, role, manager and permission group as four separate columns, with a row's action menu open on edit, login as, block access and remove",
         },
         fit: "contain",
@@ -746,6 +766,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         media: {
           type: "image",
           src: "/case/vision/permission-group.png",
+          width: 1782,
+          height: 692,
           alt: "building a permission group: a category sidebar, namespaced permission checkboxes, and a review dialogue listing every permission selected before the group is created",
         },
         fit: "contain",
@@ -799,6 +821,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: {
         type: "image",
         src: "/case/airtribe-ai-skills/hero.webp",
+        width: 2000,
+        height: 1148,
         alt: "four pre-read components composed over a purple render: a rice calculator with a live priority ranking, a table comparing the product manager's job across three company stages, a type-hint clarity lab, and a quarterly budget allocator flagged two weeks over",
       },
       mediaFit: "contain",
@@ -872,7 +896,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/boards.webp", alt: "two working boards side by side: on the left the component exploration in light and dark, from avatars and text blocks through chat, quiz, visualisation and loader states; on the right the comp board for the product management programme" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/boards.webp", width: 2000, height: 1168, alt: "two working boards side by side: on the left the component exploration in light and dark, from avatars and text blocks through chat, quiz, visualisation and loader states; on the right the comp board for the product management programme" },
         fit: "contain",
         frame: true,
         caption: "the working boards, at the zoom where you stop reading them and start seeing the size of the problem.",
@@ -928,7 +952,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "annotated",
         label: "what interactive was actually doing",
-        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-jobs.png", alt: "a board splitting the prototype's interactive elements into two jobs: forcing active thought, and visual variety as a palate cleanser" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-jobs.png", width: 940, height: 640, alt: "a board splitting the prototype's interactive elements into two jobs: forcing active thought, and visual variety as a palate cleanser" },
         fit: "contain",
         frame: true,
         items: [
@@ -939,14 +963,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/pedagogy-loop.png", width: 1000, height: 920, alt: "a four beat learning loop: encountering a situation, forming a position, testing it against reality, connecting it to yourself" },
         fit: "contain",
         frame: true,
         caption: "what a learner does in a good lesson, as four beats. the second is the one the old pre-reads did not have, and the expensive one: a learner who commits to an answer before the explanation arrives lets the explanation be written as a reply to what they picked. the fourth was already there, sitting at the end after everything had been explained. moving it is most of the difference between a reading with a quiz stapled on and a lesson, and it cost no new components.",
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/interactivity.png", alt: "probable types of interactivity mapped across three programmes: product management, backend engineering and generative ai" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/interactivity.png", width: 1616, height: 936, alt: "probable types of interactivity mapped across three programmes: product management, backend engineering and generative ai" },
         fit: "contain",
         frame: true,
         caption: "the three programmes do not share a way of being right. a product answer is defended, so pml gets decision scenarios and spec critique. a backend answer is executable, so bel gets a sandbox. a generative ai answer is evaluated, so gai gets prompt iteration and eval design. one approved list could not have served all three.",
@@ -968,7 +992,7 @@ export const caseStudies: Record<string, CaseStudy> = {
        */
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/spec.png", alt: "the first skill's output contract: its five sections, and the required html boilerplate with the pinned babel version and the exact script tag called out" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/spec.png", width: 2000, height: 1236, alt: "the first skill's output contract: its five sections, and the required html boilerplate with the pinned babel version and the exact script tag called out" },
         fit: "contain",
         caption: "section 1.2 of the first version of the skill, typeset from the file. it gives the tag verbatim and writes the failure next to the version that causes it, because a rule an author can paste survives the next person who tidies a dependency list.",
       },
@@ -999,7 +1023,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-ai-skills/comps.png", alt: "the component comp board for the product management programme: text, dialogue, table, tab, progressive, quiz, slider calculator and data-viz cards" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/comps.png", width: 1368, height: 1512, alt: "the component comp board for the product management programme: text, dialogue, table, tab, progressive, quiz, slider calculator and data-viz cards" },
         fit: "contain",
         frame: true,
         caption: "the inventory for one programme, and the drift, in one picture. each column is a behaviour the system had to cover. the cream grounds, the orange tabs and the serif heading are what the restyle checklist lists.",
@@ -1037,7 +1061,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "annotated",
         label: "what a guardrail looks like up close",
-        media: { type: "image", src: "/case/airtribe-ai-skills/components-states.png", alt: "a quiz answered correctly, a slider calculator and a counter allocator, each with its motion spec" },
+        media: { type: "image", src: "/case/airtribe-ai-skills/components-states.png", width: 2560, height: 1690, alt: "a quiz answered correctly, a slider calculator and a counter allocator, each with its motion spec" },
         fit: "contain",
         frame: true,
         items: [
@@ -1051,8 +1075,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "figures",
         media: [
-          { type: "image", src: "/case/airtribe-ai-skills/lesson.png", alt: "a pre-read opening with its learning objectives and a tabbed comparison of three systems" },
-          { type: "image", src: "/case/airtribe-ai-skills/exercise.png", alt: "a four-step trace exercise that fills in as the learner answers" },
+          { type: "image", src: "/case/airtribe-ai-skills/lesson.png", width: 2560, height: 2700, alt: "a pre-read opening with its learning objectives and a tabbed comparison of three systems" },
+          { type: "image", src: "/case/airtribe-ai-skills/exercise.png", width: 2560, height: 1700, alt: "a four-step trace exercise that fills in as the learner answers" },
         ],
         columns: 2,
         fit: "contain",
@@ -1108,7 +1132,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/airtribe-learn/lesson.png", alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
+        media: { type: "image", src: "/case/airtribe-learn/lesson.png", width: 1800, height: 1125, alt: "the three-pane workspace: kai chat, the lesson, and the lesson, map and library tabs" },
         fit: "cover",
         caption: "kai on the left, the lesson in the centre, the map and library one tab away. the tip up top is the whole posture: highlight anything and ask.",
       },
@@ -1134,7 +1158,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "a chat answers the question you asked and skips the shape around it. that is nearly the opposite of teaching.",
             tradeoff: "the output has to be planned before it is written, which is far more machinery than answering.",
             result: "a hook, a worked example, the misconception that keeps the idea fuzzy, a quick check, a reflection. the hard idea gets a diagram, not another paragraph.",
-            media: { type: "image", src: "/case/airtribe-learn/framework.png", alt: "a lesson diagram splitting the easy problems from the hard problem" },
+            media: { type: "image", src: "/case/airtribe-learn/framework.png", width: 1272, height: 1476, alt: "a lesson diagram splitting the easy problems from the hard problem" },
             fit: "contain",
           },
           {
@@ -1143,7 +1167,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "personalising after the fact, a simplify-this button, comes too late; the lesson is already written for no one.",
             tradeoff: "four questions is four screens before anyone has read a single word.",
             result: "purpose, background, prior knowledge and depth are set once, and the lesson, its examples and how far each section pushes are written to them.",
-            media: { type: "image", src: "/case/airtribe-learn/intake.png", alt: "the four-question intake before a lesson is written" },
+            media: { type: "image", src: "/case/airtribe-learn/intake.png", width: 1800, height: 1125, alt: "the four-question intake before a lesson is written" },
             fit: "cover",
           },
           {
@@ -1152,7 +1176,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "a lesson you read and close leaves nothing you can hold onto.",
             tradeoff: "a second, structural view of the topic to build and keep in step with the lesson.",
             result: "the map draws the concepts and their links as you go, with room for your own notes, so the shape of the topic outlives the reading.",
-            media: { type: "image", src: "/case/airtribe-learn/map.png", alt: "a concept map connecting the ideas in the lesson" },
+            media: { type: "image", src: "/case/airtribe-learn/map.png", width: 1800, height: 1125, alt: "a concept map connecting the ideas in the lesson" },
             fit: "cover",
           },
           {
@@ -1161,7 +1185,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "an ai that merely sounds confident is easy to build and easy to distrust.",
             tradeoff: "every claim has to trace to something real, in the lesson and in the library.",
             result: "key sentences are footnoted, and the library gathers the sources, each marked cited and linked out.",
-            media: { type: "image", src: "/case/airtribe-learn/library.png", alt: "the library of cited and further-reading sources" },
+            media: { type: "image", src: "/case/airtribe-learn/library.png", width: 1800, height: 1125, alt: "the library of cited and further-reading sources" },
             fit: "cover",
           },
         ],
@@ -1217,7 +1241,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "bleed",
-        media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", alt: "a kai lesson on the hard problem of consciousness, with its concept map open beside it" },
+        media: { type: "image", src: "/case/airtribe-learn/launch/thesis.png", width: 1600, height: 842, alt: "a kai lesson on the hard problem of consciousness, with its concept map open beside it" },
       },
       {
         kind: "outcome",
@@ -1426,7 +1450,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/lipi/launch/thesis.png", alt: "a hindi checkout screen with a text-overflow flag on the primary button" },
+        media: { type: "image", src: "/case/lipi/launch/thesis.png", width: 395, height: 769, alt: "a hindi checkout screen with a text-overflow flag on the primary button" },
         fit: "contain",
         side: "right",
         title: "product thesis",
@@ -1434,11 +1458,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "bleed",
-        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", alt: "one checkout, five scripts, side by side" },
+        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", width: 2000, height: 1002, alt: "one checkout, five scripts, side by side" },
       },
       {
         kind: "bleed",
-        media: { type: "image", src: "/case/lipi/launch/system-board.png", alt: "the lipi component library" },
+        media: { type: "image", src: "/case/lipi/launch/system-board.png", width: 2000, height: 1125, alt: "the lipi component library" },
         overlay: {
           placement: "below",
           label: "behind the experience",
@@ -1468,8 +1492,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/launch/four-scripts.png", alt: "four language tabs over the same checkout" },
-          { type: "image", src: "/case/lipi/launch/reveal-panel.png", alt: "the reveal panel naming the exact layer" },
+          { type: "image", src: "/case/lipi/launch/four-scripts.png", width: 1300, height: 1300, alt: "four language tabs over the same checkout" },
+          { type: "image", src: "/case/lipi/launch/reveal-panel.png", width: 1300, height: 2000, alt: "the reveal panel naming the exact layer" },
         ],
         captions: [
           { label: "one design · multiple scripts", text: "lipi scans the same checkout across hindi, tamil, bengali and kannada in one pass: four language tabs, six screens each, eleven findings, and it flags each script's clipped cta on the canvas." },
@@ -1479,8 +1503,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/launch/fix-recheck.png", alt: "before and after a re-check" },
-          { type: "image", src: "/case/lipi/launch/root-cause.png", alt: "the design system tab collapsing failures into root causes" },
+          { type: "image", src: "/case/lipi/launch/fix-recheck.png", width: 1300, height: 1202, alt: "before and after a re-check" },
+          { type: "image", src: "/case/lipi/launch/root-cause.png", width: 1300, height: 1300, alt: "the design system tab collapsing failures into root causes" },
         ],
         captions: [
           { label: "fix · re-check", text: "you apply the fix (the button hugs its label); lipi re-checks the same screens and confirms. lipi doesn't auto-decide: the designer applies, lipi verifies." },
@@ -1504,8 +1528,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/launch/preview-toggle.gif", alt: "preview turning on and off, restoring the original each time" },
-          { type: "image", src: "/case/lipi/launch/system-tab.gif", alt: "the design system tab in motion" },
+          { type: "image", src: "/case/lipi/launch/preview-toggle.gif", width: 960, height: 960, alt: "preview turning on and off, restoring the original each time" },
+          { type: "image", src: "/case/lipi/launch/system-tab.gif", width: 960, height: 960, alt: "the design system tab in motion" },
         ],
         captions: [
           { label: "never touch the original", text: "preview lays a hidden clone over the original; reveal draws locked overlays and drops you back on the editable layer." },
@@ -1514,7 +1538,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "bleed",
-        media: { type: "image", src: "/case/lipi/system.png", alt: "the results view grouped by the component behind the failures" },
+        media: { type: "image", src: "/case/lipi/system.png", width: 2560, height: 1600, alt: "the results view grouped by the component behind the failures" },
         overlay: {
           placement: "below",
           label: "system design",
@@ -1548,8 +1572,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/results.png", alt: "the results view" },
-          { type: "image", src: "/case/lipi/reveal.png", alt: "reveal mode drawing measurement overlays on the canvas" },
+          { type: "image", src: "/case/lipi/results.png", width: 2560, height: 1600, alt: "the results view" },
+          { type: "image", src: "/case/lipi/reveal.png", width: 2560, height: 1600, alt: "reveal mode drawing measurement overlays on the canvas" },
         ],
         captions: [
           { label: "results", text: "issues aggregate into root causes, so the count falls by component rather than by screen." },
@@ -1559,8 +1583,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kind: "duo",
         media: [
-          { type: "image", src: "/case/lipi/before-after.png", alt: "a fixed-width cta before and after it learns to hug its label" },
-          { type: "image", src: "/case/lipi/product.png", alt: "lipi running in a dark figma workspace" },
+          { type: "image", src: "/case/lipi/before-after.png", width: 2560, height: 1600, alt: "a fixed-width cta before and after it learns to hug its label" },
+          { type: "image", src: "/case/lipi/product.png", width: 2560, height: 1600, alt: "lipi running in a dark figma workspace" },
         ],
         captions: [
           { label: "before · after", text: "one component learns to hug its label, and six screens stop breaking." },
@@ -1569,7 +1593,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "bleed",
-        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", alt: "one design, many scripts" },
+        media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", width: 2000, height: 1002, alt: "one design, many scripts" },
       },
     ],
   },
@@ -1630,15 +1654,15 @@ export const caseStudies: Record<string, CaseStudy> = {
         columns: 3,
         fit: "contain",
         media: [
-          { type: "image", src: "/case/deepcuts/launch/console.png", alt: "the console dial, scored like a record, with the scroll control at its centre" },
-          { type: "image", src: "/case/deepcuts/launch/directions.png", alt: "choose a direction: three cards fanned out, each a different genre of connection" },
-          { type: "image", src: "/case/deepcuts/launch/receipt.png", alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
+          { type: "image", src: "/case/deepcuts/launch/console.png", width: 786, height: 775, alt: "the console dial, scored like a record, with the scroll control at its centre" },
+          { type: "image", src: "/case/deepcuts/launch/directions.png", width: 1200, height: 1318, alt: "choose a direction: three cards fanned out, each a different genre of connection" },
+          { type: "image", src: "/case/deepcuts/launch/receipt.png", width: 1200, height: 1318, alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
         ],
         caption: "you turn the dial, you take one of three, and five stops later it prints. deep cuts runs on a server and a model, so unlike the other things here it cannot be embedded and played in the page; the film in the fold above is a full journey, start to receipt.",
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/deepcuts/launch/thesis.png", alt: "the deep cuts mixtape receipt" },
+        media: { type: "image", src: "/case/deepcuts/launch/thesis.png", width: 862, height: 1477, alt: "the deep cuts mixtape receipt" },
         fit: "contain",
         side: "right",
         title: "product thesis",
@@ -1761,7 +1785,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/soundmap/launch/artifact.png", alt: "one day's finished artifact with its metadata" },
+        media: { type: "image", src: "/case/soundmap/launch/artifact.png", width: 1100, height: 2385, alt: "one day's finished artifact with its metadata" },
         fit: "contain",
         side: "right",
         title: "product thesis",
@@ -1874,7 +1898,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "detail",
-        media: { type: "image", src: "/case/kochi/launch/picker.png", alt: "choosing a boarding terminal and a destination" },
+        media: { type: "image", src: "/case/kochi/launch/picker.png", width: 1100, height: 1375, alt: "choosing a boarding terminal and a destination" },
         fit: "contain",
         side: "right",
         title: "product thesis",

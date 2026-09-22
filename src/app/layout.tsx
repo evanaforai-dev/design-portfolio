@@ -30,7 +30,29 @@ const mono = JetBrains_Mono({
  */
 const description = `${site.role}. ${masthead.statement}`;
 
+/*
+ * Absolute base for the social card. A static export served under a basePath
+ * cannot infer its own origin, and og:image is one of the few tags that has
+ * to be absolute or it is simply dropped.
+ */
+const baseUrl = `https://evanaforai-dev.github.io${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}`;
+
+/*
+ * The card itself. The tags above were written for the recruiter-pastes-a-url
+ * case and then left it half done: the unfurl carried a title and a line of
+ * text and no image at all, which for a designer's link is the one thing it
+ * should carry. The card is the masthead set in the site's own two colours,
+ * so it says the same thing the page says. Replace `/og.png` to change it.
+ */
+const ogImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: `${site.name}, ${site.role}`,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     default: `${site.name}, ${site.role}`,
     template: `%s · ${site.name}`,
@@ -41,11 +63,16 @@ export const metadata: Metadata = {
     title: `${site.name}, ${site.role}`,
     description,
     siteName: site.name,
+    url: baseUrl,
+    images: [ogImage],
   },
   twitter: {
-    card: "summary",
+    // The card has to be declared large or the image is shown as a thumbnail
+    // beside the text, which is worse than no image.
+    card: "summary_large_image",
     title: `${site.name}, ${site.role}`,
     description,
+    images: [ogImage],
   },
 };
 
