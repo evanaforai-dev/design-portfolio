@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
 import { asset as assetUrl } from "@/lib/asset";
 import { Glyph } from "./Glyph";
+import { DeviceFrame } from "./DeviceFrame";
 
 /** Vertical rhythm wrapper for in-flow (contained) sections. */
 function Band({
@@ -87,41 +88,11 @@ export function renderSection(section: Section, i: number) {
                * Handset builds run inside a device shell rather than a bare
                * rectangle: a phone ui in an unframed box reads as a broken
                * desktop page, and the bezel tells a reader what they are
-               * looking at before they touch it.
-               *
-               * Proportions are an iPhone's: 430x932pt, a 55pt screen radius
-               * and a 125x36pt island, expressed as percentages so the shell
-               * scales with its column. The shell is --fg, so it is the
-               * site's black on the light theme and its white on the dark
-               * one; the hairline ring keeps the black shell off the near
-               * black page.
+               * looking at before they touch it. DeviceFrame also gives the
+               * build the viewport it was drawn for and scales it to the
+               * shell, which is what stops it overflowing and panning.
                */
-              <div className="mx-auto w-full max-w-[380px]">
-                <div
-                  data-device="shell"
-                  className="relative aspect-[430/932] w-full bg-fg p-[2.4%] ring-1 ring-hairline"
-                >
-                  <div
-                    data-device="screen"
-                    className="relative h-full w-full overflow-hidden bg-bg"
-                  >
-                    <iframe
-                      src={url}
-                      title={section.title}
-                      loading="lazy"
-                      allow={section.allow}
-                      className="block h-full w-full border-0"
-                    />
-                    {/*
-                      No island is drawn. These builds were made for a browser
-                      and do not reserve the safe-area inset, so a pill at the
-                      top of the screen sat on top of their own headers: on
-                      kochi it covered the product's name. The shell reads as a
-                      handset from its proportions and its corners without one.
-                    */}
-                  </div>
-                </div>
-              </div>
+              <DeviceFrame src={url} title={section.title} allow={section.allow} />
             ) : (
               <div className="w-full">
                 <div

@@ -1642,12 +1642,36 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         /*
          * The slot the other four side projects give to a running prototype.
-         * Deep cuts cannot fill it the same way: it needs a node server and a
-         * model behind it, so there is nothing static to embed, and a fake one
-         * would be worse than none. These are the three stills that carry the
-         * loop instead. The film that used to run in the fold above is gone:
-         * it was a portrait capture in a landscape crop, so a reader met the
-         * product magnified to about a third of itself.
+         * Deep cuts could not fill it before: the journey comes out of a node
+         * route and the archive is a sqlite table, and a portfolio page is a
+         * static export with nothing behind it.
+         *
+         * It can now, without pretending. This is the real client, bundled
+         * ahead of time rather than compiled in the browser, with the server
+         * pipeline moved into the page: the direction validator, the
+         * bridge-fact check, the retry loop and the character clamps are the
+         * server's own source, concatenated rather than rewritten. The
+         * generator is `mock`, the provider the project ships with by default
+         * -- deterministic and offline, so the loop is genuinely the product's
+         * and the prose is canned. Receipts go to local storage instead of
+         * sqlite.
+         */
+        kind: "prototype",
+        label: "try it",
+        src: "/play/deepcuts/index.html",
+        title: "deep cuts, running",
+        frame: "phone",
+        hint: "type a word, or take one of the presets, then press the dial. five stops later it prints a receipt and files it. the red dot opens the archive.",
+        caption: "the real build, with the server moved into the page. the generator is the project's own offline mock provider, so the journey logic is the real thing and the writing is canned. nothing is sent anywhere and no key is needed.",
+      },
+      {
+        /*
+         * The loop as three stills, under the running build. The prototype
+         * above is the argument; these are the three moments worth holding
+         * still, at a size the phone screen cannot give them. The film that
+         * used to run in the fold above is gone: it was a portrait capture in
+         * a landscape crop, so a reader met the product magnified to about a
+         * third of itself.
          *
          * They are also the first use the page makes of its own artefacts: it
          * had twenty-two and was showing one.
@@ -1661,7 +1685,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/deepcuts/launch/directions.png", width: 1200, height: 1318, alt: "choose a direction: three cards fanned out, each a different genre of connection" },
           { type: "image", src: "/case/deepcuts/launch/receipt.png", width: 1200, height: 1318, alt: "the printed mixtape receipt: the path taken, the connecting facts, and a weirdness and rarity score" },
         ],
-        caption: "you turn the dial, you take one of three, and five stops later it prints. it runs on a server and a model, so unlike the others here it cannot be embedded.",
+        caption: "you turn the dial, you take one of three, and five stops later it prints. the same three moments, held still and larger than the handset above can show them.",
       },
       {
         kind: "detail",
