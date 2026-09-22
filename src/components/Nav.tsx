@@ -46,8 +46,8 @@ export function Nav() {
               key={item.href}
               href={item.href}
               aria-current={item.current ? "page" : undefined}
-              className={`inline-flex min-h-[24px] items-center t-note transition-colors duration-300 ease-editorial hover:text-fg ${
-                item.current ? "text-fg t-dim" : "text-muted"
+              className={`inline-flex min-h-[24px] items-center t-note text-accent transition-colors duration-300 ease-editorial hover:underline hover:underline-offset-4 ${
+                item.current ? "t-dim" : ""
               }`}
             >
               {item.label}

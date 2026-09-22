@@ -19,7 +19,7 @@ export function Footer() {
   const onIndex = pathname === "/";
 
   const linkClass =
-    "inline-flex min-h-[24px] items-center label transition-colors duration-300 ease-editorial hover:text-fg";
+    "inline-flex min-h-[24px] items-center label text-accent transition-colors duration-300 ease-editorial hover:underline hover:underline-offset-4";
 
   return (
     <footer className="border-t border-hairline">

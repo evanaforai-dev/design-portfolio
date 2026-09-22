@@ -57,7 +57,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       <Container className="pt-4 md:pt-6">
         <Link
           href="/"
-          className="inline-flex min-h-[24px] items-center label underline-offset-4 transition-colors hover:underline"
+          className="inline-flex min-h-[24px] items-center label text-accent underline-offset-4 transition-colors hover:underline"
         >
           ← all work
         </Link>
@@ -138,7 +138,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
               // the domain root and 404 on a project-path host.
               const external = l.href.startsWith("http");
               const className =
-                "inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline";
+                "inline-flex min-h-[24px] items-center t-note text-accent underline-offset-4 hover:underline";
               return external ? (
                 <a
                   key={l.href}

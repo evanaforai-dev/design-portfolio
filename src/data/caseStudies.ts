@@ -1245,8 +1245,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         kind: "outcome",
         label: "outcome · kai",
         paragraphs: [
-          "kai is a demo, and it is the honest word for it. one seeded lesson runs the full system end to end, and the intake accepts any topic.",
-          "it carries no catalogue and there are no adoption or retention figures, because there is nothing yet to measure. what it demonstrates is the shape: an ai learning product can plan a lesson rather than answer a question, and the cost is four screens of intake before anyone reads a word.",
+          "kai runs inside airtribe and has reached more than ten thousand learners.",
+          "what is linked here is a standalone build of it: one seeded lesson running the full system end to end, with the intake open to any topic, so the shape can be read without an account. that shape is the claim, an ai learning product can plan a lesson rather than answer a question, and the cost is four screens of intake before anyone reads a word.",
         ],
       },
 
@@ -1258,9 +1258,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       /*
        * The single combined outcome that used to sit here has been split in
        * two and moved: each skill now closes its own case study with its own
-       * result, because a catalogue of fifty pre-reads and a one-lesson demo
-       * are not the same kind of claim and reading them as one paragraph
-       * invited someone to average them.
+       * result, because a catalogue of fifty pre-reads and a shipped lesson
+       * agent are not the same kind of claim and reading them as one
+       * paragraph invited someone to average them.
        */
       {
         kind: "deeper",

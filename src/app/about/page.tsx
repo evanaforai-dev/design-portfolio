@@ -48,7 +48,7 @@ export default function AboutPage() {
                   href={asset(site.resumeUrl)}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline"
+                  className="inline-flex min-h-[24px] items-center t-note text-accent underline-offset-4 hover:underline"
                 >
                   résumé (pdf) ↗
                 </a>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline"
+                    className="inline-flex min-h-[24px] items-center t-note text-accent underline-offset-4 hover:underline"
                   >
                     {s.label} ↗
                   </a>
@@ -73,7 +73,7 @@ export default function AboutPage() {
             <p className="max-w-xs t-note text-muted">{about.contact}</p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-4 inline-flex min-h-[24px] items-center t-note text-fg underline underline-offset-4"
+              className="mt-4 inline-flex min-h-[24px] items-center t-note text-accent underline underline-offset-4"
             >
               hit me up
             </a>

@@ -7,7 +7,12 @@ export const site = {
   /** Wordmark shown in the minimal nav (links home). */
   wordmark: "evana sajan pallivathukkal",
   role: "product designer",
-  email: "hello@evana.design",
+  /*
+   * The address that actually receives mail. hello@evana.design was live on
+   * every page and on 23 mailto links, and the domain has no MX record, so
+   * anyone who wrote to it got a bounce and no one knew they had tried.
+   */
+  email: "evana.s.pallivathukkal@gmail.com",
   resumeUrl: "/resume.pdf",
 
   /*

@@ -74,7 +74,7 @@ export function renderSection(section: Section, i: number) {
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-[24px] items-center label underline underline-offset-4 transition-colors hover:text-accent"
+                className="inline-flex min-h-[24px] items-center label text-accent underline underline-offset-4 transition-colors"
               >
                 open full screen
               </a>
@@ -732,7 +732,7 @@ export function renderSection(section: Section, i: number) {
                       const mail = l.href.startsWith("mailto:");
                       const external = mail || /^https?:/.test(l.href);
                       const cls =
-                        "inline-flex min-h-[24px] items-center t-note text-fg underline-offset-4 hover:underline";
+                        "inline-flex min-h-[24px] items-center t-note text-accent underline-offset-4 hover:underline";
                       return external ? (
                         <a
                           key={l.href}
