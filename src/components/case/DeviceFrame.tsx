@@ -5,29 +5,38 @@ import { useEffect, useRef, useState } from "react";
 /*
  * A handset prototype inside a phone shell.
  *
- * The bug this exists to fix: an iframe is its own viewport. A page that asks
- * for `width=393` (deep cuts) or `width=device-width` (soundmap, kochi) gets
- * the IFRAME's css width, not the phone's, and the shell's screen is about
- * 362px across at its widest and narrower on a small display. So every build
- * was being laid out into a box narrower than the one it was drawn for: the
- * fixed-width one overflowed by thirty-odd pixels and could be dragged around
- * inside the bezel, and the fluid ones reflowed to a width no phone has.
+ * Two things this exists to get right.
  *
- * The fix is to stop resizing the page and start resizing the picture of it.
- * The iframe is given the device viewport it was designed for -- 393 x 875
- * css px, which is the aspect of the screen cut-out -- and then scaled to
- * whatever the shell is actually drawn at. The page inside always believes it
- * is on a 393px phone, which is true, so nothing reflows and nothing pans.
+ * FIRST, an iframe is its own viewport. A page that asks for `width=393`
+ * (deep cuts) or `width=device-width` (soundmap, kochi) gets the IFRAME's css
+ * width, not the phone's, and the shell's screen is about 362px across at its
+ * widest and narrower on a small display. So every build was being laid out
+ * into a box narrower than the one it was drawn for: the fixed-width one
+ * overflowed by thirty-odd pixels and could be dragged around inside the
+ * bezel, and the fluid ones reflowed to a width no phone has.
  *
- * The scale has to be measured rather than declared: the shell is fluid below
- * its 380px cap, so the ratio changes with the column. A ResizeObserver is the
- * only honest way to get it, and until the first measurement the frame renders
- * at scale 1 clipped to the screen -- the same thing it did before, for one
- * frame, rather than a flash of empty black.
+ * The answer is to stop resizing the page and start resizing the picture of
+ * it. The iframe is given the device viewport it was designed for and then
+ * scaled to whatever the shell is actually drawn at. The page inside always
+ * believes it is on a 393x852 phone, which is true, so nothing reflows and
+ * nothing pans.
+ *
+ * SECOND, the shell is built OUT from that screen rather than the screen
+ * fitted into the shell. It used to be the other way round: the shell carried
+ * the aspect (430/932, an iPhone's full device size) and the screen was
+ * whatever was left inside the padding, which came to 393x875. Deep cuts is a
+ * hard 393x852 canvas, so it ended twenty-three pixels short of the bezel and
+ * sat in a black band. Now the SCREEN carries 393/852 and the shell is that
+ * plus its bezel, so a build that fills its viewport fills the glass.
  */
 
-/** The viewport every embedded handset build is composed for. */
+/*
+ * The viewport every embedded handset build is composed for: an iPhone 14 Pro
+ * through 16 in logical points. It is also exactly the canvas deep cuts hard
+ * codes, so that build lands on the glass to the pixel.
+ */
 const DEVICE_W = 393;
+const DEVICE_H = 852;
 
 export function DeviceFrame({
   src,
@@ -39,23 +48,20 @@ export function DeviceFrame({
   allow?: string;
 }) {
   const screenRef = useRef<HTMLDivElement>(null);
-  const [box, setBox] = useState({ scale: 1, height: 0 });
+  const [scale, setScale] = useState(0);
 
   useEffect(() => {
     const el = screenRef.current;
     if (!el) return;
+    /*
+     * Width only. The screen's aspect is declared (393/852), so the height
+     * follows from it exactly and DEVICE_H is already the right answer --
+     * reading clientHeight back would only round it to an integer and leave
+     * the build a pixel short of its own canvas, which is a scrollbar.
+     */
     const measure = () => {
-      const { clientWidth: w, clientHeight: h } = el;
-      if (!w || !h) return;
-      /*
-       * The device's height is derived from the screen rather than declared,
-       * so the scaled iframe lands on the cut-out exactly. Working it out from
-       * the shell's own numbers (430/932 with 2.4% padding, giving 875) is
-       * right to within a pixel, and that pixel is a scrollbar: clientWidth
-       * and clientHeight are integers, so the true aspect moves a little with
-       * the column and only a measurement tracks it.
-       */
-      setBox({ scale: w / DEVICE_W, height: DEVICE_W * (h / w) });
+      const w = el.clientWidth;
+      if (w) setScale(w / DEVICE_W);
     };
     measure();
     // Not just the window: the shell also changes width when a sibling
@@ -67,14 +73,20 @@ export function DeviceFrame({
 
   return (
     <div className="mx-auto w-full max-w-[380px]">
+      {/*
+        No height of its own: the shell is the screen plus its bezel, so it
+        takes whatever the screen's aspect gives it. Percentage padding
+        resolves against WIDTH on all four sides, which is what keeps the
+        bezel an even band at any size.
+      */}
       <div
         data-device="shell"
-        className="relative aspect-[430/932] w-full bg-fg p-[2.4%] ring-1 ring-hairline"
+        className="relative w-full bg-fg p-[2.4%] ring-1 ring-hairline"
       >
         <div
           ref={screenRef}
           data-device="screen"
-          className="relative h-full w-full overflow-hidden bg-bg"
+          className="relative aspect-[393/852] w-full overflow-hidden bg-bg"
         >
           <iframe
             src={src}
@@ -82,18 +94,18 @@ export function DeviceFrame({
             loading="lazy"
             allow={allow}
             /*
-             * Pinned to the top-left corner and scaled from it, so the
-             * scaled box lands exactly on the screen cut-out. Width and
-             * height are the device's, in css pixels, and never change.
+             * Pinned to the top-left corner and scaled from it, so the scaled
+             * box lands exactly on the screen cut-out. Width is the device's,
+             * in css pixels, and never changes.
              */
             style={{
               width: DEVICE_W,
-              height: box.height || undefined,
-              transform: `scale(${box.scale})`,
+              height: DEVICE_H,
+              transform: `scale(${scale || 1})`,
               transformOrigin: "top left",
               // Nothing to show until the screen has been measured; without
               // this the build paints once at full size and visibly snaps.
-              visibility: box.height ? undefined : "hidden",
+              visibility: scale ? undefined : "hidden",
             }}
             className="absolute left-0 top-0 block border-0"
           />

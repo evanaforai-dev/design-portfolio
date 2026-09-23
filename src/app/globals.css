@@ -97,17 +97,22 @@ body {
  * The single exception, and it is a drawing of an object rather than a piece
  * of the interface: the shell a handset prototype runs inside. A phone with
  * square corners is not a phone, and the rule above had quietly squared off
- * the mockup. Radii are two-axis percentages taken from an iPhone (430x932pt,
- * 55pt screen radius), so the shell keeps its proportions at any width.
+ * the mockup.
+ *
+ * Two-axis percentages, so the corners keep their shape at any width. They
+ * are worked out from the screen, because the shell is built out from the
+ * screen: the glass is 393x852pt with a 55pt radius, giving 14% / 6.5%. The
+ * bezel is 2.4% of the shell's width on every side, which makes the shell
+ * 412.8 x 871.8 and its radius 55 + 9.9, giving 15.7% / 7.4%.
  *
  * Scoped to these two data attributes, so the sharp-corner rule still
  * governs every other element on the site and no class can opt in by accident.
  */
 [data-device="shell"] {
-  border-radius: 12.8% / 5.9% !important;
+  border-radius: 15.7% / 7.4% !important;
 }
 [data-device="screen"] {
-  border-radius: 10.8% / 5.1% !important;
+  border-radius: 14% / 6.5% !important;
 }
 
 /* No text shadow anywhere on the site — in any state. Legibility comes from the
