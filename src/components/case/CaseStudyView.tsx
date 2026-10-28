@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/types/caseStudy";
 import { projects } from "@/data/projects";
+import { caseStudies } from "@/data/caseStudies";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
 import { renderSection } from "./Sections";
@@ -28,7 +29,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
    * project". That is how kai, which is a chapter of the airtribe ai skills
    * page, appeared underneath it as the thing to read next.
    */
-  const ordered = projects.filter((p) => !p.unlisted);
+  // Only projects with a case-study route can be stepped to.
+  const ordered = projects.filter((p) => !p.unlisted && p.slug in caseStudies);
   // An unlisted study is not in `ordered`; anchor it at the top of the list
   // rather than letting findIndex's -1 wrap into an arbitrary pair.
   const idx = Math.max(

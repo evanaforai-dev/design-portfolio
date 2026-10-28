@@ -13,6 +13,18 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    slug: "counterweight",
+    title: "counterweight",
+    tags: ["aec tooling", "product design", "design engineering"],
+    category: "work",
+    cover: "/covers/counterweight.jpg",
+    year: "2026",
+    summary:
+      "a second pair of eyes for design reviews. it compares early options on the everyday things that fail after handover, and only says what each drawing can support.",
+    link: "/counterweight/case-study/",
+    display: { fit: "cover", position: "center" },
+  },
+  {
     slug: "kochi1app",
     title: "kochi1app",
     tags: ["service design", "ux research", "mobility"],

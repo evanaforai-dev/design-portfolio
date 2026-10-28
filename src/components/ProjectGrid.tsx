@@ -52,6 +52,7 @@ import { ProjectCard } from "./ProjectCard";
  */
 const LAYOUT: string[] = [
   "vision",
+  "counterweight",
   "airtribe-ai-skills",
   "kochi1app",
   "wells-fargo",
